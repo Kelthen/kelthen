@@ -1202,6 +1202,264 @@
         grid-template-columns: 1fr;
       }
     }
+
+    /* ─── Scroll reveal ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-d1 { transition-delay: 0.1s; }
+    .reveal-d2 { transition-delay: 0.2s; }
+    .reveal-d3 { transition-delay: 0.3s; }
+
+    /* ─── CTA / Contact ─── */
+    #contact {
+      padding: 160px 5vw;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      background: var(--bg);
+    }
+
+    #contact::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(200, 169, 110, 0.075) 0%, transparent 62%);
+      pointer-events: none;
+    }
+
+    #contact::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-dark), transparent);
+    }
+
+    .cta-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .cta-label {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .cta-label::before,
+    .cta-label::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: var(--gold-dark);
+      flex-shrink: 0;
+    }
+
+    .cta-title {
+      font-family: var(--serif);
+      font-size: clamp(3rem, 8vw, 8rem);
+      font-weight: 300;
+      line-height: 0.93;
+      letter-spacing: -0.025em;
+      color: var(--white);
+      margin-bottom: 2rem;
+    }
+
+    .cta-title em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .cta-sub {
+      font-family: var(--sans);
+      font-size: clamp(0.9rem, 1.15vw, 1rem);
+      line-height: 1.72;
+      color: var(--white-muted);
+      max-width: 420px;
+      margin: 0 auto 3rem;
+    }
+
+    .cta-buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 900px) {
+      #contact {
+        padding: 100px 6vw;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .cta-title {
+        font-size: clamp(2.5rem, 13vw, 3.5rem);
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .cta-buttons .btn-primary,
+      .cta-buttons .btn-ghost {
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    /* ─── Footer ─── */
+    .footer {
+      background: #0C0F16;
+      padding: 5rem 5vw 2.5rem;
+      border-top: 1px solid rgba(240, 237, 232, 0.06);
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 4rem;
+      padding-bottom: 4rem;
+      margin-bottom: 2.5rem;
+      border-bottom: 1px solid rgba(240, 237, 232, 0.06);
+    }
+
+    .footer-logo {
+      font-family: var(--sans);
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-logo span {
+      color: var(--gold);
+    }
+
+    .footer-tagline {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(240, 237, 232, 0.28);
+    }
+
+    .footer-nav {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .footer-col-title {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-col a {
+      display: block;
+      font-family: var(--sans);
+      font-size: 0.875rem;
+      color: rgba(240, 237, 232, 0.4);
+      margin-bottom: 0.75rem;
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover {
+      color: var(--gold);
+    }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .footer-copy,
+    .footer-flag {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      color: rgba(240, 237, 232, 0.2);
+    }
+
+    @media (max-width: 900px) {
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .footer-nav {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .footer {
+        padding: 3.5rem 6vw 2rem;
+      }
+
+      .footer-nav {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.4rem;
+      }
+    }
+
+    /* ─── 360px safety net ─── */
+    @media (max-width: 400px) {
+      .footer-nav {
+        grid-template-columns: 1fr;
+      }
+
+      .pv-stats {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .hero-actions .btn-primary,
+      .hero-actions .btn-ghost {
+        width: 100%;
+        text-align: center;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1530,6 +1788,60 @@
     </div>
   </section>
 
+  <!-- ═══ CTA / Contact ═══ -->
+  <section id="contact" aria-labelledby="ctaTitle">
+    <div class="cta-inner">
+      <p class="cta-label">Ready to build?</p>
+      <h2 class="cta-title" id="ctaTitle">
+        Start your<br>
+        <em>project</em> today
+      </h2>
+      <p class="cta-sub">Tell us what you need. We reply within 24 hours.</p>
+      <div class="cta-buttons">
+        <a href="mailto:hello@novarift.ca" class="btn-primary">hello@novarift.ca</a>
+        <a href="mailto:hello@novarift.ca" class="btn-ghost">WhatsApp us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Footer ═══ -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">Nova<span>rift</span></div>
+        <div class="footer-tagline">Tech Agency · Canada</div>
+      </div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <div class="footer-col">
+          <div class="footer-col-title">Services</div>
+          <a href="#services">Web Development</a>
+          <a href="#services">Mobile Apps</a>
+          <a href="#services">Automation</a>
+          <a href="#services">AI Integration</a>
+          <a href="#services">SaaS</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Company</div>
+          <a href="#work">Our Work</a>
+          <a href="#process">Process</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Connect</div>
+          <a href="#" aria-label="LinkedIn">LinkedIn</a>
+          <a href="#" aria-label="Instagram">Instagram</a>
+          <a href="#" aria-label="GitHub">GitHub</a>
+          <a href="mailto:hello@novarift.ca">hello@novarift.ca</a>
+        </div>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025 Novarift. All rights reserved.</span>
+      <span class="footer-flag">Canada 🍁</span>
+    </div>
+  </footer>
+
   <script>
     // ─── Portfolio data + render ───
     const projects = [
@@ -1566,7 +1878,7 @@
       const grid = document.getElementById('workGrid');
       projects.forEach((p) => {
         const card = document.createElement('article');
-        card.className = p.featured ? 'work-card featured' : 'work-card';
+        card.className = p.featured ? 'work-card featured reveal' : 'work-card reveal';
         card.setAttribute('role', 'listitem');
         card.setAttribute('aria-label', p.name);
 
@@ -1634,8 +1946,63 @@
 
     // ─── Nav CTA → contact ───
     document.getElementById('navCta').addEventListener('click', () => {
-      const target = document.querySelector('#contact');
-      if (target) target.scrollIntoView({ behavior: 'smooth' });
+      document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    // ─── Scroll reveal ───
+    (function setupReveal() {
+      // stagger items within each group by their local index
+      const groups = [
+        '.section-label',
+        '.section-title',
+        '.services-sub',
+        '.service-card',
+        '.num-card',
+        '.step',
+        '.process-visual',
+        '.price-card',
+      ];
+
+      groups.forEach((sel) => {
+        document.querySelectorAll(sel).forEach((el, i) => {
+          el.classList.add('reveal');
+          const mod = i % 4;
+          if (mod === 1) el.classList.add('reveal-d1');
+          if (mod === 2) el.classList.add('reveal-d2');
+          if (mod === 3) el.classList.add('reveal-d3');
+        });
+      });
+
+      // CTA inner children
+      document.querySelectorAll('.cta-inner > *').forEach((el, i) => {
+        el.classList.add('reveal');
+        if (i === 1) el.classList.add('reveal-d1');
+        if (i === 2) el.classList.add('reveal-d2');
+        if (i === 3) el.classList.add('reveal-d3');
+      });
+
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+      document.querySelectorAll('.reveal').forEach((el) => obs.observe(el));
+    })();
+
+    // ─── Cursor hover — include dynamically rendered work cards ───
+    document.querySelectorAll('#workGrid a, #workGrid button').forEach((el) => {
+      el.addEventListener('mouseenter', () => {
+        dot.classList.add('expanded');
+        ring.classList.add('expanded');
+      });
+      el.addEventListener('mouseleave', () => {
+        dot.classList.remove('expanded');
+        ring.classList.remove('expanded');
+      });
     });
   </script>
 
