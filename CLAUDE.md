@@ -3,7 +3,7 @@
 ## What is this
 Novarift is a tech agency website based in Canada.
 One single HTML file (index.html) — no framework, no build step.
-Deploy on Vercel. Domain: novarift.ca
+Deploy on Vercel. Domain: novarift.io
 
 ## Stack
 - HTML + CSS + JavaScript vanilla (everything inline in one file)
@@ -48,7 +48,7 @@ Fonts:
 - Language: English (site), French OK in comments
 - Location: "Canada" only — never "Montreal" or any city
 - Tagline: "Based in Canada · Est. 2025"
-- Email: hello@novarift.ca
+- Email: hello@novarift.io
 - No fake phone number
 
 ## Portfolio JSON format (ALWAYS use this structure)
@@ -88,3 +88,80 @@ To add a project: add one object to the array. Never touch the HTML.
 - No inline event handlers (onclick="") — use addEventListener in JS
 - No framework suggestions
 - Never break the one-file rule
+
+---
+
+## Working Rules
+
+- Work phase by phase, never skip ahead
+- Ask for approval before any sensitive action (git push, deploy)
+- Fix all CSS variable issues (replace special — dashes with proper -- dashes)
+- Ensure full mobile responsiveness
+- Validate all JavaScript (no console errors)
+- Keep design coherent: dark tech aesthetic, purple/blue accents
+
+---
+
+## Phase 1 — Audit & Diagnosis
+- Read index.html completely
+- List all CSS errors (bad variable syntax, broken selectors)
+- List all JS issues
+- List responsive breakpoints missing
+- Report findings before touching anything
+
+## Phase 2 — CSS Fixes
+- Replace all typographic dashes (–, —) in CSS property names with proper double dashes (--)
+- Fix any malformed CSS custom properties
+- Fix z-index stacking issues if any
+- Fix font-loading issues if any
+
+## Phase 3 — JavaScript Fixes
+- Fix any broken event listeners
+- Fix scroll behavior issues
+- Fix mobile menu toggle if present
+- Fix animation triggers
+
+## Phase 4 — Responsive Design
+- Ensure proper mobile breakpoints (320px, 375px, 768px, 1024px)
+- Fix hero section on mobile
+- Fix nav on mobile
+- Fix cards/grid on mobile
+
+## Phase 5 — Performance & Polish
+- Optimize image references (use lazy loading where possible)
+- Minify inline CSS if excessive
+- Add meta tags if missing (viewport, description, og:)
+
+## Phase 6 — Content Review
+- Review all copy for clarity and professionalism
+- Ensure service offerings are clear
+- Ensure CTAs are compelling
+
+## Phase 7 — Local Test Checkpoint
+STOP HERE — ask user to open index.html in Chrome and confirm visual approval before continuing.
+
+## Phase 8 — Git Setup
+WAIT FOR EXPLICIT USER APPROVAL before this phase.
+- git init
+- Create .gitignore (node_modules, .DS_Store, *.env)
+- git add .
+- git commit -m "Initial Novarift release"
+- Create GitHub repo named novarift
+- git remote add origin
+- git push -u origin main
+
+## Phase 9 — Vercel Deployment
+WAIT FOR EXPLICIT USER APPROVAL before this phase.
+- Connect GitHub repo to Vercel
+- Deploy to production
+- Confirm deployment URL
+
+## Phase 10 — Domain Connection (SKIP — user doing this tomorrow)
+User will purchase novarift.io tomorrow morning. Come back to this after purchase.
+
+## Phase 11 — Post-Launch
+- Set up basic analytics (if requested)
+- Prepare prospecting materials
+
+## Phase 12 — Prospecting Launch
+- Help user craft outreach messages for Canada + West Africa markets
