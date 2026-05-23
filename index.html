@@ -1700,6 +1700,46 @@
       border: none;
     }
 
+    .form-success {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 1.25rem;
+      padding: 3rem 1.5rem;
+    }
+
+    .form-success.visible {
+      display: flex;
+    }
+
+    .form-success-icon {
+      width: 52px;
+      height: 52px;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      color: var(--gold);
+    }
+
+    .form-success-title {
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      font-weight: 300;
+      color: var(--white);
+    }
+
+    .form-success-sub {
+      font-family: var(--sans);
+      font-size: 0.875rem;
+      color: var(--white-muted);
+      line-height: 1.6;
+    }
+
     @media (max-width: 1000px) {
       .contact-inner {
         grid-template-columns: 1fr;
@@ -2114,6 +2154,11 @@
           </div>
           <button type="submit" class="btn-primary form-submit">Send message →</button>
         </form>
+        <div class="form-success" id="formSuccess" role="status" aria-live="polite">
+          <div class="form-success-icon">✓</div>
+          <p class="form-success-title">Message sent.</p>
+          <p class="form-success-sub">We'll be in touch within 24 hours.</p>
+        </div>
       </div>
 
     </div>
@@ -2387,6 +2432,32 @@
     })();
 
     // Note: work card cursor hover is handled inside the isMouseDevice block above
+
+    // ─── Contact form submit feedback ───
+    (function setupContactForm() {
+      const form = document.querySelector('.contact-form');
+      const btn  = form.querySelector('.form-submit');
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const name    = document.getElementById('contactName').value.trim();
+        const email   = document.getElementById('contactEmail').value.trim();
+        const message = document.getElementById('contactMessage').value.trim();
+
+        const subject = encodeURIComponent('Project inquiry — ' + name);
+        const body    = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\n' + message);
+        window.location.href = 'mailto:contact@novarift.io?subject=' + subject + '&body=' + body;
+
+        btn.textContent = 'Sending…';
+        btn.disabled = true;
+
+        setTimeout(() => {
+          form.style.display = 'none';
+          document.getElementById('formSuccess').classList.add('visible');
+        }, 700);
+      });
+    })();
   </script>
 
 </body>
