@@ -12,6 +12,7 @@
   <meta name="twitter:card"       content="summary_large_image">
   <meta name="twitter:title"      content="Novarift — Digital Agency">
   <meta name="twitter:description" content="Boutique digital agency based in Canada. High-performance websites, web apps, and automation for founders who refuse to blend in.">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Novarift — Digital Agency</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -2249,32 +2250,42 @@
 
     (function renderWork() {
       const grid = document.getElementById('workGrid');
+
+      function el(tag, cls) {
+        const node = document.createElement(tag);
+        if (cls) node.className = cls;
+        return node;
+      }
+
       projects.forEach((p) => {
-        const card = document.createElement('article');
-        card.className = p.featured ? 'work-card featured reveal' : 'work-card reveal';
+        const card = el('article', p.featured ? 'work-card featured reveal' : 'work-card reveal');
         card.setAttribute('role', 'listitem');
         card.setAttribute('aria-label', p.name);
 
-        const stackHtml = p.stack
-          .map(s => `<span class="ws">${s}</span>`)
-          .join('');
+        // Top row
+        const top = el('div', 'work-card-top');
+        const id  = el('span', 'work-id');   id.textContent = p.id;
+        const cat = el('span', 'work-category'); cat.textContent = p.category;
+        top.appendChild(id); top.appendChild(cat);
 
-        card.innerHTML = `
-          <div class="work-card-top">
-            <span class="work-id">${p.id}</span>
-            <span class="work-category">${p.category}</span>
-          </div>
-          <div class="work-body">
-            <h3 class="work-name">${p.name}</h3>
-            <p class="work-desc">${p.desc}</p>
-            <div class="work-stack">${stackHtml}</div>
-          </div>
-          <div class="work-card-bottom">
-            <span class="work-year">${p.year}</span>
-            <span class="work-arrow" aria-hidden="true">↗</span>
-          </div>
-        `;
+        // Body
+        const body = el('div', 'work-body');
+        const h3   = el('h3', 'work-name');  h3.textContent = p.name;
+        const desc = el('p',  'work-desc');  desc.textContent = p.desc;
+        const stack = el('div', 'work-stack');
+        p.stack.forEach((s) => {
+          const ws = el('span', 'ws'); ws.textContent = s; stack.appendChild(ws);
+        });
+        body.appendChild(h3); body.appendChild(desc); body.appendChild(stack);
 
+        // Bottom row
+        const bottom = el('div', 'work-card-bottom');
+        const year   = el('span', 'work-year');  year.textContent = p.year;
+        const arrow  = el('span', 'work-arrow'); arrow.textContent = '↗';
+        arrow.setAttribute('aria-hidden', 'true');
+        bottom.appendChild(year); bottom.appendChild(arrow);
+
+        card.appendChild(top); card.appendChild(body); card.appendChild(bottom);
         grid.appendChild(card);
       });
     })();
