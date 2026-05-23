@@ -1672,6 +1672,7 @@
       color: var(--white);
       font-family: var(--sans);
       font-size: 0.9rem;
+      line-height: 1.6;
       padding: 0.875rem 1rem;
       border-radius: 2px;
       outline: none;
@@ -2140,7 +2141,7 @@
 
       <!-- Right: contact form -->
       <div class="contact-form-wrap">
-        <form class="contact-form" action="mailto:contact@novarift.io" method="POST" enctype="text/plain">
+        <form class="contact-form">
           <div class="form-group">
             <label class="form-label" for="contactName">Name</label>
             <input class="form-input" type="text" id="contactName" name="Name" placeholder="Your name" required>
@@ -2457,7 +2458,7 @@
         const message = document.getElementById('contactMessage').value.trim();
 
         const subject = encodeURIComponent('Project inquiry — ' + name);
-        const body    = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\n' + message);
+        const body    = encodeURIComponent(message + '\n\n--\n' + name + '\n' + email);
         window.location.href = 'mailto:contact@novarift.io?subject=' + subject + '&body=' + body;
 
         btn.textContent = 'Sending…';
