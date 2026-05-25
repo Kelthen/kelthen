@@ -2472,10 +2472,16 @@
         btn.disabled = true;
 
         try {
-          const res = await fetch('/api/contact', {
+          const res = await fetch('https://api.web3forms.com/submit', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ name, email, message }),
+            body: JSON.stringify({
+              access_key: 'a2c01f09-2a2b-4f19-ba51-dad21b7917d8',
+              subject: 'New inquiry from ' + name,
+              name,
+              email,
+              message,
+            }),
           });
 
           if (!res.ok) throw new Error('send failed');
