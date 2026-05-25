@@ -1743,6 +1743,14 @@
       line-height: 1.6;
     }
 
+    .form-error {
+      font-family: var(--sans);
+      font-size: 0.8rem;
+      color: #e07070;
+      margin-top: 0.75rem;
+    }
+    .form-error a { color: inherit; text-decoration: underline; }
+
     @media (max-width: 1000px) {
       .contact-inner {
         grid-template-columns: 1fr;
@@ -2451,24 +2459,34 @@
       const form = document.querySelector('.contact-form');
       const btn  = form.querySelector('.form-submit');
 
-      form.addEventListener('submit', (e) => {
+      form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
         const name    = document.getElementById('contactName').value.trim();
         const email   = document.getElementById('contactEmail').value.trim();
         const message = document.getElementById('contactMessage').value.trim();
 
-        const subject = encodeURIComponent('Project inquiry — ' + name);
-        const body    = encodeURIComponent(message + '\n\n--\n' + name + '\n' + email);
-        window.location.href = 'mailto:contact@novarift.io?subject=' + subject + '&body=' + body;
+        if (!name || !email || !message) return;
 
         btn.textContent = 'Sending…';
         btn.disabled = true;
 
-        setTimeout(() => {
+        try {
+          const res = await fetch('/api/contact', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, email, message }),
+          });
+
+          if (!res.ok) throw new Error('send failed');
+
           form.style.display = 'none';
           document.getElementById('formSuccess').classList.add('visible');
-        }, 700);
+        } catch {
+          btn.textContent = 'Send message →';
+          btn.disabled = false;
+          btn.insertAdjacentHTML('afterend', '<p class="form-error">Something went wrong — email us at <a href="mailto:contact@novarift.io">contact@novarift.io</a></p>');
+        }
       });
     })();
   </script>
