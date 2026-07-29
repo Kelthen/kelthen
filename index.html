@@ -573,8 +573,58 @@
       .hero-mascot-glow { display: none; }
     }
 
+    /* Mascot excited state (on hover of the "Start a project" CTA) */
+    .mascot-svg .smile-happy { display: none; }
+    .hero-mascot.excited .smile-normal { display: none; }
+    .hero-mascot.excited .smile-happy { display: block; }
+    .hero-mascot.excited { opacity: 1; animation: mascotExcite 0.5s ease-in-out infinite; }
+
+    @keyframes mascotExcite {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      25%      { transform: translateY(-9px) rotate(-4deg); }
+      75%      { transform: translateY(-9px) rotate(4deg); }
+    }
+
+    .mascot-hype {
+      position: absolute;
+      top: 16%;
+      left: -6px;
+      transform: translateX(-100%) scale(0.8);
+      transform-origin: right center;
+      background: var(--blue);
+      color: #fff;
+      font-family: var(--sans);
+      font-weight: 700;
+      font-size: 0.78rem;
+      padding: 0.4rem 0.7rem;
+      border-radius: 12px;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      box-shadow: 0 10px 24px rgba(59, 130, 246, 0.4);
+    }
+
+    .mascot-hype::after {
+      content: '';
+      position: absolute;
+      right: -5px;
+      top: 50%;
+      width: 0;
+      height: 0;
+      transform: translateY(-50%);
+      border: 6px solid transparent;
+      border-left-color: var(--blue);
+      border-right: 0;
+    }
+
+    .hero-mascot.excited .mascot-hype {
+      opacity: 1;
+      transform: translateX(-100%) scale(1);
+    }
+
     @media (prefers-reduced-motion: reduce) {
-      .hero-mascot, .hero-mascot-glow, .mascot-svg .eye, .hero-sweep { animation: none !important; }
+      .hero-mascot, .hero-mascot-glow, .mascot-svg .eye, .hero-sweep, .hero-mascot.excited { animation: none !important; }
     }
 
     /* ─── Shared entrance animation ─── */
@@ -2379,12 +2429,14 @@
             <circle cx="123" cy="83" r="2.2" fill="#60A5FA"></circle>
           </g>
         </g>
-        <!-- smile -->
-        <path d="M80 120 Q100 133 120 120" stroke="#3B82F6" stroke-width="3.5" fill="none" stroke-linecap="round"></path>
+        <!-- smile: calm + excited grin -->
+        <path class="smile-normal" d="M80 120 Q100 133 120 120" stroke="#3B82F6" stroke-width="3.5" fill="none" stroke-linecap="round"></path>
+        <path class="smile-happy" d="M76 115 Q100 152 124 115 Q100 127 76 115 Z" fill="#60A5FA"></path>
         <!-- body with centered K -->
         <rect x="54" y="156" width="92" height="72" rx="20" fill="#0C1220" stroke="#1E40AF" stroke-width="2.5"></rect>
         <path d="M84 168 V216 M84 192 L116 168 M84 192 L116 216" stroke="#3B82F6" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
       </svg>
+      <div class="mascot-hype">Let's go! <span aria-hidden="true">🚀</span></div>
     </div>
 
     <div class="hero-inner">
@@ -3466,6 +3518,20 @@
           p.setAttribute('transform', `translate(${(Math.cos(ang) * MAX).toFixed(1)} ${(Math.sin(ang) * MAX).toFixed(1)})`);
         });
       }, { passive: true });
+    })();
+
+    // ─── Mascot gets excited when hovering the "Start a project" CTA ───
+    (function () {
+      const mascot = document.querySelector('.hero-mascot');
+      if (!mascot) return;
+      const triggers = [document.getElementById('navCta'), document.getElementById('navMobileCta')].filter(Boolean);
+      const excite = (on) => mascot.classList.toggle('excited', on);
+      triggers.forEach((btn) => {
+        btn.addEventListener('mouseenter', () => excite(true));
+        btn.addEventListener('mouseleave', () => excite(false));
+        btn.addEventListener('focus', () => excite(true));
+        btn.addEventListener('blur', () => excite(false));
+      });
     })();
 
     // ─── Chat simulation engine (home demo + Cuties modal) ───
