@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://novarift.io/sitemap.xml
+Sitemap: https://kelthen.com/sitemap.xml

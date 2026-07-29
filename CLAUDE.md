@@ -1,9 +1,10 @@
-# Novarift — Project Context for Claude Code
+# Kelthen — Project Context for Claude Code
 
 ## What is this
-Novarift is a tech agency website based in Canada.
+Kelthen is a tech agency website based in Canada.
 One single HTML file (index.html) — no framework, no build step.
-Deploy on Vercel. Domain: novarift.io
+Deploy on Vercel. Domain: kelthen.com
+(Note: repo folder is still named `novarift/` for now — the brand is Kelthen.)
 
 ## Stack
 - HTML + CSS + JavaScript vanilla (everything inline in one file)
@@ -13,12 +14,12 @@ Deploy on Vercel. Domain: novarift.io
 
 ## Design system
 Background:  #080A0F
-Gold accent: #C8A96E
-Gold light:  #E2C99A
-Gold dark:   #8B6F3E
+Blue accent: #3B82F6
+Blue light:  #93C5FD
+Blue dark:   #1E40AF
 White:       #F0EDE8
 White muted: rgba(240,237,232,0.6)
-Border:      rgba(200,169,110,0.15)
+Border:      rgba(59,130,246,0.15)
 
 Fonts:
 - Headings: Cormorant Garamond (serif, elegant)
@@ -48,7 +49,7 @@ Fonts:
 - Language: English (site), French OK in comments
 - Location: "Canada" only — never "Montreal" or any city
 - Tagline: "Based in Canada · Est. 2025"
-- Email: hello@novarift.io
+- Email: contact@kelthen.com
 - No fake phone number
 
 ## Portfolio JSON format (ALWAYS use this structure)
@@ -68,12 +69,12 @@ const projects = [
 To add a project: add one object to the array. Never touch the HTML.
 
 ## Animations
-- Custom gold cursor (dot + lagging ring)
+- Custom blue cursor (dot + lagging ring)
 - Reveal on scroll (IntersectionObserver)
 - Nav fills on scroll (backdrop-filter + border)
 - Marquee infinite scroll
 - Service cards: bottom border slides in on hover
-- Work cards: subtle gold gradient on hover
+- Work cards: subtle blue gradient on hover
 
 ## What must work
 - All anchor links (#services, #work, #process, #pricing, #contact)
@@ -145,8 +146,8 @@ WAIT FOR EXPLICIT USER APPROVAL before this phase.
 - git init
 - Create .gitignore (node_modules, .DS_Store, *.env)
 - git add .
-- git commit -m "Initial Novarift release"
-- Create GitHub repo named novarift
+- git commit -m "Initial Kelthen release"
+- Create GitHub repo named kelthen
 - git remote add origin
 - git push -u origin main
 
@@ -156,8 +157,8 @@ WAIT FOR EXPLICIT USER APPROVAL before this phase.
 - Deploy to production
 - Confirm deployment URL
 
-## Phase 10 — Domain Connection (SKIP — user doing this tomorrow)
-User will purchase novarift.io tomorrow morning. Come back to this after purchase.
+## Phase 10 — Domain Connection
+Domain kelthen.com purchased. Connect it to the Vercel project (old novarift.io no longer used).
 
 ## Phase 11 — Post-Launch
 - Set up basic analytics (if requested)
