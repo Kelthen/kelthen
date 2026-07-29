@@ -1140,6 +1140,9 @@
       box-sizing: border-box;
     }
 
+    /* real screenshot inside any device frame */
+    .mk-shot { width: 100%; display: block; }
+
     .mk-browser {
       width: 340px;
       border-radius: 9px;
@@ -2851,6 +2854,13 @@
       return `<div class="mk-phone"><div class="mk-phone-screen">${screenHtml}</div></div>`;
     }
 
+    // A screen is either a hand-drawn mockup (f) OR a real screenshot (img: "screens/xxx.png")
+    function screenContent(s) {
+      return s.img
+        ? `<img src="${s.img}" alt="${s.t || ''}" loading="lazy" class="mk-shot">`
+        : s.f();
+    }
+
     /* ════ MamaShop — React Native, palette forêt #2D6A4F / tomate #C0392B / crème #FAF7F2 ════ */
     // Uniform green app header for all MamaShop screens
     function mamaHead(title) {
@@ -3179,7 +3189,7 @@
         card.setAttribute('aria-label', `${p.name} — voir les écrans`);
 
         const stackHtml = p.stack.map(s => `<span class="ws">${s}</span>`).join('');
-        const hero = wrapFrame(p, p.screens[0].f(), p.screens[0].device);
+        const hero = wrapFrame(p, screenContent(p.screens[0]), p.screens[0].device);
 
         card.innerHTML = `
           <div class="work-mockup" style="background:linear-gradient(150deg, ${hexA(p.accent, 0.22)} 0%, #0a0d13 78%)">
@@ -3220,7 +3230,7 @@
       pmLastFocus = document.activeElement;
       const stackHtml = p.stack.map(s => `<span class="ws">${s}</span>`).join('');
       const screensHtml = p.screens.map(s =>
-        `<div class="pm-screen"><div>${wrapFrame(p, s.f(), s.device)}</div><div class="pm-screen-cap"><span>◆</span>${s.t}</div></div>`
+        `<div class="pm-screen"><div>${wrapFrame(p, screenContent(s), s.device)}</div><div class="pm-screen-cap"><span>◆</span>${s.t}</div></div>`
       ).join('');
       const featuresHtml = (p.features || []).map(f =>
         `<div class="pm-feature"><span class="pm-feature-icon">${f.icon}</span><div><div class="pm-feature-title">${f.title}</div><div class="pm-feature-desc">${f.desc}</div></div></div>`
