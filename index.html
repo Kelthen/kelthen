@@ -3524,7 +3524,11 @@
     (function () {
       const mascot = document.querySelector('.hero-mascot');
       if (!mascot) return;
-      const triggers = [document.getElementById('navCta'), document.getElementById('navMobileCta')].filter(Boolean);
+      const triggers = [
+        document.getElementById('navCta'),
+        document.getElementById('navMobileCta'),
+        document.querySelector('.hero-actions .btn-primary')
+      ].filter(Boolean);
       const excite = (on) => mascot.classList.toggle('excited', on);
       triggers.forEach((btn) => {
         btn.addEventListener('mouseenter', () => excite(true));
