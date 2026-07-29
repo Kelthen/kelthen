@@ -12,6 +12,7 @@
   <meta name="twitter:card"       content="summary_large_image">
   <meta name="twitter:title"      content="Kelthen — Digital Agency">
   <meta name="twitter:description" content="Boutique digital agency based in Canada. High-performance websites, web apps, and automation for founders who refuse to blend in.">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Kelthen — Digital Agency</title>
   <link rel="canonical" href="https://kelthen.com/">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23080A0F'/%3E%3Cpath d='M22 15 V49 M22 32 L43 15 M22 32 L43 49' stroke='%233B82F6' stroke-width='6' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
@@ -2193,6 +2194,7 @@
       color: var(--white);
       font-family: var(--sans);
       font-size: 0.9rem;
+      line-height: 1.6;
       padding: 0.875rem 1rem;
       border-radius: 2px;
       outline: none;
@@ -2200,6 +2202,52 @@
       width: 100%;
       -webkit-appearance: none;
     }
+
+    .form-success {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 1.25rem;
+      padding: 3rem 1.5rem;
+    }
+
+    .form-success.visible { display: flex; }
+
+    .form-success-icon {
+      width: 52px;
+      height: 52px;
+      border: 1px solid var(--blue);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      color: var(--blue);
+    }
+
+    .form-success-title {
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      font-weight: 300;
+      color: var(--white);
+    }
+
+    .form-success-sub {
+      font-family: var(--sans);
+      font-size: 0.875rem;
+      color: var(--white-muted);
+      line-height: 1.6;
+    }
+
+    .form-error {
+      font-family: var(--sans);
+      font-size: 0.8rem;
+      color: #e07070;
+      margin-top: 0.75rem;
+    }
+    .form-error a { color: inherit; text-decoration: underline; }
 
     .form-input::placeholder {
       color: rgba(240, 237, 232, 0.18);
@@ -2674,7 +2722,7 @@
 
       <!-- Right: contact form -->
       <div class="contact-form-wrap">
-        <form class="contact-form" action="mailto:contact@kelthen.com" method="POST" enctype="text/plain">
+        <form class="contact-form">
           <div class="form-group">
             <label class="form-label" for="contactName">Name</label>
             <input class="form-input" type="text" id="contactName" name="Name" placeholder="Your name" required>
@@ -2689,6 +2737,11 @@
           </div>
           <button type="submit" class="btn-primary form-submit">Send message →</button>
         </form>
+        <div class="form-success" id="formSuccess" role="status" aria-live="polite">
+          <div class="form-success-icon">✓</div>
+          <p class="form-success-title">Message sent.</p>
+          <p class="form-success-sub">We'll be in touch within 24 hours.</p>
+        </div>
       </div>
 
     </div>
@@ -3338,6 +3391,48 @@
       }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
       document.querySelectorAll('.reveal').forEach((el) => obs.observe(el));
+    })();
+
+    // ─── Contact form → Web3Forms (with success/error feedback) ───
+    (function setupContactForm() {
+      const form = document.querySelector('.contact-form');
+      if (!form) return;
+      const btn = form.querySelector('.form-submit');
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const name    = document.getElementById('contactName').value.trim();
+        const email   = document.getElementById('contactEmail').value.trim();
+        const message = document.getElementById('contactMessage').value.trim();
+        if (!name || !email || !message) return;
+
+        btn.textContent = 'Sending…';
+        btn.disabled = true;
+
+        try {
+          const res = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              access_key: 'a2c01f09-2a2b-4f19-ba51-dad21b7917d8',
+              subject: 'New inquiry from ' + name,
+              name,
+              email,
+              message,
+            }),
+          });
+
+          if (!res.ok) throw new Error('send failed');
+
+          form.style.display = 'none';
+          document.getElementById('formSuccess').classList.add('visible');
+        } catch {
+          btn.textContent = 'Send message →';
+          btn.disabled = false;
+          btn.insertAdjacentHTML('afterend', '<p class="form-error">Something went wrong — email us at <a href="mailto:contact@kelthen.com">contact@kelthen.com</a></p>');
+        }
+      });
     })();
 
     // ─── Mascot: pupils follow the cursor ───
