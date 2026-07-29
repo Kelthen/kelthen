@@ -58,18 +58,33 @@ const projects = [
   {
     id: "001",
     name: "MamaShop",
-    category: "SaaS · Africa",
+    category: "Mobile · Commerce",
     year: "2026",
-    desc: "Complete digital management system for wholesale traders in West Africa.",
-    stack: ["Supabase", "Claude API", "n8n", "WhatsApp API"],
-    featured: true
+    accent: "#2D6A4F",        // tints the card preview
+    device: "phone",           // default frame: phone | browser | bare | raw
+    url: "",                   // shown in the browser frame
+    featured: true,
+    desc: "Short pitch of the project.",
+    stack: ["React Native", "Expo", "Supabase"],
+    features: [                // key selling points (rendered as "Fonctionnalités clés")
+      { icon: "📶", title: "Offline-first", desc: "Works with no network." }
+    ],
+    screens: [
+      // A screen is EITHER a hand-drawn mockup OR a real screenshot:
+      { t: "Dashboard", f: mkMamaDash, device: "phone" },              // mockup builder
+      { t: "Home", img: "screens/mamashop-home.png", device: "phone" } // real screenshot
+    ]
   }
 ]
 ```
-To add a project: add one object to the array. Never touch the HTML.
+**To add a project:** add one object to `projects[]`. Two ways to fill `screens`:
+- **Mockup mode** — write a builder function `mkXxx()` returning the screen HTML, reference it with `f:`.
+- **Screenshot mode (plus rapide, souvent plus "pro")** — drop a real image in `screens/` and reference it with `img:`. Phone screens are clipped to a uniform 460px height.
+
+Both can be mixed within the same project. Never hardcode a project in the HTML markup.
 
 ## Animations
-- Custom blue cursor (dot + lagging ring)
+- Normal system cursor (no custom cursor); blue K-bot mascot in the hero (eyes follow the pointer)
 - Reveal on scroll (IntersectionObserver)
 - Nav fills on scroll (backdrop-filter + border)
 - Marquee infinite scroll
@@ -78,13 +93,13 @@ To add a project: add one object to the array. Never touch the HTML.
 
 ## What must work
 - All anchor links (#services, #work, #process, #pricing, #contact)
-- mailto: on CTA email button
+- Contact form sends via Web3Forms (not mailto)
 - Lighthouse score > 90 mobile
 - Responsive at 360px and 1440px
 
 ## What to NEVER do
 - No lorem ipsum
-- No placeholder images (use CSS gradients or geometric shapes)
+- No placeholder / stock images — but REAL project screenshots in `screens/` are allowed (via `img:` on a screen)
 - No "Montreal to the world" or city names
 - No inline event handlers (onclick="") — use addEventListener in JS
 - No framework suggestions
