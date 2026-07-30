@@ -2533,33 +2533,34 @@
     /* Contact page phone link icon reuse handled by .contact-link-item */
 
     /* ═══════════════════════════════════════════════════
-       Cookie consent banner (multi-page)
+       Cookie consent — compact banner + preferences panel
        ═══════════════════════════════════════════════════ */
     .cookie-banner {
       position: fixed;
       left: 50%;
       bottom: 20px;
-      transform: translate(-50%, 140%);
-      width: min(680px, calc(100vw - 32px));
+      transform: translate(-50%, 160%);
+      width: min(720px, calc(100vw - 28px));
       z-index: 2000;
-      display: flex;
-      align-items: center;
-      gap: 1.2rem;
-      flex-wrap: wrap;
-      background: rgba(12, 15, 22, 0.96);
+      background: rgba(12, 15, 22, 0.97);
       border: 1px solid var(--border);
       border-radius: 14px;
-      padding: 1.1rem 1.4rem;
+      padding: 1rem 1.25rem;
       backdrop-filter: blur(12px);
       box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
       opacity: 0;
       transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
     }
     .cookie-banner.show { transform: translate(-50%, 0); opacity: 1; }
+    .cookie-banner-inner {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
     .cookie-text {
-      flex: 1 1 260px;
+      flex: 1;
       font-size: 0.85rem;
-      line-height: 1.6;
+      line-height: 1.55;
       color: var(--white-muted);
     }
     .cookie-link {
@@ -2571,32 +2572,136 @@
       text-decoration: underline;
       cursor: pointer;
     }
-    .cookie-actions { display: flex; gap: 0.6rem; flex-shrink: 0; }
+    .cookie-actions { display: flex; gap: 0.55rem; flex-shrink: 0; }
     .cookie-btn {
       font-family: var(--sans);
       font-size: 0.8rem;
       font-weight: 600;
-      padding: 0.6rem 1.2rem;
+      padding: 0.6rem 1.15rem;
       border-radius: 8px;
       border: 1px solid var(--border);
+      white-space: nowrap;
       transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
     }
-    .cookie-decline {
-      background: transparent;
-      color: var(--white-muted);
-    }
-    .cookie-decline:hover { color: var(--white); border-color: rgba(240, 237, 232, 0.3); }
-    .cookie-accept {
-      background: var(--blue);
-      color: var(--bg);
-      border-color: var(--blue);
-    }
+    .cookie-secondary { background: transparent; color: var(--white-muted); }
+    .cookie-secondary:hover { color: var(--white); border-color: rgba(240, 237, 232, 0.3); }
+    .cookie-accept { background: var(--blue); color: var(--bg); border-color: var(--blue); }
     .cookie-accept:hover { background: var(--blue-light); border-color: var(--blue-light); }
 
-    @media (max-width: 520px) {
-      .cookie-banner { flex-direction: column; align-items: stretch; gap: 0.9rem; bottom: 12px; }
-      .cookie-actions { justify-content: flex-end; }
+    @media (max-width: 640px) {
+      .cookie-banner { bottom: 12px; padding: 1rem; }
+      .cookie-banner-inner { flex-direction: column; align-items: stretch; gap: 0.9rem; }
+      .cookie-actions { justify-content: flex-end; flex-wrap: wrap; }
     }
+
+    /* Preferences panel */
+    .cookie-prefs-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 2100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.25rem;
+      background: rgba(4, 6, 10, 0.72);
+      backdrop-filter: blur(6px);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .cookie-prefs-overlay.open { opacity: 1; visibility: visible; }
+    .cookie-prefs {
+      position: relative;
+      width: min(520px, 100%);
+      max-height: 90vh;
+      overflow-y: auto;
+      background: #0C0F16;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem 1.8rem;
+      transform: translateY(12px);
+      transition: transform 0.3s ease;
+    }
+    .cookie-prefs-overlay.open .cookie-prefs { transform: translateY(0); }
+    .cookie-prefs-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      color: var(--white-muted);
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: color 0.2s ease;
+    }
+    .cookie-prefs-close:hover { color: var(--white); }
+    .cookie-prefs-title {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: 1.6rem;
+      margin-bottom: 0.5rem;
+    }
+    .cookie-prefs-intro {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: var(--white-muted);
+      margin-bottom: 1.5rem;
+    }
+    .cookie-cat {
+      border-top: 1px solid var(--border);
+      padding: 1.1rem 0;
+    }
+    .cookie-cat-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 0.4rem;
+    }
+    .cookie-cat-name { font-weight: 600; font-size: 0.95rem; }
+    .cookie-cat-always {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--white-muted);
+      white-space: nowrap;
+    }
+    .cookie-cat-desc { font-size: 0.82rem; line-height: 1.6; color: var(--white-muted); }
+    .cookie-prefs-actions {
+      display: flex;
+      gap: 0.6rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .cookie-prefs-actions .cookie-btn { flex: 1; text-align: center; }
+
+    /* Toggle switch */
+    .cookie-switch { position: relative; display: inline-block; width: 42px; height: 24px; flex-shrink: 0; }
+    .cookie-switch input { opacity: 0; width: 0; height: 0; }
+    .cookie-slider {
+      position: absolute;
+      inset: 0;
+      cursor: pointer;
+      background: rgba(240, 237, 232, 0.15);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      transition: background 0.25s ease, border-color 0.25s ease;
+    }
+    .cookie-slider::before {
+      content: '';
+      position: absolute;
+      height: 16px;
+      width: 16px;
+      left: 3px;
+      top: 3px;
+      background: var(--white);
+      border-radius: 50%;
+      transition: transform 0.25s ease;
+    }
+    .cookie-switch input:checked + .cookie-slider { background: var(--blue); border-color: var(--blue); }
+    .cookie-switch input:checked + .cookie-slider::before { transform: translateX(18px); }
+    .cookie-switch input:focus-visible + .cookie-slider { outline: 2px solid var(--blue-light); outline-offset: 2px; }
 
     /* ═══════════════════════════════════════════════════
        FAQ accordion (multi-page)

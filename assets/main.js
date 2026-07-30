@@ -622,7 +622,7 @@
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-              access_key: 'a2c01f09-2a2b-4f19-ba51-dad21b7917d8',
+              access_key: '42da83fb-4e37-4310-ae5f-99d38f624226',
               subject: 'New inquiry from ' + name,
               name,
               email,
@@ -803,7 +803,7 @@
       });
     })();
 
-    // ─── Cookie consent + consent-gated Google Analytics ───
+    // ─── Cookie consent (granular) + consent-gated Google Analytics ───
     (function cookieConsent() {
       const KEY = 'kelthen-cookie-consent';
       const GA_ID = 'G-NM2WD2TCND';
@@ -823,36 +823,123 @@
         gtag('config', GA_ID, { anonymize_ip: true });
       }
 
-      const stored = localStorage.getItem(KEY);
-      if (stored === 'accepted') { loadGA(); return; }
-      if (stored === 'declined') { return; }
-
-      // No decision yet → show the banner
-      const banner = document.createElement('div');
-      banner.className = 'cookie-banner';
-      banner.setAttribute('role', 'dialog');
-      banner.setAttribute('aria-label', 'Cookie notice');
-      banner.innerHTML = `
-        <p class="cookie-text">We use cookies to measure and improve the site (Google Analytics). You can accept or decline — see our <button type="button" class="cookie-link" data-cookie-privacy>Privacy Policy</button>.</p>
-        <div class="cookie-actions">
-          <button type="button" class="cookie-btn cookie-decline" data-cookie-decline>Decline</button>
-          <button type="button" class="cookie-btn cookie-accept" data-cookie-accept>Accept</button>
-        </div>`;
-      document.body.appendChild(banner);
-      requestAnimationFrame(() => banner.classList.add('show'));
-
-      function dismiss(choice) {
-        localStorage.setItem(KEY, choice);
-        banner.classList.remove('show');
-        setTimeout(() => banner.remove(), 300);
+      // Read stored consent (with backwards-compat for the old accepted/declined values)
+      function readConsent() {
+        const raw = localStorage.getItem(KEY);
+        if (!raw) return null;
+        if (raw === 'accepted') return { analytics: true };
+        if (raw === 'declined') return { analytics: false };
+        try { return JSON.parse(raw); } catch (e) { return null; }
       }
-      banner.querySelector('[data-cookie-accept]').addEventListener('click', () => { loadGA(); dismiss('accepted'); });
-      banner.querySelector('[data-cookie-decline]').addEventListener('click', () => dismiss('declined'));
-      const privacyLink = banner.querySelector('[data-cookie-privacy]');
-      if (privacyLink) privacyLink.addEventListener('click', () => {
-        const pb = document.getElementById('privacyOpen');
-        if (pb) pb.click();
+      function saveConsent(consent) {
+        localStorage.setItem(KEY, JSON.stringify(consent));
+        if (consent.analytics) loadGA();
+      }
+
+      // ── Preferences panel (built once, reusable via the footer link) ──
+      const prefs = document.createElement('div');
+      prefs.className = 'cookie-prefs-overlay';
+      prefs.setAttribute('role', 'dialog');
+      prefs.setAttribute('aria-modal', 'true');
+      prefs.setAttribute('aria-label', 'Cookie preferences');
+      prefs.innerHTML = `
+        <div class="cookie-prefs">
+          <button class="cookie-prefs-close" type="button" data-cookie-close aria-label="Close">✕</button>
+          <h2 class="cookie-prefs-title">Cookie preferences</h2>
+          <p class="cookie-prefs-intro">Choose which cookies we can use. You can change this anytime.</p>
+          <div class="cookie-cat">
+            <div class="cookie-cat-top">
+              <span class="cookie-cat-name">Strictly necessary</span>
+              <span class="cookie-cat-always">Always on</span>
+            </div>
+            <p class="cookie-cat-desc">Needed for the site to function. These never track you.</p>
+          </div>
+          <div class="cookie-cat">
+            <div class="cookie-cat-top">
+              <span class="cookie-cat-name">Analytics — Google Analytics</span>
+              <label class="cookie-switch"><input type="checkbox" data-cookie-analytics><span class="cookie-slider"></span></label>
+            </div>
+            <p class="cookie-cat-desc">Anonymous stats (pages viewed, device) so we can improve the site. Google Analytics loads only if this is on.</p>
+          </div>
+          <div class="cookie-prefs-actions">
+            <button class="cookie-btn cookie-secondary" type="button" data-cookie-save>Save preferences</button>
+            <button class="cookie-btn cookie-accept" type="button" data-cookie-accept-all>Accept all</button>
+          </div>
+        </div>`;
+      document.body.appendChild(prefs);
+      const analyticsToggle = prefs.querySelector('[data-cookie-analytics]');
+      let prefsLastFocus = null;
+
+      function openPrefs() {
+        const c = readConsent();
+        analyticsToggle.checked = !!(c && c.analytics);
+        prefsLastFocus = document.activeElement;
+        prefs.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        prefs.querySelector('[data-cookie-close]').focus();
+      }
+      function closePrefs() {
+        prefs.classList.remove('open');
+        document.body.style.overflow = '';
+        if (prefsLastFocus && prefsLastFocus.focus) prefsLastFocus.focus();
+      }
+      prefs.querySelector('[data-cookie-close]').addEventListener('click', closePrefs);
+      prefs.addEventListener('click', (e) => { if (e.target === prefs) closePrefs(); });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && prefs.classList.contains('open')) closePrefs();
       });
+      prefs.querySelector('[data-cookie-save]').addEventListener('click', () => {
+        saveConsent({ analytics: analyticsToggle.checked });
+        closePrefs(); hideBanner();
+      });
+      prefs.querySelector('[data-cookie-accept-all]').addEventListener('click', () => {
+        analyticsToggle.checked = true;
+        saveConsent({ analytics: true });
+        closePrefs(); hideBanner();
+      });
+
+      // ── Banner (only shown until a choice is made) ──
+      let banner = null;
+      function hideBanner() {
+        if (!banner) return;
+        banner.classList.remove('show');
+        const b = banner; banner = null;
+        setTimeout(() => b.remove(), 300);
+      }
+      function showBanner() {
+        banner = document.createElement('div');
+        banner.className = 'cookie-banner';
+        banner.setAttribute('role', 'dialog');
+        banner.setAttribute('aria-label', 'Cookie notice');
+        banner.innerHTML = `
+          <div class="cookie-banner-inner">
+            <p class="cookie-text">We use cookies to measure and improve our site. Accept, reject, or manage your choices — see our <button type="button" class="cookie-link" data-cookie-privacy>Privacy Policy</button>.</p>
+            <div class="cookie-actions">
+              <button type="button" class="cookie-btn cookie-secondary" data-cookie-reject>Reject all</button>
+              <button type="button" class="cookie-btn cookie-secondary" data-cookie-manage>Manage</button>
+              <button type="button" class="cookie-btn cookie-accept" data-cookie-accept>Accept all</button>
+            </div>
+          </div>`;
+        document.body.appendChild(banner);
+        requestAnimationFrame(() => banner.classList.add('show'));
+        banner.querySelector('[data-cookie-accept]').addEventListener('click', () => { saveConsent({ analytics: true }); hideBanner(); });
+        banner.querySelector('[data-cookie-reject]').addEventListener('click', () => { saveConsent({ analytics: false }); hideBanner(); });
+        banner.querySelector('[data-cookie-manage]').addEventListener('click', openPrefs);
+        const privacyLink = banner.querySelector('[data-cookie-privacy]');
+        if (privacyLink) privacyLink.addEventListener('click', () => {
+          const pb = document.getElementById('privacyOpen');
+          if (pb) pb.click();
+        });
+      }
+
+      // Footer link to reopen preferences anytime (present on every page)
+      const footerBtn = document.getElementById('cookiePrefsOpen');
+      if (footerBtn) footerBtn.addEventListener('click', openPrefs);
+
+      // Apply stored choice, or show the banner on first visit
+      const consent = readConsent();
+      if (consent) { if (consent.analytics) loadGA(); }
+      else { showBanner(); }
     })();
 
     // ─── FAQ accordion ───
