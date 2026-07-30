@@ -18,6 +18,10 @@ desktop.ini
 *.suo
 *.user
 
+# Local tooling / project notes (not part of the site)
+.claude/
+CLAUDE.md
+
 # Build outputs
 dist/
 .next/
