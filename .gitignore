@@ -18,6 +18,7 @@ desktop.ini
 *.suo
 *.user
 
+
 # Build outputs
 dist/
 .next/
