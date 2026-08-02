@@ -44,15 +44,20 @@
     </a>
 
     <ul class="nav-links" role="list">
-      <li><a href="index.html#services">Services</a></li>
-      <li><a href="work.html">Work</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="pricing.html">Pricing</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="index.html#services" data-i18n="nav.services">Services</a></li>
+      <li><a href="work.html" data-i18n="nav.work">Réalisations</a></li>
+      <li><a href="about.html" data-i18n="nav.about">À propos</a></li>
+      <li><a href="pricing.html" data-i18n="nav.pricing">Tarifs</a></li>
+      <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
     </ul>
 
-    <button class="nav-cta" id="navCta" type="button">Start a project</button>
-    <button class="nav-hamburger" id="navHamburger" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="navMobile">
+    <div class="lang-switch" role="group" aria-label="Langue">
+      <button type="button" class="lang-btn" data-lang-btn="fr">FR</button>
+      <span class="lang-sep" aria-hidden="true">|</span>
+      <button type="button" class="lang-btn" data-lang-btn="en">EN</button>
+    </div>
+    <button class="nav-cta" id="navCta" type="button" data-i18n="nav.cta">Audit gratuit</button>
+    <button class="nav-hamburger" id="navHamburger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navMobile">
       <span></span>
       <span></span>
       <span></span>
@@ -61,12 +66,17 @@
 
   <!-- Mobile nav overlay -->
   <div class="nav-mobile" id="navMobile" role="dialog" aria-label="Mobile navigation" aria-modal="true">
-    <a href="index.html#services" class="nav-mobile-link" data-mobile-link>Services</a>
-    <a href="work.html"     class="nav-mobile-link" data-mobile-link>Work</a>
-    <a href="about.html"    class="nav-mobile-link" data-mobile-link>About</a>
-    <a href="pricing.html"  class="nav-mobile-link" data-mobile-link>Pricing</a>
-    <a href="contact.html"  class="nav-mobile-link" data-mobile-link>Contact</a>
-    <button class="nav-mobile-cta" id="navMobileCta" type="button">Start a project</button>
+    <a href="index.html#services" class="nav-mobile-link" data-mobile-link data-i18n="nav.services">Services</a>
+    <a href="work.html"     class="nav-mobile-link" data-mobile-link data-i18n="nav.work">Réalisations</a>
+    <a href="about.html"    class="nav-mobile-link" data-mobile-link data-i18n="nav.about">À propos</a>
+    <a href="pricing.html"  class="nav-mobile-link" data-mobile-link data-i18n="nav.pricing">Tarifs</a>
+    <a href="contact.html"  class="nav-mobile-link" data-mobile-link data-i18n="nav.contact">Contact</a>
+    <div class="lang-switch lang-switch-mobile" role="group" aria-label="Langue">
+      <button type="button" class="lang-btn" data-lang-btn="fr">FR</button>
+      <span class="lang-sep" aria-hidden="true">|</span>
+      <button type="button" class="lang-btn" data-lang-btn="en">EN</button>
+    </div>
+    <button class="nav-mobile-cta" id="navMobileCta" type="button" data-i18n="nav.cta">Audit gratuit</button>
   </div>
 
   <!-- ═══ Work / Portfolio ═══ -->
@@ -108,27 +118,27 @@
     <div class="footer-top">
       <div class="footer-brand">
         <div class="footer-logo">Kel<span>then</span></div>
-        <div class="footer-tagline">Tech Agency · Canada</div>
+        <div class="footer-tagline" data-i18n="footer.tagline">Agence web · Canada 🍁</div>
       </div>
       <nav class="footer-nav" aria-label="Footer navigation">
         <div class="footer-col">
-          <div class="footer-col-title">Services</div>
-          <a href="index.html#services">Web Development</a>
-          <a href="index.html#services">Mobile Apps</a>
-          <a href="index.html#services">Automation</a>
-          <a href="index.html#services">AI Integration</a>
-          <a href="index.html#services">SaaS</a>
+          <div class="footer-col-title" data-i18n="footer.services">Services</div>
+          <a href="index.html#services" data-i18n="svc1.name">Un site qui attire des clients</a>
+          <a href="index.html#services" data-i18n="svc2.name">Réservation en ligne 24/7</a>
+          <a href="index.html#services" data-i18n="svc3.name">Secrétaire virtuelle par IA</a>
+          <a href="index.html#services" data-i18n="svc4.name">Rappels automatiques SMS &amp; e-mail</a>
+          <a href="index.html#services" data-i18n="svc5.name">Visible sur Google</a>
         </div>
         <div class="footer-col">
-          <div class="footer-col-title">Company</div>
-          <a href="about.html">About</a>
-          <a href="work.html">Our Work</a>
-          <a href="pricing.html">Pricing</a>
-          <a href="pricing.html#faq">FAQ</a>
-          <a href="contact.html">Contact</a>
+          <div class="footer-col-title" data-i18n="footer.company">Entreprise</div>
+          <a href="about.html" data-i18n="nav.about">À propos</a>
+          <a href="work.html" data-i18n="nav.work">Réalisations</a>
+          <a href="pricing.html" data-i18n="nav.pricing">Tarifs</a>
+          <a href="pricing.html#faq" data-i18n="footer.faq">FAQ</a>
+          <a href="contact.html" data-i18n="nav.contact">Contact</a>
         </div>
         <div class="footer-col">
-          <div class="footer-col-title">Connect</div>
+          <div class="footer-col-title" data-i18n="footer.connect">Nous suivre</div>
           <div class="footer-social">
             <a href="#" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
               <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -152,12 +162,12 @@
     </div>
     <div class="footer-bottom">
       <div class="footer-legal">
-        <span class="footer-copy">© 2026 Kelthen. All rights reserved.</span>
-        <button class="footer-legal-link" type="button" id="privacyOpen">Privacy Policy</button>
-        <button class="footer-legal-link" type="button" id="termsOpen">Terms of Use</button>
-        <button class="footer-legal-link" type="button" id="cookiePrefsOpen">Cookie preferences</button>
+        <span class="footer-copy" data-i18n="footer.copy">© 2026 Kelthen. Tous droits réservés.</span>
+        <button class="footer-legal-link" type="button" id="privacyOpen" data-i18n="footer.privacy">Confidentialité</button>
+        <button class="footer-legal-link" type="button" id="termsOpen" data-i18n="footer.terms">Conditions d'utilisation</button>
+        <button class="footer-legal-link" type="button" id="cookiePrefsOpen" data-i18n="footer.cookies">Préférences cookies</button>
       </div>
-      <span class="footer-flag">Canada 🍁</span>
+      <span class="footer-flag" data-i18n="footer.flag">Canada 🍁</span>
     </div>
   </footer>
 

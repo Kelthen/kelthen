@@ -2877,3 +2877,14 @@
       letter-spacing: 0.06em;
       color: var(--white-muted);
     }
+
+    /* Pricing note (multi-page) */
+    .pricing-note {
+      max-width: 1200px;
+      margin: 2rem auto 0;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--white-muted);
+      font-family: var(--mono);
+      letter-spacing: 0.03em;
+    }
