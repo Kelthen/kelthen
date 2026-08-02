@@ -50,7 +50,7 @@
 
   <link rel="stylesheet" href="assets/style.css">
 </head>
-<body>
+<body class="home-light">
   <!-- ═══ Nav ═══ -->
   <nav class="nav" id="nav" aria-label="Main navigation">
     <a href="index.html" class="nav-logo" aria-label="Kelthen — home">
@@ -84,6 +84,7 @@
 
   <!-- Mobile nav overlay -->
   <div class="nav-mobile" id="navMobile" role="dialog" aria-label="Mobile navigation" aria-modal="true">
+    <button class="nav-mobile-close" id="navMobileClose" type="button" aria-label="Fermer le menu">✕</button>
     <a href="index.html#services" class="nav-mobile-link" data-mobile-link data-i18n="nav.services">Services</a>
     <a href="work.html"     class="nav-mobile-link" data-mobile-link data-i18n="nav.work">Réalisations</a>
     <a href="about.html"    class="nav-mobile-link" data-mobile-link data-i18n="nav.about">À propos</a>
@@ -102,8 +103,29 @@
     <div class="hero-grid" aria-hidden="true"></div>
     <div class="hero-sweep" aria-hidden="true"></div>
 
-    <div class="hero-mascot-glow" aria-hidden="true"></div>
-    <div class="hero-mascot" aria-hidden="true">
+    <div class="hero-inner">
+      <p class="hero-eyebrow" data-i18n="hero.eyebrow">Agence web · commerces &amp; pros</p>
+      <h1 class="hero-title" id="heroTitle" data-i18n="hero.title" data-i18n-html>
+        Plus de clients.<br>
+        <em>Moins de gestion.</em>
+      </h1>
+
+      <div class="hero-bottom">
+        <p class="hero-desc" data-i18n="hero.desc">
+          Kelthen crée des sites web haute performance et des outils intelligents
+          pour les commerces et professionnels&nbsp;: plus de rendez-vous, zéro
+          paperasse, et une image de marque à la hauteur.
+        </p>
+        <div class="hero-actions">
+          <a href="contact.html" class="btn-primary" data-i18n="hero.ctaPrimary">Demander un audit gratuit</a>
+          <a href="index.html#services" class="btn-ghost" data-i18n="hero.ctaSecondary">Voir nos solutions</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-mascot-glow" aria-hidden="true"></div>
+      <div class="hero-mascot" aria-hidden="true">
       <svg class="mascot-svg" viewBox="0 0 200 240" role="img" aria-label="Kelthen mascot">
         <line x1="100" y1="6" x2="100" y2="36" stroke="#3B82F6" stroke-width="3.5" stroke-linecap="round"></line>
         <circle cx="100" cy="7" r="6" fill="#60A5FA"></circle>
@@ -130,25 +152,7 @@
         <rect x="54" y="156" width="92" height="72" rx="20" fill="#0C1220" stroke="#1E40AF" stroke-width="2.5"></rect>
         <path d="M84 168 V216 M84 192 L116 168 M84 192 L116 216" stroke="#3B82F6" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
       </svg>
-      <div class="mascot-hype">Let's go! <span aria-hidden="true">🚀</span></div>
-    </div>
-
-    <div class="hero-inner">
-      <h1 class="hero-title" id="heroTitle" data-i18n="hero.title" data-i18n-html>
-        Plus de clients.<br>
-        <em>Moins de gestion.</em>
-      </h1>
-
-      <div class="hero-bottom">
-        <p class="hero-desc" data-i18n="hero.desc">
-          Kelthen crée des sites web haute performance et des outils intelligents
-          pour les commerces et professionnels&nbsp;: plus de rendez-vous, zéro
-          paperasse, et une image de marque à la hauteur.
-        </p>
-        <div class="hero-actions">
-          <a href="contact.html" class="btn-primary" data-i18n="hero.ctaPrimary">Demander un audit gratuit</a>
-          <a href="index.html#services" class="btn-ghost" data-i18n="hero.ctaSecondary">Voir nos solutions</a>
-        </div>
+      <div class="mascot-hype">On y va&nbsp;! <span aria-hidden="true">🚀</span></div>
       </div>
     </div>
 
@@ -269,7 +273,7 @@
     </div>
     <div class="industry-grid">
 
-      <div class="industry-card">
+      <a class="industry-card" href="work.html?p=003">
         <span class="industry-icon" aria-hidden="true">🦷</span>
         <h3 class="industry-name" data-i18n="ind1.name">Cliniques &amp; professionnels de santé</h3>
         <ul class="industry-list" role="list">
@@ -278,9 +282,10 @@
           <li data-i18n="ind1.b3">Rappels automatiques : moins d'oublis, plus de présences</li>
           <li data-i18n="ind1.b4">Avis Google pour rassurer les nouveaux patients</li>
         </ul>
-      </div>
+        <span class="industry-cta" data-i18n="sol.example">Voir un exemple concret →</span>
+      </a>
 
-      <div class="industry-card">
+      <a class="industry-card" href="work.html?p=003">
         <span class="industry-icon" aria-hidden="true">💇</span>
         <h3 class="industry-name" data-i18n="ind2.name">Salons, instituts &amp; bien-être</h3>
         <ul class="industry-list" role="list">
@@ -289,9 +294,10 @@
           <li data-i18n="ind2.b3">Programme de fidélité pour faire revenir vos clients</li>
           <li data-i18n="ind2.b4">Réservation en ligne 24/7, même la nuit</li>
         </ul>
-      </div>
+        <span class="industry-cta" data-i18n="sol.example">Voir un exemple concret →</span>
+      </a>
 
-      <div class="industry-card">
+      <a class="industry-card" href="work.html?p=002">
         <span class="industry-icon" aria-hidden="true">🛍️</span>
         <h3 class="industry-name" data-i18n="ind3.name">Commerces &amp; entrepreneurs</h3>
         <ul class="industry-list" role="list">
@@ -299,7 +305,8 @@
           <li data-i18n="ind3.b2">Visible sur Google Maps, avis et horaires à jour</li>
           <li data-i18n="ind3.b3">Des outils simples pour vendre sans y passer vos soirées</li>
         </ul>
-      </div>
+        <span class="industry-cta" data-i18n="sol.example">Voir un exemple concret →</span>
+      </a>
 
     </div>
   </section>
@@ -335,7 +342,6 @@
       </div>
       <a href="work.html" class="btn-ghost" data-i18n="work.viewall">Voir tous les projets →</a>
     </div>
-    <div class="work-grid" id="workPreview" role="list"></div>
   </section>
 
   <!-- ═══ Confiance / mission ═══ -->
@@ -344,7 +350,7 @@
       <p class="section-label" data-i18n="trust.label">Pourquoi Kelthen</p>
       <p class="trust-quote" id="trustTitle" data-i18n="trust.quote" data-i18n-html>Une agence jeune et en pleine croissance, animée par une seule envie&nbsp;: <em>vous aider à réussir</em>.</p>
       <p class="trust-desc" data-i18n="trust.desc">On traite chaque projet — du salon de quartier à la clinique — comme si c'était le nôtre. Vous parlez à de vraies personnes, joignables et impliquées, qui construisent des outils simples pour vous ramener des clients.</p>
-      <p class="trust-anchor" data-i18n="trust.anchor">Basés au Canada 🍁 — au service des entrepreneurs, partout.</p>
+      <p class="trust-anchor" data-i18n="trust.anchor">Basés au Canada — au service des entrepreneurs, partout.</p>
     </div>
   </section>
 
@@ -360,7 +366,7 @@
     <div class="footer-top">
       <div class="footer-brand">
         <div class="footer-logo">Kel<span>then</span></div>
-        <div class="footer-tagline" data-i18n="footer.tagline">Agence web · Canada 🍁</div>
+        <div class="footer-tagline" data-i18n="footer.tagline">Agence web · Canada</div>
       </div>
       <nav class="footer-nav" aria-label="Footer navigation">
         <div class="footer-col">
@@ -409,7 +415,7 @@
         <button class="footer-legal-link" type="button" id="termsOpen" data-i18n="footer.terms">Conditions d'utilisation</button>
         <button class="footer-legal-link" type="button" id="cookiePrefsOpen" data-i18n="footer.cookies">Préférences cookies</button>
       </div>
-      <span class="footer-flag" data-i18n="footer.flag">Canada 🍁</span>
+      <span class="footer-flag" data-i18n="footer.flag">Canada</span>
     </div>
   </footer>
 

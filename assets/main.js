@@ -3,6 +3,7 @@
       const DICT = {
         en: {
           'nav.services': 'Services', 'nav.work': 'Work', 'nav.about': 'About', 'nav.pricing': 'Pricing', 'nav.contact': 'Contact', 'nav.cta': 'Free audit',
+          'hero.eyebrow': 'Web agency · shops & pros',
           'hero.title': 'More clients.<br><em>Less hassle.</em>',
           'hero.desc': 'Kelthen builds high-performance websites and smart tools for businesses and professionals: more bookings, zero paperwork, and a brand image that matches your work.',
           'hero.ctaPrimary': 'Get a free audit', 'hero.ctaSecondary': 'See our solutions', 'hero.scroll': 'Scroll',
@@ -15,16 +16,16 @@
           'svc5.name': 'Found on Google', 'svc5.desc': 'We get you onto Google and Google Maps, right where your clients are already searching.',
           'svc6.name': 'Reviews & loyalty', 'svc6.desc': 'We automatically collect your 5-star Google reviews and bring your clients back.',
           'tag.turnkey': 'Turnkey', 'tag.mobile': 'Mobile-perfect', 'tag.agenda': 'Synced calendar', 'tag.deposits': 'Deposits', 'tag.247': '24/7', 'tag.multichannel': 'Multichannel', 'tag.email': 'Email', 'tag.localseo': 'Local SEO', 'tag.reviews': 'Google reviews', 'tag.loyalty': 'Loyalty',
-          'sol.label': 'For your industry', 'sol.title': 'Solutions built for <em>your world</em>',
+          'sol.label': 'For your industry', 'sol.title': 'Solutions built for <em>your world</em>', 'sol.example': 'See a real example →',
           'ind1.name': 'Clinics & health professionals', 'ind1.b1': 'Simple, smooth online appointment booking', 'ind1.b2': 'Secure, confidential patient data', 'ind1.b3': 'Automatic reminders: fewer no-shows, more attendance', 'ind1.b4': 'Google reviews to reassure new patients',
           'ind2.name': 'Salons, spas & wellness', 'ind2.b1': 'A visual, attractive services catalogue', 'ind2.b2': 'Deposit on booking: no more last-minute cancellations', 'ind2.b3': 'A loyalty program to bring your clients back', 'ind2.b4': 'Online booking 24/7, even at night',
           'ind3.name': 'Shops & local entrepreneurs', 'ind3.b1': 'An online storefront that makes people want to walk in', 'ind3.b2': 'Found on Google Maps, with up-to-date reviews and hours', 'ind3.b3': 'Simple tools to sell without spending your evenings on it',
           'stat.noshows': 'fewer missed appointments', 'stat.bookings': 'more online bookings', 'stat.timesaved': 'saved per week', 'stat.response': 'response time',
-          'trust.label': 'Why Kelthen', 'trust.quote': 'A young, fast-growing studio driven by one thing: <em>helping you succeed</em>.', 'trust.desc': 'We treat every project — from the neighbourhood salon to the busy clinic — as if it were our own. You talk to real, reachable people who build simple tools that bring you clients.', 'trust.anchor': 'Based in Canada 🍁 — serving entrepreneurs everywhere.',
+          'trust.label': 'Why Kelthen', 'trust.quote': 'A young, fast-growing studio driven by one thing: <em>helping you succeed</em>.', 'trust.desc': 'We treat every project — from the neighbourhood salon to the busy clinic — as if it were our own. You talk to real, reachable people who build simple tools that bring you clients.', 'trust.anchor': 'Based in Canada — serving entrepreneurs everywhere.',
           'work.label': 'Our work', 'work.title': 'Projects that<br><em>deliver</em>', 'work.viewall': 'View all projects →',
           'homecta.title': "Let's talk about<br><em>your project.</em>", 'homecta.sub': 'Tell us what you need. We reply within 24 hours — no sales pitch, just a real conversation.', 'homecta.cta': 'Get a free audit',
-          'footer.tagline': 'Web agency · Canada 🍁', 'footer.services': 'Services', 'footer.company': 'Company', 'footer.connect': 'Follow us', 'footer.faq': 'FAQ',
-          'footer.copy': '© 2026 Kelthen. All rights reserved.', 'footer.privacy': 'Privacy Policy', 'footer.terms': 'Terms of Use', 'footer.cookies': 'Cookie preferences', 'footer.flag': 'Canada 🍁',
+          'footer.tagline': 'Web agency · Canada', 'footer.services': 'Services', 'footer.company': 'Company', 'footer.connect': 'Follow us', 'footer.faq': 'FAQ',
+          'footer.copy': '© 2026 Kelthen. All rights reserved.', 'footer.privacy': 'Privacy Policy', 'footer.terms': 'Terms of Use', 'footer.cookies': 'Cookie preferences', 'footer.flag': 'Canada',
           'pricing.label': 'Our plans', 'pricing.title': 'Clear <em>plans</em>.<br>Zero surprises.', 'pricing.cta': 'Get a quote', 'pricing.cta2': "Let's talk", 'pricing.badge': 'Most popular', 'pricing.note': 'Free, no-obligation quote · Payment in instalments available',
           'p1.tier': 'The Essentials', 'p1.price': 'from $900', 'p1.period': 'Presence & visibility', 'p1.f1': 'A fast, elegant showcase website', 'p1.f2': 'Perfect on mobile', 'p1.f3': 'Optimized for Google & Google Maps', 'p1.f4': 'Contact form + WhatsApp', 'p1.f5': 'Zero technical hassle for you', 'p1.f6': 'Hosting & maintenance included',
           'p2.tier': 'The Business', 'p2.price': 'from $2,500', 'p2.period': 'Performance & automation', 'p2.f1': 'Everything in The Essentials, plus…', 'p2.f2': 'Online appointment booking', 'p2.f3': 'Secure deposit payments', 'p2.f4': 'Automatic SMS & email reminders', 'p2.f5': 'Synced calendar', 'p2.f6': 'No hidden costs',
@@ -55,7 +56,7 @@
           'val5.title': 'Real impact', 'val5.desc': 'We measure success by what changes for you — more customers, less busywork, more loyal clients.',
           'val6.title': 'Here for everyone', 'val6.desc': 'Based in Canada, we support entrepreneurs everywhere — every business deserves the same tools, wherever it is.',
           'team.label': 'The faces', 'team.title': 'The team<br>behind <em>Kelthen</em>', 'team.role1': 'Co-founder', 'team.role2': 'Co-founder', 'team.note': "Real photos of the team are on the way — we're putting faces to the work so you know exactly who you're building with.",
-          'bridge.quote': 'Our mission: give every business the <em>means to succeed</em>.', 'bridge.flags': 'Based in Canada 🍁 &nbsp;·&nbsp; serving entrepreneurs everywhere &nbsp;·&nbsp; since 2025',
+          'bridge.quote': 'Our mission: give every business the <em>means to succeed</em>.', 'bridge.flags': 'Based in Canada &nbsp;·&nbsp; serving entrepreneurs everywhere &nbsp;·&nbsp; since 2025',
           'aboutcta.title': "Let's build<br><em>together?</em>", 'aboutcta.sub': 'Tell us about your project. We reply within 24 hours — no sales pitch, just a real conversation.', 'aboutcta.cta': 'Start a project',
           'legal.eyebrow': 'Legal', 'legal.updated': 'Last updated · July 2026',
           'privacy.name': 'Privacy Policy', 'privacy.intro': 'Kelthen (“we”, “us”) is a digital agency based in Canada. This policy explains what data we collect when you visit <strong>kelthen.com</strong> and how we use it. For any question, reach us at <a href="mailto:contact@kelthen.com">contact@kelthen.com</a>.', 'privacy.h1': 'Analytics & cookies', 'privacy.p1': 'We use Google Analytics 4 to understand how visitors use the site. It sets cookies and processes technical data such as your IP-anonymized approximate location, device, browser and the pages you view. We use this only to measure and improve the site — never to identify you personally.', 'privacy.h2': 'Contact form', 'privacy.p2': 'If you contact us through the form or by email, we use the details you provide (name, email, message) solely to reply to your request. We never sell your data or share it with third parties for marketing.', 'privacy.h3': 'Your rights', 'privacy.p3': 'You can request access to, correction of, or deletion of your personal data at any time by emailing <a href="mailto:contact@kelthen.com">contact@kelthen.com</a>. You can also block or delete cookies through your browser settings.', 'privacy.h4': 'Hosting & jurisdiction', 'privacy.p4': 'The site is hosted on Vercel’s global infrastructure; analytics data is processed by Google. This policy is governed by the laws of Canada.',
@@ -569,6 +570,16 @@
       });
     }
 
+    // Deep-link: open a project from ?p=00X (e.g. from the homepage sector cards).
+    // Deferred so the chat-sim engine (defined later in this file) is ready first.
+    (function openProjectFromQuery() {
+      if (!document.getElementById('workGrid')) return;
+      const id = new URLSearchParams(location.search).get('p');
+      if (!id) return;
+      const idx = projects.findIndex((p) => p.id === id);
+      if (idx >= 0) setTimeout(() => openProjectModal(idx), 0);
+    })();
+
     // ─── Privacy Policy modal ───
     const privacyModal = document.getElementById('privacyModal');
     const privacyOpenBtn = document.getElementById('privacyOpen');
@@ -624,6 +635,7 @@
     const mobileMenu  = document.getElementById('navMobile');
     const mobileLinks = document.querySelectorAll('[data-mobile-link]');
     const mobileCta   = document.getElementById('navMobileCta');
+    const mobileClose = document.getElementById('navMobileClose');
 
     function openMenu() {
       hamburger.classList.add('open');
@@ -647,6 +659,9 @@
           openMenu();
         }
       });
+
+      // Close (✕) button
+      if (mobileClose) mobileClose.addEventListener('click', closeMenu);
 
       // Close when a nav link is tapped
       mobileLinks.forEach((link) => {
