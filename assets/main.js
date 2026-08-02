@@ -4,7 +4,7 @@
         en: {
           'nav.services': 'Services', 'nav.work': 'Work', 'nav.about': 'About', 'nav.pricing': 'Pricing', 'nav.contact': 'Contact', 'nav.cta': 'Free audit',
           'hero.title': 'More clients.<br><em>Less hassle.</em>',
-          'hero.desc': 'Kelthen builds websites and simple tools for local businesses and professionals in Canada: more bookings, less paperwork, and an image that matches your work.',
+          'hero.desc': 'Kelthen builds high-performance websites and smart tools for businesses and professionals: more bookings, zero paperwork, and a brand image that matches your work.',
           'hero.ctaPrimary': 'Get a free audit', 'hero.ctaSecondary': 'See our solutions', 'hero.scroll': 'Scroll',
           'services.label': 'What we do for you', 'services.title': 'Your goals,<br>our <em>solutions</em>',
           'services.sub': 'Simple tools to attract more clients, save time and polish your image — no jargon, no headaches.',
