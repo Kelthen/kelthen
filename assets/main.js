@@ -54,7 +54,7 @@
           'val4.title': 'Close to you', 'val4.desc': 'You talk directly to the people building. Your goals become ours, from start to finish.',
           'val5.title': 'Real impact', 'val5.desc': 'We measure success by what changes for you — more customers, less busywork, more loyal clients.',
           'val6.title': 'Here for everyone', 'val6.desc': 'Based in Canada, we support entrepreneurs everywhere — every business deserves the same tools, wherever it is.',
-          'team.label': 'The faces', 'team.title': 'The team<br>behind <em>Kelthen</em>', 'team.role1': 'Founder &amp; Lead Engineer', 'team.name2': 'Growing team', 'team.role2': 'More faces soon', 'team.note': "Real photos of the team are on the way — we're putting faces to the work so you know exactly who you're building with.",
+          'team.label': 'The faces', 'team.title': 'The team<br>behind <em>Kelthen</em>', 'team.role1': 'Founder &amp; Lead Engineer', 'team.role2': 'Co-founder', 'team.note': "Real photos of the team are on the way — we're putting faces to the work so you know exactly who you're building with.",
           'bridge.quote': 'Our mission: give every business the <em>means to succeed</em>.', 'bridge.flags': 'Based in Canada 🍁 &nbsp;·&nbsp; serving entrepreneurs everywhere &nbsp;·&nbsp; since 2025',
           'aboutcta.title': "Let's build<br><em>together?</em>", 'aboutcta.sub': 'Tell us about your project. We reply within 24 hours — no sales pitch, just a real conversation.', 'aboutcta.cta': 'Start a project',
           'legal.eyebrow': 'Legal', 'legal.updated': 'Last updated · July 2026',
