@@ -85,12 +85,12 @@
 
       <!-- Left: headline + contact links -->
       <div class="contact-info">
-        <p class="cta-label">Ready to build?</p>
-        <h1 class="cta-title" id="ctaTitle">
-          Let's build<br>
-          <em>something.</em>
+        <p class="cta-label" data-i18n="contact.label">Prêt à démarrer&nbsp;?</p>
+        <h1 class="cta-title" id="ctaTitle" data-i18n="contact.title" data-i18n-html>
+          Parlons de<br>
+          <em>votre projet.</em>
         </h1>
-        <p class="cta-sub">Tell us about your project. We respond within 24 hours — no sales pitch, just a real conversation.</p>
+        <p class="cta-sub" data-i18n="contact.sub">Racontez-nous votre projet. On répond en 24 h — sans blabla commercial, juste une vraie discussion.</p>
         <div class="contact-links">
           <a href="mailto:contact@kelthen.com" class="contact-link-item">
             <span class="contact-link-icon">✉</span>
@@ -102,7 +102,7 @@
           </a>
           <a href="https://wa.me/14185735199" class="contact-link-item" target="_blank" rel="noopener noreferrer">
             <span class="contact-link-icon">◈</span>
-            Chat on WhatsApp
+            <span data-i18n="contact.whatsapp">Discuter sur WhatsApp</span>
           </a>
         </div>
       </div>
@@ -111,23 +111,23 @@
       <div class="contact-form-wrap">
         <form class="contact-form">
           <div class="form-group">
-            <label class="form-label" for="contactName">Name</label>
-            <input class="form-input" type="text" id="contactName" name="Name" placeholder="Your name" required>
+            <label class="form-label" for="contactName" data-i18n="form.name">Nom</label>
+            <input class="form-input" type="text" id="contactName" name="Name" placeholder="Votre nom" data-i18n-ph="form.namePh" required>
           </div>
           <div class="form-group">
-            <label class="form-label" for="contactEmail">Email</label>
-            <input class="form-input" type="email" id="contactEmail" name="Email" placeholder="your@email.com" required>
+            <label class="form-label" for="contactEmail" data-i18n="form.email">Courriel</label>
+            <input class="form-input" type="email" id="contactEmail" name="Email" placeholder="votre@courriel.com" data-i18n-ph="form.emailPh" required>
           </div>
           <div class="form-group">
-            <label class="form-label" for="contactMessage">Message</label>
-            <textarea class="form-input form-textarea" id="contactMessage" name="Message" placeholder="Tell us about your project..." rows="5" required></textarea>
+            <label class="form-label" for="contactMessage" data-i18n="form.message">Message</label>
+            <textarea class="form-input form-textarea" id="contactMessage" name="Message" placeholder="Parlez-nous de votre projet…" data-i18n-ph="form.messagePh" rows="5" required></textarea>
           </div>
-          <button type="submit" class="btn-primary form-submit">Send message →</button>
+          <button type="submit" class="btn-primary form-submit" data-i18n="form.submit">Envoyer le message →</button>
         </form>
         <div class="form-success" id="formSuccess" role="status" aria-live="polite">
           <div class="form-success-icon">✓</div>
-          <p class="form-success-title">Message sent.</p>
-          <p class="form-success-sub">We'll be in touch within 24 hours.</p>
+          <p class="form-success-title" data-i18n="form.sent">Message envoyé.</p>
+          <p class="form-success-sub" data-i18n="form.sentSub">On revient vers vous sous 24 h.</p>
         </div>
       </div>
 
