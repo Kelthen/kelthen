@@ -2888,3 +2888,147 @@
       font-family: var(--mono);
       letter-spacing: 0.03em;
     }
+
+    /* ═══════════════════════════════════════════════════════
+       Niveau B — Hero clair (accueil), secteurs cliquables,
+       nav lisible sur clair, bouton fermer menu mobile
+       ═══════════════════════════════════════════════════════ */
+    :root { --cream: #F7F4EF; --ink: #14181F; --ink-muted: rgba(20, 24, 31, 0.62); }
+
+    /* ─── Hero clair (page d'accueil) ─── */
+    body.home-light .hero {
+      min-height: auto;
+      background: var(--cream);
+      color: var(--ink);
+      padding: 122px 5vw 88px;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 40px;
+      align-items: center;
+    }
+    body.home-light .hero .hero-grid,
+    body.home-light .hero .hero-sweep,
+    body.home-light .hero .scroll-indicator,
+    body.home-light .hero .mascot-hype { display: none; }
+
+    body.home-light .hero .hero-inner {
+      position: static;
+      max-width: none;
+      margin: 0;
+      text-align: left;
+    }
+    .hero-eyebrow {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 18px;
+    }
+    body.home-light .hero .hero-title {
+      background: none;
+      color: var(--ink);
+      -webkit-text-fill-color: var(--ink);
+      font-size: clamp(2.6rem, 5vw, 4rem);
+      line-height: 1.04;
+    }
+    body.home-light .hero .hero-title em {
+      color: var(--blue);
+      -webkit-text-fill-color: var(--blue);
+    }
+    body.home-light .hero .hero-bottom { display: block; margin-top: 26px; }
+    body.home-light .hero .hero-desc { color: var(--ink-muted); max-width: 30rem; }
+    body.home-light .hero .hero-actions {
+      display: flex; gap: 14px; flex-wrap: wrap;
+      justify-content: flex-start; margin-top: 28px;
+    }
+    body.home-light .hero .btn-ghost { color: var(--ink); border-color: rgba(20, 24, 31, 0.22); }
+
+    /* Mascotte gardée, posée dans la colonne droite */
+    body.home-light .hero .hero-visual {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 360px;
+    }
+    body.home-light .hero .hero-mascot-glow {
+      display: block;
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      width: 340px; height: 340px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.18), rgba(247, 244, 239, 0) 66%);
+    }
+    body.home-light .hero .hero-mascot {
+      position: relative;
+      top: auto; right: auto; left: auto; bottom: auto;
+      width: 232px;
+    }
+    body.home-light .hero .mascot-svg { width: 232px; height: auto; }
+
+    /* Nav lisible par-dessus le hero clair (avant le scroll) */
+    body.home-light .nav:not(.scrolled) .nav-logo-text,
+    body.home-light .nav:not(.scrolled) .nav-links a,
+    body.home-light .nav:not(.scrolled) .lang-btn { color: var(--ink); }
+    body.home-light .nav:not(.scrolled) .nav-links a:hover { color: var(--blue); }
+    body.home-light .nav:not(.scrolled) .lang-sep { color: rgba(20, 24, 31, 0.28); }
+    body.home-light .nav:not(.scrolled) .nav-hamburger span { background: var(--ink); }
+
+    @media (max-width: 860px) {
+      body.home-light .hero {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        padding: 104px 6vw 64px;
+        text-align: center;
+      }
+      body.home-light .hero .hero-inner { order: 2; text-align: center; }
+      body.home-light .hero .hero-visual { order: 1; min-height: 220px; }
+      body.home-light .hero .hero-desc { margin: 0 auto; }
+      body.home-light .hero .hero-actions { justify-content: center; }
+      body.home-light .hero .hero-mascot,
+      body.home-light .hero .mascot-svg { width: 168px; }
+      body.home-light .hero .hero-mascot-glow { width: 240px; height: 240px; }
+    }
+
+    /* ─── Cartes secteur cliquables ─── */
+    a.industry-card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+    }
+    .industry-cta {
+      display: inline-block;
+      margin-top: 1.4rem;
+      font-family: var(--mono);
+      font-size: 0.74rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      color: var(--blue);
+      transition: transform 0.25s ease;
+    }
+    a.industry-card:hover .industry-cta,
+    a.industry-card:focus-visible .industry-cta {
+      transform: translateX(4px);
+      color: var(--blue-light);
+    }
+
+    /* ─── Bouton fermer (✕) du menu mobile ─── */
+    .nav-mobile-close {
+      display: none;
+      position: absolute;
+      top: 22px;
+      right: 5vw;
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      background: rgba(240, 237, 232, 0.04);
+      color: var(--white);
+      font-size: 1.15rem;
+      line-height: 1;
+      cursor: pointer;
+      z-index: 210;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+    .nav-mobile-close:hover { background: rgba(240, 237, 232, 0.1); border-color: rgba(59, 130, 246, 0.5); }
+    .nav-mobile.open .nav-mobile-close { display: flex; align-items: center; justify-content: center; }
