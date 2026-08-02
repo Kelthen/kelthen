@@ -895,7 +895,10 @@
 
     @media (max-width: 700px) {
       .numbers-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .num-card {
+        padding: 2.6rem 1rem;
       }
     }
 
@@ -2949,6 +2952,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      min-width: 0;
     }
     body.home-light .hero .hero-visual .kb-root { max-width: 560px; }
 
@@ -2974,16 +2978,30 @@
 
     @media (max-width: 860px) {
       body.home-light .hero {
-        grid-template-columns: 1fr;
-        gap: 22px;
-        padding: 100px 6vw 56px;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 14px;
+        padding: 96px 6vw 52px;
         text-align: center;
       }
       body.home-light .hero .hero-inner { order: 2; text-align: center; }
-      body.home-light .hero .hero-visual { order: 1; }
-      body.home-light .hero .hero-visual .kb-root { max-width: 380px; }
+      /* Scale the whole scene down uniformly so cards never spill or get cut */
+      body.home-light .hero .hero-visual {
+        order: 1;
+        height: 340px;
+        overflow: hidden;
+      }
+      body.home-light .hero .hero-visual .kb-root {
+        width: 480px;
+        max-width: none;
+        transform: scale(0.68);
+        transform-origin: top center;
+      }
       body.home-light .hero .hero-desc { margin: 0 auto; }
       body.home-light .hero .hero-actions { justify-content: center; }
+    }
+    @media (max-width: 440px) {
+      body.home-light .hero .hero-visual { height: 300px; }
+      body.home-light .hero .hero-visual .kb-root { transform: scale(0.6); }
     }
 
     /* ─── Cartes secteur cliquables ─── */
