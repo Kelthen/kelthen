@@ -1,3 +1,59 @@
+    // ─── Bilingual FR / EN engine ───
+    (function i18n() {
+      const DICT = {
+        en: {
+          'nav.services': 'Services', 'nav.work': 'Work', 'nav.about': 'About', 'nav.pricing': 'Pricing', 'nav.contact': 'Contact', 'nav.cta': 'Free audit',
+          'hero.title': 'More clients.<br><em>Less hassle.</em>',
+          'hero.desc': 'Kelthen builds websites and simple tools for local businesses and professionals in Canada: more bookings, less paperwork, and an image that matches your work.',
+          'hero.ctaPrimary': 'Get a free audit', 'hero.ctaSecondary': 'See our solutions', 'hero.scroll': 'Scroll',
+          'services.label': 'What we do for you', 'services.title': 'Your goals,<br>our <em>solutions</em>',
+          'services.sub': 'Simple tools to attract more clients, save time and polish your image — no jargon, no headaches.',
+          'svc1.name': 'A website that brings in clients', 'svc1.desc': 'A fast, elegant website that builds trust and turns visitors into booked appointments.',
+          'svc2.name': 'Online booking, 24/7', 'svc2.desc': 'Your clients book and pay a deposit in 30 seconds, day or night. No more phone ringing off the hook.',
+          'svc3.name': 'AI virtual receptionist', 'svc3.desc': 'A smart assistant answers your clients, sorts requests and books appointments — even while you sleep.',
+          'svc4.name': 'Automatic SMS & email reminders', 'svc4.desc': 'Up to 80% fewer missed appointments, and your calendar synced automatically.',
+          'svc5.name': 'Found on Google', 'svc5.desc': 'We get you onto Google and Google Maps, right where your clients are already searching.',
+          'svc6.name': 'Reviews & loyalty', 'svc6.desc': 'We automatically collect your 5-star Google reviews and bring your clients back.',
+          'tag.turnkey': 'Turnkey', 'tag.mobile': 'Mobile-perfect', 'tag.agenda': 'Synced calendar', 'tag.deposits': 'Deposits', 'tag.247': '24/7', 'tag.multichannel': 'Multichannel', 'tag.email': 'Email', 'tag.localseo': 'Local SEO', 'tag.reviews': 'Google reviews', 'tag.loyalty': 'Loyalty',
+          'stat.noshows': 'fewer missed appointments', 'stat.bookings': 'more online bookings', 'stat.timesaved': 'saved per week', 'stat.response': 'response time',
+          'work.label': 'Our work', 'work.title': 'Projects that<br><em>deliver</em>', 'work.viewall': 'View all projects →',
+          'homecta.title': "Let's talk about<br><em>your project.</em>", 'homecta.sub': 'Tell us what you need. We reply within 24 hours — no sales pitch, just a real conversation.', 'homecta.cta': 'Get a free audit',
+          'footer.tagline': 'Web agency · Canada 🍁', 'footer.services': 'Services', 'footer.company': 'Company', 'footer.connect': 'Follow us', 'footer.faq': 'FAQ',
+          'footer.copy': '© 2026 Kelthen. All rights reserved.', 'footer.privacy': 'Privacy Policy', 'footer.terms': 'Terms of Use', 'footer.cookies': 'Cookie preferences', 'footer.flag': 'Canada 🍁'
+        }
+      };
+      // French is the base text already in the HTML — capture it as the "fr" dictionary
+      DICT.fr = {};
+      document.querySelectorAll('[data-i18n]').forEach((el) => {
+        const key = el.getAttribute('data-i18n');
+        if (DICT.fr[key] == null) DICT.fr[key] = el.hasAttribute('data-i18n-html') ? el.innerHTML : el.textContent;
+      });
+
+      function apply(lang) {
+        const dict = DICT[lang] || DICT.fr;
+        document.documentElement.lang = lang;
+        document.querySelectorAll('[data-i18n]').forEach((el) => {
+          const val = dict[el.getAttribute('data-i18n')];
+          if (val == null) return;
+          if (el.hasAttribute('data-i18n-html')) el.innerHTML = val; else el.textContent = val;
+        });
+        document.querySelectorAll('[data-lang-btn]').forEach((b) => {
+          b.classList.toggle('active', b.getAttribute('data-lang-btn') === lang);
+        });
+      }
+
+      let lang = 'fr';
+      try { lang = localStorage.getItem('kelthen-lang') || 'fr'; } catch (e) {}
+      apply(lang);
+      document.querySelectorAll('[data-lang-btn]').forEach((b) => {
+        b.addEventListener('click', () => {
+          const l = b.getAttribute('data-lang-btn');
+          try { localStorage.setItem('kelthen-lang', l); } catch (e) {}
+          apply(l);
+        });
+      });
+    })();
+
     // ─── Portfolio: real projects + faithful CSS mockups (3-5 screens each) ───
     // Mockups reproduce the real apps' UIs (palettes & content from the source code).
 

@@ -61,15 +61,20 @@
     </a>
 
     <ul class="nav-links" role="list">
-      <li><a href="index.html#services">Services</a></li>
-      <li><a href="work.html">Work</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="pricing.html">Pricing</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="index.html#services" data-i18n="nav.services">Services</a></li>
+      <li><a href="work.html" data-i18n="nav.work">Réalisations</a></li>
+      <li><a href="about.html" data-i18n="nav.about">À propos</a></li>
+      <li><a href="pricing.html" data-i18n="nav.pricing">Tarifs</a></li>
+      <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
     </ul>
 
-    <button class="nav-cta" id="navCta" type="button">Start a project</button>
-    <button class="nav-hamburger" id="navHamburger" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="navMobile">
+    <div class="lang-switch" role="group" aria-label="Langue">
+      <button type="button" class="lang-btn" data-lang-btn="fr">FR</button>
+      <span class="lang-sep" aria-hidden="true">|</span>
+      <button type="button" class="lang-btn" data-lang-btn="en">EN</button>
+    </div>
+    <button class="nav-cta" id="navCta" type="button" data-i18n="nav.cta">Audit gratuit</button>
+    <button class="nav-hamburger" id="navHamburger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navMobile">
       <span></span>
       <span></span>
       <span></span>
@@ -78,12 +83,17 @@
 
   <!-- Mobile nav overlay -->
   <div class="nav-mobile" id="navMobile" role="dialog" aria-label="Mobile navigation" aria-modal="true">
-    <a href="index.html#services" class="nav-mobile-link" data-mobile-link>Services</a>
-    <a href="work.html"     class="nav-mobile-link" data-mobile-link>Work</a>
-    <a href="about.html"    class="nav-mobile-link" data-mobile-link>About</a>
-    <a href="pricing.html"  class="nav-mobile-link" data-mobile-link>Pricing</a>
-    <a href="contact.html"  class="nav-mobile-link" data-mobile-link>Contact</a>
-    <button class="nav-mobile-cta" id="navMobileCta" type="button">Start a project</button>
+    <a href="index.html#services" class="nav-mobile-link" data-mobile-link data-i18n="nav.services">Services</a>
+    <a href="work.html"     class="nav-mobile-link" data-mobile-link data-i18n="nav.work">Réalisations</a>
+    <a href="about.html"    class="nav-mobile-link" data-mobile-link data-i18n="nav.about">À propos</a>
+    <a href="pricing.html"  class="nav-mobile-link" data-mobile-link data-i18n="nav.pricing">Tarifs</a>
+    <a href="contact.html"  class="nav-mobile-link" data-mobile-link data-i18n="nav.contact">Contact</a>
+    <div class="lang-switch lang-switch-mobile" role="group" aria-label="Langue">
+      <button type="button" class="lang-btn" data-lang-btn="fr">FR</button>
+      <span class="lang-sep" aria-hidden="true">|</span>
+      <button type="button" class="lang-btn" data-lang-btn="en">EN</button>
+    </div>
+    <button class="nav-mobile-cta" id="navMobileCta" type="button" data-i18n="nav.cta">Audit gratuit</button>
   </div>
 
   <!-- ═══ Hero ═══ -->
@@ -123,26 +133,26 @@
     </div>
 
     <div class="hero-inner">
-      <h1 class="hero-title" id="heroTitle">
-        We <span class="outline">build</span><br>
-        the<br>
-        <em>unignorable</em>.
+      <h1 class="hero-title" id="heroTitle" data-i18n="hero.title" data-i18n-html>
+        Plus de clients.<br>
+        <em>Moins de gestion.</em>
       </h1>
 
       <div class="hero-bottom">
-        <p class="hero-desc">
-          Kelthen is a boutique digital agency crafting high-performance websites,
-          web apps, and automation systems for founders who refuse to blend in.
+        <p class="hero-desc" data-i18n="hero.desc">
+          Kelthen crée des sites web et des outils simples pour les commerces et
+          professionnels du Canada : plus de rendez-vous, moins de paperasse, une
+          image à la hauteur.
         </p>
         <div class="hero-actions">
-          <a href="contact.html" class="btn-primary">Start a project</a>
-          <a href="work.html" class="btn-ghost">See our work</a>
+          <a href="contact.html" class="btn-primary" data-i18n="hero.ctaPrimary">Demander un audit gratuit</a>
+          <a href="index.html#services" class="btn-ghost" data-i18n="hero.ctaSecondary">Voir nos solutions</a>
         </div>
       </div>
     </div>
 
     <div class="scroll-indicator" aria-hidden="true">
-      <span class="scroll-label">Scroll</span>
+      <span class="scroll-label" data-i18n="hero.scroll">Défiler</span>
       <div class="scroll-line"></div>
     </div>
   </section>
@@ -150,22 +160,22 @@
   <!-- ═══ Marquee ═══ -->
   <div class="marquee-wrap" aria-hidden="true">
     <div class="marquee-track">
-      <span class="marquee-item">Web Design</span>
-      <span class="marquee-item">Mobile Apps</span>
-      <span class="marquee-item">Automation</span>
-      <span class="marquee-item">AI Integration</span>
-      <span class="marquee-item">SaaS Development</span>
-      <span class="marquee-item">Tech Consulting</span>
-      <span class="marquee-item">API Development</span>
-      <span class="marquee-item">Custom Software</span>
-      <span class="marquee-item">Web Design</span>
-      <span class="marquee-item">Mobile Apps</span>
-      <span class="marquee-item">Automation</span>
-      <span class="marquee-item">AI Integration</span>
-      <span class="marquee-item">SaaS Development</span>
-      <span class="marquee-item">Tech Consulting</span>
-      <span class="marquee-item">API Development</span>
-      <span class="marquee-item">Custom Software</span>
+      <span class="marquee-item">Sites web</span>
+      <span class="marquee-item">Réservation en ligne</span>
+      <span class="marquee-item">Rappels SMS</span>
+      <span class="marquee-item">Secrétaire IA</span>
+      <span class="marquee-item">Visibilité Google</span>
+      <span class="marquee-item">Avis clients</span>
+      <span class="marquee-item">Fidélisation</span>
+      <span class="marquee-item">Paiements sécurisés</span>
+      <span class="marquee-item">Sites web</span>
+      <span class="marquee-item">Réservation en ligne</span>
+      <span class="marquee-item">Rappels SMS</span>
+      <span class="marquee-item">Secrétaire IA</span>
+      <span class="marquee-item">Visibilité Google</span>
+      <span class="marquee-item">Avis clients</span>
+      <span class="marquee-item">Fidélisation</span>
+      <span class="marquee-item">Paiements sécurisés</span>
     </div>
   </div>
 
@@ -173,10 +183,10 @@
   <section id="services" aria-labelledby="servicesTitle">
     <div class="services-header">
       <div>
-        <p class="section-label">What we do</p>
-        <h2 class="section-title" id="servicesTitle">Every tool<br>you <em>need</em></h2>
+        <p class="section-label" data-i18n="services.label">Ce qu'on fait pour vous</p>
+        <h2 class="section-title" id="servicesTitle" data-i18n="services.title" data-i18n-html>Vos objectifs,<br>nos <em>solutions</em></h2>
       </div>
-      <p class="services-sub">From a landing page to a full enterprise system — we build it right, the first time. No bloat. No fluff. Just results.</p>
+      <p class="services-sub" data-i18n="services.sub">Des outils simples pour attirer plus de clients, gagner du temps et soigner votre image — sans jargon, sans prise de tête.</p>
     </div>
 
     <div class="services-grid">
@@ -184,74 +194,66 @@
       <div class="service-card">
         <div class="service-num">01</div>
         <span class="service-icon" aria-hidden="true">◈</span>
-        <h3 class="service-name">Web Design &amp; Development</h3>
-        <p class="service-desc">Conversion-focused websites that look exceptional and perform even better. From landing pages to full e-commerce platforms.</p>
+        <h3 class="service-name" data-i18n="svc1.name">Un site qui attire des clients</h3>
+        <p class="service-desc" data-i18n="svc1.desc">Un site rapide et élégant qui inspire confiance et transforme vos visiteurs en rendez-vous.</p>
         <div class="service-tags">
-          <span class="stag">React</span>
-          <span class="stag">Next.js</span>
-          <span class="stag">Framer</span>
-          <span class="stag">Webflow</span>
+          <span class="stag" data-i18n="tag.turnkey">Clé en main</span>
+          <span class="stag" data-i18n="tag.mobile">Mobile parfait</span>
         </div>
       </div>
 
       <div class="service-card">
         <div class="service-num">02</div>
         <span class="service-icon" aria-hidden="true">⬡</span>
-        <h3 class="service-name">Mobile Apps &amp; Software</h3>
-        <p class="service-desc">Cross-platform mobile apps and custom software built to scale. iOS, Android, and everything in between.</p>
+        <h3 class="service-name" data-i18n="svc2.name">Réservation en ligne 24/7</h3>
+        <p class="service-desc" data-i18n="svc2.desc">Vos clients réservent et versent un acompte en 30 secondes, jour et nuit. Fini le téléphone qui sonne dans le vide.</p>
         <div class="service-tags">
-          <span class="stag">React Native</span>
-          <span class="stag">Flutter</span>
-          <span class="stag">Supabase</span>
+          <span class="stag" data-i18n="tag.agenda">Agenda synchronisé</span>
+          <span class="stag" data-i18n="tag.deposits">Acomptes</span>
         </div>
       </div>
 
       <div class="service-card">
         <div class="service-num">03</div>
-        <span class="service-icon" aria-hidden="true">⟳</span>
-        <h3 class="service-name">Automation Systems</h3>
-        <p class="service-desc">Eliminate repetitive tasks and let your team focus on what matters. We automate your workflows end-to-end.</p>
+        <span class="service-icon" aria-hidden="true">✦</span>
+        <h3 class="service-name" data-i18n="svc3.name">Secrétaire virtuelle par IA</h3>
+        <p class="service-desc" data-i18n="svc3.desc">Un assistant intelligent répond à vos clients, trie les demandes et prend les rendez-vous — même quand vous dormez.</p>
         <div class="service-tags">
-          <span class="stag">n8n</span>
-          <span class="stag">Make</span>
-          <span class="stag">Zapier</span>
-          <span class="stag">WhatsApp API</span>
+          <span class="stag" data-i18n="tag.247">24 h/24</span>
+          <span class="stag" data-i18n="tag.multichannel">Multicanal</span>
         </div>
       </div>
 
       <div class="service-card">
         <div class="service-num">04</div>
-        <span class="service-icon" aria-hidden="true">✦</span>
-        <h3 class="service-name">AI Integration</h3>
-        <p class="service-desc">Claude API, OpenAI, custom LLM pipelines. We embed AI into your existing products or build new ones from scratch.</p>
+        <span class="service-icon" aria-hidden="true">⟳</span>
+        <h3 class="service-name" data-i18n="svc4.name">Rappels automatiques SMS &amp; e-mail</h3>
+        <p class="service-desc" data-i18n="svc4.desc">Jusqu'à 80 % de rendez-vous manqués en moins, et votre agenda synchronisé tout seul.</p>
         <div class="service-tags">
-          <span class="stag">Claude API</span>
-          <span class="stag">OpenAI</span>
-          <span class="stag">RAG</span>
+          <span class="stag">SMS</span>
+          <span class="stag" data-i18n="tag.email">E-mail</span>
         </div>
       </div>
 
       <div class="service-card">
         <div class="service-num">05</div>
         <span class="service-icon" aria-hidden="true">◇</span>
-        <h3 class="service-name">Tech Consulting</h3>
-        <p class="service-desc">Not sure what you need? We audit your current stack, identify bottlenecks, and propose the right solution — no upsell.</p>
+        <h3 class="service-name" data-i18n="svc5.name">Visible sur Google</h3>
+        <p class="service-desc" data-i18n="svc5.desc">On vous place sur Google et Google Maps, là où vos clients vous cherchent déjà.</p>
         <div class="service-tags">
-          <span class="stag">Audit</span>
-          <span class="stag">Strategy</span>
-          <span class="stag">Roadmap</span>
+          <span class="stag">Google Maps</span>
+          <span class="stag" data-i18n="tag.localseo">SEO local</span>
         </div>
       </div>
 
       <div class="service-card">
         <div class="service-num">06</div>
-        <span class="service-icon" aria-hidden="true">⬡</span>
-        <h3 class="service-name">SaaS Development</h3>
-        <p class="service-desc">From idea to revenue. We build full SaaS products with auth, payments, dashboards, and everything needed to launch fast.</p>
+        <span class="service-icon" aria-hidden="true">★</span>
+        <h3 class="service-name" data-i18n="svc6.name">Avis clients &amp; fidélisation</h3>
+        <p class="service-desc" data-i18n="svc6.desc">On récolte automatiquement vos avis Google 5 étoiles et on fait revenir vos clients.</p>
         <div class="service-tags">
-          <span class="stag">Stripe</span>
-          <span class="stag">Supabase</span>
-          <span class="stag">Vercel</span>
+          <span class="stag" data-i18n="tag.reviews">Avis Google</span>
+          <span class="stag" data-i18n="tag.loyalty">Fidélité</span>
         </div>
       </div>
 
@@ -262,20 +264,20 @@
   <div class="numbers-strip" aria-label="Agency stats">
     <div class="numbers-grid">
       <div class="num-card">
-        <div class="num-val">5+</div>
-        <div class="num-label">Projects delivered</div>
+        <div class="num-val">−80&nbsp;%</div>
+        <div class="num-label" data-i18n="stat.noshows">de rendez-vous manqués</div>
       </div>
       <div class="num-card">
-        <div class="num-val">48h</div>
-        <div class="num-label">Average response time</div>
+        <div class="num-val">+40&nbsp;%</div>
+        <div class="num-label" data-i18n="stat.bookings">de réservations en ligne</div>
       </div>
       <div class="num-card">
-        <div class="num-val">3</div>
-        <div class="num-label">Countries served</div>
+        <div class="num-val">10&nbsp;h</div>
+        <div class="num-label" data-i18n="stat.timesaved">économisées par semaine</div>
       </div>
       <div class="num-card">
-        <div class="num-val">100%</div>
-        <div class="num-label">Client satisfaction</div>
+        <div class="num-val">24&nbsp;h</div>
+        <div class="num-label" data-i18n="stat.response">temps de réponse</div>
       </div>
     </div>
   </div>
@@ -284,19 +286,19 @@
   <section id="work-preview" aria-labelledby="workPreviewTitle">
     <div class="work-preview-head">
       <div>
-        <p class="section-label">Selected work</p>
-        <h2 class="section-title" id="workPreviewTitle">Built to<br><em>impress</em></h2>
+        <p class="section-label" data-i18n="work.label">Nos réalisations</p>
+        <h2 class="section-title" id="workPreviewTitle" data-i18n="work.title" data-i18n-html>Des projets<br>qui <em>rapportent</em></h2>
       </div>
-      <a href="work.html" class="btn-ghost">View all work →</a>
+      <a href="work.html" class="btn-ghost" data-i18n="work.viewall">Voir tous les projets →</a>
     </div>
     <div class="work-grid" id="workPreview" role="list"></div>
   </section>
 
   <!-- ═══ Closing CTA ═══ -->
   <section id="home-cta" aria-labelledby="homeCtaTitle">
-    <h2 class="home-cta-title" id="homeCtaTitle">Let's build<br><em>something.</em></h2>
-    <p class="home-cta-sub">Tell us about your project. We respond within 24 hours — no sales pitch, just a real conversation.</p>
-    <a href="contact.html" class="btn-primary">Start a project</a>
+    <h2 class="home-cta-title" id="homeCtaTitle" data-i18n="homecta.title" data-i18n-html>Parlons de<br><em>votre projet.</em></h2>
+    <p class="home-cta-sub" data-i18n="homecta.sub">Racontez-nous votre besoin. On répond en 24 h — sans blabla commercial, juste une vraie discussion.</p>
+    <a href="contact.html" class="btn-primary" data-i18n="homecta.cta">Demander un audit gratuit</a>
   </section>
 
   <!-- ═══ Footer ═══ -->
@@ -304,27 +306,27 @@
     <div class="footer-top">
       <div class="footer-brand">
         <div class="footer-logo">Kel<span>then</span></div>
-        <div class="footer-tagline">Tech Agency · Canada</div>
+        <div class="footer-tagline" data-i18n="footer.tagline">Agence web · Canada 🍁</div>
       </div>
       <nav class="footer-nav" aria-label="Footer navigation">
         <div class="footer-col">
-          <div class="footer-col-title">Services</div>
-          <a href="index.html#services">Web Development</a>
-          <a href="index.html#services">Mobile Apps</a>
-          <a href="index.html#services">Automation</a>
-          <a href="index.html#services">AI Integration</a>
-          <a href="index.html#services">SaaS</a>
+          <div class="footer-col-title" data-i18n="footer.services">Services</div>
+          <a href="index.html#services" data-i18n="svc1.name">Un site qui attire des clients</a>
+          <a href="index.html#services" data-i18n="svc2.name">Réservation en ligne 24/7</a>
+          <a href="index.html#services" data-i18n="svc3.name">Secrétaire virtuelle par IA</a>
+          <a href="index.html#services" data-i18n="svc4.name">Rappels automatiques SMS &amp; e-mail</a>
+          <a href="index.html#services" data-i18n="svc5.name">Visible sur Google</a>
         </div>
         <div class="footer-col">
-          <div class="footer-col-title">Company</div>
-          <a href="about.html">About</a>
-          <a href="work.html">Our Work</a>
-          <a href="pricing.html">Pricing</a>
-          <a href="pricing.html#faq">FAQ</a>
-          <a href="contact.html">Contact</a>
+          <div class="footer-col-title" data-i18n="footer.company">Entreprise</div>
+          <a href="about.html" data-i18n="nav.about">À propos</a>
+          <a href="work.html" data-i18n="nav.work">Réalisations</a>
+          <a href="pricing.html" data-i18n="nav.pricing">Tarifs</a>
+          <a href="pricing.html#faq" data-i18n="footer.faq">FAQ</a>
+          <a href="contact.html" data-i18n="nav.contact">Contact</a>
         </div>
         <div class="footer-col">
-          <div class="footer-col-title">Connect</div>
+          <div class="footer-col-title" data-i18n="footer.connect">Nous suivre</div>
           <div class="footer-social">
             <a href="#" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
               <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -348,12 +350,12 @@
     </div>
     <div class="footer-bottom">
       <div class="footer-legal">
-        <span class="footer-copy">© 2026 Kelthen. All rights reserved.</span>
-        <button class="footer-legal-link" type="button" id="privacyOpen">Privacy Policy</button>
-        <button class="footer-legal-link" type="button" id="termsOpen">Terms of Use</button>
-        <button class="footer-legal-link" type="button" id="cookiePrefsOpen">Cookie preferences</button>
+        <span class="footer-copy" data-i18n="footer.copy">© 2026 Kelthen. Tous droits réservés.</span>
+        <button class="footer-legal-link" type="button" id="privacyOpen" data-i18n="footer.privacy">Confidentialité</button>
+        <button class="footer-legal-link" type="button" id="termsOpen" data-i18n="footer.terms">Conditions d'utilisation</button>
+        <button class="footer-legal-link" type="button" id="cookiePrefsOpen" data-i18n="footer.cookies">Préférences cookies</button>
       </div>
-      <span class="footer-flag">Canada 🍁</span>
+      <span class="footer-flag" data-i18n="footer.flag">Canada 🍁</span>
     </div>
   </footer>
 
