@@ -2987,21 +2987,25 @@
       /* Scale the whole scene down uniformly so cards never spill or get cut */
       body.home-light .hero .hero-visual {
         order: 1;
-        height: 340px;
+        height: 420px;
         overflow: hidden;
       }
       body.home-light .hero .hero-visual .kb-root {
         width: 480px;
         max-width: none;
-        transform: scale(0.68);
+        transform: scale(0.84);
         transform-origin: top center;
       }
       body.home-light .hero .hero-desc { margin: 0 auto; }
       body.home-light .hero .hero-actions { justify-content: center; }
     }
     @media (max-width: 440px) {
-      body.home-light .hero .hero-visual { height: 300px; }
-      body.home-light .hero .hero-visual .kb-root { transform: scale(0.6); }
+      body.home-light .hero .hero-visual { height: 372px; }
+      body.home-light .hero .hero-visual .kb-root { transform: scale(0.74); }
+    }
+    @media (max-width: 360px) {
+      body.home-light .hero .hero-visual { height: 340px; }
+      body.home-light .hero .hero-visual .kb-root { transform: scale(0.67); }
     }
 
     /* ─── Cartes secteur cliquables ─── */
