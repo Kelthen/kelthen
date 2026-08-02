@@ -771,41 +771,51 @@
       });
     })();
 
-    // ─── Mascot: pupils follow the cursor ───
-    (function () {
-      const svg = document.querySelector('.mascot-svg');
-      if (!svg || !window.matchMedia('(pointer: fine)').matches) return;
-      const pupils = svg.querySelectorAll('.pupil');
+    // ─── Hero K-bot scene: parallax layers, pupils follow cursor, excite on hover ───
+    (function kbotScene() {
+      const scene = document.querySelector('[data-kbot-scene]');
+      if (!scene) return;
+      const fine = window.matchMedia('(pointer: fine)').matches;
+      const pupils = scene.querySelectorAll('.kb-pupil');
+      const layers = scene.querySelectorAll('.kb-parallax');
+      const mascot = scene.querySelector('[data-kbot-mascot]');
       const VBW = 200, VBH = 240, MAX = 6;
 
-      window.addEventListener('mousemove', (e) => {
-        const rect = svg.getBoundingClientRect();
-        if (!rect.width) return;
+      function move(e) {
+        const r = scene.getBoundingClientRect();
+        if (!r.width) return;
+        const dx = (e.clientX - (r.left + r.width / 2)) / r.width;
+        const dy = (e.clientY - (r.top + r.height / 2)) / r.height;
+        layers.forEach((el) => {
+          const d = parseFloat(el.getAttribute('data-depth')) || 1;
+          el.style.transform = `translate(${(dx * d * 16).toFixed(1)}px, ${(dy * d * 16).toFixed(1)}px)`;
+        });
+        const mr = mascot ? mascot.getBoundingClientRect() : null;
+        if (!mr || !mr.width) return;
         pupils.forEach((p) => {
           const cx = parseFloat(p.getAttribute('data-cx'));
           const cy = parseFloat(p.getAttribute('data-cy'));
-          const sx = rect.left + (cx / VBW) * rect.width;
-          const sy = rect.top + (cy / VBH) * rect.height;
+          const sx = mr.left + (cx / VBW) * mr.width;
+          const sy = mr.top + (cy / VBH) * mr.height;
           const ang = Math.atan2(e.clientY - sy, e.clientX - sx);
           p.setAttribute('transform', `translate(${(Math.cos(ang) * MAX).toFixed(1)} ${(Math.sin(ang) * MAX).toFixed(1)})`);
         });
-      }, { passive: true });
-    })();
+      }
 
-    // ─── Mascot gets excited when hovering the "Start a project" CTA ───
-    (function () {
-      const mascot = document.querySelector('.hero-mascot');
-      if (!mascot) return;
-      const triggers = [
-        document.getElementById('navCta'),
-        document.getElementById('navMobileCta'),
-        document.querySelector('.hero-actions .btn-primary')
-      ].filter(Boolean);
-      const excite = (on) => mascot.classList.toggle('excited', on);
-      triggers.forEach((btn) => {
-        btn.addEventListener('mouseenter', () => excite(true));
-        btn.addEventListener('mouseleave', () => excite(false));
-      });
+      function setExcited(on) {
+        if (!mascot) return;
+        const sn = mascot.querySelector('.kb-smile-normal');
+        const sh = mascot.querySelector('.kb-smile-happy');
+        if (sn) sn.style.display = on ? 'none' : 'block';
+        if (sh) sh.style.display = on ? 'block' : 'none';
+        mascot.style.animation = on
+          ? 'kb-excite 0.5s ease-in-out infinite'
+          : 'kb-mascotFloat 6s ease-in-out infinite';
+      }
+
+      if (fine) window.addEventListener('mousemove', move, { passive: true });
+      scene.addEventListener('mouseenter', () => setExcited(true));
+      scene.addEventListener('mouseleave', () => setExcited(false));
     })();
 
     // ─── Chat simulation engine (home demo + Cuties modal) ───

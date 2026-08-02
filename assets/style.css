@@ -2900,10 +2900,10 @@
       min-height: auto;
       background: var(--cream);
       color: var(--ink);
-      padding: 122px 5vw 88px;
+      padding: 116px 5vw 72px;
       display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 40px;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 34px;
       align-items: center;
     }
     body.home-light .hero .hero-grid,
@@ -2929,7 +2929,7 @@
       background: none;
       color: var(--ink);
       -webkit-text-fill-color: var(--ink);
-      font-size: clamp(2.6rem, 5vw, 4rem);
+      font-size: clamp(2.4rem, 4.6vw, 3.7rem);
       line-height: 1.04;
     }
     body.home-light .hero .hero-title em {
@@ -2944,26 +2944,25 @@
     }
     body.home-light .hero .btn-ghost { color: var(--ink); border-color: rgba(20, 24, 31, 0.22); }
 
-    /* Mascotte gardée, posée dans la colonne droite */
+    /* Scène mascotte (K-bot) dans la colonne droite */
     body.home-light .hero .hero-visual {
-      position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 360px;
     }
-    body.home-light .hero .hero-mascot-glow {
-      display: block;
-      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-      width: 340px; height: 340px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(59, 130, 246, 0.18), rgba(247, 244, 239, 0) 66%);
-    }
-    body.home-light .hero .hero-mascot {
-      position: relative;
-      top: auto; right: auto; left: auto; bottom: auto;
-      width: 232px;
-    }
-    body.home-light .hero .mascot-svg { width: 232px; height: auto; }
+    body.home-light .hero .hero-visual .kb-root { max-width: 560px; }
+
+    /* Animations de la scène K-bot (importées du design) */
+    @keyframes kb-popIn { from { opacity:0; transform:translateY(26px) scale(0.82); } 60% { opacity:1; } to { opacity:1; transform:translateY(0) scale(1); } }
+    @keyframes kb-floatY { 0%,100% { transform:translateY(0) rotate(var(--rot,0deg)); } 50% { transform:translateY(-12px) rotate(var(--rot,0deg)); } }
+    @keyframes kb-mascotFloat { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-15px); } }
+    @keyframes kb-glowPulse { 0%,100% { opacity:0.5; } 50% { opacity:1; } }
+    @keyframes kb-blink { 0%,90%,100% { transform:scaleY(1); } 95% { transform:scaleY(0.12); } }
+    @keyframes kb-excite { 0%,100% { transform:translateY(0) rotate(0); } 25% { transform:translateY(-9px) rotate(-4deg); } 75% { transform:translateY(-9px) rotate(4deg); } }
+    @keyframes kb-typing { 0%,60%,100% { transform:translateY(0); opacity:0.4; } 30% { transform:translateY(-5px); opacity:1; } }
+    @keyframes kb-flowDash { to { stroke-dashoffset:-22; } }
+    @keyframes kb-rise { 0% { transform:translateY(6px) scale(0.9); opacity:0; } 20% { opacity:1; } 80% { opacity:1; } 100% { transform:translateY(-14px) scale(1); opacity:0; } }
+    @media (prefers-reduced-motion: reduce) { .kb-anim { animation:none !important; opacity:1 !important; } }
 
     /* Nav lisible par-dessus le hero clair (avant le scroll) */
     body.home-light .nav:not(.scrolled) .nav-logo-text,
@@ -2976,17 +2975,15 @@
     @media (max-width: 860px) {
       body.home-light .hero {
         grid-template-columns: 1fr;
-        gap: 18px;
-        padding: 104px 6vw 64px;
+        gap: 22px;
+        padding: 100px 6vw 56px;
         text-align: center;
       }
       body.home-light .hero .hero-inner { order: 2; text-align: center; }
-      body.home-light .hero .hero-visual { order: 1; min-height: 220px; }
+      body.home-light .hero .hero-visual { order: 1; }
+      body.home-light .hero .hero-visual .kb-root { max-width: 380px; }
       body.home-light .hero .hero-desc { margin: 0 auto; }
       body.home-light .hero .hero-actions { justify-content: center; }
-      body.home-light .hero .hero-mascot,
-      body.home-light .hero .mascot-svg { width: 168px; }
-      body.home-light .hero .hero-mascot-glow { width: 240px; height: 240px; }
     }
 
     /* ─── Cartes secteur cliquables ─── */
