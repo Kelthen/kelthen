@@ -38,7 +38,12 @@
           'faq.q4': 'What happens after launch?', 'faq.a4': "We handle deployment, testing and post-launch support (3 months included with The Business). After that, an optional maintenance plan keeps everything up to date. We don't disappear the day you go live.",
           'faq.q5': 'Can you improve an existing site?', 'faq.a5': "Absolutely. We audit your current site, find what's holding it back, and fix or rebuild what needs it — no need to start from scratch.",
           'faq.q6': 'How do payments work?', 'faq.a6': 'Usually a deposit to start and the balance on delivery, with milestones for larger projects. Payment in instalments is possible. Everything is put in writing before we begin.',
-          'pcta.title': 'Not sure which<br><em>plan fits?</em>', 'pcta.sub': "Tell us about your project and we'll recommend the right plan. We reply within 24 hours.", 'pcta.cta': "Let's talk"
+          'pcta.title': 'Not sure which<br><em>plan fits?</em>', 'pcta.sub': "Tell us about your project and we'll recommend the right plan. We reply within 24 hours.", 'pcta.cta': "Let's talk",
+          'workpage.title': 'Projects that<br><em>deliver</em>', 'workcta.title': 'Are you<br><em>next?</em>',
+          'contact.label': 'Ready to start?', 'contact.title': "Let's talk about<br><em>your project.</em>", 'contact.sub': 'Tell us about your project. We reply within 24 hours — no sales pitch, just a real conversation.', 'contact.whatsapp': 'Chat on WhatsApp',
+          'form.name': 'Name', 'form.namePh': 'Your name', 'form.email': 'Email', 'form.emailPh': 'your@email.com', 'form.message': 'Message', 'form.messagePh': 'Tell us about your project…', 'form.submit': 'Send message →', 'form.sent': 'Message sent.', 'form.sentSub': "We'll be in touch within 24 hours.",
+          'cookie.text': 'We use cookies to measure and improve our site. Accept, reject, or manage your choices — see our', 'cookie.privacy': 'Privacy Policy', 'cookie.reject': 'Reject all', 'cookie.manage': 'Manage', 'cookie.accept': 'Accept all',
+          'cprefs.title': 'Cookie preferences', 'cprefs.intro': 'Choose which cookies we can use. You can change this anytime.', 'cprefs.necessary': 'Strictly necessary', 'cprefs.always': 'Always on', 'cprefs.necessaryDesc': 'Needed for the site to function. These never track you.', 'cprefs.analytics': 'Analytics — Google Analytics', 'cprefs.analyticsDesc': 'Anonymous stats (pages viewed, device) so we can improve the site. Google Analytics loads only if this is on.', 'cprefs.save': 'Save preferences', 'cprefs.acceptAll': 'Accept all'
         }
       };
       // French is the base text already in the HTML — capture it as the "fr" dictionary
@@ -47,8 +52,19 @@
         const key = el.getAttribute('data-i18n');
         if (DICT.fr[key] == null) DICT.fr[key] = el.hasAttribute('data-i18n-html') ? el.innerHTML : el.textContent;
       });
+      // French strings for JS-injected UI (cookie banner / preferences), which
+      // aren't in the initial DOM when the dictionary is captured.
+      Object.assign(DICT.fr, {
+        'cookie.text': 'Nous utilisons des cookies pour mesurer et améliorer notre site. Acceptez, refusez ou gérez vos choix — voir notre',
+        'cookie.privacy': 'Politique de confidentialité', 'cookie.reject': 'Tout refuser', 'cookie.manage': 'Gérer', 'cookie.accept': 'Tout accepter',
+        'cprefs.title': 'Préférences cookies', 'cprefs.intro': 'Choisissez les cookies que nous pouvons utiliser. Modifiable à tout moment.',
+        'cprefs.necessary': 'Strictement nécessaires', 'cprefs.always': 'Toujours actifs', 'cprefs.necessaryDesc': 'Indispensables au fonctionnement du site. Ils ne vous suivent jamais.',
+        'cprefs.analytics': 'Analytics — Google Analytics', 'cprefs.analyticsDesc': 'Statistiques anonymes (pages vues, appareil) pour améliorer le site. Google Analytics ne se charge que si activé.',
+        'cprefs.save': 'Enregistrer', 'cprefs.acceptAll': 'Tout accepter'
+      });
 
       function apply(lang) {
+        current = lang;
         const dict = DICT[lang] || DICT.fr;
         document.documentElement.lang = lang;
         document.querySelectorAll('[data-i18n]').forEach((el) => {
@@ -56,14 +72,21 @@
           if (val == null) return;
           if (el.hasAttribute('data-i18n-html')) el.innerHTML = val; else el.textContent = val;
         });
+        document.querySelectorAll('[data-i18n-ph]').forEach((el) => {
+          const val = dict[el.getAttribute('data-i18n-ph')];
+          if (val != null) el.setAttribute('placeholder', val);
+        });
         document.querySelectorAll('[data-lang-btn]').forEach((b) => {
           b.classList.toggle('active', b.getAttribute('data-lang-btn') === lang);
         });
       }
 
-      let lang = 'fr';
-      try { lang = localStorage.getItem('kelthen-lang') || 'fr'; } catch (e) {}
-      apply(lang);
+      let current = 'fr';
+      try { current = localStorage.getItem('kelthen-lang') || 'fr'; } catch (e) {}
+      apply(current);
+      // Re-apply (used after JS injects new [data-i18n] elements, e.g. cookie UI)
+      window.__i18nApply = function () { apply(current); };
+      window.__i18nLang = function () { return current; };
       document.querySelectorAll('[data-lang-btn]').forEach((b) => {
         b.addEventListener('click', () => {
           const l = b.getAttribute('data-lang-btn');
@@ -919,29 +942,30 @@
       prefs.setAttribute('aria-label', 'Cookie preferences');
       prefs.innerHTML = `
         <div class="cookie-prefs">
-          <button class="cookie-prefs-close" type="button" data-cookie-close aria-label="Close">✕</button>
-          <h2 class="cookie-prefs-title">Cookie preferences</h2>
-          <p class="cookie-prefs-intro">Choose which cookies we can use. You can change this anytime.</p>
+          <button class="cookie-prefs-close" type="button" data-cookie-close aria-label="Fermer">✕</button>
+          <h2 class="cookie-prefs-title" data-i18n="cprefs.title">Préférences cookies</h2>
+          <p class="cookie-prefs-intro" data-i18n="cprefs.intro">Choisissez les cookies que nous pouvons utiliser. Modifiable à tout moment.</p>
           <div class="cookie-cat">
             <div class="cookie-cat-top">
-              <span class="cookie-cat-name">Strictly necessary</span>
-              <span class="cookie-cat-always">Always on</span>
+              <span class="cookie-cat-name" data-i18n="cprefs.necessary">Strictement nécessaires</span>
+              <span class="cookie-cat-always" data-i18n="cprefs.always">Toujours actifs</span>
             </div>
-            <p class="cookie-cat-desc">Needed for the site to function. These never track you.</p>
+            <p class="cookie-cat-desc" data-i18n="cprefs.necessaryDesc">Indispensables au fonctionnement du site. Ils ne vous suivent jamais.</p>
           </div>
           <div class="cookie-cat">
             <div class="cookie-cat-top">
-              <span class="cookie-cat-name">Analytics — Google Analytics</span>
+              <span class="cookie-cat-name" data-i18n="cprefs.analytics">Analytics — Google Analytics</span>
               <label class="cookie-switch"><input type="checkbox" data-cookie-analytics><span class="cookie-slider"></span></label>
             </div>
-            <p class="cookie-cat-desc">Anonymous stats (pages viewed, device) so we can improve the site. Google Analytics loads only if this is on.</p>
+            <p class="cookie-cat-desc" data-i18n="cprefs.analyticsDesc">Statistiques anonymes (pages vues, appareil) pour améliorer le site. Google Analytics ne se charge que si activé.</p>
           </div>
           <div class="cookie-prefs-actions">
-            <button class="cookie-btn cookie-secondary" type="button" data-cookie-save>Save preferences</button>
-            <button class="cookie-btn cookie-accept" type="button" data-cookie-accept-all>Accept all</button>
+            <button class="cookie-btn cookie-secondary" type="button" data-cookie-save data-i18n="cprefs.save">Enregistrer</button>
+            <button class="cookie-btn cookie-accept" type="button" data-cookie-accept-all data-i18n="cprefs.acceptAll">Tout accepter</button>
           </div>
         </div>`;
       document.body.appendChild(prefs);
+      if (window.__i18nApply) window.__i18nApply();
       const analyticsToggle = prefs.querySelector('[data-cookie-analytics]');
       let prefsLastFocus = null;
 
@@ -988,14 +1012,15 @@
         banner.setAttribute('aria-label', 'Cookie notice');
         banner.innerHTML = `
           <div class="cookie-banner-inner">
-            <p class="cookie-text">We use cookies to measure and improve our site. Accept, reject, or manage your choices — see our <button type="button" class="cookie-link" data-cookie-privacy>Privacy Policy</button>.</p>
+            <p class="cookie-text"><span data-i18n="cookie.text">Nous utilisons des cookies pour mesurer et améliorer notre site. Acceptez, refusez ou gérez vos choix — voir notre</span> <button type="button" class="cookie-link" data-cookie-privacy data-i18n="cookie.privacy">Politique de confidentialité</button>.</p>
             <div class="cookie-actions">
-              <button type="button" class="cookie-btn cookie-secondary" data-cookie-reject>Reject all</button>
-              <button type="button" class="cookie-btn cookie-secondary" data-cookie-manage>Manage</button>
-              <button type="button" class="cookie-btn cookie-accept" data-cookie-accept>Accept all</button>
+              <button type="button" class="cookie-btn cookie-secondary" data-cookie-reject data-i18n="cookie.reject">Tout refuser</button>
+              <button type="button" class="cookie-btn cookie-secondary" data-cookie-manage data-i18n="cookie.manage">Gérer</button>
+              <button type="button" class="cookie-btn cookie-accept" data-cookie-accept data-i18n="cookie.accept">Tout accepter</button>
             </div>
           </div>`;
         document.body.appendChild(banner);
+        if (window.__i18nApply) window.__i18nApply();
         requestAnimationFrame(() => banner.classList.add('show'));
         banner.querySelector('[data-cookie-accept]').addEventListener('click', () => { saveConsent({ analytics: true }); hideBanner(); });
         banner.querySelector('[data-cookie-reject]').addEventListener('click', () => { saveConsent({ analytics: false }); hideBanner(); });
