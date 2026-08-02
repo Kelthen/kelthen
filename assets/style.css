@@ -2762,3 +2762,30 @@
       color: var(--white-muted);
     }
     .faq-a-inner a { color: var(--blue-light); text-decoration: underline; }
+
+    /* ═══════════════════════════════════════════════════
+       Language switch (FR | EN)
+       ═══════════════════════════════════════════════════ */
+    .lang-switch { display: inline-flex; align-items: center; gap: 0.35rem; }
+    .nav > .lang-switch { margin-left: 0.75rem; }
+    .lang-btn {
+      background: none;
+      border: none;
+      padding: 2px 3px;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.05em;
+      color: var(--white-muted);
+      cursor: pointer;
+      transition: color 0.2s ease;
+    }
+    .lang-btn:hover { color: var(--white); }
+    .lang-btn.active { color: var(--blue-light); font-weight: 600; }
+    .lang-sep { color: rgba(240, 237, 232, 0.25); font-size: 0.72rem; }
+    .lang-switch-mobile { margin: 0.75rem 0 0.25rem; justify-content: center; }
+    .lang-switch-mobile .lang-btn { font-size: 1.05rem; padding: 4px 10px; }
+    .lang-switch-mobile .lang-sep { font-size: 1.05rem; }
+
+    @media (max-width: 900px) {
+      .nav > .lang-switch { display: none; }
+    }
