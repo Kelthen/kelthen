@@ -124,36 +124,203 @@
     </div>
 
     <div class="hero-visual">
-      <div class="hero-mascot-glow" aria-hidden="true"></div>
-      <div class="hero-mascot" aria-hidden="true">
-      <svg class="mascot-svg" viewBox="0 0 200 240" role="img" aria-label="Kelthen mascot">
-        <line x1="100" y1="6" x2="100" y2="36" stroke="#3B82F6" stroke-width="3.5" stroke-linecap="round"></line>
-        <circle cx="100" cy="7" r="6" fill="#60A5FA"></circle>
-        <rect x="40" y="168" width="11" height="28" rx="5.5" fill="#0C1220" stroke="#1E40AF" stroke-width="2"></rect>
-        <rect x="149" y="168" width="11" height="28" rx="5.5" fill="#0C1220" stroke="#1E40AF" stroke-width="2"></rect>
-        <rect x="38" y="36" width="124" height="108" rx="30" fill="#0C1220" stroke="#3B82F6" stroke-width="3"></rect>
-        <rect x="54" y="58" width="92" height="60" rx="20" fill="rgba(59,130,246,0.07)" stroke="rgba(59,130,246,0.22)" stroke-width="1.5"></rect>
-        <g class="eye">
-          <circle cx="80" cy="86" r="15" fill="#EAF2FF"></circle>
-          <g class="pupil" data-cx="80" data-cy="86">
-            <circle cx="80" cy="86" r="7" fill="#0C1220"></circle>
-            <circle cx="83" cy="83" r="2.2" fill="#60A5FA"></circle>
-          </g>
-        </g>
-        <g class="eye">
-          <circle cx="120" cy="86" r="15" fill="#EAF2FF"></circle>
-          <g class="pupil" data-cx="120" data-cy="86">
-            <circle cx="120" cy="86" r="7" fill="#0C1220"></circle>
-            <circle cx="123" cy="83" r="2.2" fill="#60A5FA"></circle>
-          </g>
-        </g>
-        <path class="smile-normal" d="M80 120 Q100 133 120 120" stroke="#3B82F6" stroke-width="3.5" fill="none" stroke-linecap="round"></path>
-        <path class="smile-happy" d="M76 115 Q100 152 124 115 Q100 127 76 115 Z" fill="#60A5FA"></path>
-        <rect x="54" y="156" width="92" height="72" rx="20" fill="#0C1220" stroke="#1E40AF" stroke-width="2.5"></rect>
-        <path d="M84 168 V216 M84 192 L116 168 M84 192 L116 216" stroke="#3B82F6" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
-      </svg>
-      <div class="mascot-hype">On y va&nbsp;! <span aria-hidden="true">🚀</span></div>
+<div data-kbot-scene class="kb-root" style="position:relative;width:100%;max-width:680px;aspect-ratio:680/700;margin:0 auto;font-family:'Syne',system-ui,sans-serif;color:#14181F;user-select:none;">
+
+  <!-- backdrop arch -->
+  <div style="position:absolute;left:7%;right:7%;top:0;bottom:5%;background:radial-gradient(ellipse at 62% 32%, rgba(59,130,246,0.10), transparent 62%), linear-gradient(#FFFFFF,#F4EFE8);border:1px solid rgba(59,130,246,0.12);border-radius:200px 200px 26px 26px;overflow:hidden;">
+    <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(59,130,246,0.09) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,0.09) 1px,transparent 1px);background-size:46px 46px;-webkit-mask-image:radial-gradient(ellipse at 55% 42%,#000 30%,transparent 72%);mask-image:radial-gradient(ellipse at 55% 42%,#000 30%,transparent 72%);"></div>
+  </div>
+
+  <!-- mascot glow -->
+  <div class="kb-anim" style="position:absolute;right:5%;top:20%;width:44%;height:44%;background:radial-gradient(circle,rgba(59,130,246,0.28),transparent 62%);filter:blur(20px);animation:kb-glowPulse 5s ease-in-out infinite;"></div>
+
+  <!-- ===== n8n automation card (top-left, generic identity) ===== -->
+  <div class="kb-parallax" data-depth="1.7" style="position:absolute;left:1%;top:20%;width:140px;">
+    <div class="kb-anim kb-card" style="--rot:-3deg;animation:kb-popIn .7s ease 1.35s both, kb-floatY 6.8s ease-in-out 2.1s infinite;">
+      <div style="background:#FFFFFF;border:1px solid rgba(59,130,246,0.28);border-radius:13px;padding:13px 14px;box-shadow:0 16px 40px rgba(20,24,31,0.14);">
+        <div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:0.14em;text-transform:uppercase;color:#3B82F6;margin-bottom:11px;">Automation · n8n</div>
+        <svg viewBox="0 0 110 44" style="width:100%;height:auto;overflow:visible;">
+          <path d="M18 22 H50 M60 22 H92" stroke="#3B82F6" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 4" class="kb-anim" style="animation:kb-flowDash 1.1s linear infinite;"></path>
+          <rect x="6" y="12" width="20" height="20" rx="6" fill="#0C1220" stroke="#3B82F6" stroke-width="2"></rect>
+          <rect x="45" y="10" width="22" height="24" rx="6" fill="rgba(59,130,246,0.14)" stroke="#60A5FA" stroke-width="2"></rect>
+          <rect x="86" y="12" width="20" height="20" rx="6" fill="#0C1220" stroke="#3B82F6" stroke-width="2"></rect>
+          <circle cx="56" cy="22" r="3.5" fill="#60A5FA"></circle>
+        </svg>
       </div>
+    </div>
+  </div>
+
+  <!-- ===== message trail: the person's messages rising to the bot ("...") ===== -->
+  <div class="kb-parallax" data-depth="1.3" style="position:absolute;left:30%;top:44%;width:66px;">
+    <div class="kb-anim" style="animation:kb-rise 3.4s ease-in-out .4s infinite;">
+      <div style="background:#FFFFFF;border:1px solid rgba(59,130,246,0.28);border-radius:13px 13px 13px 4px;padding:9px 12px;box-shadow:0 10px 26px rgba(20,24,31,0.12);display:flex;gap:5px;justify-content:center;">
+        <span class="kb-anim" style="width:7px;height:7px;border-radius:50%;background:#3B82F6;animation:kb-typing 1.3s ease-in-out infinite;"></span>
+        <span class="kb-anim" style="width:7px;height:7px;border-radius:50%;background:#3B82F6;animation:kb-typing 1.3s ease-in-out .18s infinite;"></span>
+        <span class="kb-anim" style="width:7px;height:7px;border-radius:50%;background:#3B82F6;animation:kb-typing 1.3s ease-in-out .36s infinite;"></span>
+      </div>
+    </div>
+  </div>
+  <div class="kb-parallax" data-depth="1.5" style="position:absolute;left:39%;top:35%;width:52px;">
+    <div class="kb-anim" style="animation:kb-rise 3.4s ease-in-out 1.7s infinite;">
+      <div style="background:#FFFFFF;border:1px solid rgba(59,130,246,0.24);border-radius:11px 11px 11px 3px;padding:7px 9px;box-shadow:0 8px 20px rgba(20,24,31,0.12);display:flex;gap:4px;justify-content:center;">
+        <span style="width:5px;height:5px;border-radius:50%;background:rgba(59,130,246,0.7);"></span>
+        <span style="width:5px;height:5px;border-radius:50%;background:rgba(59,130,246,0.7);"></span>
+        <span style="width:5px;height:5px;border-radius:50%;background:rgba(59,130,246,0.7);"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== chat card — held by bot LEFT hand ===== -->
+  <div class="kb-parallax" data-depth="1.5" style="position:absolute;left:27%;top:16%;width:162px;">
+    <div class="kb-anim kb-card" style="--rot:-4deg;animation:kb-popIn .7s ease .55s both, kb-floatY 7s ease-in-out 1.4s infinite;">
+      <div style="background:#FFFFFF;border:1px solid rgba(59,130,246,0.3);border-radius:14px 14px 14px 4px;padding:13px 14px;box-shadow:0 18px 44px rgba(20,24,31,0.16), 0 0 0 4px rgba(59,130,246,0.05);">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:11px;">
+          <div style="width:20px;height:20px;border-radius:6px;background:linear-gradient(135deg,#3B82F6,#1E40AF);display:flex;align-items:center;justify-content:center;">
+            <svg viewBox="0 0 24 24" style="width:12px;height:12px;"><rect x="5" y="7" width="14" height="11" rx="3" fill="none" stroke="#EAF2FF" stroke-width="2"></rect><circle cx="9.5" cy="12.5" r="1.4" fill="#EAF2FF"></circle><circle cx="14.5" cy="12.5" r="1.4" fill="#EAF2FF"></circle><line x1="12" y1="4" x2="12" y2="7" stroke="#EAF2FF" stroke-width="2"></line></svg>
+          </div>
+          <span style="font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:0.1em;color:rgba(20,24,31,0.55);">Assistant · en ligne</span>
+          <span class="kb-anim" style="width:6px;height:6px;border-radius:50%;background:#3B82F6;margin-left:auto;animation:kb-glowPulse 1.8s ease-in-out infinite;"></span>
+        </div>
+        <div style="display:flex;justify-content:flex-end;margin-bottom:6px;">
+          <div style="background:#3B82F6;border-radius:11px 11px 3px 11px;padding:7px 11px;min-width:56px;">
+            <div style="height:5px;width:44px;border-radius:3px;background:rgba(8,10,15,0.55);"></div>
+          </div>
+        </div>
+        <div style="display:flex;">
+          <div style="background:rgba(59,130,246,0.12);border:1px solid rgba(59,130,246,0.2);border-radius:11px 11px 11px 3px;padding:8px 11px;flex:1;">
+            <div style="height:5px;width:88%;border-radius:3px;background:rgba(20,24,31,0.16);margin-bottom:5px;"></div>
+            <div style="height:5px;width:60%;border-radius:3px;background:rgba(20,24,31,0.16);"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== email / notification card — held by bot RIGHT hand ===== -->
+  <div class="kb-parallax" data-depth="1.9" style="position:absolute;left:74%;top:17%;width:140px;">
+    <div class="kb-anim kb-card" style="--rot:5deg;animation:kb-popIn .7s ease .85s both, kb-floatY 6.6s ease-in-out 1.6s infinite;">
+      <div style="position:relative;background:#FFFFFF;border:1px solid rgba(59,130,246,0.3);border-radius:13px 13px 4px 13px;padding:15px 15px 14px;box-shadow:0 18px 44px rgba(20,24,31,0.16), 0 0 0 4px rgba(59,130,246,0.05);">
+        <div style="position:absolute;top:-9px;right:-9px;min-width:22px;height:22px;padding:0 6px;border-radius:11px;background:#3B82F6;color:#080A0F;font-weight:700;font-size:11px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(59,130,246,0.5);">1</div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="width:36px;height:27px;border:2px solid #3B82F6;border-radius:5px;position:relative;flex-shrink:0;overflow:hidden;">
+            <div style="position:absolute;left:-2px;right:-2px;top:-1px;height:15px;border-top:2px solid #3B82F6;transform:rotate(0);"></div>
+            <svg viewBox="0 0 36 27" style="position:absolute;inset:0;width:100%;height:100%;"><path d="M2 4 L18 15 L34 4" fill="none" stroke="#3B82F6" stroke-width="2"></path></svg>
+          </div>
+          <div>
+            <div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:0.14em;text-transform:uppercase;color:#3B82F6;">Notification</div>
+            <div style="font-size:12px;font-weight:600;margin-top:2px;">Nouveau message</div>
+          </div>
+        </div>
+        <div style="margin-top:11px;height:5px;width:92%;border-radius:3px;background:rgba(20,24,31,0.12);"></div>
+        <div style="margin-top:5px;height:5px;width:60%;border-radius:3px;background:rgba(20,24,31,0.12);"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ PERSON (left, seated, sending messages) ============ -->
+  <div class="kb-parallax" data-depth="0.4" style="position:absolute;left:1%;bottom:2%;width:45%;">
+    <svg viewBox="0 0 300 400" style="width:100%;height:auto;overflow:visible;" aria-hidden="true">
+      <!-- chair (person sits on it) -->
+      <path d="M58 244 L214 244 L208 260 L64 260 Z" fill="#0C1220" stroke="#3B82F6" stroke-width="2.5" stroke-linejoin="round"></path>
+      <g stroke="#3B82F6" fill="none" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M66 250 L57 152 Q 56 141 68 141 L104 141"></path>
+        <path d="M72 258 L58 356"></path>
+        <path d="M204 258 L220 356"></path>
+      </g>
+      <!-- far leg -->
+      <path d="M112 216 C 162 224 206 228 226 244 C 246 268 254 306 260 340 L236 344 C 228 308 220 274 206 258 C 170 250 132 246 108 240 Z" fill="#D6C9B7" stroke="#0A0C12" stroke-width="2.5" stroke-linejoin="round"></path>
+      <!-- far shoe -->
+      <path d="M234 336 q -8 16 8 20 q 24 5 30 -6 q 3 -11 -14 -15 Z" fill="#0C1220" stroke="#0C1220" stroke-width="2"></path>
+      <!-- near leg (crossed over) -->
+      <path d="M98 214 C 150 224 194 240 212 260 C 218 292 200 328 182 352 L158 346 C 174 318 188 288 180 270 C 152 260 118 250 94 244 Z" fill="#E8DCCB" stroke="#0A0C12" stroke-width="2.5" stroke-linejoin="round"></path>
+      <!-- near shoe -->
+      <path d="M156 344 q -10 16 6 21 q 24 5 30 -6 q 3 -11 -13 -16 Z" fill="#0C1220" stroke="#0C1220" stroke-width="2"></path>
+      <!-- torso: blue tee -->
+      <path d="M92 132 C 94 120 152 116 158 132 L170 158 L152 222 L96 222 L82 158 Z" fill="#3B82F6" stroke="#0C1220" stroke-width="3" stroke-linejoin="round"></path>
+      <!-- far arm (holds tablet) -->
+      <path d="M100 148 C 106 176 124 192 146 200" fill="none" stroke="#0C1220" stroke-width="16" stroke-linecap="round"></path>
+      <g transform="rotate(-15 170 192)">
+        <rect x="144" y="170" width="56" height="44" rx="6" fill="#0C1220" stroke="#3B82F6" stroke-width="3"></rect>
+        <rect x="152" y="178" width="40" height="28" rx="3" fill="rgba(59,130,246,0.16)" stroke="rgba(59,130,246,0.3)" stroke-width="1"></rect>
+        <circle cx="172" cy="192" r="4" fill="#60A5FA"></circle>
+      </g>
+      <!-- neck -->
+      <path d="M108 108 L108 132 L130 132 L130 108 Z" fill="#F1D7C4" stroke="#0A0C12" stroke-width="2"></path>
+      <!-- head -->
+      <circle cx="118" cy="82" r="32" fill="#F1D7C4" stroke="#0A0C12" stroke-width="2.5"></circle>
+      <!-- hair -->
+      <path d="M85 80 C 83 44 153 44 151 82 C 151 60 139 51 118 51 C 97 51 85 60 85 80 Z" fill="#0C1220"></path>
+      <!-- face hint -->
+      <circle cx="132" cy="84" r="2.4" fill="#0A0C12"></circle>
+      <path d="M138 92 q 6 5 12 2" fill="none" stroke="#0A0C12" stroke-width="2" stroke-linecap="round"></path>
+      <!-- raised arm (gestures up to the bot) -->
+      <path d="M150 138 C 172 130 188 128 198 130" fill="none" stroke="#3B82F6" stroke-width="17" stroke-linecap="round"></path>
+      <path d="M190 130 C 206 124 214 112 216 100" fill="none" stroke="#0C1220" stroke-width="15" stroke-linecap="round"></path>
+      <circle cx="217" cy="96" r="10" fill="#F1D7C4" stroke="#0A0C12" stroke-width="2"></circle>
+      <path d="M212 90 L214 82 M219 89 L223 82 M224 92 L229 87" stroke="#0C1220" stroke-width="4" stroke-linecap="round"></path>
+    </svg>
+  </div>
+
+  <!-- ============ GROWTH — stock-style up arrow (business grows) ============ -->
+  <div class="kb-parallax" data-depth="1.6" style="position:absolute;right:2%;bottom:13%;width:138px;">
+    <div class="kb-anim kb-card" style="--rot:3deg;animation:kb-popIn .7s ease 1.9s both, kb-floatY 7.2s ease-in-out 2.7s infinite;">
+      <div style="background:#FFFFFF;border:1px solid rgba(59,130,246,0.3);border-radius:13px;padding:12px 13px;box-shadow:0 16px 40px rgba(20,24,31,0.14);">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:9px;">
+          <span style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(20,24,31,0.5);">Croissance</span>
+          <span style="font-family:'Syne',sans-serif;font-weight:700;font-size:12px;color:#60A5FA;">+150%</span>
+        </div>
+        <svg viewBox="0 0 120 56" style="width:100%;height:auto;overflow:visible;">
+          <line x1="6" y1="52" x2="114" y2="52" stroke="rgba(20,24,31,0.12)" stroke-width="1.5"></line>
+          <rect x="8" y="40" width="15" height="12" rx="2" fill="rgba(59,130,246,0.22)"></rect>
+          <rect x="34" y="32" width="15" height="20" rx="2" fill="rgba(59,130,246,0.3)"></rect>
+          <rect x="60" y="24" width="15" height="28" rx="2" fill="rgba(59,130,246,0.4)"></rect>
+          <rect x="86" y="12" width="15" height="40" rx="2" fill="rgba(59,130,246,0.55)"></rect>
+          <path d="M10 46 L40 36 L66 30 L98 12" fill="none" stroke="#60A5FA" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+          <path d="M84 10 L100 8 L98 26" fill="none" stroke="#60A5FA" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ K-BOT MASCOT (right) — arms raised, HOLDING the cards ============ -->
+  <div data-kbot-mascot class="kb-anim kb-mascot" style="position:absolute;right:20%;top:20%;width:33%;animation:kb-mascotFloat 6s ease-in-out infinite;">
+    <svg class="kb-mascot-svg" viewBox="0 0 200 240" style="width:100%;height:auto;overflow:visible;" role="img" aria-label="Kelthen K-bot mascot">
+      <line x1="100" y1="6" x2="100" y2="34" stroke="#3B82F6" stroke-width="3.5" stroke-linecap="round"></line>
+      <circle cx="100" cy="7" r="6" fill="#60A5FA"></circle>
+      <!-- raised arms reaching up to the two cards -->
+      <path d="M58 158 C 32 142 18 102 18 70" fill="none" stroke="#1E40AF" stroke-width="11" stroke-linecap="round"></path>
+      <path d="M142 158 C 168 142 182 102 182 70" fill="none" stroke="#1E40AF" stroke-width="11" stroke-linecap="round"></path>
+      <!-- LEFT hand gripping the chat card corner -->
+      <g>
+        <path d="M8 60 Q 6 80 20 82 Q 33 82 31 64" fill="#0C1220" stroke="#3B82F6" stroke-width="2.5" stroke-linejoin="round"></path>
+        <path d="M27 62 Q 35 55 36 68" fill="none" stroke="#3B82F6" stroke-width="5" stroke-linecap="round"></path>
+        <circle cx="19" cy="72" r="3" fill="#60A5FA"></circle>
+      </g>
+      <!-- RIGHT hand gripping the email card corner -->
+      <g>
+        <path d="M192 60 Q 194 80 180 82 Q 167 82 169 64" fill="#0C1220" stroke="#3B82F6" stroke-width="2.5" stroke-linejoin="round"></path>
+        <path d="M173 62 Q 165 55 164 68" fill="none" stroke="#3B82F6" stroke-width="5" stroke-linecap="round"></path>
+        <circle cx="181" cy="72" r="3" fill="#60A5FA"></circle>
+      </g>
+      <!-- head -->
+      <rect x="38" y="44" width="124" height="108" rx="30" fill="#0C1220" stroke="#3B82F6" stroke-width="3"></rect>
+      <rect x="54" y="66" width="92" height="60" rx="20" fill="rgba(59,130,246,0.07)" stroke="rgba(59,130,246,0.22)" stroke-width="1.5"></rect>
+      <g class="kb-anim kb-eye" style="transform-box:fill-box;transform-origin:center;animation:kb-blink 5.2s ease-in-out infinite;">
+        <circle cx="80" cy="94" r="15" fill="#EAF2FF"></circle>
+        <g class="kb-pupil" data-cx="80" data-cy="94"><circle cx="80" cy="94" r="7" fill="#0C1220"></circle><circle cx="83" cy="91" r="2.2" fill="#60A5FA"></circle></g>
+      </g>
+      <g class="kb-anim kb-eye" style="transform-box:fill-box;transform-origin:center;animation:kb-blink 5.2s ease-in-out infinite;">
+        <circle cx="120" cy="94" r="15" fill="#EAF2FF"></circle>
+        <g class="kb-pupil" data-cx="120" data-cy="94"><circle cx="120" cy="94" r="7" fill="#0C1220"></circle><circle cx="123" cy="91" r="2.2" fill="#60A5FA"></circle></g>
+      </g>
+      <path class="kb-smile-normal" d="M80 128 Q100 141 120 128" stroke="#3B82F6" stroke-width="3.5" fill="none" stroke-linecap="round"></path>
+      <path class="kb-smile-happy" d="M76 123 Q100 160 124 123 Q100 135 76 123 Z" fill="#60A5FA" style="display:none;"></path>
+      <rect x="54" y="164" width="92" height="70" rx="20" fill="#0C1220" stroke="#1E40AF" stroke-width="2.5"></rect>
+      <path d="M82 176 L94 176 L94 193 L110 176 L126 176 L102 199 L126 222 L110 222 L94 205 L94 222 L82 222 Z" fill="#3B82F6"></path>
+    </svg>
+  </div>
+
+</div>
     </div>
 
     <div class="scroll-indicator" aria-hidden="true">
