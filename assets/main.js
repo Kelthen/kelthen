@@ -817,6 +817,11 @@
       if (fine) window.addEventListener('mousemove', move, { passive: true });
       scene.addEventListener('mouseenter', () => setExcited(true));
       scene.addEventListener('mouseleave', () => setExcited(false));
+
+      [document.getElementById('navCta'), document.getElementById('navMobileCta'), document.querySelector('.hero-actions .btn-primary')].filter(Boolean).forEach((btn) => {
+        btn.addEventListener('mouseenter', () => setExcited(true));
+        btn.addEventListener('mouseleave', () => setExcited(false));
+      });
     })();
 
     // ─── Chat simulation engine (home demo + Cuties modal) ───
