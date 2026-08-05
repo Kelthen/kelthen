@@ -56,7 +56,8 @@
           'val4.title': 'Close to you', 'val4.desc': 'You talk directly to the people building. Your goals become ours, from start to finish.',
           'val5.title': 'Real impact', 'val5.desc': 'We measure success by what changes for you — more customers, less busywork, more loyal clients.',
           'val6.title': 'Here for everyone', 'val6.desc': 'Based in Canada, we support entrepreneurs everywhere — every business deserves the same tools, wherever it is.',
-          'team.label': 'The faces', 'team.title': 'The team<br>behind <em>Kelthen</em>', 'team.role1': 'Co-founder', 'team.role2': 'Co-founder', 'team.role3': 'Marketing & social media', 'team.note': "Real photos of the team are on the way — we're putting faces to the work so you know exactly who you're building with.",
+          'team.label': 'The faces', 'team.title': 'The team<br>behind <em>Kelthen</em>', 'svc.demo': '▶ See the demo', 'demo.eyebrow': 'Live demo',
+          'team.role1': 'Co-founder', 'team.role2': 'Co-founder', 'team.role3': 'Marketing & social media', 'team.note': "Real photos of the team are on the way — we're putting faces to the work so you know exactly who you're building with.",
           'bridge.quote': 'Our mission: give every business the <em>means to succeed</em>.', 'bridge.flags': 'Based in Canada &nbsp;·&nbsp; serving entrepreneurs everywhere &nbsp;·&nbsp; since 2025',
           'aboutcta.title': "Let's build<br><em>together?</em>", 'aboutcta.sub': 'Tell us about your project. We reply within 24 hours — no sales pitch, just a real conversation.', 'aboutcta.cta': 'Start a project',
           'legal.eyebrow': 'Legal', 'legal.updated': 'Last updated · July 2026',
@@ -78,7 +79,8 @@
         'cprefs.title': 'Préférences cookies', 'cprefs.intro': 'Choisissez les cookies que nous pouvons utiliser. Modifiable à tout moment.',
         'cprefs.necessary': 'Strictement nécessaires', 'cprefs.always': 'Toujours actifs', 'cprefs.necessaryDesc': 'Indispensables au fonctionnement du site. Ils ne vous suivent jamais.',
         'cprefs.analytics': 'Analytics — Google Analytics', 'cprefs.analyticsDesc': 'Statistiques anonymes (pages vues, appareil) pour améliorer le site. Google Analytics ne se charge que si activé.',
-        'cprefs.save': 'Enregistrer', 'cprefs.acceptAll': 'Tout accepter'
+        'cprefs.save': 'Enregistrer', 'cprefs.acceptAll': 'Tout accepter',
+        'svc.demo': '▶ Voir la démo'
       });
 
       function apply(lang) {
@@ -553,7 +555,7 @@
       const closeBtn = document.getElementById('pmClose');
       closeBtn.addEventListener('click', closeProjectModal);
       closeBtn.focus();
-      pmDialog.querySelectorAll('.chat-sim').forEach(playChatSim);
+      pmDialog.querySelectorAll('.chat-sim').forEach((el) => playChatSim(el));
     }
 
     function closeProjectModal() {
@@ -859,13 +861,16 @@
       if (kind === 'btn') return `<div class="cs-btn">${text}</div>`;
       if (kind === 'tap') return `<div class="cs-tap">${text}</div>`;
       if (kind === 'sms') return `<div class="cs-sms">${text}</div>`;
+      if (kind === 'stars') return `<div class="cs-stars">${text || '★★★★★'}</div>`;
+      if (kind === 'card') return `<div class="cs-card">${text}</div>`;
       if (kind === 'photo-out') return `<div class="cs-photo right">💇🏾‍♀️</div>`;
       if (kind === 'photo-in') return `<div class="cs-photo left">💇🏾‍♀️</div>`;
       if (kind === 'out') return `<div class="cs-out">${text}</div>`;
       return `<div class="cs-in">${text}</div>`;
     }
 
-    function playChatSim(root) {
+    function playChatSim(root, script) {
+      script = script || CHAT_SIM_SCRIPT;
       if (root.dataset.simRunning) return;
       root.dataset.simRunning = '1';
       const body = root.querySelector('.chat-sim-body');
@@ -879,11 +884,11 @@
       const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       const wait = (ms) => new Promise((r) => setTimeout(r, reduce ? 0 : ms));
       const rightSide = (k) => k === 'out' || k === 'photo-out' || k === 'tap';
-      const noTyping = (k) => k === 'note' || k === 'btn' || k === 'tap';
+      const noTyping = (k) => k === 'note' || k === 'btn' || k === 'tap' || k === 'stars' || k === 'card';
 
       (async function loop() {
         do {
-          for (const phase of CHAT_SIM_SCRIPT) {
+          for (const phase of script) {
             if (!root.isConnected) { root.dataset.simRunning = ''; return; }
             stepEl.textContent = phase.step;
             titleEl.textContent = phase.title;
@@ -921,6 +926,159 @@
 
     const autoSimEl = document.getElementById('autoSim');
     if (autoSimEl) { autoSimEl.innerHTML = mkChatSim(); initChatSims(autoSimEl); }
+
+    // ─── Service demos: a clear animated demo per service card ───
+    const SERVICE_DEMOS = {
+      site: {
+        fr: [
+          { step: '1 / 3', title: 'Le visiteur arrive', explain: 'Un site rapide qui inspire confiance dès la 1ʳᵉ seconde.', head: ['🌐', 'Votre site', 'en ligne · rapide', '#527da3'],
+            msgs: [ ['card', '<b>Salon Élégance</b><br>Coiffure &amp; beauté · Ottawa<br><span style="color:#3B82F6">★★★★★ 4,9</span>'], ['note', 'Chargé en 0,8 s ⚡'], ['in', 'Bienvenue ! Découvrez nos prestations 💇'] ] },
+          { step: '2 / 3', title: 'Il est convaincu', explain: 'Prestations claires, prix affichés, avis visibles.', head: ['✨', 'Votre site', 'prestations', '#527da3'],
+            msgs: [ ['card', '💇 Coupe &amp; brushing — 45 $<br>💅 Manucure — 35 $<br>🎨 Coloration — dès 80 $'], ['out', "Ça m'intéresse !"] ] },
+          { step: '3 / 3', title: 'Il réserve', explain: 'Un bouton, et le visiteur devient client.', head: ['📅', 'Votre site', 'réservation', '#2D6A4F'],
+            msgs: [ ['tap', '📅 Prendre rendez-vous'], ['sms', 'RDV demandé ✅ On vous confirme tout de suite.'] ] }
+        ],
+        en: [
+          { step: '1 / 3', title: 'A visitor lands', explain: 'A fast site that earns trust in the first second.', head: ['🌐', 'Your site', 'online · fast', '#527da3'],
+            msgs: [ ['card', '<b>Élégance Salon</b><br>Hair &amp; beauty · Ottawa<br><span style="color:#3B82F6">★★★★★ 4.9</span>'], ['note', 'Loaded in 0.8 s ⚡'], ['in', 'Welcome! Explore our services 💇'] ] },
+          { step: '2 / 3', title: 'They are convinced', explain: 'Clear services, upfront prices, visible reviews.', head: ['✨', 'Your site', 'services', '#527da3'],
+            msgs: [ ['card', '💇 Cut &amp; blow-dry — $45<br>💅 Manicure — $35<br>🎨 Color — from $80'], ['out', "I'm interested!"] ] },
+          { step: '3 / 3', title: 'They book', explain: 'One button turns a visitor into a client.', head: ['📅', 'Your site', 'booking', '#2D6A4F'],
+            msgs: [ ['tap', '📅 Book an appointment'], ['sms', 'Request received ✅ We confirm right away.'] ] }
+        ]
+      },
+      booking: {
+        fr: [
+          { step: '1 / 2', title: '23:47 — hors ouverture', explain: 'Le client réserve seul, même en pleine nuit.', head: ['🌙', 'Réservation', '24/7 · en ligne', '#527da3'],
+            msgs: [ ['in', 'Bonsoir 👋 Que puis-je réserver pour vous ?'], ['out', 'Une coupe pour demain 17 h'], ['in', 'Créneau 17:00 dispo ✅ Un acompte de 10 $ réserve votre place.'] ] },
+          { step: '2 / 2', title: 'Payé &amp; confirmé', explain: 'Acompte réglé, agenda mis à jour tout seul.', head: ['💳', 'Réservation', 'paiement · Stripe', '#2D6A4F'],
+            msgs: [ ['tap', '💳 Payer 10 $'], ['sms', 'Réservé ✨ Coupe — demain 17:00. Acompte reçu. À demain !'], ['note', '— agenda synchronisé automatiquement —'] ] }
+        ],
+        en: [
+          { step: '1 / 2', title: '11:47 pm — after hours', explain: 'The client books alone, even in the middle of the night.', head: ['🌙', 'Booking', '24/7 · online', '#527da3'],
+            msgs: [ ['in', 'Good evening 👋 What can I book for you?'], ['out', 'A haircut tomorrow at 5 pm'], ['in', '5:00 pm is open ✅ A $10 deposit holds your spot.'] ] },
+          { step: '2 / 2', title: 'Paid &amp; confirmed', explain: 'Deposit paid, calendar updates by itself.', head: ['💳', 'Booking', 'payment · Stripe', '#2D6A4F'],
+            msgs: [ ['tap', '💳 Pay $10'], ['sms', 'Booked ✨ Haircut — tomorrow 5:00 pm. Deposit received. See you!'], ['note', '— calendar synced automatically —'] ] }
+        ]
+      },
+      ai: {
+        fr: [
+          { step: '1 / 2', title: 'Plusieurs canaux', explain: 'Instagram, WhatsApp, site — un seul assistant répond.', head: ['🤖', 'Assistant IA', 'multicanal · en ligne', '#C6447A'],
+            msgs: [ ['in', "Bonjour 👋 Je suis l'assistant de la Maison. En quoi puis-je aider ?"], ['out', 'Vous faites les ongles en gel ?'], ['in', 'Oui ✅ Pose gel : 40 $, 1 h. Un créneau cette semaine ?'], ['out', 'Jeudi possible ?'], ['in', 'Jeudi 15:00 ou 18:00 dispo 🗓️'] ] },
+          { step: '2 / 2', title: 'Tri intelligent', explain: "L'IA distingue question, RDV et urgence.", head: ['🧠', 'Assistant IA', 'tri automatique', '#527da3'],
+            msgs: [ ['card', '🗂️ <b>Demande triée</b><br>👤 Sarah · Instagram<br>💅 Pose gel<br>🗓️ jeudi 15:00'], ['note', 'Rangé dans « RDV à confirmer »'] ] }
+        ],
+        en: [
+          { step: '1 / 2', title: 'Several channels', explain: 'Instagram, WhatsApp, website — one assistant answers all.', head: ['🤖', 'AI assistant', 'multichannel · online', '#C6447A'],
+            msgs: [ ['in', "Hi 👋 I'm the studio's assistant. How can I help?"], ['out', 'Do you do gel nails?'], ['in', 'Yes ✅ Gel set: $40, 1 h. A slot this week?'], ['out', 'Is Thursday possible?'], ['in', 'Thursday 3:00 or 6:00 pm open 🗓️'] ] },
+          { step: '2 / 2', title: 'Smart triage', explain: 'The AI tells questions, bookings and emergencies apart.', head: ['🧠', 'AI assistant', 'auto-sorting', '#527da3'],
+            msgs: [ ['card', '🗂️ <b>Request sorted</b><br>👤 Sarah · Instagram<br>💅 Gel set<br>🗓️ Thursday 3:00 pm'], ['note', 'Filed under "To confirm"'] ] }
+        ]
+      },
+      reminders: {
+        fr: [
+          { step: '1 / 3', title: 'À la réservation', explain: 'Confirmation immédiate par SMS.', head: ['💬', 'Rappels', 'SMS · Twilio', '#2D6A4F'],
+            msgs: [ ['sms', 'RDV <b>CONFIRMÉ</b> ✨ Coupe &amp; couleur — jeudi 2 août 14:00. 12 rue Principale.'] ] },
+          { step: '2 / 3', title: 'La veille', explain: "Rappel automatique 24 h avant — fini les oublis.", head: ['⏰', 'Rappels', 'automatique', '#2D6A4F'],
+            msgs: [ ['note', '— 24 h avant · rappel automatique —'], ['sms', "⏰ Rappel : votre RDV c'est <b>demain à 14:00</b>. Un empêchement ? Répondez à ce message."], ['out', 'Parfait, je serai là ✅'] ] },
+          { step: '3 / 3', title: 'Aussi par e-mail', explain: 'Le même rappel, version e-mail.', head: ['📧', 'Rappels', 'e-mail', '#527da3'],
+            msgs: [ ['card', '📧 <b>Rappel de rendez-vous</b><br>Jeudi 2 août · 14:00<br>Coupe &amp; couleur<br><span style="color:#2D6A4F">Ajouter à mon agenda ▸</span>'], ['note', "Jusqu'à 80 % de RDV manqués en moins 📉"] ] }
+        ],
+        en: [
+          { step: '1 / 3', title: 'At booking', explain: 'Instant SMS confirmation.', head: ['💬', 'Reminders', 'SMS · Twilio', '#2D6A4F'],
+            msgs: [ ['sms', 'Appointment <b>CONFIRMED</b> ✨ Cut &amp; color — Thu Aug 2, 2:00 pm. 12 Main St.'] ] },
+          { step: '2 / 3', title: 'The day before', explain: 'Automatic reminder 24 h before — no more no-shows.', head: ['⏰', 'Reminders', 'automatic', '#2D6A4F'],
+            msgs: [ ['note', '— 24 h before · automatic reminder —'], ['sms', "⏰ Reminder: your appointment is <b>tomorrow at 2:00 pm</b>. Can't make it? Just reply."], ['out', "Perfect, I'll be there ✅"] ] },
+          { step: '3 / 3', title: 'By email too', explain: 'The same reminder, email version.', head: ['📧', 'Reminders', 'email', '#527da3'],
+            msgs: [ ['card', '📧 <b>Appointment reminder</b><br>Thu Aug 2 · 2:00 pm<br>Cut &amp; color<br><span style="color:#2D6A4F">Add to my calendar ▸</span>'], ['note', 'Up to 80% fewer missed appointments 📉'] ] }
+        ]
+      },
+      google: {
+        fr: [
+          { step: '1 / 2', title: 'Le client cherche', explain: '« coiffure afro Ottawa » sur Google.', head: ['🔍', 'Google', 'recherche', '#4285F4'],
+            msgs: [ ['card', '🔍 <b>coiffure afro ottawa</b>'], ['card', '📍 <b>Salon Élégance</b> — Ottawa<br><span style="color:#F5A623">★★★★★</span> 4,9 (127 avis)<br><span style="color:#1a73e8">Ouvert · réserver en ligne</span>'] ] },
+          { step: '2 / 2', title: 'Sur la carte aussi', explain: 'Fiche Google Maps optimisée = des clients qui viennent.', head: ['🗺️', 'Google Maps', 'à proximité', '#34A853'],
+            msgs: [ ['card', '🗺️ <b>Salon Élégance</b><br>📍 12 rue Principale, Ottawa<br>📞 Appeler · 🧭 Itinéraire · 🌐 Site'], ['out', "Trop bien, c'est juste à côté 🚶"], ['tap', '🧭 Itinéraire'] ] }
+        ],
+        en: [
+          { step: '1 / 2', title: 'The client searches', explain: '"afro hair Ottawa" on Google.', head: ['🔍', 'Google', 'search', '#4285F4'],
+            msgs: [ ['card', '🔍 <b>afro hair ottawa</b>'], ['card', '📍 <b>Élégance Salon</b> — Ottawa<br><span style="color:#F5A623">★★★★★</span> 4.9 (127 reviews)<br><span style="color:#1a73e8">Open · book online</span>'] ] },
+          { step: '2 / 2', title: 'On the map too', explain: 'An optimized Google Maps listing brings walk-ins.', head: ['🗺️', 'Google Maps', 'nearby', '#34A853'],
+            msgs: [ ['card', '🗺️ <b>Élégance Salon</b><br>📍 12 Main St, Ottawa<br>📞 Call · 🧭 Directions · 🌐 Site'], ['out', "Love it, it's right next door 🚶"], ['tap', '🧭 Directions'] ] }
+        ]
+      },
+      reviews: {
+        fr: [
+          { step: '1 / 3', title: 'Après le RDV', explain: "Demande d'avis automatique, au bon moment.", head: ['💬', 'Avis', 'SMS · après RDV', '#2D6A4F'],
+            msgs: [ ['sms', "Merci de votre visite 💛 Comment s'est passé votre rendez-vous ?"], ['tap', '⭐ Laisser un avis'] ] },
+          { step: '2 / 3', title: '5 étoiles', explain: 'Le client note en un tap → publié sur Google.', head: ['⭐', 'Avis Google', 'publication', '#F5A623'],
+            msgs: [ ['stars', '★★★★★'], ['out', 'Service top, je reviens ! 🙌'], ['card', '✅ <b>Avis publié sur Google</b><br><span style="color:#F5A623">★★★★★</span> « Service top, je reviens ! »'] ] },
+          { step: '3 / 3', title: 'Il revient', explain: 'Programme de fidélité automatique.', head: ['🎁', 'Fidélité', 'automatique', '#C6447A'],
+            msgs: [ ['note', '— 6 semaines plus tard —'], ['sms', '🎁 Ça fait un moment ! -15 % sur votre prochain RDV cette semaine 💛'], ['out', 'Je réserve tout de suite !'] ] }
+        ],
+        en: [
+          { step: '1 / 3', title: 'After the visit', explain: 'Automatic review request, at the right moment.', head: ['💬', 'Reviews', 'SMS · post-visit', '#2D6A4F'],
+            msgs: [ ['sms', 'Thanks for your visit 💛 How was your appointment?'], ['tap', '⭐ Leave a review'] ] },
+          { step: '2 / 3', title: '5 stars', explain: 'The client rates in one tap → posted on Google.', head: ['⭐', 'Google review', 'publishing', '#F5A623'],
+            msgs: [ ['stars', '★★★★★'], ['out', "Amazing service, I'll be back! 🙌"], ['card', '✅ <b>Review posted on Google</b><br><span style="color:#F5A623">★★★★★</span> "Amazing service, I\'ll be back!"'] ] },
+          { step: '3 / 3', title: 'They come back', explain: 'Automatic loyalty program.', head: ['🎁', 'Loyalty', 'automatic', '#C6447A'],
+            msgs: [ ['note', '— 6 weeks later —'], ['sms', "🎁 It's been a while! -15% on your next appointment this week 💛"], ['out', 'Booking right now!'] ] }
+        ]
+      }
+    };
+
+    (function serviceDemos() {
+      const cards = document.querySelectorAll('.service-card[data-demo]');
+      const modal = document.getElementById('demoModal');
+      const stage = document.getElementById('demoStage');
+      const nameEl = document.getElementById('demoTitle');
+      const closeBtn = document.getElementById('demoClose');
+      if (!cards.length || !modal || !stage || !closeBtn) return;
+      let lastFocus = null;
+
+      function open(demoId, label) {
+        const demo = SERVICE_DEMOS[demoId];
+        if (!demo) return;
+        const lang = (window.__i18nLang && window.__i18nLang()) || 'fr';
+        const script = demo[lang] || demo.fr;
+        if (nameEl) nameEl.textContent = label || '';
+        stage.innerHTML = mkChatSim();
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        lastFocus = document.activeElement;
+        closeBtn.focus();
+        const sim = stage.querySelector('.chat-sim');
+        if (sim) playChatSim(sim, script);
+      }
+      function close() {
+        modal.classList.remove('open');
+        document.body.style.overflow = '';
+        stage.innerHTML = ''; // detaches the sim node → the engine loop stops on its own
+        if (lastFocus && lastFocus.focus) lastFocus.focus();
+      }
+
+      cards.forEach((card) => {
+        const id = card.getAttribute('data-demo');
+        const labelOf = () => { const n = card.querySelector('.service-name'); return n ? n.textContent : ''; };
+        // JS-injected "see the demo" hint (translated via the i18n dictionary)
+        if (!card.querySelector('.service-demo-hint')) {
+          const hint = document.createElement('span');
+          hint.className = 'service-demo-hint';
+          hint.setAttribute('data-i18n', 'svc.demo');
+          hint.textContent = '▶ Voir la démo';
+          card.appendChild(hint);
+        }
+        card.addEventListener('click', () => open(id, labelOf()));
+        card.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(id, labelOf()); }
+        });
+      });
+      if (window.__i18nApply) window.__i18nApply();
+
+      closeBtn.addEventListener('click', close);
+      modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.classList.contains('open')) close(); });
+    })();
 
     // ─── Terms of Use modal ───
     (function setupTerms() {
