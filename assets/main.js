@@ -931,98 +931,94 @@
     const SERVICE_DEMOS = {
       site: {
         fr: [
-          { step: '1 / 3', title: 'Le visiteur arrive', explain: 'Un site rapide qui inspire confiance dès la 1ʳᵉ seconde.', head: ['🌐', 'Votre site', 'en ligne · rapide', '#527da3'],
-            msgs: [ ['card', '<b>Salon Élégance</b><br>Coiffure &amp; beauté · Ottawa<br><span style="color:#3B82F6">★★★★★ 4,9</span>'], ['note', 'Chargé en 0,8 s ⚡'], ['in', 'Bienvenue ! Découvrez nos prestations 💇'] ] },
-          { step: '2 / 3', title: 'Il est convaincu', explain: 'Prestations claires, prix affichés, avis visibles.', head: ['✨', 'Votre site', 'prestations', '#527da3'],
-            msgs: [ ['card', '💇 Coupe &amp; brushing — 45 $<br>💅 Manucure — 35 $<br>🎨 Coloration — dès 80 $'], ['out', "Ça m'intéresse !"] ] },
-          { step: '3 / 3', title: 'Il réserve', explain: 'Un bouton, et le visiteur devient client.', head: ['📅', 'Votre site', 'réservation', '#2D6A4F'],
-            msgs: [ ['tap', '📅 Prendre rendez-vous'], ['sms', 'RDV demandé ✅ On vous confirme tout de suite.'] ] }
+          { step: '1 / 2', title: 'Notre propre site en est la preuve', explain: 'Rapide, élégant, pensé pour convertir — comme le vôtre.', head: ['🌐', 'kelthen.com', 'en ligne · Vercel', '#3B82F6'],
+            msgs: [ ['card', '<b>kelthen.com</b><br>Agence web · Canada<br><span style="color:#3B82F6">⚡ Lighthouse &gt; 90 · chargé en &lt; 1 s</span>'], ['note', 'HTML/CSS/JS · zéro lenteur, responsive 360→1440'] ] },
+          { step: '2 / 2', title: 'Conçu pour transformer le visiteur', explain: 'Message clair, design premium, appel à l\'action évident.', head: ['✨', 'kelthen.com', 'conversion', '#3B82F6'],
+            msgs: [ ['in', 'Plus de clients. Moins de gestion. 👋'], ['out', "C'est exactement ce qu'il me faut"], ['tap', '🚀 Audit gratuit'] ] }
         ],
         en: [
-          { step: '1 / 3', title: 'A visitor lands', explain: 'A fast site that earns trust in the first second.', head: ['🌐', 'Your site', 'online · fast', '#527da3'],
-            msgs: [ ['card', '<b>Élégance Salon</b><br>Hair &amp; beauty · Ottawa<br><span style="color:#3B82F6">★★★★★ 4.9</span>'], ['note', 'Loaded in 0.8 s ⚡'], ['in', 'Welcome! Explore our services 💇'] ] },
-          { step: '2 / 3', title: 'They are convinced', explain: 'Clear services, upfront prices, visible reviews.', head: ['✨', 'Your site', 'services', '#527da3'],
-            msgs: [ ['card', '💇 Cut &amp; blow-dry — $45<br>💅 Manicure — $35<br>🎨 Color — from $80'], ['out', "I'm interested!"] ] },
-          { step: '3 / 3', title: 'They book', explain: 'One button turns a visitor into a client.', head: ['📅', 'Your site', 'booking', '#2D6A4F'],
-            msgs: [ ['tap', '📅 Book an appointment'], ['sms', 'Request received ✅ We confirm right away.'] ] }
+          { step: '1 / 2', title: 'Our own site is the proof', explain: 'Fast, elegant, built to convert — just like yours.', head: ['🌐', 'kelthen.com', 'online · Vercel', '#3B82F6'],
+            msgs: [ ['card', '<b>kelthen.com</b><br>Web agency · Canada<br><span style="color:#3B82F6">⚡ Lighthouse &gt; 90 · loads in &lt; 1 s</span>'], ['note', 'HTML/CSS/JS · zero lag, responsive 360→1440'] ] },
+          { step: '2 / 2', title: 'Built to convert the visitor', explain: 'Clear message, premium design, obvious call to action.', head: ['✨', 'kelthen.com', 'conversion', '#3B82F6'],
+            msgs: [ ['in', 'More clients. Less admin. 👋'], ['out', "That's exactly what I need"], ['tap', '🚀 Free audit'] ] }
         ]
       },
       booking: {
         fr: [
-          { step: '1 / 2', title: '23:47 — hors ouverture', explain: 'Le client réserve seul, même en pleine nuit.', head: ['🌙', 'Réservation', '24/7 · en ligne', '#527da3'],
-            msgs: [ ['in', 'Bonsoir 👋 Que puis-je réserver pour vous ?'], ['out', 'Une coupe pour demain 17 h'], ['in', 'Créneau 17:00 dispo ✅ Un acompte de 10 $ réserve votre place.'] ] },
-          { step: '2 / 2', title: 'Payé &amp; confirmé', explain: 'Acompte réglé, agenda mis à jour tout seul.', head: ['💳', 'Réservation', 'paiement · Stripe', '#2D6A4F'],
-            msgs: [ ['tap', '💳 Payer 10 $'], ['sms', 'Réservé ✨ Coupe — demain 17:00. Acompte reçu. À demain !'], ['note', '— agenda synchronisé automatiquement —'] ] }
+          { step: '1 / 2', title: 'Un vrai système en ligne', explain: 'Cuties Chichi (client réel) — réservation 24/7, Next.js + Supabase.', head: ['💇', 'Cuties Chichi', 'réservation · 24/7', '#C6447A'],
+            msgs: [ ['card', '<b>Cuties Chichi</b> · Ottawa<br>chichi-cuties.vercel.app<br><span style="color:#C6447A">6 prestations · réserver en ligne</span>'], ['in', 'Bonjour 👋 Quelle prestation vous ferait plaisir ?'], ['out', 'Des tresses knotless'], ['in', 'Parfait ✨ Quel jour vous arrange ?'] ] },
+          { step: '2 / 2', title: 'Réservé, même la nuit', explain: 'Demande envoyée, prix exact confirmé sous 48 h.', head: ['📅', 'Cuties Chichi', 'demande envoyée', '#2D6A4F'],
+            msgs: [ ['out', 'Samedi après-midi'], ['tap', '📅 Envoyer la demande'], ['sms', 'Demande reçue ✅ Chichi confirme le prix sous 48 h 💛'] ] }
         ],
         en: [
-          { step: '1 / 2', title: '11:47 pm — after hours', explain: 'The client books alone, even in the middle of the night.', head: ['🌙', 'Booking', '24/7 · online', '#527da3'],
-            msgs: [ ['in', 'Good evening 👋 What can I book for you?'], ['out', 'A haircut tomorrow at 5 pm'], ['in', '5:00 pm is open ✅ A $10 deposit holds your spot.'] ] },
-          { step: '2 / 2', title: 'Paid &amp; confirmed', explain: 'Deposit paid, calendar updates by itself.', head: ['💳', 'Booking', 'payment · Stripe', '#2D6A4F'],
-            msgs: [ ['tap', '💳 Pay $10'], ['sms', 'Booked ✨ Haircut — tomorrow 5:00 pm. Deposit received. See you!'], ['note', '— calendar synced automatically —'] ] }
+          { step: '1 / 2', title: 'A real live system', explain: 'Cuties Chichi (real client) — 24/7 booking, Next.js + Supabase.', head: ['💇', 'Cuties Chichi', 'booking · 24/7', '#C6447A'],
+            msgs: [ ['card', '<b>Cuties Chichi</b> · Ottawa<br>chichi-cuties.vercel.app<br><span style="color:#C6447A">6 services · book online</span>'], ['in', 'Hi 👋 Which service would you like?'], ['out', 'Knotless braids'], ['in', 'Perfect ✨ What day works for you?'] ] },
+          { step: '2 / 2', title: 'Booked, even at night', explain: 'Request sent, exact price confirmed within 48 h.', head: ['📅', 'Cuties Chichi', 'request sent', '#2D6A4F'],
+            msgs: [ ['out', 'Saturday afternoon'], ['tap', '📅 Send request'], ['sms', 'Request received ✅ Chichi confirms the price within 48 h 💛'] ] }
         ]
       },
       ai: {
         fr: [
-          { step: '1 / 2', title: 'Plusieurs canaux', explain: 'Instagram, WhatsApp, site — un seul assistant répond.', head: ['🤖', 'Assistant IA', 'multicanal · en ligne', '#C6447A'],
-            msgs: [ ['in', "Bonjour 👋 Je suis l'assistant de la Maison. En quoi puis-je aider ?"], ['out', 'Vous faites les ongles en gel ?'], ['in', 'Oui ✅ Pose gel : 40 $, 1 h. Un créneau cette semaine ?'], ['out', 'Jeudi possible ?'], ['in', 'Jeudi 15:00 ou 18:00 dispo 🗓️'] ] },
-          { step: '2 / 2', title: 'Tri intelligent', explain: "L'IA distingue question, RDV et urgence.", head: ['🧠', 'Assistant IA', 'tri automatique', '#527da3'],
-            msgs: [ ['card', '🗂️ <b>Demande triée</b><br>👤 Sarah · Instagram<br>💅 Pose gel<br>🗓️ jeudi 15:00'], ['note', 'Rangé dans « RDV à confirmer »'] ] }
+          { step: '1 / 2', title: 'AURA, réceptionniste IA réelle', explain: 'La vraie assistante de Cuties Chichi répond aux clients.', head: ['🤖', 'AURA · Cuties Chichi', 'multicanal · en ligne', '#C6447A'],
+            msgs: [ ['in', "Bonjour, je suis AURA, l'assistante de Cuties Chichi 👋"], ['out', 'Vous faites les box braids ?'], ['in', 'Oui ✅ Je vous explique les tarifs et je trouve un créneau.'] ] },
+          { step: '2 / 2', title: 'Un seul assistant, tous les canaux', explain: 'Même conversation depuis Instagram, WhatsApp ou Telegram.', head: ['📱', 'AURA', 'Instagram · WhatsApp', '#527da3'],
+            msgs: [ ['card', '🤖 <b>AURA répond partout</b><br>🌐 Site · 💬 WhatsApp<br>📸 Instagram · ✈️ Telegram'], ['note', 'Réponses 24/7, sans faire attendre le client'] ] }
         ],
         en: [
-          { step: '1 / 2', title: 'Several channels', explain: 'Instagram, WhatsApp, website — one assistant answers all.', head: ['🤖', 'AI assistant', 'multichannel · online', '#C6447A'],
-            msgs: [ ['in', "Hi 👋 I'm the studio's assistant. How can I help?"], ['out', 'Do you do gel nails?'], ['in', 'Yes ✅ Gel set: $40, 1 h. A slot this week?'], ['out', 'Is Thursday possible?'], ['in', 'Thursday 3:00 or 6:00 pm open 🗓️'] ] },
-          { step: '2 / 2', title: 'Smart triage', explain: 'The AI tells questions, bookings and emergencies apart.', head: ['🧠', 'AI assistant', 'auto-sorting', '#527da3'],
-            msgs: [ ['card', '🗂️ <b>Request sorted</b><br>👤 Sarah · Instagram<br>💅 Gel set<br>🗓️ Thursday 3:00 pm'], ['note', 'Filed under "To confirm"'] ] }
+          { step: '1 / 2', title: 'AURA, a real AI receptionist', explain: "Cuties Chichi's real assistant answers clients.", head: ['🤖', 'AURA · Cuties Chichi', 'multichannel · online', '#C6447A'],
+            msgs: [ ['in', "Hi, I'm AURA, Cuties Chichi's assistant 👋"], ['out', 'Do you do box braids?'], ['in', 'Yes ✅ I\'ll explain the pricing and find you a slot.'] ] },
+          { step: '2 / 2', title: 'One assistant, every channel', explain: 'Same conversation from Instagram, WhatsApp or Telegram.', head: ['📱', 'AURA', 'Instagram · WhatsApp', '#527da3'],
+            msgs: [ ['card', '🤖 <b>AURA answers everywhere</b><br>🌐 Site · 💬 WhatsApp<br>📸 Instagram · ✈️ Telegram'], ['note', 'Replies 24/7, never keeps a client waiting'] ] }
         ]
       },
       reminders: {
         fr: [
-          { step: '1 / 3', title: 'À la réservation', explain: 'Confirmation immédiate par SMS.', head: ['💬', 'Rappels', 'SMS · Twilio', '#2D6A4F'],
-            msgs: [ ['sms', 'RDV <b>CONFIRMÉ</b> ✨ Coupe &amp; couleur — jeudi 2 août 14:00. 12 rue Principale.'] ] },
-          { step: '2 / 3', title: 'La veille', explain: "Rappel automatique 24 h avant — fini les oublis.", head: ['⏰', 'Rappels', 'automatique', '#2D6A4F'],
-            msgs: [ ['note', '— 24 h avant · rappel automatique —'], ['sms', "⏰ Rappel : votre RDV c'est <b>demain à 14:00</b>. Un empêchement ? Répondez à ce message."], ['out', 'Parfait, je serai là ✅'] ] },
-          { step: '3 / 3', title: 'Aussi par e-mail', explain: 'Le même rappel, version e-mail.', head: ['📧', 'Rappels', 'e-mail', '#527da3'],
-            msgs: [ ['card', '📧 <b>Rappel de rendez-vous</b><br>Jeudi 2 août · 14:00<br>Coupe &amp; couleur<br><span style="color:#2D6A4F">Ajouter à mon agenda ▸</span>'], ['note', "Jusqu'à 80 % de RDV manqués en moins 📉"] ] }
+          { step: '1 / 3', title: 'À la réservation', explain: 'Confirmation immédiate par SMS (Twilio).', head: ['💬', 'Cuties Chichi', 'SMS · Twilio', '#2D6A4F'],
+            msgs: [ ['sms', 'RDV <b>CONFIRMÉ</b> ✨ Tresses knotless — sam. 2 août 14:00, Ottawa.'] ] },
+          { step: '2 / 3', title: 'Rappel automatique 24 h avant', explain: 'Le système relance le client tout seul — fini les oublis.', head: ['⏰', 'Cuties Chichi', 'rappel auto', '#2D6A4F'],
+            msgs: [ ['note', '— 24 h avant · automatique —'], ['sms', "⏰ Rappel : votre RDV c'est <b>demain à 14:00</b> 💛 Un empêchement ? Répondez."], ['out', 'Parfait, je serai là ✅'] ] },
+          { step: '3 / 3', title: 'Et un 2ᵉ rappel 2 h avant', explain: 'Second rappel, sans doublon — exactement comme sur le vrai système.', head: ['🔔', 'Cuties Chichi', '2 h avant', '#2D6A4F'],
+            msgs: [ ['note', '— 2 h avant · automatique —'], ['sms', '🔔 À tout à l\'heure ! Votre RDV est à <b>14:00</b> aujourd\'hui.'], ['note', 'Moins de rendez-vous manqués, sans y penser 📉'] ] }
         ],
         en: [
-          { step: '1 / 3', title: 'At booking', explain: 'Instant SMS confirmation.', head: ['💬', 'Reminders', 'SMS · Twilio', '#2D6A4F'],
-            msgs: [ ['sms', 'Appointment <b>CONFIRMED</b> ✨ Cut &amp; color — Thu Aug 2, 2:00 pm. 12 Main St.'] ] },
-          { step: '2 / 3', title: 'The day before', explain: 'Automatic reminder 24 h before — no more no-shows.', head: ['⏰', 'Reminders', 'automatic', '#2D6A4F'],
-            msgs: [ ['note', '— 24 h before · automatic reminder —'], ['sms', "⏰ Reminder: your appointment is <b>tomorrow at 2:00 pm</b>. Can't make it? Just reply."], ['out', "Perfect, I'll be there ✅"] ] },
-          { step: '3 / 3', title: 'By email too', explain: 'The same reminder, email version.', head: ['📧', 'Reminders', 'email', '#527da3'],
-            msgs: [ ['card', '📧 <b>Appointment reminder</b><br>Thu Aug 2 · 2:00 pm<br>Cut &amp; color<br><span style="color:#2D6A4F">Add to my calendar ▸</span>'], ['note', 'Up to 80% fewer missed appointments 📉'] ] }
+          { step: '1 / 3', title: 'At booking', explain: 'Instant SMS confirmation (Twilio).', head: ['💬', 'Cuties Chichi', 'SMS · Twilio', '#2D6A4F'],
+            msgs: [ ['sms', 'Appointment <b>CONFIRMED</b> ✨ Knotless braids — Sat Aug 2, 2:00 pm, Ottawa.'] ] },
+          { step: '2 / 3', title: 'Automatic reminder 24 h before', explain: 'The system follows up on its own — no more no-shows.', head: ['⏰', 'Cuties Chichi', 'auto reminder', '#2D6A4F'],
+            msgs: [ ['note', '— 24 h before · automatic —'], ['sms', "⏰ Reminder: your appointment is <b>tomorrow at 2:00 pm</b> 💛 Can't make it? Just reply."], ['out', "Perfect, I'll be there ✅"] ] },
+          { step: '3 / 3', title: 'And a 2nd reminder 2 h before', explain: 'A second reminder, no duplicates — just like the real system.', head: ['🔔', 'Cuties Chichi', '2 h before', '#2D6A4F'],
+            msgs: [ ['note', '— 2 h before · automatic —'], ['sms', '🔔 See you soon! Your appointment is at <b>2:00 pm</b> today.'], ['note', 'Fewer missed appointments, effortlessly 📉'] ] }
         ]
       },
       google: {
         fr: [
-          { step: '1 / 2', title: 'Le client cherche', explain: '« coiffure afro Ottawa » sur Google.', head: ['🔍', 'Google', 'recherche', '#4285F4'],
-            msgs: [ ['card', '🔍 <b>coiffure afro ottawa</b>'], ['card', '📍 <b>Salon Élégance</b> — Ottawa<br><span style="color:#F5A623">★★★★★</span> 4,9 (127 avis)<br><span style="color:#1a73e8">Ouvert · réserver en ligne</span>'] ] },
-          { step: '2 / 2', title: 'Sur la carte aussi', explain: 'Fiche Google Maps optimisée = des clients qui viennent.', head: ['🗺️', 'Google Maps', 'à proximité', '#34A853'],
-            msgs: [ ['card', '🗺️ <b>Salon Élégance</b><br>📍 12 rue Principale, Ottawa<br>📞 Appeler · 🧭 Itinéraire · 🌐 Site'], ['out', "Trop bien, c'est juste à côté 🚶"], ['tap', '🧭 Itinéraire'] ] }
+          { step: '1 / 2', title: 'On tape « kelthen agence web »', explain: 'kelthen.com ressort dans les résultats Google.', head: ['🔍', 'Google', 'recherche', '#4285F4'],
+            msgs: [ ['card', '🔍 <b>kelthen agence web</b>'], ['card', '<span style="color:#1a73e8;font-weight:600">kelthen.com</span><br><b>Kelthen — Plus de clients. Moins de gestion.</b><br>Agence web au Canada · sites, réservation &amp; automatisation.'] ] },
+          { step: '2 / 2', title: 'Vos photos aussi, dans Google Images', explain: 'La marque est indexée jusque dans l\'onglet Images.', head: ['🖼️', 'Google Images', '« kelthen »', '#4285F4'],
+            msgs: [ ['card', '🖼️ <b>Images · « kelthen »</b><br>🔵 🔷 🖼️ 🔹<br><span style="color:#5f6368">vos visuels indexés par Google</span>'], ['note', 'Vos clients vous trouvent là où ils cherchent déjà'] ] }
         ],
         en: [
-          { step: '1 / 2', title: 'The client searches', explain: '"afro hair Ottawa" on Google.', head: ['🔍', 'Google', 'search', '#4285F4'],
-            msgs: [ ['card', '🔍 <b>afro hair ottawa</b>'], ['card', '📍 <b>Élégance Salon</b> — Ottawa<br><span style="color:#F5A623">★★★★★</span> 4.9 (127 reviews)<br><span style="color:#1a73e8">Open · book online</span>'] ] },
-          { step: '2 / 2', title: 'On the map too', explain: 'An optimized Google Maps listing brings walk-ins.', head: ['🗺️', 'Google Maps', 'nearby', '#34A853'],
-            msgs: [ ['card', '🗺️ <b>Élégance Salon</b><br>📍 12 Main St, Ottawa<br>📞 Call · 🧭 Directions · 🌐 Site'], ['out', "Love it, it's right next door 🚶"], ['tap', '🧭 Directions'] ] }
+          { step: '1 / 2', title: 'Search "kelthen web agency"', explain: 'kelthen.com shows up in Google results.', head: ['🔍', 'Google', 'search', '#4285F4'],
+            msgs: [ ['card', '🔍 <b>kelthen web agency</b>'], ['card', '<span style="color:#1a73e8;font-weight:600">kelthen.com</span><br><b>Kelthen — More clients. Less admin.</b><br>Web agency in Canada · sites, booking &amp; automation.'] ] },
+          { step: '2 / 2', title: 'Your photos too, in Google Images', explain: 'The brand is indexed all the way to the Images tab.', head: ['🖼️', 'Google Images', '"kelthen"', '#4285F4'],
+            msgs: [ ['card', '🖼️ <b>Images · "kelthen"</b><br>🔵 🔷 🖼️ 🔹<br><span style="color:#5f6368">your visuals indexed by Google</span>'], ['note', 'Your clients find you where they already look'] ] }
         ]
       },
       reviews: {
         fr: [
-          { step: '1 / 3', title: 'Après le RDV', explain: "Demande d'avis automatique, au bon moment.", head: ['💬', 'Avis', 'SMS · après RDV', '#2D6A4F'],
-            msgs: [ ['sms', "Merci de votre visite 💛 Comment s'est passé votre rendez-vous ?"], ['tap', '⭐ Laisser un avis'] ] },
-          { step: '2 / 3', title: '5 étoiles', explain: 'Le client note en un tap → publié sur Google.', head: ['⭐', 'Avis Google', 'publication', '#F5A623'],
-            msgs: [ ['stars', '★★★★★'], ['out', 'Service top, je reviens ! 🙌'], ['card', '✅ <b>Avis publié sur Google</b><br><span style="color:#F5A623">★★★★★</span> « Service top, je reviens ! »'] ] },
-          { step: '3 / 3', title: 'Il revient', explain: 'Programme de fidélité automatique.', head: ['🎁', 'Fidélité', 'automatique', '#C6447A'],
-            msgs: [ ['note', '— 6 semaines plus tard —'], ['sms', '🎁 Ça fait un moment ! -15 % sur votre prochain RDV cette semaine 💛'], ['out', 'Je réserve tout de suite !'] ] }
+          { step: '1 / 3', title: 'Après le rendez-vous', explain: 'Un SMS automatique invite le client à donner son avis.', head: ['💬', 'Avis', 'SMS · après RDV', '#2D6A4F'],
+            msgs: [ ['sms', 'Merci de votre visite 💛 Un petit avis sur votre expérience ?'], ['tap', '⭐ Donner mon avis'] ] },
+          { step: '2 / 3', title: 'Publié sur Google en un tap', explain: 'Le client note, l\'avis part sur votre fiche Google.', head: ['⭐', 'Avis Google', 'publication', '#F5A623'],
+            msgs: [ ['stars', '★★★★★'], ['out', 'Super expérience, je recommande ! 🙌'], ['card', '✅ <b>Avis publié sur votre fiche Google</b><br>« Super expérience, je recommande ! »'] ] },
+          { step: '3 / 3', title: 'Et on les fait revenir', explain: 'Relance de fidélité automatique, au bon moment.', head: ['🎁', 'Fidélité', 'automatique', '#C6447A'],
+            msgs: [ ['note', '— quelques semaines plus tard —'], ['sms', '🎁 Ça fait un moment ! Une petite attention pour votre prochain RDV 💛'], ['out', 'Je réserve !'] ] }
         ],
         en: [
-          { step: '1 / 3', title: 'After the visit', explain: 'Automatic review request, at the right moment.', head: ['💬', 'Reviews', 'SMS · post-visit', '#2D6A4F'],
-            msgs: [ ['sms', 'Thanks for your visit 💛 How was your appointment?'], ['tap', '⭐ Leave a review'] ] },
-          { step: '2 / 3', title: '5 stars', explain: 'The client rates in one tap → posted on Google.', head: ['⭐', 'Google review', 'publishing', '#F5A623'],
-            msgs: [ ['stars', '★★★★★'], ['out', "Amazing service, I'll be back! 🙌"], ['card', '✅ <b>Review posted on Google</b><br><span style="color:#F5A623">★★★★★</span> "Amazing service, I\'ll be back!"'] ] },
-          { step: '3 / 3', title: 'They come back', explain: 'Automatic loyalty program.', head: ['🎁', 'Loyalty', 'automatic', '#C6447A'],
-            msgs: [ ['note', '— 6 weeks later —'], ['sms', "🎁 It's been a while! -15% on your next appointment this week 💛"], ['out', 'Booking right now!'] ] }
+          { step: '1 / 3', title: 'After the appointment', explain: 'An automatic SMS invites the client to leave a review.', head: ['💬', 'Reviews', 'SMS · post-visit', '#2D6A4F'],
+            msgs: [ ['sms', 'Thanks for your visit 💛 A quick review of your experience?'], ['tap', '⭐ Leave my review'] ] },
+          { step: '2 / 3', title: 'Posted on Google in one tap', explain: 'The client rates, the review lands on your Google listing.', head: ['⭐', 'Google review', 'publishing', '#F5A623'],
+            msgs: [ ['stars', '★★★★★'], ['out', 'Amazing experience, highly recommend! 🙌'], ['card', '✅ <b>Review posted on your Google listing</b><br>"Amazing experience, highly recommend!"'] ] },
+          { step: '3 / 3', title: 'And we bring them back', explain: 'Automatic loyalty follow-up, at the right moment.', head: ['🎁', 'Loyalty', 'automatic', '#C6447A'],
+            msgs: [ ['note', '— a few weeks later —'], ['sms', "🎁 It's been a while! A little something for your next appointment 💛"], ['out', 'Booking now!'] ] }
         ]
       }
     };
