@@ -2926,7 +2926,7 @@
     /* ─── Hero clair (page d'accueil) ─── */
     body.home-light .hero {
       min-height: auto;
-      background: url('zy8MC.jpg') top center / cover no-repeat;
+      background: var(--cream);
       color: var(--ink);
       padding: 116px 5vw 72px;
       display: grid;
