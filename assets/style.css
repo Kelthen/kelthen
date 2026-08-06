@@ -2937,8 +2937,13 @@
     body.home-light .hero .hero-grid,
     body.home-light .hero .hero-sweep,
     body.home-light .hero .scroll-indicator,
-    body.home-light .hero .mascot-hype,
-    body.home-light .hero .hero-visual { display: none; }
+    body.home-light .hero .mascot-hype { display: none; }.home-light .hero .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.15);
+      pointer-events: none;
+      z-index: 0;
+    }ht .hero .hero-visual { display: none; }
 
     body.home-light .hero .hero-inner {
       position: static;
