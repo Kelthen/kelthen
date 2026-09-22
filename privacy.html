@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Politique de confidentialité de Kelthen — quelles données nous collectons, comment nous les utilisons et protégeons, vos droits, cookies, et notre usage des API de plateformes tierces (Google, Meta, Pinterest, TikTok).">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kelthen.com/privacy.html">
+  <meta property="og:title" content="Politique de confidentialité — Kelthen">
+  <meta property="og:description" content="Comment Kelthen collecte, utilise et protège vos données personnelles. Cookies, droits, et usage des API tierces.">
+  <meta property="og:image" content="https://kelthen.com/og-image.png">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Politique de confidentialité — Kelthen</title>
+  <link rel="canonical" href="https://kelthen.com/privacy.html">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Mono:wght@400;500&family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <!-- ═══ Nav ═══ -->
+  <nav class="nav" id="nav" aria-label="Main navigation">
+    <a href="index.html" class="nav-logo" aria-label="Kelthen — home">
+      <svg class="nav-logo-mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+        <rect width="64" height="64" rx="14" fill="#0C0F16" stroke="rgba(59,130,246,0.35)"></rect>
+        <path d="M22 15 V49 M22 32 L43 15 M22 32 L43 49" stroke="#3B82F6" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
+      </svg>
+      <span class="nav-logo-text">Kel<span>then</span></span>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="index.html#services" data-i18n="nav.services">Services</a></li>
+      <li><a href="work.html" data-i18n="nav.work">Réalisations</a></li>
+      <li><a href="about.html" data-i18n="nav.about">À propos</a></li>
+      <li><a href="pricing.html" data-i18n="nav.pricing">Tarifs</a></li>
+      <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+    <div class="lang-switch" role="group" aria-label="Langue">
+      <button type="button" class="lang-btn" data-lang-btn="fr">FR</button>
+      <span class="lang-sep" aria-hidden="true">|</span>
+      <button type="button" class="lang-btn" data-lang-btn="en">EN</button>
+    </div>
+    <button class="nav-cta" id="navCta" type="button" data-i18n="nav.cta">Audit gratuit</button>
+    <button class="nav-hamburger" id="navHamburger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navMobile">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile nav overlay -->
+  <div class="nav-mobile" id="navMobile" role="dialog" aria-label="Mobile navigation" aria-modal="true">
+    <button class="nav-mobile-close" id="navMobileClose" type="button" aria-label="Fermer le menu">✕</button>
+    <a href="index.html#services" class="nav-mobile-link" data-mobile-link data-i18n="nav.services">Services</a>
+    <a href="work.html"     class="nav-mobile-link" data-mobile-link data-i18n="nav.work">Réalisations</a>
+    <a href="about.html"    class="nav-mobile-link" data-mobile-link data-i18n="nav.about">À propos</a>
+    <a href="pricing.html"  class="nav-mobile-link" data-mobile-link data-i18n="nav.pricing">Tarifs</a>
+    <a href="contact.html"  class="nav-mobile-link" data-mobile-link data-i18n="nav.contact">Contact</a>
+    <div class="lang-switch lang-switch-mobile" role="group" aria-label="Langue">
+      <button type="button" class="lang-btn" data-lang-btn="fr">FR</button>
+      <span class="lang-sep" aria-hidden="true">|</span>
+      <button type="button" class="lang-btn" data-lang-btn="en">EN</button>
+    </div>
+    <button class="nav-mobile-cta" id="navMobileCta" type="button" data-i18n="nav.cta">Audit gratuit</button>
+  </div>
+
+  <!-- ═══ Legal page ═══ -->
+  <main class="legal-page">
+    <header class="legal-head">
+      <p class="section-label" data-i18n="legal.eyebrow">Mentions légales</p>
+      <h1 class="legal-title" data-lang-block="fr">Politique de <em>confidentialité</em></h1>
+      <h1 class="legal-title" data-lang-block="en" style="display:none">Privacy <em>Policy</em></h1>
+      <p class="legal-updated"><span data-lang-block="fr">Dernière mise à jour&nbsp;: 22 septembre 2026</span><span data-lang-block="en" style="display:none">Last updated: September 22, 2026</span></p>
+    </header>
+
+    <!-- ══════ FRANÇAIS ══════ -->
+    <div data-lang-block="fr">
+      <p class="legal-intro">Kelthen (« Kelthen », « nous », « notre ») est une agence web basée au Canada. Cette politique explique quelles données personnelles nous collectons, pourquoi, comment nous les utilisons et les protégeons, et quels sont vos droits — que vous visitiez <strong>kelthen.com</strong>, que vous nous contactiez, ou que nous gérions pour vous des services connectés à des plateformes tierces (Google, Meta, Pinterest, TikTok, etc.). Responsable du traitement&nbsp;: Kelthen — <a href="mailto:contact@kelthen.com">contact@kelthen.com</a>.</p>
+
+      <div class="legal-body">
+        <h2><span class="num">1.</span>Données que nous collectons</h2>
+        <h3>Données que vous nous fournissez</h3>
+        <p>Votre nom, votre courriel et votre message lorsque vous utilisez le formulaire de contact, le courriel ou WhatsApp, ainsi que toute information que vous nous transmettez dans le cadre d'un projet.</p>
+        <h3>Données collectées automatiquement</h3>
+        <p>Via des cookies et Google&nbsp;Analytics&nbsp;4&nbsp;: pages consultées, appareil, navigateur, langue, localisation approximative (adresse IP anonymisée), date et heure, et page de provenance. Ces données servent uniquement à mesurer et améliorer le site.</p>
+        <h3>Données de plateformes tierces (clients)</h3>
+        <p>Lorsque vous nous mandatez pour gérer vos comptes ou intégrer des API (Google, Meta&nbsp;/&nbsp;Facebook&nbsp;/&nbsp;Instagram, Pinterest, TikTok…), nous accédons uniquement aux données strictement nécessaires à la prestation (par exemple&nbsp;: publications, statistiques, messages, catalogues produits) et seulement après votre autorisation explicite.</p>
+
+        <h2><span class="num">2.</span>Comment nous utilisons vos données</h2>
+        <ul>
+          <li>répondre à vos demandes et fournir nos services&nbsp;;</li>
+          <li>concevoir, exploiter et améliorer votre site, vos automatisations et vos intégrations&nbsp;;</li>
+          <li>mesurer l'audience et améliorer kelthen.com&nbsp;;</li>
+          <li>assurer la sécurité, prévenir la fraude et respecter nos obligations légales.</li>
+        </ul>
+        <p>Nous <strong>ne vendons jamais</strong> vos données et ne les utilisons pas à des fins publicitaires étrangères à la prestation convenue.</p>
+
+        <h2><span class="num">3.</span>Bases légales du traitement</h2>
+        <p>Selon le cas&nbsp;: votre <strong>consentement</strong> (cookies de mesure, prise de contact), l'<strong>exécution d'un contrat</strong> (nos prestations), notre <strong>intérêt légitime</strong> (sécurité et amélioration du service) et le respect d'une <strong>obligation légale</strong>.</p>
+
+        <h2><span class="num">4.</span>Plateformes tierces &amp; API</h2>
+        <p>Dans le cadre de nos prestations, nous pouvons connecter les comptes de nos clients aux API de plateformes tierces (Google, Meta, Pinterest, TikTok, et autres). Lorsque nous le faisons, nous nous engageons à&nbsp;:</p>
+        <ul>
+          <li>n'accéder qu'aux données strictement nécessaires à la prestation demandée&nbsp;;</li>
+          <li>utiliser ces données uniquement pour le compte du client qui nous y autorise&nbsp;;</li>
+          <li>ne jamais les revendre ni les partager en dehors du cadre de la prestation&nbsp;;</li>
+          <li>les stocker de façon sécurisée et les supprimer à la fin de la prestation, à la déconnexion du compte, ou sur simple demande&nbsp;;</li>
+          <li>respecter les conditions développeur et les politiques de chaque plateforme.</li>
+        </ul>
+        <p>L'utilisation des données obtenues via une plateforme est également régie par la politique de confidentialité de cette plateforme. Vous pouvez révoquer nos accès à tout moment depuis les réglages de la plateforme concernée.</p>
+
+        <h2><span class="num">5.</span>Cookies</h2>
+        <p>Les cookies <strong>strictement nécessaires</strong> au fonctionnement du site sont toujours actifs. Les cookies de <strong>mesure d'audience</strong> (Google Analytics) ne se chargent qu'<strong>après votre consentement</strong>. Vous pouvez modifier vos choix à tout moment via «&nbsp;Préférences cookies&nbsp;» en bas de page, ou dans les réglages de votre navigateur.</p>
+
+        <h2><span class="num">6.</span>Partage &amp; sous-traitants</h2>
+        <p>Nous partageons des données uniquement avec les prestataires nécessaires au fonctionnement du service&nbsp;: <strong>hébergement</strong> (Vercel), <strong>mesure d'audience</strong> (Google Analytics), <strong>traitement du formulaire</strong> (Web3Forms), et les <strong>plateformes tierces</strong> que vous nous autorisez à connecter. Chacun agit selon ses propres politiques de confidentialité.</p>
+
+        <h2><span class="num">7.</span>Durée de conservation</h2>
+        <p>Données de contact&nbsp;: le temps nécessaire au traitement de votre demande et à notre relation, puis archivées ou supprimées. Données d'analyse&nbsp;: durée limitée. Données de plateformes tierces&nbsp;: supprimées à la fin de la prestation ou sur demande.</p>
+
+        <h2><span class="num">8.</span>Sécurité</h2>
+        <p>Nous mettons en place des mesures techniques et organisationnelles raisonnables (accès restreint, connexions chiffrées HTTPS). Aucun système n'étant infaillible, en cas d'incident de sécurité nous agissons conformément à la loi applicable.</p>
+
+        <h2><span class="num">9.</span>Transferts internationaux</h2>
+        <p>Certaines données peuvent être traitées en dehors de votre pays (par exemple sur les serveurs de Vercel ou de Google). Nous veillons à ce que des garanties appropriées encadrent ces transferts.</p>
+
+        <h2><span class="num">10.</span>Vos droits</h2>
+        <p>Vous disposez d'un droit d'<strong>accès</strong>, de <strong>rectification</strong>, de <strong>suppression</strong>, de <strong>limitation</strong>, d'<strong>opposition</strong> et de <strong>portabilité</strong>, ainsi que du droit de <strong>retirer votre consentement</strong> à tout moment. Pour exercer ces droits, écrivez-nous à <a href="mailto:contact@kelthen.com">contact@kelthen.com</a>. Vous pouvez également saisir l'autorité de protection des données compétente.</p>
+
+        <h2><span class="num">11.</span>Mineurs</h2>
+        <p>Le site n'est pas destiné aux personnes de moins de 16&nbsp;ans et nous ne collectons pas sciemment leurs données personnelles.</p>
+
+        <h2><span class="num">12.</span>Modifications</h2>
+        <p>Nous pouvons mettre à jour cette politique. La date de «&nbsp;dernière mise à jour&nbsp;» en haut de page fait foi&nbsp;; les changements importants vous seront signalés lorsque c'est requis.</p>
+
+        <h2><span class="num">13.</span>Nous contacter</h2>
+        <p>Kelthen — <a href="mailto:contact@kelthen.com">contact@kelthen.com</a> — <a href="https://kelthen.com">kelthen.com</a>.</p>
+      </div>
+    </div>
+
+    <!-- ══════ ENGLISH ══════ -->
+    <div data-lang-block="en" style="display:none">
+      <p class="legal-intro">Kelthen (“Kelthen”, “we”, “us”, “our”) is a web agency based in Canada. This policy explains what personal data we collect, why, how we use and protect it, and what your rights are — whether you visit <strong>kelthen.com</strong>, contact us, or have us manage services connected to third-party platforms (Google, Meta, Pinterest, TikTok, etc.). Data controller: Kelthen — <a href="mailto:contact@kelthen.com">contact@kelthen.com</a>.</p>
+
+      <div class="legal-body">
+        <h2><span class="num">1.</span>Data we collect</h2>
+        <h3>Data you provide</h3>
+        <p>Your name, email and message when you use the contact form, email or WhatsApp, along with any information you share with us as part of a project.</p>
+        <h3>Data collected automatically</h3>
+        <p>Through cookies and Google Analytics 4: pages viewed, device, browser, language, approximate location (IP-anonymized), date and time, and referring page. This data is used only to measure and improve the site.</p>
+        <h3>Third-party platform data (clients)</h3>
+        <p>When you engage us to manage your accounts or integrate APIs (Google, Meta / Facebook / Instagram, Pinterest, TikTok…), we access only the data strictly necessary for the service (for example: posts, analytics, messages, product catalogs) and only after your explicit authorization.</p>
+
+        <h2><span class="num">2.</span>How we use your data</h2>
+        <ul>
+          <li>to answer your requests and provide our services;</li>
+          <li>to design, run and improve your website, automations and integrations;</li>
+          <li>to measure traffic and improve kelthen.com;</li>
+          <li>to ensure security, prevent fraud and meet our legal obligations.</li>
+        </ul>
+        <p>We <strong>never sell</strong> your data and do not use it for advertising unrelated to the agreed service.</p>
+
+        <h2><span class="num">3.</span>Legal bases</h2>
+        <p>Depending on the case: your <strong>consent</strong> (analytics cookies, contacting us), <strong>performance of a contract</strong> (our services), our <strong>legitimate interest</strong> (security and service improvement), and compliance with a <strong>legal obligation</strong>.</p>
+
+        <h2><span class="num">4.</span>Third-party platforms &amp; APIs</h2>
+        <p>As part of our services, we may connect our clients' accounts to third-party platform APIs (Google, Meta, Pinterest, TikTok, and others). When we do, we commit to:</p>
+        <ul>
+          <li>access only the data strictly necessary for the requested service;</li>
+          <li>use that data solely on behalf of the client who authorizes us;</li>
+          <li>never sell it or share it outside the scope of the service;</li>
+          <li>store it securely and delete it at the end of the engagement, on account disconnection, or upon request;</li>
+          <li>comply with each platform's developer terms and policies.</li>
+        </ul>
+        <p>Use of data obtained through a platform is also governed by that platform's own privacy policy. You can revoke our access at any time from the relevant platform's settings.</p>
+
+        <h2><span class="num">5.</span>Cookies</h2>
+        <p><strong>Strictly necessary</strong> cookies are always on. <strong>Analytics</strong> cookies (Google Analytics) load only <strong>after your consent</strong>. You can change your choices anytime via “Cookie preferences” in the footer, or in your browser settings.</p>
+
+        <h2><span class="num">6.</span>Sharing &amp; processors</h2>
+        <p>We share data only with the providers needed to run the service: <strong>hosting</strong> (Vercel), <strong>analytics</strong> (Google Analytics), <strong>form handling</strong> (Web3Forms), and the <strong>third-party platforms</strong> you authorize us to connect. Each acts under its own privacy policy.</p>
+
+        <h2><span class="num">7.</span>Data retention</h2>
+        <p>Contact data: for as long as needed to handle your request and our relationship, then archived or deleted. Analytics data: a limited period. Third-party platform data: deleted at the end of the engagement or upon request.</p>
+
+        <h2><span class="num">8.</span>Security</h2>
+        <p>We apply reasonable technical and organizational measures (restricted access, encrypted HTTPS connections). As no system is perfectly secure, in the event of a security incident we act in accordance with applicable law.</p>
+
+        <h2><span class="num">9.</span>International transfers</h2>
+        <p>Some data may be processed outside your country (for example on Vercel's or Google's servers). We ensure appropriate safeguards cover such transfers.</p>
+
+        <h2><span class="num">10.</span>Your rights</h2>
+        <p>You have the right to <strong>access</strong>, <strong>rectify</strong>, <strong>delete</strong>, <strong>restrict</strong>, <strong>object to</strong> and <strong>port</strong> your data, as well as to <strong>withdraw your consent</strong> at any time. To exercise these rights, email <a href="mailto:contact@kelthen.com">contact@kelthen.com</a>. You may also lodge a complaint with your competent data protection authority.</p>
+
+        <h2><span class="num">11.</span>Children</h2>
+        <p>The site is not intended for anyone under 16, and we do not knowingly collect their personal data.</p>
+
+        <h2><span class="num">12.</span>Changes</h2>
+        <p>We may update this policy. The “last updated” date at the top applies; significant changes will be signposted where required.</p>
+
+        <h2><span class="num">13.</span>Contact us</h2>
+        <p>Kelthen — <a href="mailto:contact@kelthen.com">contact@kelthen.com</a> — <a href="https://kelthen.com">kelthen.com</a>.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- ═══ Footer ═══ -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">Kel<span>then</span></div>
+        <div class="footer-tagline" data-i18n="footer.tagline">Agence web · Canada</div>
+      </div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <div class="footer-col">
+          <div class="footer-col-title" data-i18n="footer.services">Services</div>
+          <a href="index.html#services" data-i18n="svc1.name">Un site qui attire des clients</a>
+          <a href="index.html#services" data-i18n="svc2.name">Réservation en ligne 24/7</a>
+          <a href="index.html#services" data-i18n="svc3.name">Secrétaire virtuelle par IA</a>
+          <a href="index.html#services" data-i18n="svc5.name">Visible sur Google</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title" data-i18n="footer.company">Entreprise</div>
+          <a href="about.html" data-i18n="nav.about">À propos</a>
+          <a href="work.html" data-i18n="nav.work">Réalisations</a>
+          <a href="pricing.html" data-i18n="nav.pricing">Tarifs</a>
+          <a href="contact.html" data-i18n="nav.contact">Contact</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title" data-i18n="footer.connect">Nous suivre</div>
+          <a class="footer-phone" href="tel:+14185735199">+1 (418) 573-5199</a>
+          <a class="footer-phone" href="mailto:contact@kelthen.com">contact@kelthen.com</a>
+        </div>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-legal">
+        <span class="footer-copy" data-i18n="footer.copy">© 2026 Kelthen. Tous droits réservés.</span>
+        <a class="footer-legal-link" href="/privacy.html" data-i18n="footer.privacy">Confidentialité</a>
+        <a class="footer-legal-link" href="/terms.html" data-i18n="footer.terms">Conditions d'utilisation</a>
+        <button class="footer-legal-link" type="button" id="cookiePrefsOpen" data-i18n="footer.cookies">Préférences cookies</button>
+      </div>
+      <span class="footer-flag" data-i18n="footer.flag">Canada</span>
+    </div>
+  </footer>
+
+  <script src="assets/main.js"></script>
+</body>
+</html>

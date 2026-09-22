@@ -99,6 +99,10 @@
         document.querySelectorAll('[data-lang-btn]').forEach((b) => {
           b.classList.toggle('active', b.getAttribute('data-lang-btn') === lang);
         });
+        // Whole-block language switch (used on the legal pages)
+        document.querySelectorAll('[data-lang-block]').forEach((el) => {
+          el.style.display = el.getAttribute('data-lang-block') === lang ? '' : 'none';
+        });
       }
 
       let current = 'fr';
