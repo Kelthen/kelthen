@@ -1,3 +1,12 @@
+    /* ─── Logo typeface (auto-hébergée pour un rendu fiable) ─── */
+    @font-face {
+      font-family: 'Michroma';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url('fonts/michroma.woff2') format('woff2');
+    }
+
     /* ─── Design tokens ─── */
     :root {
       --bg:          #011E2E;
@@ -204,7 +213,7 @@
     }
 
     .nav-logo-text span {
-      color: var(--blue);
+      color: inherit;
     }
 
     .nav-links {
@@ -2014,7 +2023,7 @@
     }
 
     .footer-logo span {
-      color: var(--blue);
+      color: inherit;
     }
 
     .footer-tagline {
