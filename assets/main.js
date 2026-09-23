@@ -298,7 +298,7 @@
     const projects = [
       {
         id: "001", name: "Network of Black Women", category: "Web · OBNL & Communauté", year: "2026",
-        accent: "#F6828F", device: "browser", url: "networkofblackwomen.ca", featured: true,
+        accent: "#F6828F", device: "browser", url: "networkofblackwomen.ca", link: "https://networkofblackwomen.ca", featured: true,
         desc: "Site vitrine et plateforme communautaire (Next.js 14 · Supabase · Stripe) pour Network of Black Women — une sororité pour les femmes noires de l'Alberta. Dons en ligne, inscription aux événements, conférence annuelle, newsletter et gestion de contenu, dans une identité chaleureuse (crème, brun, rose).",
         stack: ["Next.js 14", "TypeScript", "Tailwind CSS", "Supabase", "Stripe", "Vercel"],
         features: [
@@ -338,7 +338,7 @@
       },
       {
         id: "003", name: "Cuties Chichi", category: "Web · Booking & Automation", year: "2026",
-        accent: "#C6447A", device: "browser", url: "chichi-cuties.vercel.app", featured: false,
+        accent: "#C6447A", device: "browser", url: "chichi-cuties.vercel.app", link: "https://chichi-cuties.vercel.app", featured: false,
         desc: "Site de réservation (Next.js 16 + Supabase) pour un salon afro à Ottawa, doublé d'une automatisation n8n : chaque demande prévient Chichi sur Telegram et WhatsApp, elle valide d'un tap, puis la cliente reçoit email + SMS, l'agenda Google se met à jour, et des rappels partent automatiquement 24h et 2h avant le rendez-vous.",
         stack: ["Next.js 16", "Supabase", "n8n", "Twilio", "Google Calendar", "Telegram", "WhatsApp"],
         features: [
@@ -359,7 +359,7 @@
       },
       {
         id: "004", name: "Kelthen", category: "Web · Agence", year: "2025",
-        accent: "#03785B", device: "browser", url: "kelthen.com", featured: false,
+        accent: "#03785B", device: "browser", url: "kelthen.com", link: "https://kelthen.com", featured: false,
         desc: "Le site vitrine de l'agence — HTML/CSS/JS vanilla en un seul fichier, zéro framework, zéro build. Direction artistique premium (noir profond + bleu royal), micro-interactions soignées, score Lighthouse > 90.",
         stack: ["HTML", "CSS", "JavaScript", "Vercel"],
         features: [
@@ -455,6 +455,7 @@
         <p class="pm-eyebrow">${p.category} · ${p.year}</p>
         <h2 class="pm-name">${p.name}</h2>
         <p class="pm-desc">${p.desc}</p>
+        ${p.link ? `<a class="pm-visit" href="${p.link}" target="_blank" rel="noopener noreferrer">Visiter le site <span aria-hidden="true">↗</span></a>` : ''}
         <div class="pm-stack">${stackHtml}</div>
         ${p.features ? `<p class="pm-screens-label">Fonctionnalités clés</p><div class="pm-features">${featuresHtml}</div>` : ''}
         <p class="pm-screens-label">${p.screens.length} écrans clés</p>
