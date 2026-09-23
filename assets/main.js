@@ -326,16 +326,16 @@
 
     // 3 — the REAL n8n validation workflow, redrawn on-brand
     function mkChichiFlow() {
-      const node = (icon, title, sub, tint) => `<div style="display:flex;align-items:center;gap:9px;background:#0C1220;border:1px solid rgba(59,130,246,.28);border-left:3px solid ${tint || '#3B82F6'};border-radius:9px;padding:8px 10px"><span style="font-size:14px;line-height:1;flex-shrink:0">${icon}</span><div style="line-height:1.25"><div style="font-size:10px;font-weight:700;color:#F0EDE8">${title}</div>${sub ? `<div style="font-size:8px;color:rgba(240,237,232,.5)">${sub}</div>` : ''}</div></div>`;
-      const wire = `<div style="height:11px;width:2px;background:linear-gradient(#3B82F6,rgba(59,130,246,.2));margin:2px auto"></div>`;
-      const mini = (icon, label, tint) => `<div style="background:#0C1220;border:1px solid rgba(59,130,246,.22);border-top:2px solid ${tint};border-radius:8px;padding:7px 4px;text-align:center"><div style="font-size:13px;line-height:1">${icon}</div><div style="font-size:7.5px;color:rgba(240,237,232,.7);margin-top:3px">${label}</div></div>`;
-      return `<div class="mk" style="background:#080A0F;padding:13px 12px;min-height:300px">
+      const node = (icon, title, sub, tint) => `<div style="display:flex;align-items:center;gap:9px;background:#052B3E;border:1px solid rgba(3, 120, 91,.28);border-left:3px solid ${tint || '#03785B'};border-radius:9px;padding:8px 10px"><span style="font-size:14px;line-height:1;flex-shrink:0">${icon}</span><div style="line-height:1.25"><div style="font-size:10px;font-weight:700;color:#F0EDE8">${title}</div>${sub ? `<div style="font-size:8px;color:rgba(240,237,232,.5)">${sub}</div>` : ''}</div></div>`;
+      const wire = `<div style="height:11px;width:2px;background:linear-gradient(#03785B,rgba(3, 120, 91,.2));margin:2px auto"></div>`;
+      const mini = (icon, label, tint) => `<div style="background:#052B3E;border:1px solid rgba(3, 120, 91,.22);border-top:2px solid ${tint};border-radius:8px;padding:7px 4px;text-align:center"><div style="font-size:13px;line-height:1">${icon}</div><div style="font-size:7.5px;color:rgba(240,237,232,.7);margin-top:3px">${label}</div></div>`;
+      return `<div class="mk" style="background:#011E2E;padding:13px 12px;min-height:300px">
         <div style="display:flex;align-items:center;gap:6px;margin-bottom:11px"><span style="width:7px;height:7px;border-radius:50%;background:#EA4B71"></span><span style="font-family:var(--mono);font-size:7px;letter-spacing:.14em;text-transform:uppercase;color:rgba(240,237,232,.55)">n8n · Validation (réel)</span></div>
         ${node('⚡', 'Nouvelle demande', 'Webhook · depuis le site', '#EA4B71')}
         ${wire}
         ${node('⚙️', 'Normaliser la demande', 'Set')}
         ${wire}
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">${mini('📨', 'Telegram', '#3B82F6')}${mini('🟢', 'WhatsApp', '#25D366')}</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">${mini('📨', 'Telegram', '#03785B')}${mini('🟢', 'WhatsApp', '#25D366')}</div>
         <div style="font-size:7.5px;color:rgba(240,237,232,.5);text-align:center;margin:7px 0 5px">Chichi confirme / décline 👆</div>
         ${node('🗄️', 'Supabase', 'set_booking_status · anti-doublon', '#3ECF8E')}
         ${wire}
@@ -354,27 +354,27 @@
 
     /* ════ Kelthen — le site agence (palette bleu/dark) ════ */
     function mkNovaHero() {
-      return `<div class="mk" style="background:#080A0F;color:#F0EDE8;font-size:11px;min-height:200px;padding:14px">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:26px"><span style="font-size:12px;font-weight:800">Kel<span style="color:#3B82F6">then</span></span><span style="background:#3B82F6;color:#080A0F;border-radius:3px;padding:4px 9px;font-size:7px;font-weight:700;text-transform:uppercase;letter-spacing:.08em">Start a project</span></div>
-        <div style="font-family:var(--mono);font-size:7px;letter-spacing:.16em;text-transform:uppercase;color:#3B82F6;margin-bottom:10px">— Based in Canada · Est. 2025</div>
-        <div style="font-family:var(--serif);font-weight:300;font-size:30px;line-height:.95;letter-spacing:-.02em">We <em style="color:#93C5FD">build</em><br><span style="-webkit-text-stroke:0.6px rgba(240,237,232,.3);color:transparent">digital</span><br>products.</div>
-        <div style="display:flex;gap:7px;margin-top:18px"><span style="background:#3B82F6;color:#080A0F;border-radius:3px;padding:7px 14px;font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:.06em">Start a project</span><span style="border:1px solid rgba(59,130,246,.2);color:rgba(240,237,232,.6);border-radius:3px;padding:7px 14px;font-size:8px;font-weight:500;text-transform:uppercase;letter-spacing:.06em">See our work</span></div>
+      return `<div class="mk" style="background:#011E2E;color:#F0EDE8;font-size:11px;min-height:200px;padding:14px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:26px"><span style="font-size:12px;font-weight:800">Kel<span style="color:#03785B">then</span></span><span style="background:#03785B;color:#011E2E;border-radius:3px;padding:4px 9px;font-size:7px;font-weight:700;text-transform:uppercase;letter-spacing:.08em">Start a project</span></div>
+        <div style="font-family:var(--mono);font-size:7px;letter-spacing:.16em;text-transform:uppercase;color:#03785B;margin-bottom:10px">— Based in Canada · Est. 2025</div>
+        <div style="font-family:var(--serif);font-weight:300;font-size:30px;line-height:.95;letter-spacing:-.02em">We <em style="color:#7CC9AE">build</em><br><span style="-webkit-text-stroke:0.6px rgba(240,237,232,.3);color:transparent">digital</span><br>products.</div>
+        <div style="display:flex;gap:7px;margin-top:18px"><span style="background:#03785B;color:#011E2E;border-radius:3px;padding:7px 14px;font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:.06em">Start a project</span><span style="border:1px solid rgba(3, 120, 91,.2);color:rgba(240,237,232,.6);border-radius:3px;padding:7px 14px;font-size:8px;font-weight:500;text-transform:uppercase;letter-spacing:.06em">See our work</span></div>
       </div>`;
     }
     function mkNovaServices() {
       const s = [['01', '◈', 'Web Design'], ['02', '⬡', 'Mobile Apps'], ['03', '⟳', 'Automation'], ['04', '✦', 'AI Integration'], ['05', '◇', 'Consulting'], ['06', '⬡', 'SaaS Dev']];
-      return `<div class="mk" style="background:#080A0F;color:#F0EDE8;font-size:11px;min-height:200px;padding:14px">
-        <div style="font-family:var(--mono);font-size:7px;letter-spacing:.16em;text-transform:uppercase;color:#3B82F6;margin-bottom:8px">— What we do</div>
-        <div style="font-family:var(--serif);font-weight:300;font-size:22px;line-height:1;margin-bottom:14px">Every tool you <em style="color:#93C5FD;font-style:italic">need</em></div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(240,237,232,.06);border:1px solid rgba(240,237,232,.06)">${s.map(x => `<div style="background:#080A0F;padding:11px 10px"><div style="font-family:var(--mono);font-size:7px;color:#1E40AF;margin-bottom:6px">${x[0]}</div><div style="color:rgba(59,130,246,.5);font-size:13px;margin-bottom:5px">${x[1]}</div><div style="font-family:var(--serif);font-size:13px">${x[2]}</div></div>`).join('')}</div>
+      return `<div class="mk" style="background:#011E2E;color:#F0EDE8;font-size:11px;min-height:200px;padding:14px">
+        <div style="font-family:var(--mono);font-size:7px;letter-spacing:.16em;text-transform:uppercase;color:#03785B;margin-bottom:8px">— What we do</div>
+        <div style="font-family:var(--serif);font-weight:300;font-size:22px;line-height:1;margin-bottom:14px">Every tool you <em style="color:#7CC9AE;font-style:italic">need</em></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(240,237,232,.06);border:1px solid rgba(240,237,232,.06)">${s.map(x => `<div style="background:#011E2E;padding:11px 10px"><div style="font-family:var(--mono);font-size:7px;color:#02513C;margin-bottom:6px">${x[0]}</div><div style="color:rgba(3, 120, 91,.5);font-size:13px;margin-bottom:5px">${x[1]}</div><div style="font-family:var(--serif);font-size:13px">${x[2]}</div></div>`).join('')}</div>
       </div>`;
     }
     function mkNovaPricing() {
       const t = [['Starter', '$800', false], ['Growth', '$2 500', true], ['Enterprise', 'Custom', false]];
-      return `<div class="mk" style="background:#080A0F;color:#F0EDE8;font-size:11px;min-height:200px;padding:14px">
-        <div style="font-family:var(--mono);font-size:7px;letter-spacing:.16em;text-transform:uppercase;color:#3B82F6;margin-bottom:8px">— Pricing</div>
-        <div style="font-family:var(--serif);font-weight:300;font-size:22px;line-height:1;margin-bottom:14px">Transparent. <em style="color:#93C5FD;font-style:italic">No surprises.</em></div>
-        <div style="display:flex;gap:1px;background:rgba(240,237,232,.06);border:1px solid rgba(240,237,232,.06)">${t.map(x => `<div style="flex:1;background:${x[2] ? '#0C0F16' : '#080A0F'};${x[2] ? 'border-top:2px solid #3B82F6;' : ''}padding:13px 9px;text-align:center"><div style="font-family:var(--mono);font-size:7px;text-transform:uppercase;letter-spacing:.1em;color:rgba(240,237,232,.4);margin-bottom:8px">${x[0]}</div><div style="font-family:var(--serif);font-weight:300;font-size:20px;letter-spacing:-.02em">${x[1]}</div><div style="margin-top:10px;border-radius:2px;padding:6px;font-size:7px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;${x[2] ? 'background:#3B82F6;color:#080A0F' : 'border:1px solid rgba(59,130,246,.2);color:rgba(240,237,232,.6)'}">${x[2] ? 'Get started' : 'Choose'}</div></div>`).join('')}</div>
+      return `<div class="mk" style="background:#011E2E;color:#F0EDE8;font-size:11px;min-height:200px;padding:14px">
+        <div style="font-family:var(--mono);font-size:7px;letter-spacing:.16em;text-transform:uppercase;color:#03785B;margin-bottom:8px">— Pricing</div>
+        <div style="font-family:var(--serif);font-weight:300;font-size:22px;line-height:1;margin-bottom:14px">Transparent. <em style="color:#7CC9AE;font-style:italic">No surprises.</em></div>
+        <div style="display:flex;gap:1px;background:rgba(240,237,232,.06);border:1px solid rgba(240,237,232,.06)">${t.map(x => `<div style="flex:1;background:${x[2] ? '#04283A' : '#011E2E'};${x[2] ? 'border-top:2px solid #03785B;' : ''}padding:13px 9px;text-align:center"><div style="font-family:var(--mono);font-size:7px;text-transform:uppercase;letter-spacing:.1em;color:rgba(240,237,232,.4);margin-bottom:8px">${x[0]}</div><div style="font-family:var(--serif);font-weight:300;font-size:20px;letter-spacing:-.02em">${x[1]}</div><div style="margin-top:10px;border-radius:2px;padding:6px;font-size:7px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;${x[2] ? 'background:#03785B;color:#011E2E' : 'border:1px solid rgba(3, 120, 91,.2);color:rgba(240,237,232,.6)'}">${x[2] ? 'Get started' : 'Choose'}</div></div>`).join('')}</div>
       </div>`;
     }
 
@@ -452,7 +452,7 @@
       },
       {
         id: "004", name: "Kelthen", category: "Web · Agence", year: "2025",
-        accent: "#3B82F6", device: "browser", url: "kelthen.com", featured: false,
+        accent: "#03785B", device: "browser", url: "kelthen.com", featured: false,
         desc: "Le site vitrine de l'agence — HTML/CSS/JS vanilla en un seul fichier, zéro framework, zéro build. Direction artistique premium (noir profond + bleu royal), micro-interactions soignées, score Lighthouse > 90.",
         stack: ["HTML", "CSS", "JavaScript", "Vercel"],
         features: [
@@ -935,15 +935,15 @@
     const SERVICE_DEMOS = {
       site: {
         fr: [
-          { step: '1 / 2', title: 'Notre propre site en est la preuve', explain: 'Rapide, élégant, pensé pour convertir — comme le vôtre.', head: ['🌐', 'kelthen.com', 'en ligne · Vercel', '#3B82F6'],
-            msgs: [ ['card', '<b>kelthen.com</b><br>Agence web · Canada<br><span style="color:#3B82F6">⚡ Lighthouse &gt; 90 · chargé en &lt; 1 s</span>'], ['note', 'HTML/CSS/JS · zéro lenteur, responsive 360→1440'] ] },
-          { step: '2 / 2', title: 'Conçu pour transformer le visiteur', explain: 'Message clair, design premium, appel à l\'action évident.', head: ['✨', 'kelthen.com', 'conversion', '#3B82F6'],
+          { step: '1 / 2', title: 'Notre propre site en est la preuve', explain: 'Rapide, élégant, pensé pour convertir — comme le vôtre.', head: ['🌐', 'kelthen.com', 'en ligne · Vercel', '#03785B'],
+            msgs: [ ['card', '<b>kelthen.com</b><br>Agence web · Canada<br><span style="color:#03785B">⚡ Lighthouse &gt; 90 · chargé en &lt; 1 s</span>'], ['note', 'HTML/CSS/JS · zéro lenteur, responsive 360→1440'] ] },
+          { step: '2 / 2', title: 'Conçu pour transformer le visiteur', explain: 'Message clair, design premium, appel à l\'action évident.', head: ['✨', 'kelthen.com', 'conversion', '#03785B'],
             msgs: [ ['in', 'Plus de clients. Moins de gestion. 👋'], ['out', "C'est exactement ce qu'il me faut"], ['tap', '🚀 Audit gratuit'] ] }
         ],
         en: [
-          { step: '1 / 2', title: 'Our own site is the proof', explain: 'Fast, elegant, built to convert — just like yours.', head: ['🌐', 'kelthen.com', 'online · Vercel', '#3B82F6'],
-            msgs: [ ['card', '<b>kelthen.com</b><br>Web agency · Canada<br><span style="color:#3B82F6">⚡ Lighthouse &gt; 90 · loads in &lt; 1 s</span>'], ['note', 'HTML/CSS/JS · zero lag, responsive 360→1440'] ] },
-          { step: '2 / 2', title: 'Built to convert the visitor', explain: 'Clear message, premium design, obvious call to action.', head: ['✨', 'kelthen.com', 'conversion', '#3B82F6'],
+          { step: '1 / 2', title: 'Our own site is the proof', explain: 'Fast, elegant, built to convert — just like yours.', head: ['🌐', 'kelthen.com', 'online · Vercel', '#03785B'],
+            msgs: [ ['card', '<b>kelthen.com</b><br>Web agency · Canada<br><span style="color:#03785B">⚡ Lighthouse &gt; 90 · loads in &lt; 1 s</span>'], ['note', 'HTML/CSS/JS · zero lag, responsive 360→1440'] ] },
+          { step: '2 / 2', title: 'Built to convert the visitor', explain: 'Clear message, premium design, obvious call to action.', head: ['✨', 'kelthen.com', 'conversion', '#03785B'],
             msgs: [ ['in', 'More clients. Less admin. 👋'], ['out', "That's exactly what I need"], ['tap', '🚀 Free audit'] ] }
         ]
       },
