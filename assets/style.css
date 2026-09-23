@@ -8,9 +8,10 @@
       --white-muted: rgba(240, 237, 232, 0.6);
       --border:      rgba(3, 120, 91, 0.15);
 
-      --serif: 'Cormorant Garamond', Georgia, serif;
-      --sans:  'Syne', system-ui, sans-serif;
+      --serif: 'Inter', system-ui, sans-serif;
+      --sans:  'Inter', system-ui, sans-serif;
       --mono:  'DM Mono', monospace;
+      --logo:  'Michroma', 'Inter', sans-serif;
     }
 
     /* ─── Reset ─── */
@@ -3155,3 +3156,24 @@
     @media (max-width: 640px) {
       .legal-page { padding: 118px 6vw 80px; }
     }
+
+    /* ═══════════════════════════════════════════════════════
+       Charte : typo Inter (≈ GT America) + logo Michroma (≈ 911 Porscha)
+       ═══════════════════════════════════════════════════════ */
+    .nav-logo { color: var(--white); }
+    .nav-logo-text, .footer-logo {
+      font-family: var(--logo);
+      text-transform: uppercase;
+    }
+    .nav-logo-text { font-size: 0.9rem; font-weight: 400; letter-spacing: 0.02em; }
+    .footer-logo   { font-size: 1.02rem; font-weight: 400; letter-spacing: 0.04em; }
+    body.home-light .nav:not(.scrolled) .nav-logo { color: var(--ink); }
+
+    /* Display headings now use Inter — bump weight/tracking to match GT America's bold grotesk */
+    .hero-title, .section-title, .about-lead, .legal-title, .cta-title,
+    .home-cta-title, .trust-quote, .pm-name, .workcta-title, .home-cta-title {
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .hero-title em, .section-title em, .about-lead em, .legal-title em,
+    .cta-title em, .home-cta-title em, .trust-quote em { font-style: italic; }
