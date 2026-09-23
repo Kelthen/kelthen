@@ -151,97 +151,6 @@
         : s.f();
     }
 
-    /* ════ MamaShop — React Native, palette forêt #2D6A4F / tomate #C0392B / crème #FAF7F2 ════ */
-    // Uniform green app header for all MamaShop screens
-    function mamaHead(title) {
-      return `<div style="display:flex;align-items:center;gap:8px;background:#2D6A4F;color:#fff;padding:11px 12px"><span style="font-size:14px">☰</span><span style="font-size:12px;font-weight:800;flex:1">${title}</span><div style="width:22px;height:22px;border-radius:50%;background:#B9C7BE"></div></div>`;
-    }
-    function mkMamaDash() {
-      const kpis = [['9k', 'Ventes F', '#2D6A4F'], ['0', 'Crédit F', '#3F4A54'], ['0', 'Critique', '#3F4A54'], ['22%', 'Marge', '#2D6A4F']];
-      const bars = [0, 0, 0, 0, 0, 0, 100];
-      const days = ['J-6', 'J-5', 'J-4', 'J-3', 'J-2', 'Hier', 'Auj.'];
-      return `<div class="mk" style="background:#FAF7F2;color:#1C2B22;font-size:11px;position:relative;min-height:430px;padding-bottom:28px">
-        ${mamaHead('Tableau de bord')}
-        <div style="padding:11px 12px 0">
-          <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px"><div style="width:30px;height:30px;border-radius:50%;background:#40916C;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px">E</div><div style="flex:1"><div style="font-size:12px;font-weight:800">Essivi</div><div style="font-size:8px;color:#6B7F74">Gérant(e) · En direct</div></div><span style="background:#D8F3DC;color:#2D6A4F;border-radius:20px;padding:3px 8px;font-size:7px;font-weight:700">Mar. 28 juil</span></div>
-          <div style="display:flex;gap:4px;margin-bottom:9px">${kpis.map(k => `<div style="flex:1;background:#fff;border:1px solid rgba(45,106,79,.1);border-radius:10px;padding:8px 1px;text-align:center"><div style="font-size:13px;font-weight:800;color:${k[2]}">${k[0]}</div><div style="margin-top:2px;font-size:6px;font-weight:700;text-transform:uppercase;color:#9CA3AF">${k[1]}</div></div>`).join('')}</div>
-          <div style="display:flex;align-items:center;gap:8px;background:#FBEFD0;border:1px solid #E9D19B;border-radius:11px;padding:9px 10px;margin-bottom:9px"><span style="font-size:14px">🙋🏾</span><div style="flex:1"><div style="font-size:9px;font-weight:800">1 demande(s) de prix</div><div style="font-size:7px;color:#8A7B54">Un agent attend ta réponse · Tap pour répondre</div></div><span style="color:#B08428;font-size:13px">→</span></div>
-          <div style="background:#fff;border-radius:11px;padding:9px 10px;margin-bottom:9px"><div style="font-size:6.5px;font-weight:700;text-transform:uppercase;color:#9CA3AF;margin-bottom:9px">Ventes — 7 jours</div><div style="display:flex;height:40px;align-items:flex-end;gap:4px">${bars.map((h, i) => `<div style="flex:1;position:relative">${i === 6 ? `<div style="position:absolute;top:-10px;left:0;right:0;text-align:center;font-size:6px;color:#40916C;font-weight:700">9k</div>` : ''}<div style="height:${h ? h + '%' : '2px'};border-radius:3px 3px 0 0;background:${i === 6 ? '#40916C' : '#E4EAE6'}"></div></div>`).join('')}</div><div style="display:flex;gap:4px;margin-top:4px">${days.map((d, i) => `<div style="flex:1;text-align:center;font-size:5.5px;color:${i === 6 ? '#40916C' : '#B98A8A'}">${d}</div>`).join('')}</div></div>
-          <div style="background:#fff;border-radius:11px;padding:9px 10px;margin-bottom:9px"><div style="font-size:6.5px;font-weight:700;text-transform:uppercase;color:#9CA3AF;margin-bottom:7px">Alertes actives</div>
-            <div style="display:flex;gap:7px;background:#FBF3D3;border-radius:8px;padding:7px;margin-bottom:6px"><span style="color:#B08428;font-weight:700">$</span><div><div style="font-size:9px;font-weight:700">65 500 F d'impayés en cours</div><div style="font-size:7px;color:#8A7B54">Vérifier les clients avec dettes</div></div></div>
-            <div style="display:flex;gap:7px;background:#E3F3E4;border-radius:8px;padding:7px"><span>🌧️</span><div><div style="font-size:9px;font-weight:700">Saison des pluies active</div><div style="font-size:7px;color:#5B7A5E">Bonne période pour les piments · Saison sèche dans 14 sem.</div></div></div>
-          </div>
-          <div style="background:#fff;border-radius:11px;padding:9px 10px"><div style="font-size:6.5px;font-weight:700;text-transform:uppercase;color:#9CA3AF;margin-bottom:6px">Top produits aujourd'hui</div><div style="display:flex;align-items:center;gap:8px"><div style="width:24px;height:24px;border-radius:7px;background:#F5EBE0;display:flex;align-items:center;justify-content:center;font-size:12px">🍅</div><div style="flex:1"><div style="font-size:10px;font-weight:700">Tomate</div><div style="font-size:7px;color:#9CA3AF">1 vendue</div></div><div style="font-size:11px;font-weight:800;color:#40916C">8 500 F</div></div></div>
-        </div>
-      </div>`;
-    }
-    function mkMamaStock() {
-      const items = [['Tomate', '3 cuvettes', 'crit'], ['Banane plantain', 'Rupture', 'crit'], ['Piment', '8 paniers', 'warn'], ['Oignon', '22 sacs', 'ok'], ['Ananas', '15 caisses', 'ok']];
-      const sty = { crit: ['#C0392B', '#FDEDEC'], warn: ['#7A4A00', '#FEF3C7'], ok: ['#2D6A4F', '#D8F3DC'] };
-      return `<div class="mk" style="background:#FAF7F2;color:#1C2B22;font-size:11px;min-height:380px">
-        ${mamaHead('Stock actuel')}
-        <div style="padding:12px 14px">
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:9px"><span style="font-size:8px;font-weight:700;text-transform:uppercase;color:#6B7F74">5 produits</span><span style="background:#FEF3C7;color:#7A4A00;border-radius:20px;padding:3px 8px;font-size:8px;font-weight:700">⏳ 1 en attente</span></div>
-          ${items.map(it => `<div style="display:flex;align-items:center;gap:8px;background:#fff;border:1px solid rgba(45,106,79,0.08);border-radius:11px;padding:9px;margin-bottom:7px"><div style="width:30px;height:30px;border-radius:8px;background:#F5EBE0;display:flex;align-items:center;justify-content:center;font-size:14px">📦</div><div style="flex:1"><div style="font-size:11px;font-weight:700">${it[0]}</div><div style="font-size:8px;color:#9CA3AF">Cuvette · seuil 5</div></div><span style="background:${sty[it[2]][1]};color:${sty[it[2]][0]};border-radius:7px;padding:4px 7px;font-size:9px;font-weight:700">${it[1]}${it[2] === 'crit' ? ' ⚠' : ''}</span></div>`).join('')}
-        </div>
-        <div style="position:sticky;bottom:0;padding:10px 14px;background:linear-gradient(to top,#FAF7F2 60%,transparent)"><div style="background:#2D6A4F;color:#fff;text-align:center;border-radius:11px;padding:10px;font-size:11px;font-weight:800">+ Enregistrer un arrivage</div></div>
-      </div>`;
-    }
-    function mkMamaCredits() {
-      const wait = [['A', 'Awa M.', '💎 VIP · depuis le 4 mars', '25 000 F'], ['K', 'Kodjo D.', 'Standard · depuis le 12 avr', '18 000 F'], ['Y', 'Yao A.', '👑 Grand compte', '14 000 F']];
-      return `<div class="mk" style="background:#FAF7F2;color:#1C2B22;font-size:11px;min-height:380px">
-        ${mamaHead('Crédits clients')}
-        <div style="padding:12px 14px">
-          <div style="background:#2D6A4F;color:#fff;border-radius:14px;padding:13px 14px;margin-bottom:11px"><div style="font-size:8px;opacity:.82;text-transform:uppercase;letter-spacing:.06em">FCFA à encaisser</div><div style="font-size:23px;font-weight:900;margin-top:2px">57 000 <span style="font-size:11px;font-weight:600;opacity:.85">F</span></div></div>
-          <div style="background:#fff;border-radius:14px;padding:11px"><div style="font-size:8px;font-weight:700;text-transform:uppercase;color:#6B7F74;margin-bottom:7px">En attente</div>${wait.map((c, i) => `<div style="display:flex;align-items:center;gap:8px;padding:7px 0;${i < 2 ? 'border-bottom:1px solid rgba(45,106,79,0.06)' : ''}"><div style="width:30px;height:30px;border-radius:50%;background:#2D6A4F;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px">${c[0]}</div><div style="flex:1"><div style="font-size:11px;font-weight:700">${c[1]}</div><div style="font-size:8px;color:#6B7F74">${c[2]}</div></div><div style="text-align:right"><div style="font-size:11px;font-weight:800;color:#C0392B">${c[3]}</div><div style="margin-top:3px;background:#2D6A4F;color:#fff;border-radius:6px;padding:3px 8px;font-size:8px;font-weight:700">Encaisser</div></div></div>`).join('')}</div>
-          <div style="background:#fff;border-radius:14px;padding:11px;margin-top:9px"><div style="font-size:8px;font-weight:700;text-transform:uppercase;color:#6B7F74;margin-bottom:7px">Soldés ✅</div><div style="display:flex;align-items:center;gap:8px;padding:3px 0"><div style="width:30px;height:30px;border-radius:50%;background:#95D5B2;color:#1C2B22;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px">M</div><div style="flex:1"><div style="font-size:11px;font-weight:700">Mensah K.</div><div style="font-size:8px;color:#6B7F74">Standard</div></div><div style="font-size:11px;font-weight:800;color:#40916C">0 F</div></div></div>
-        </div>
-      </div>`;
-    }
-    function mkMamaFinances() {
-      const rows = [['CA 30 jours', '420 000 F'], ['CA 90 jours', '1 180 000 F'], ['Ventes totales', '134'], ['Dettes clients', '57 000 F'], ['Panier moyen', '3 130 F'], ['Top produit', 'Tomate'], ['Ratio dette / CA', '14 %']];
-      return `<div class="mk" style="background:#FAF7F2;color:#1C2B22;font-size:11px;min-height:380px">
-        ${mamaHead('Dossier Financier')}
-        <div style="padding:12px 14px">
-          <div style="border:2px solid #2D6A4F;background:rgba(45,106,79,0.08);border-radius:16px;padding:16px;text-align:center;margin-bottom:12px"><div style="font-size:40px;font-weight:900;color:#2D6A4F;line-height:1">72<span style="font-size:16px">/100</span></div><div style="font-size:11px;font-weight:700;color:#2D6A4F;margin-top:4px">Éligible microfinance</div><div style="font-size:8px;color:#6B7F74;margin-top:3px">Score de bankabilité — Mon Commerce</div></div>
-          <div style="background:#fff;border-radius:14px;padding:4px 12px">${rows.map((r, i) => `<div style="display:flex;justify-content:space-between;padding:8px 0;${i < rows.length - 1 ? 'border-bottom:1px solid rgba(45,106,79,0.07)' : ''}"><span style="font-size:11px;color:#6B7F74">${r[0]}</span><span style="font-size:11px;font-weight:700">${r[1]}</span></div>`).join('')}</div>
-        </div>
-      </div>`;
-    }
-    // MamaShop — the real "déstockage" WhatsApp blast to nearby clients
-    function mkMamaWhatsApp() {
-      const waIn = (t) => `<div style="align-self:flex-start;max-width:82%;background:#fff;border-radius:8px 8px 8px 2px;padding:6px 9px;font-size:10px;line-height:1.45;box-shadow:0 1px 1px rgba(0,0,0,.08)">${t}</div>`;
-      const waOut = (t) => `<div style="align-self:flex-end;max-width:85%;background:#DCF8C6;border-radius:8px 8px 2px 8px;padding:6px 9px;font-size:10px;line-height:1.45;box-shadow:0 1px 1px rgba(0,0,0,.08)">${t}</div>`;
-      return `<div class="mk" style="font-size:11px;color:#1f2c33;background:#ECE5DD;min-height:380px">
-        <div style="display:flex;align-items:center;gap:8px;background:#075E54;color:#fff;padding:10px 12px"><span style="font-size:13px">‹</span><div style="width:28px;height:28px;border-radius:50%;background:#2D6A4F;color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0">A</div><div style="line-height:1.2;flex:1"><div style="font-size:11px;font-weight:600">Awa M.</div><div style="font-size:8px;color:rgba(255,255,255,.75)">cliente proche · en ligne</div></div></div>
-        <div style="display:flex;flex-direction:column;gap:6px;padding:12px 10px;min-height:300px">
-          <div style="align-self:center;background:rgba(0,0,0,.06);color:#5b6b63;border-radius:8px;padding:3px 9px;font-size:8px">Déstockage → alerte clientes proches</div>
-          ${waOut("Bonjour Awa 👋 Arrivage de <b>Tomate</b> — prix cassé à <b>2 500 F</b> la cuvette. C'est dispo maintenant, passe vite ! 🍅")}
-          ${waIn("J'arrive ! 🙌 Garde-moi 2 cuvettes")}
-          ${waOut("C'est noté 👍 À tout de suite !")}
-        </div>
-      </div>`;
-    }
-    // MamaShop — Diaspora: read-only live view for the family abroad
-    function mkMamaDiaspora() {
-      const kpis = [['Cette semaine', '312k F', '#2D6A4F'], ['Ventes du jour', '18', '#40916C'], ['Impayés', '45k F', '#C0392B']];
-      const bars = [40, 55, 48, 70, 60, 85, 72, 90];
-      return `<div class="mk" style="background:#FAF7F2;color:#1C2B22;font-size:11px;min-height:380px">
-        ${mamaHead('Suivi diaspora')}
-        <div style="padding:12px 14px">
-          <div style="background:#2D6A4F;color:#fff;border-radius:14px;padding:13px 14px;margin-bottom:11px">
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><div style="font-size:10px;font-weight:700">📍 Lomé · <span style="color:#95D5B2">🟢 En direct</span></div><span style="background:#F0E6FF;color:#4A235A;border-radius:20px;padding:3px 9px;font-size:8px;font-weight:700">👨‍👩‍👧 Famille</span></div>
-            <div style="font-size:8px;opacity:.82;text-transform:uppercase;letter-spacing:.06em">Encaissé aujourd'hui</div>
-            <div style="font-size:23px;font-weight:900;margin-top:2px">84 500 <span style="font-size:11px;font-weight:600;opacity:.85">F</span></div>
-          </div>
-          <div style="display:flex;gap:6px;margin-bottom:11px">${kpis.map(k => `<div style="flex:1;border:1px solid rgba(45,106,79,.12);background:#fff;border-radius:11px;padding:8px 5px;text-align:center"><div style="font-size:13px;font-weight:800;color:${k[2]}">${k[1]}</div><div style="margin-top:2px;font-size:7px;font-weight:700;text-transform:uppercase;color:#9CA3AF">${k[0]}</div></div>`).join('')}</div>
-          <div style="background:#fff;border-radius:14px;padding:10px;margin-bottom:9px"><div style="font-size:8px;font-weight:700;text-transform:uppercase;color:#6B7F74;margin-bottom:7px">Tendance — 30 jours</div><div style="display:flex;height:44px;align-items:flex-end;gap:4px">${bars.map((h, i) => `<div style="flex:1;height:${h}%;border-radius:3px 3px 0 0;background:${i === bars.length - 1 ? '#40916C' : '#95D5B2'}"></div>`).join('')}</div></div>
-          <div style="background:#fff;border-radius:14px;padding:10px"><div style="font-size:8px;font-weight:700;text-transform:uppercase;color:#6B7F74;margin-bottom:7px">Alertes actives</div><div style="display:flex;gap:7px;background:#FEF3C7;border-radius:8px;padding:7px"><span>💰</span><div style="font-size:10px;font-weight:600">Vérifier les crédits en cours</div></div></div>
-          <div style="text-align:center;margin-top:10px;font-size:8px;color:#9CA3AF">🔒 Vue en lecture seule · Famille MamaShop</div>
-        </div>
-      </div>`;
-    }
-
     /* ════ ABO — Next.js marketplace, palette navy #0F2A4A / teal #0D9488 ════ */
     function mkAboHome() {
       return `<div class="mk" style="background:#F8F9FA;color:#212529;font-size:11px">
@@ -388,25 +297,23 @@
 
     const projects = [
       {
-        id: "001", name: "MamaShop", category: "Mobile · Commerce", year: "2026",
-        accent: "#2D6A4F", device: "phone", featured: true,
-        desc: "MamaShop — l'app mobile (React Native / Expo) de gestion pour les commerçantes en gros : stock, ventes, crédits clients et finances, avec trois espaces selon le rôle. Offline-first, pensée pour Lomé et les marchés d'Afrique de l'Ouest (FCFA).",
-        stack: ["React Native", "Expo", "TypeScript", "Supabase", "WhatsApp"],
+        id: "001", name: "Network of Black Women", category: "Web · OBNL & Communauté", year: "2026",
+        accent: "#F6828F", device: "browser", url: "networkofblackwomen.ca", featured: true,
+        desc: "Site vitrine et plateforme communautaire (Next.js 14 · Supabase · Stripe) pour Network of Black Women — une sororité pour les femmes noires de l'Alberta. Dons en ligne, inscription aux événements, conférence annuelle, newsletter et gestion de contenu, dans une identité chaleureuse (crème, brun, rose).",
+        stack: ["Next.js 14", "TypeScript", "Tailwind CSS", "Supabase", "Stripe", "Vercel"],
         features: [
-          { icon: "🧭", title: "Trois rôles, trois espaces", desc: "Gérante, vendeur terrain et diaspora — chacun ne voit que ce qui le concerne." },
-          { icon: "📶", title: "Offline-first", desc: "Fonctionne sans réseau, puis se synchronise dès le retour du signal." },
-          { icon: "⚠️", title: "Alertes de stock", desc: "Seuils critiques et ruptures signalés en temps réel." },
-          { icon: "💳", title: "Crédits clients", desc: "Impayés, encaissements et relances suivis au FCFA près." },
-          { icon: "📍", title: "Déstockage géolocalisé", desc: "Alerte par WhatsApp les acheteuses à moins de 3 km." },
-          { icon: "📊", title: "Score de bankabilité", desc: "Un dossier financier prêt à présenter à la microfinance." }
+          { icon: "💗", title: "Dons en ligne", desc: "Paiement sécurisé via Stripe — don ponctuel ou mensuel, montant libre." },
+          { icon: "🎟️", title: "Événements & billetterie", desc: "Inscription aux événements et à la conférence annuelle depuis le site." },
+          { icon: "🎤", title: "Conférence annuelle", desc: "Une page dédiée (#OurEssence) pour l'événement phare de l'organisation." },
+          { icon: "✉️", title: "Infolettre double opt-in", desc: "Inscription confirmée par email, désinscription en un clic — conforme." },
+          { icon: "🗂️", title: "Contenu géré (Supabase)", desc: "Événements, actualités et galerie mis à jour sans toucher au code." },
+          { icon: "♿", title: "Accessibilité & SEO", desc: "Contrastes AA, métadonnées Open Graph, sitemap et analytics au consentement." }
         ],
         screens: [
-          { t: "Dashboard Gérant", f: mkMamaDash },
-          { t: "Stock & arrivages", f: mkMamaStock },
-          { t: "Déstockage WhatsApp", f: mkMamaWhatsApp },
-          { t: "Crédits clients", f: mkMamaCredits },
-          { t: "Finances & score", f: mkMamaFinances },
-          { t: "Diaspora en direct", f: mkMamaDiaspora }
+          { t: "Accueil", img: "assets/work/nbw-home.jpg", device: "browser" },
+          { t: "Dons — paiement Stripe", img: "assets/work/nbw-donate.jpg", device: "browser" },
+          { t: "Programmes & initiatives", img: "assets/work/nbw-programs.jpg", device: "browser" },
+          { t: "Conférence annuelle", img: "assets/work/nbw-conference.jpg", device: "browser" }
         ]
       },
       {
