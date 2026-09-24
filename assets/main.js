@@ -104,6 +104,8 @@
         document.querySelectorAll('[data-lang-block]').forEach((el) => {
           el.style.display = el.getAttribute('data-lang-block') === lang ? '' : 'none';
         });
+        // Drive the hero "Intelligence System" experience if mounted
+        if (typeof window.__kxSetLang === 'function') window.__kxSetLang(lang);
       }
 
       let current = 'en';
