@@ -14,7 +14,7 @@ function mountKelthenExperience(container, opts = {}) {
       a1h: "Ideas are everywhere.", a1p: "Most never get built. Kelthen turns yours into systems that run.", hint: "Scroll to enter the system",
       a2h: "Everything connects.", a2p: "Leads, emails, bookings, payments. One network, working as one.",
       a3h: "It sees what you miss.", a3p: "AI agents that watch, answer and act, day and night.",
-      a4h: "Build what’s next.", a4p: "Websites, automation and AI, engineered as one system by Kelthen.",
+      a4h: "One hub. All your growth.", a4p: "Websites, automation and AI, engineered as one system by Kelthen.",
       cta: "Book a call", cta2: "Explore the system",
       prog: ["Signal", "Network", "Perception", "Core"],
       nodes: ["Leads", "Email", "Booking", "AI Agent", "Messages", "Sales", "Reports", "Insights"]
@@ -23,7 +23,7 @@ function mountKelthenExperience(container, opts = {}) {
       a1h: "Les idées sont partout.", a1p: "La plupart ne voient jamais le jour. Kelthen transforme les vôtres en systèmes qui tournent.", hint: "Faites défiler pour entrer dans le système",
       a2h: "Tout se connecte.", a2p: "Leads, emails, rendez-vous, paiements. Un seul réseau qui travaille d’un bloc.",
       a3h: "Il voit ce qui vous échappe.", a3p: "Des agents IA qui surveillent, répondent et agissent, jour et nuit.",
-      a4h: "Construisez la suite.", a4p: "Sites, automatisations et IA, conçus comme un seul système par Kelthen.",
+      a4h: "Un seul centre. Toute votre croissance.", a4p: "Sites, automatisations et IA, conçus comme un seul système par Kelthen.",
       cta: "Réserver un appel", cta2: "Explorer le système",
       prog: ["Signal", "Réseau", "Perception", "Noyau"],
       nodes: ["Leads", "Emails", "Agenda", "Agent IA", "Messages", "Ventes", "Rapports", "Veille"]
@@ -444,6 +444,6 @@ void main(){ vec2 d=gl_PointCoord-vec2(.5); float r=length(d); if(r>.5) discard;
   if (!mount || typeof window.THREE === "undefined") return;
   const initLang = (window.__i18nLang && window.__i18nLang()) || "en";
   window.__kxDestroy = mountKelthenExperience(mount, {
-    THREE: window.THREE, lang: initLang, ctaHref: "contact.html", secondaryHref: "#services", showLangToggle: false
+    THREE: window.THREE, lang: initLang, ctaHref: "contact.html", secondaryHref: "#services", showLangToggle: false, scrollLength: 320
   });
 })();
