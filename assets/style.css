@@ -3211,3 +3211,80 @@
     }
     .hero-title em, .section-title em, .about-lead em, .legal-title em,
     .cta-title em, .home-cta-title em, .trust-quote em { font-style: italic; }
+
+    /* ═══════════════════════════════════════════════════════
+       Hero V2 — scène animée (particules → K + hub de services)
+       ═══════════════════════════════════════════════════════ */
+    .hero-v2 {
+      position: relative;
+      min-height: 100vh;
+      min-height: 100svh;
+      overflow: hidden;
+      color: #fff;
+      background: radial-gradient(70% 80% at 70% 50%, #022B34 0%, #011E2E 48%, #000000 100%);
+      --h-muted: rgba(193, 217, 229, 0.78);
+      --line: rgba(193, 217, 229, 0.22);
+      --pale: #C1D9E5;
+    }
+    .hero-v2 canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+    .hero-v2 .shade { position: absolute; inset: 0; pointer-events: none;
+      background: linear-gradient(90deg, rgba(0,12,20,0.82) 0%, rgba(0,12,20,0.4) 38%, transparent 62%); }
+    .hero-v2 .mark { position: absolute; left: 0; top: 0; opacity: 0; pointer-events: none;
+      filter: drop-shadow(0 0 24px rgba(3,120,91,0.55)); }
+    .hero-v2 .hud { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+    .hero-v2 .hud .ring  { transform-box: fill-box; transform-origin: center; animation: hv-spin 40s linear infinite; }
+    .hero-v2 .hud .ring2 { transform-box: fill-box; transform-origin: center; animation: hv-spin 26s linear infinite reverse; }
+    @keyframes hv-spin { to { transform: rotate(360deg); } }
+
+    .hero-v2 .hero-v2-inner {
+      position: relative; z-index: 2;
+      min-height: 100vh; min-height: 100svh;
+      display: flex; flex-direction: column; justify-content: center;
+      max-width: 1360px; margin: 0 auto;
+      padding: 0 clamp(20px, 5vw, 72px);
+    }
+    .hero-v2 .copy { max-width: 720px; }
+    .hero-v2 h1 {
+      font-family: var(--sans);
+      font-size: clamp(2.7rem, 6vw, 5.8rem);
+      line-height: 0.94; letter-spacing: -0.045em; font-weight: 700;
+      color: #fff;
+    }
+    .hero-v2 h1 .l { display: block; overflow: hidden; padding-bottom: 0.08em; }
+    .hero-v2 h1 .l span { display: block; animation: hv-rise 1.1s cubic-bezier(.2,.7,.1,1) .4s both; }
+    .hero-v2 h1 .l + .l span { animation-delay: .55s; font-weight: 500; color: var(--h-muted); }
+    @keyframes hv-rise { from { transform: translateY(110%); } to { transform: none; } }
+
+    .hero-v2 .lead {
+      margin-top: 26px; max-width: 42ch;
+      font-family: var(--sans);
+      font-size: clamp(1.05rem, 1.35vw, 1.2rem); line-height: 1.55; color: var(--h-muted);
+      animation: hv-fade 1s .9s both;
+    }
+    .hero-v2 .ctas { margin-top: 34px; display: flex; flex-wrap: wrap; gap: 14px 24px; align-items: center; animation: hv-fade 1s 1.1s both; }
+    .hero-v2 .btn-hero {
+      background: var(--blue); color: #fff; text-decoration: none; font-family: var(--sans); font-weight: 600;
+      padding: 15px 26px; border-radius: 12px; transition: transform .2s, filter .2s;
+      box-shadow: 0 10px 40px -10px rgba(3,120,91,0.8);
+    }
+    .hero-v2 .btn-hero:hover { transform: translateY(-1px); filter: brightness(1.12); }
+    .hero-v2 .link-hero {
+      color: #fff; font-family: var(--sans); font-weight: 500; text-underline-offset: 6px;
+      text-decoration: underline; text-decoration-color: var(--line);
+    }
+    .hero-v2 .link-hero:hover { text-decoration-color: var(--pale); }
+    @keyframes hv-fade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+    .hero-v2 .readout {
+      position: absolute; right: clamp(20px, 5vw, 72px); bottom: 28px; z-index: 2;
+      text-align: right; font-family: var(--sans); font-size: 0.8rem; color: var(--h-muted);
+      animation: hv-fade 1s 1.4s both;
+    }
+    .hero-v2 .readout b { display: block; font-size: 1.35rem; color: #fff; font-weight: 600; font-variant-numeric: tabular-nums; letter-spacing: -0.01em; }
+
+    @media (max-width: 760px) {
+      .hero-v2 .shade { background: linear-gradient(0deg, rgba(0,12,20,0.92) 0%, rgba(0,12,20,0.6) 42%, transparent 70%); }
+      .hero-v2 .hero-v2-inner { justify-content: flex-end; padding-bottom: 44px; }
+      .hero-v2 .copy { max-width: 100%; }
+      .hero-v2 .readout { display: none; }
+    }
