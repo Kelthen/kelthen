@@ -106,6 +106,8 @@
         });
         // Drive the hero "Intelligence System" experience if mounted
         if (typeof window.__kxSetLang === 'function') window.__kxSetLang(lang);
+        // Re-render the portfolio cards / open modal in the new language
+        if (typeof window.__portfolioRerender === 'function') window.__portfolioRerender();
       }
 
       let current = 'en';
@@ -300,88 +302,129 @@
 
     const projects = [
       {
-        id: "001", name: "Network of Black Women", category: "Web · OBNL & Communauté", year: "2026",
+        id: "001", name: "Network of Black Women",
+        category: { en: "Web · Nonprofit & Community", fr: "Web · OBNL & Communauté" }, year: "2026",
         accent: "#F6828F", device: "browser", url: "networkofblackwomen.ca", link: "https://networkofblackwomen.ca", featured: true,
-        desc: "Site vitrine et plateforme communautaire (Next.js 14 · Supabase · Stripe) pour Network of Black Women — une sororité pour les femmes noires de l'Alberta. Dons en ligne, inscription aux événements, conférence annuelle, newsletter et gestion de contenu, dans une identité chaleureuse (crème, brun, rose).",
-        stack: ["Next.js 14", "TypeScript", "Tailwind CSS", "Supabase", "Stripe", "Vercel"],
+        desc: {
+          en: "Website and community platform for Network of Black Women — a sisterhood for Black women in Alberta. Online donations, event registration, an annual conference, a newsletter and easy content updates, in a warm identity (cream, brown, pink).",
+          fr: "Site web et plateforme communautaire pour Network of Black Women — une sororité pour les femmes noires de l'Alberta. Dons en ligne, inscription aux événements, conférence annuelle, infolettre et mises à jour de contenu faciles, dans une identité chaleureuse (crème, brun, rose)."
+        },
+        stack: {
+          en: ["Custom website", "Online donations", "Event tickets", "Newsletter", "Content management"],
+          fr: ["Site sur-mesure", "Dons en ligne", "Billetterie", "Infolettre", "Gestion de contenu"]
+        },
         features: [
-          { icon: "💗", title: "Dons en ligne", desc: "Paiement sécurisé via Stripe — don ponctuel ou mensuel, montant libre." },
-          { icon: "🎟️", title: "Événements & billetterie", desc: "Inscription aux événements et à la conférence annuelle depuis le site." },
-          { icon: "🎤", title: "Conférence annuelle", desc: "Une page dédiée (#OurEssence) pour l'événement phare de l'organisation." },
-          { icon: "✉️", title: "Infolettre double opt-in", desc: "Inscription confirmée par email, désinscription en un clic — conforme." },
-          { icon: "🗂️", title: "Contenu géré (Supabase)", desc: "Événements, actualités et galerie mis à jour sans toucher au code." },
-          { icon: "♿", title: "Accessibilité & SEO", desc: "Contrastes AA, métadonnées Open Graph, sitemap et analytics au consentement." }
+          { icon: "💗", title: { en: "Online donations", fr: "Dons en ligne" }, desc: { en: "Secure payment — one-time or monthly, any amount.", fr: "Paiement sécurisé — don ponctuel ou mensuel, montant libre." } },
+          { icon: "🎟️", title: { en: "Events & tickets", fr: "Événements & billetterie" }, desc: { en: "Sign up for events and the annual conference right from the site.", fr: "Inscription aux événements et à la conférence annuelle depuis le site." } },
+          { icon: "🎤", title: { en: "Annual conference", fr: "Conférence annuelle" }, desc: { en: "A dedicated page (#OurEssence) for the organization's flagship event.", fr: "Une page dédiée (#OurEssence) pour l'événement phare de l'organisation." } },
+          { icon: "✉️", title: { en: "Confirmed newsletter", fr: "Infolettre confirmée" }, desc: { en: "Email-confirmed sign-up, one-click unsubscribe — fully compliant.", fr: "Inscription confirmée par email, désinscription en un clic — conforme." } },
+          { icon: "🗂️", title: { en: "Easy content updates", fr: "Contenu facile à gérer" }, desc: { en: "Events, news and gallery updated without touching any code.", fr: "Événements, actualités et galerie mis à jour sans toucher au code." } },
+          { icon: "♿", title: { en: "Accessible & found on Google", fr: "Accessible & visible sur Google" }, desc: { en: "Strong contrasts, polished sharing previews and search-engine ready.", fr: "Bons contrastes, aperçus de partage soignés et prêt pour le référencement." } }
         ],
         screens: [
-          { t: "Accueil", img: "assets/work/nbw-home.jpg", device: "browser" },
-          { t: "Dons — paiement Stripe", img: "assets/work/nbw-donate.jpg", device: "browser" },
-          { t: "Programmes & initiatives", img: "assets/work/nbw-programs.jpg", device: "browser" },
-          { t: "Conférence annuelle", img: "assets/work/nbw-conference.jpg", device: "browser" }
+          { t: { en: "Home", fr: "Accueil" }, img: "assets/work/nbw-home.jpg", device: "browser" },
+          { t: { en: "Donations", fr: "Dons" }, img: "assets/work/nbw-donate.jpg", device: "browser" },
+          { t: { en: "Programs & initiatives", fr: "Programmes & initiatives" }, img: "assets/work/nbw-programs.jpg", device: "browser" },
+          { t: { en: "Annual conference", fr: "Conférence annuelle" }, img: "assets/work/nbw-conference.jpg", device: "browser" }
         ]
       },
       {
-        id: "002", name: "ABO", category: "Web · Marketplace", year: "2025",
+        id: "002", name: "ABO",
+        category: { en: "Web · Marketplace", fr: "Web · Marketplace" }, year: "2025",
         accent: "#0D9488", device: "browser", url: "abo.tg", featured: false,
-        desc: "Marketplace mobile-first (Next.js 14) qui donne une présence numérique crédible aux artisans de Lomé : badge « Vérifié ABO » après vérification d'identité, recherche par métier et quartier, devis directs via WhatsApp.",
-        stack: ["Next.js 14", "TypeScript", "Prisma", "PostgreSQL", "Cloudflare R2", "WhatsApp"],
+        desc: {
+          en: "A mobile-first marketplace that gives the craftspeople of Lomé a credible online presence: a “Verified ABO” badge after identity checks, search by trade and neighbourhood, and direct quotes over WhatsApp.",
+          fr: "Une marketplace pensée mobile qui donne aux artisans de Lomé une présence numérique crédible : badge « Vérifié ABO » après vérification d'identité, recherche par métier et quartier, et devis directs via WhatsApp."
+        },
+        stack: {
+          en: ["Marketplace", "Verified profiles", "Local search", "WhatsApp contact", "Mobile-first"],
+          fr: ["Marketplace", "Profils vérifiés", "Recherche locale", "Contact WhatsApp", "Pensé mobile"]
+        },
         features: [
-          { icon: "🛡️", title: "Badge Vérifié ABO", desc: "Identité contrôlée manuellement (CNI) avant publication du profil." },
-          { icon: "🔎", title: "Recherche métier + quartier", desc: "Trouver un artisan de confiance près de chez soi, à Lomé." },
-          { icon: "💬", title: "Devis WhatsApp direct", desc: "Le client parle à l'artisan, sans intermédiaire." },
-          { icon: "⭐", title: "Avis authentiques", desc: "Seuls les vrais clients (passés par un devis) peuvent noter." },
-          { icon: "🚫", title: "Anti-fraude", desc: "Signalements et suspension automatique au-delà d'un seuil." }
+          { icon: "🛡️", title: { en: "Verified ABO badge", fr: "Badge Vérifié ABO" }, desc: { en: "Identity checked by hand before a profile goes live.", fr: "Identité contrôlée manuellement avant publication du profil." } },
+          { icon: "🔎", title: { en: "Search by trade + area", fr: "Recherche métier + quartier" }, desc: { en: "Find a trusted craftsperson near you, in Lomé.", fr: "Trouver un artisan de confiance près de chez soi, à Lomé." } },
+          { icon: "💬", title: { en: "Direct WhatsApp quote", fr: "Devis WhatsApp direct" }, desc: { en: "The client talks to the craftsperson, no middleman.", fr: "Le client parle à l'artisan, sans intermédiaire." } },
+          { icon: "⭐", title: { en: "Genuine reviews", fr: "Avis authentiques" }, desc: { en: "Only real clients (who requested a quote) can leave a rating.", fr: "Seuls les vrais clients (passés par un devis) peuvent noter." } },
+          { icon: "🚫", title: { en: "Anti-fraud", fr: "Anti-fraude" }, desc: { en: "Reports and automatic suspension past a threshold.", fr: "Signalements et suspension automatique au-delà d'un seuil." } }
         ],
         screens: [
-          { t: "Accueil & recherche", f: mkAboHome },
-          { t: "Résultats", f: mkAboResults },
-          { t: "Profil artisan", f: mkAboProfile },
-          { t: "Devis WhatsApp", f: mkAboDevis, device: "phone" },
-          { t: "Vérification d'identité", f: mkAboVerif }
+          { t: { en: "Home & search", fr: "Accueil & recherche" }, f: mkAboHome },
+          { t: { en: "Results", fr: "Résultats" }, f: mkAboResults },
+          { t: { en: "Craftsperson profile", fr: "Profil artisan" }, f: mkAboProfile },
+          { t: { en: "WhatsApp quote", fr: "Devis WhatsApp" }, f: mkAboDevis, device: "phone" },
+          { t: { en: "Identity check", fr: "Vérification d'identité" }, f: mkAboVerif }
         ]
       },
       {
-        id: "003", name: "Cuties Chichi", category: "Web · Booking & Automation", year: "2026",
+        id: "003", name: "Cuties Chichi",
+        category: { en: "Web · Booking & Automation", fr: "Web · Réservation & Automatisation" }, year: "2026",
         accent: "#C6447A", device: "browser", url: "chichi-cuties.vercel.app", link: "https://chichi-cuties.vercel.app", featured: false,
-        desc: "Site de réservation (Next.js 16 + Supabase) pour un salon afro à Ottawa, doublé d'une automatisation n8n : chaque demande prévient Chichi sur Telegram et WhatsApp, elle valide d'un tap, puis la cliente reçoit email + SMS, l'agenda Google se met à jour, et des rappels partent automatiquement 24h et 2h avant le rendez-vous.",
-        stack: ["Next.js 16", "Supabase", "n8n", "Twilio", "Google Calendar", "Telegram", "WhatsApp"],
+        desc: {
+          en: "A booking site for an Afro hair salon in Ottawa, paired with automation: every request pings Chichi on Telegram and WhatsApp, she approves with one tap, then the client gets an email + SMS, Google Calendar updates, and reminders go out automatically 24h and 2h before the appointment.",
+          fr: "Un site de réservation pour un salon afro à Ottawa, doublé d'une automatisation : chaque demande prévient Chichi sur Telegram et WhatsApp, elle valide d'un tap, puis la cliente reçoit email + SMS, l'agenda Google se met à jour, et des rappels partent automatiquement 24h et 2h avant le rendez-vous."
+        },
+        stack: {
+          en: ["Online booking", "Automation", "SMS reminders", "Google Calendar", "WhatsApp & Telegram"],
+          fr: ["Réservation en ligne", "Automatisation", "Rappels SMS", "Google Agenda", "WhatsApp & Telegram"]
+        },
         features: [
-          { icon: "📅", title: "Réservation en ligne", desc: "6 prestations, prix exact confirmé sous 48h." },
-          { icon: "🤖", title: "Réceptionniste IA (AURA)", desc: "Répond sur web, Telegram, WhatsApp, Messenger et Instagram." },
-          { icon: "👆", title: "Validation en 1 tap", desc: "Chichi confirme ou décline depuis Telegram/WhatsApp." },
-          { icon: "📎", title: "Photo de référence", desc: "Jointe à la demande pour cadrer le style et le prix." },
-          { icon: "🔔", title: "Confirmation multi-canal", desc: "Email + SMS + ajout automatique à Google Agenda." },
-          { icon: "⏰", title: "Rappels automatiques", desc: "24h et 2h avant le rendez-vous, sans doublon." }
+          { icon: "📅", title: { en: "Online booking", fr: "Réservation en ligne" }, desc: { en: "6 services, exact price confirmed within 48h.", fr: "6 prestations, prix exact confirmé sous 48h." } },
+          { icon: "🤖", title: { en: "AI receptionist (AURA)", fr: "Réceptionniste IA (AURA)" }, desc: { en: "Answers on web, Telegram, WhatsApp, Messenger and Instagram.", fr: "Répond sur web, Telegram, WhatsApp, Messenger et Instagram." } },
+          { icon: "👆", title: { en: "One-tap approval", fr: "Validation en 1 tap" }, desc: { en: "Chichi confirms or declines from Telegram/WhatsApp.", fr: "Chichi confirme ou décline depuis Telegram/WhatsApp." } },
+          { icon: "📎", title: { en: "Reference photo", fr: "Photo de référence" }, desc: { en: "Attached to the request to nail the style and price.", fr: "Jointe à la demande pour cadrer le style et le prix." } },
+          { icon: "🔔", title: { en: "Multi-channel confirmation", fr: "Confirmation multi-canal" }, desc: { en: "Email + SMS + automatic add to Google Calendar.", fr: "Email + SMS + ajout automatique à Google Agenda." } },
+          { icon: "⏰", title: { en: "Automatic reminders", fr: "Rappels automatiques" }, desc: { en: "24h and 2h before the appointment, no duplicates.", fr: "24h et 2h avant le rendez-vous, sans doublon." } }
         ],
         screens: [
-          { t: "Site de réservation", f: mkChichiSite, device: "browser" },
-          { t: "Démo animée · bot → validation", f: mkChatSim, device: "raw" },
-          { t: "Chichi est notifiée", f: mkChichiNotif, device: "phone" },
-          { t: "Workflow n8n (réel)", f: mkChichiFlow, device: "bare" },
-          { t: "Confirmation & rappel auto", f: mkChichiConfirm, device: "phone" }
+          { t: { en: "Booking site", fr: "Site de réservation" }, f: mkChichiSite, device: "browser" },
+          { t: { en: "Animated demo · bot → approval", fr: "Démo animée · bot → validation" }, f: mkChatSim, device: "raw" },
+          { t: { en: "Chichi gets notified", fr: "Chichi est notifiée" }, f: mkChichiNotif, device: "phone" },
+          { t: { en: "Automation (live)", fr: "Automatisation (réelle)" }, f: mkChichiFlow, device: "bare" },
+          { t: { en: "Confirmation & auto reminder", fr: "Confirmation & rappel auto" }, f: mkChichiConfirm, device: "phone" }
         ]
       },
       {
-        id: "004", name: "Kelthen", category: "Web · Agence", year: "2025",
+        id: "004", name: "Kelthen",
+        category: { en: "Web · Agency", fr: "Web · Agence" }, year: "2025",
         accent: "#03785B", device: "browser", url: "kelthen.com", link: "https://kelthen.com", featured: false,
-        desc: "Le site vitrine de l'agence — HTML/CSS/JS vanilla en un seul fichier, zéro framework, zéro build. Direction artistique premium (noir profond + bleu royal), micro-interactions soignées, score Lighthouse > 90.",
-        stack: ["HTML", "CSS", "JavaScript", "Vercel"],
+        desc: {
+          en: "The agency's own site — ultra-light and ultra-fast, with no needless bloat. Premium art direction, refined micro-interactions and top performance.",
+          fr: "Le site vitrine de l'agence — ultra-léger et ultra-rapide, sans surcouche inutile. Direction artistique premium, micro-interactions soignées et performance au top."
+        },
+        stack: {
+          en: ["Showcase site", "Ultra-fast", "Found on Google", "Custom animations"],
+          fr: ["Site vitrine", "Ultra-rapide", "Visible sur Google", "Animations sur-mesure"]
+        },
         features: [
-          { icon: "📄", title: "Un seul fichier", desc: "HTML/CSS/JS vanilla, zéro dépendance, zéro build." },
-          { icon: "🔎", title: "SEO + Analytics", desc: "Métadonnées OG, JSON-LD, sitemap et GA4 intégrés." },
-          { icon: "⚡", title: "Lighthouse > 90", desc: "Chargement rapide, responsive de 360 à 1440px." },
-          { icon: "✨", title: "Animations sur-mesure", desc: "Mascotte, curseur bleu, révélations au scroll, marquee." }
+          { icon: "📄", title: { en: "Ultra-light", fr: "Ultra-léger" }, desc: { en: "No heavy layers — near-instant loading.", fr: "Aucune surcouche — chargement quasi instantané." } },
+          { icon: "🔎", title: { en: "Found on Google", fr: "Visible sur Google" }, desc: { en: "Well referenced, with polished sharing previews and visit tracking.", fr: "Bien référencé, avec aperçus de partage soignés et suivi des visites." } },
+          { icon: "⚡", title: { en: "Top performance", fr: "Performance au top" }, desc: { en: "Fast and smooth on phone and desktop alike.", fr: "Rapide et fluide sur mobile comme sur ordi." } },
+          { icon: "✨", title: { en: "Custom animations", fr: "Animations sur-mesure" }, desc: { en: "Signature motion, scroll reveals and interactions.", fr: "Animations signatures, révélations au scroll et interactions." } }
         ],
         screens: [
-          { t: "Hero", f: mkNovaHero },
-          { t: "Services", f: mkNovaServices },
-          { t: "Pricing", f: mkNovaPricing }
+          { t: { en: "Hero", fr: "Hero" }, f: mkNovaHero },
+          { t: { en: "Services", fr: "Services" }, f: mkNovaServices },
+          { t: { en: "Pricing", fr: "Tarifs" }, f: mkNovaPricing }
         ]
       }
     ];
 
+    // ─── Portfolio i18n helpers ───
+    // Localized fields are stored as { en, fr }; L() picks the current language.
+    function pfLang() { return (window.__i18nLang && window.__i18nLang()) || 'en'; }
+    function L(v) {
+      if (v && typeof v === 'object' && !Array.isArray(v) && ('en' in v || 'fr' in v)) return v[pfLang()] != null ? v[pfLang()] : (v.en != null ? v.en : v.fr);
+      return v;
+    }
+    const PF_UI = {
+      en: { screensHint: (n) => `${n} screens — click`, viewProject: 'view project', seeScreens: 'see the screens', onWorkPage: 'see it on the Work page', visit: 'Visit site', features: 'Key features', keyScreens: (n) => `${n} key screens`, close: 'Close' },
+      fr: { screensHint: (n) => `${n} écrans — cliquer`, viewProject: 'voir le projet', seeScreens: 'voir les écrans', onWorkPage: 'voir sur la page Work', visit: 'Visiter le site', features: 'Fonctionnalités clés', keyScreens: (n) => `${n} écrans clés`, close: 'Fermer' }
+    };
+    function pfUI() { return PF_UI[pfLang()]; }
+
     // Shared inner markup for a work card (used by the full grid and the home preview)
     function workCardInner(p, hintText) {
-      const stackHtml = p.stack.map(s => `<span class="ws">${s}</span>`).join('');
+      const stackHtml = L(p.stack).map(s => `<span class="ws">${s}</span>`).join('');
       const hero = wrapFrame(p, screenContent(p.screens[0]), p.screens[0].device);
       return `
         <div class="work-mockup" style="background:linear-gradient(150deg, ${hexA(p.accent, 0.22)} 0%, #0a0d13 78%)">
@@ -390,11 +433,11 @@
         </div>
         <div class="work-card-top">
           <span class="work-id">${p.id}</span>
-          <span class="work-category">${p.category}</span>
+          <span class="work-category">${L(p.category)}</span>
         </div>
         <div class="work-body">
           <h3 class="work-name">${p.name}</h3>
-          <p class="work-desc">${p.desc}</p>
+          <p class="work-desc">${L(p.desc)}</p>
           <div class="work-stack">${stackHtml}</div>
         </div>
         <div class="work-card-bottom">
@@ -405,77 +448,97 @@
     }
 
     // Full portfolio grid + modal — only on work.html
-    (function renderWork() {
+    function buildWorkGrid(revealNow) {
       const grid = document.getElementById('workGrid');
       if (!grid) return;
+      grid.innerHTML = '';
       projects.forEach((p, idx) => {
         const card = document.createElement('article');
-        card.className = p.featured ? 'work-card featured reveal' : 'work-card reveal';
+        card.className = (p.featured ? 'work-card featured reveal' : 'work-card reveal') + (revealNow ? ' visible' : '');
         card.setAttribute('role', 'listitem');
         card.tabIndex = 0;
-        card.setAttribute('aria-label', `${p.name} — voir les écrans`);
-        card.innerHTML = workCardInner(p, `${p.screens.length} écrans — cliquer`);
+        card.setAttribute('aria-label', `${p.name} — ${pfUI().seeScreens}`);
+        card.innerHTML = workCardInner(p, pfUI().screensHint(p.screens.length));
         card.addEventListener('click', () => openProjectModal(idx));
         card.addEventListener('keydown', (e) => {
           if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openProjectModal(idx); }
         });
         grid.appendChild(card);
       });
-    })();
+    }
+    buildWorkGrid(false);
 
     // Home preview — a few featured cards that link to the full Work page
-    (function renderWorkPreview() {
+    function buildWorkPreview(revealNow) {
       const grid = document.getElementById('workPreview');
       if (!grid) return;
+      grid.innerHTML = '';
       projects.slice(0, 3).forEach((p) => {
         const card = document.createElement('a');
-        card.className = (p.featured ? 'work-card featured reveal' : 'work-card reveal') + ' work-card-link';
+        card.className = (p.featured ? 'work-card featured reveal' : 'work-card reveal') + ' work-card-link' + (revealNow ? ' visible' : '');
         card.href = 'work.html';
-        card.setAttribute('aria-label', `${p.name} — voir sur la page Work`);
-        card.innerHTML = workCardInner(p, 'voir le projet');
+        card.setAttribute('aria-label', `${p.name} — ${pfUI().onWorkPage}`);
+        card.innerHTML = workCardInner(p, pfUI().viewProject);
         grid.appendChild(card);
       });
-    })();
+    }
+    buildWorkPreview(false);
+
+    // Re-render the portfolio (cards + open modal) when the language changes.
+    window.__portfolioRerender = function () {
+      buildWorkGrid(true);
+      buildWorkPreview(true);
+      if (pmOverlay && pmOverlay.classList.contains('open') && pmCurrentIdx != null) renderModalBody(pmCurrentIdx);
+    };
 
     // ─── Project detail modal (gallery of screens) ───
     const pmOverlay = document.getElementById('projectModal');
     const pmDialog  = document.getElementById('projectModalBody');
     let pmLastFocus = null;
+    let pmCurrentIdx = null;
 
-    function openProjectModal(idx) {
+    // Build the modal body for a project (also used to re-render on language change)
+    function renderModalBody(idx) {
       const p = projects[idx];
-      pmLastFocus = document.activeElement;
-      const stackHtml = p.stack.map(s => `<span class="ws">${s}</span>`).join('');
+      const ui = pfUI();
+      const stackHtml = L(p.stack).map(s => `<span class="ws">${s}</span>`).join('');
       const screensHtml = p.screens.map(s =>
-        `<div class="pm-screen"><div>${wrapFrame(p, screenContent(s), s.device)}</div><div class="pm-screen-cap"><span>◆</span>${s.t}</div></div>`
+        `<div class="pm-screen"><div>${wrapFrame(p, screenContent(s), s.device)}</div><div class="pm-screen-cap"><span>◆</span>${L(s.t)}</div></div>`
       ).join('');
       const featuresHtml = (p.features || []).map(f =>
-        `<div class="pm-feature"><span class="pm-feature-icon">${f.icon}</span><div><div class="pm-feature-title">${f.title}</div><div class="pm-feature-desc">${f.desc}</div></div></div>`
+        `<div class="pm-feature"><span class="pm-feature-icon">${f.icon}</span><div><div class="pm-feature-title">${L(f.title)}</div><div class="pm-feature-desc">${L(f.desc)}</div></div></div>`
       ).join('');
 
       pmDialog.innerHTML = `
-        <button class="pm-close" id="pmClose" type="button" aria-label="Fermer">✕</button>
-        <p class="pm-eyebrow">${p.category} · ${p.year}</p>
+        <button class="pm-close" id="pmClose" type="button" aria-label="${ui.close}">✕</button>
+        <p class="pm-eyebrow">${L(p.category)} · ${p.year}</p>
         <h2 class="pm-name">${p.name}</h2>
-        <p class="pm-desc">${p.desc}</p>
-        ${p.link ? `<a class="pm-visit" href="${p.link}" target="_blank" rel="noopener noreferrer">Visiter le site <span aria-hidden="true">↗</span></a>` : ''}
+        <p class="pm-desc">${L(p.desc)}</p>
+        ${p.link ? `<a class="pm-visit" href="${p.link}" target="_blank" rel="noopener noreferrer">${ui.visit} <span aria-hidden="true">↗</span></a>` : ''}
         <div class="pm-stack">${stackHtml}</div>
-        ${p.features ? `<p class="pm-screens-label">Fonctionnalités clés</p><div class="pm-features">${featuresHtml}</div>` : ''}
-        <p class="pm-screens-label">${p.screens.length} écrans clés</p>
+        ${p.features ? `<p class="pm-screens-label">${ui.features}</p><div class="pm-features">${featuresHtml}</div>` : ''}
+        <p class="pm-screens-label">${ui.keyScreens(p.screens.length)}</p>
         <div class="pm-screens">${screensHtml}</div>
       `;
-
-      pmOverlay.classList.add('open');
-      document.body.style.overflow = 'hidden';
       const closeBtn = document.getElementById('pmClose');
       closeBtn.addEventListener('click', closeProjectModal);
-      closeBtn.focus();
       pmDialog.querySelectorAll('.chat-sim').forEach((el) => playChatSim(el));
+      return closeBtn;
+    }
+
+    function openProjectModal(idx) {
+      pmLastFocus = document.activeElement;
+      pmCurrentIdx = idx;
+      const closeBtn = renderModalBody(idx);
+      pmOverlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      closeBtn.focus();
     }
 
     function closeProjectModal() {
       pmOverlay.classList.remove('open');
       document.body.style.overflow = '';
+      pmCurrentIdx = null;
       if (pmLastFocus && pmLastFocus.focus) pmLastFocus.focus();
     }
 
