@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -66,7 +66,7 @@
 
   <link rel="stylesheet" href="assets/style.css">
 </head>
-<body class="home-light">
+<body>
   <!-- ═══ Nav ═══ -->
   <nav class="nav" id="nav" aria-label="Main navigation">
     <a href="index.html" class="nav-logo" aria-label="Kelthen — home">
@@ -83,9 +83,9 @@
     </ul>
 
     <div class="lang-switch" role="group" aria-label="Langue">
-      <button type="button" class="lang-btn" data-lang-btn="fr">FR</button>
-      <span class="lang-sep" aria-hidden="true">|</span>
       <button type="button" class="lang-btn" data-lang-btn="en">EN</button>
+      <span class="lang-sep" aria-hidden="true">|</span>
+      <button type="button" class="lang-btn" data-lang-btn="fr">FR</button>
     </div>
     <button class="nav-cta" id="navCta" type="button" data-i18n="nav.cta">Audit gratuit</button>
     <button class="nav-hamburger" id="navHamburger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navMobile">
@@ -104,244 +104,204 @@
     <a href="pricing.html"  class="nav-mobile-link" data-mobile-link data-i18n="nav.pricing">Tarifs</a>
     <a href="contact.html"  class="nav-mobile-link" data-mobile-link data-i18n="nav.contact">Contact</a>
     <div class="lang-switch lang-switch-mobile" role="group" aria-label="Langue">
-      <button type="button" class="lang-btn" data-lang-btn="fr">FR</button>
-      <span class="lang-sep" aria-hidden="true">|</span>
       <button type="button" class="lang-btn" data-lang-btn="en">EN</button>
+      <span class="lang-sep" aria-hidden="true">|</span>
+      <button type="button" class="lang-btn" data-lang-btn="fr">FR</button>
     </div>
     <button class="nav-mobile-cta" id="navMobileCta" type="button" data-i18n="nav.cta">Audit gratuit</button>
   </div>
 
   <!-- ═══ Hero ═══ -->
-  <section class="hero" id="hero" aria-labelledby="heroTitle">
-    <div class="hero-overlay" aria-hidden="true"></div>
-    <div class="hero-grid" aria-hidden="true"></div>
-    <div class="hero-sweep" aria-hidden="true"></div>
-
-    <div class="hero-inner">
-      <p class="hero-eyebrow" data-i18n="hero.eyebrow">Agence web · commerces &amp; pros</p>
-      <h1 class="hero-title" id="heroTitle" data-i18n="hero.title" data-i18n-html>
-        Plus de clients.<br>
-        <em>Moins de gestion.</em>
-      </h1>
-
-      <div class="hero-bottom">
-        <p class="hero-desc" data-i18n="hero.desc">
-          Kelthen crée des sites web haute performance et des outils intelligents
-          pour les commerces et professionnels&nbsp;: plus de rendez-vous, zéro
-          paperasse, et une image de marque à la hauteur.
-        </p>
-        <div class="hero-actions">
-          <a href="contact.html" class="btn-primary" data-i18n="hero.ctaPrimary">Demander un audit gratuit</a>
-          <a href="index.html#services" class="btn-ghost" data-i18n="hero.ctaSecondary">Voir nos solutions</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="hero-visual">
-<div data-kbot-scene class="kb-root" style="position:relative;width:100%;max-width:680px;aspect-ratio:680/700;margin:0 auto;font-family:'Syne',system-ui,sans-serif;color:#14181F;user-select:none;">
-
-  <!-- backdrop arch -->
-  <div style="position:absolute;left:7%;right:7%;top:0;bottom:5%;background:radial-gradient(ellipse at 62% 32%, rgba(3, 120, 91,0.10), transparent 62%), linear-gradient(#FFFFFF,#F4EFE8);border:1px solid rgba(3, 120, 91,0.12);border-radius:200px 200px 26px 26px;overflow:hidden;">
-    <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(3, 120, 91,0.09) 1px,transparent 1px),linear-gradient(90deg,rgba(3, 120, 91,0.09) 1px,transparent 1px);background-size:46px 46px;-webkit-mask-image:radial-gradient(ellipse at 55% 42%,#000 30%,transparent 72%);mask-image:radial-gradient(ellipse at 55% 42%,#000 30%,transparent 72%);"></div>
-  </div>
-
-  <!-- mascot glow -->
-  <div class="kb-anim" style="position:absolute;right:5%;top:20%;width:44%;height:44%;background:radial-gradient(circle,rgba(3, 120, 91,0.28),transparent 62%);filter:blur(20px);animation:kb-glowPulse 5s ease-in-out infinite;"></div>
-
-  <!-- ===== n8n automation card (top-left, generic identity) ===== -->
-  <div class="kb-parallax" data-depth="1.7" style="position:absolute;left:1%;top:20%;width:140px;">
-    <div class="kb-anim kb-card" style="--rot:-3deg;animation:kb-popIn .7s ease 1.35s both, kb-floatY 6.8s ease-in-out 2.1s infinite;">
-      <div style="background:#FFFFFF;border:1px solid rgba(3, 120, 91,0.28);border-radius:13px;padding:13px 14px;box-shadow:0 16px 40px rgba(20,24,31,0.14);">
-        <div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:0.14em;text-transform:uppercase;color:#03785B;margin-bottom:11px;" data-i18n="scene.automation">Automatisation · n8n</div>
-        <svg viewBox="0 0 110 44" style="width:100%;height:auto;overflow:visible;">
-          <path d="M18 22 H50 M60 22 H92" stroke="#03785B" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 4" class="kb-anim" style="animation:kb-flowDash 1.1s linear infinite;"></path>
-          <rect x="6" y="12" width="20" height="20" rx="6" fill="#052B3E" stroke="#03785B" stroke-width="2"></rect>
-          <rect x="45" y="10" width="22" height="24" rx="6" fill="rgba(3, 120, 91,0.14)" stroke="#2FA37C" stroke-width="2"></rect>
-          <rect x="86" y="12" width="20" height="20" rx="6" fill="#052B3E" stroke="#03785B" stroke-width="2"></rect>
-          <circle cx="56" cy="22" r="3.5" fill="#2FA37C"></circle>
-        </svg>
-      </div>
-    </div>
-  </div>
-
-  <!-- ===== message trail: the person's messages rising to the bot ("...") ===== -->
-  <div class="kb-parallax" data-depth="1.3" style="position:absolute;left:30%;top:44%;width:66px;">
-    <div class="kb-anim" style="animation:kb-rise 3.4s ease-in-out .4s infinite;">
-      <div style="background:#FFFFFF;border:1px solid rgba(3, 120, 91,0.28);border-radius:13px 13px 13px 4px;padding:9px 12px;box-shadow:0 10px 26px rgba(20,24,31,0.12);display:flex;gap:5px;justify-content:center;">
-        <span class="kb-anim" style="width:7px;height:7px;border-radius:50%;background:#03785B;animation:kb-typing 1.3s ease-in-out infinite;"></span>
-        <span class="kb-anim" style="width:7px;height:7px;border-radius:50%;background:#03785B;animation:kb-typing 1.3s ease-in-out .18s infinite;"></span>
-        <span class="kb-anim" style="width:7px;height:7px;border-radius:50%;background:#03785B;animation:kb-typing 1.3s ease-in-out .36s infinite;"></span>
-      </div>
-    </div>
-  </div>
-  <div class="kb-parallax" data-depth="1.5" style="position:absolute;left:39%;top:35%;width:52px;">
-    <div class="kb-anim" style="animation:kb-rise 3.4s ease-in-out 1.7s infinite;">
-      <div style="background:#FFFFFF;border:1px solid rgba(3, 120, 91,0.24);border-radius:11px 11px 11px 3px;padding:7px 9px;box-shadow:0 8px 20px rgba(20,24,31,0.12);display:flex;gap:4px;justify-content:center;">
-        <span style="width:5px;height:5px;border-radius:50%;background:rgba(3, 120, 91,0.7);"></span>
-        <span style="width:5px;height:5px;border-radius:50%;background:rgba(3, 120, 91,0.7);"></span>
-        <span style="width:5px;height:5px;border-radius:50%;background:rgba(3, 120, 91,0.7);"></span>
-      </div>
-    </div>
-  </div>
-
-  <!-- ===== chat card — held by bot LEFT hand ===== -->
-  <div class="kb-parallax" data-depth="1.5" style="position:absolute;left:27%;top:16%;width:162px;">
-    <div class="kb-anim kb-card" style="--rot:-4deg;animation:kb-popIn .7s ease .55s both, kb-floatY 7s ease-in-out 1.4s infinite;">
-      <div style="background:#FFFFFF;border:1px solid rgba(3, 120, 91,0.3);border-radius:14px 14px 14px 4px;padding:13px 14px;box-shadow:0 18px 44px rgba(20,24,31,0.16), 0 0 0 4px rgba(3, 120, 91,0.05);">
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:11px;">
-          <div style="width:20px;height:20px;border-radius:6px;background:linear-gradient(135deg,#03785B,#02513C);display:flex;align-items:center;justify-content:center;">
-            <svg viewBox="0 0 24 24" style="width:12px;height:12px;"><rect x="5" y="7" width="14" height="11" rx="3" fill="none" stroke="#EAF2FF" stroke-width="2"></rect><circle cx="9.5" cy="12.5" r="1.4" fill="#EAF2FF"></circle><circle cx="14.5" cy="12.5" r="1.4" fill="#EAF2FF"></circle><line x1="12" y1="4" x2="12" y2="7" stroke="#EAF2FF" stroke-width="2"></line></svg>
-          </div>
-          <span style="font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:0.1em;color:rgba(20,24,31,0.55);" data-i18n="scene.assistant">Assistant · en ligne</span>
-          <span class="kb-anim" style="width:6px;height:6px;border-radius:50%;background:#03785B;margin-left:auto;animation:kb-glowPulse 1.8s ease-in-out infinite;"></span>
-        </div>
-        <div style="display:flex;justify-content:flex-end;margin-bottom:6px;">
-          <div style="background:#03785B;border-radius:11px 11px 3px 11px;padding:7px 11px;min-width:56px;">
-            <div style="height:5px;width:44px;border-radius:3px;background:rgba(8,10,15,0.55);"></div>
-          </div>
-        </div>
-        <div style="display:flex;">
-          <div style="background:rgba(3, 120, 91,0.12);border:1px solid rgba(3, 120, 91,0.2);border-radius:11px 11px 11px 3px;padding:8px 11px;flex:1;">
-            <div style="height:5px;width:88%;border-radius:3px;background:rgba(20,24,31,0.16);margin-bottom:5px;"></div>
-            <div style="height:5px;width:60%;border-radius:3px;background:rgba(20,24,31,0.16);"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ===== email / notification card — held by bot RIGHT hand ===== -->
-  <div class="kb-parallax" data-depth="1.9" style="position:absolute;left:74%;top:17%;width:140px;">
-    <div class="kb-anim kb-card" style="--rot:5deg;animation:kb-popIn .7s ease .85s both, kb-floatY 6.6s ease-in-out 1.6s infinite;">
-      <div style="position:relative;background:#FFFFFF;border:1px solid rgba(3, 120, 91,0.3);border-radius:13px 13px 4px 13px;padding:15px 15px 14px;box-shadow:0 18px 44px rgba(20,24,31,0.16), 0 0 0 4px rgba(3, 120, 91,0.05);">
-        <div style="position:absolute;top:-9px;right:-9px;min-width:22px;height:22px;padding:0 6px;border-radius:11px;background:#03785B;color:#011E2E;font-weight:700;font-size:11px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(3, 120, 91,0.5);">1</div>
-        <div style="display:flex;align-items:center;gap:10px;">
-          <div style="width:36px;height:27px;border:2px solid #03785B;border-radius:5px;position:relative;flex-shrink:0;overflow:hidden;">
-            <div style="position:absolute;left:-2px;right:-2px;top:-1px;height:15px;border-top:2px solid #03785B;transform:rotate(0);"></div>
-            <svg viewBox="0 0 36 27" style="position:absolute;inset:0;width:100%;height:100%;"><path d="M2 4 L18 15 L34 4" fill="none" stroke="#03785B" stroke-width="2"></path></svg>
-          </div>
-          <div>
-            <div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:0.14em;text-transform:uppercase;color:#03785B;" data-i18n="scene.notif">Notification</div>
-            <div style="font-size:12px;font-weight:600;margin-top:2px;" data-i18n="scene.newmsg">Nouveau message</div>
-          </div>
-        </div>
-        <div style="margin-top:11px;height:5px;width:92%;border-radius:3px;background:rgba(20,24,31,0.12);"></div>
-        <div style="margin-top:5px;height:5px;width:60%;border-radius:3px;background:rgba(20,24,31,0.12);"></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ============ PERSON (left, seated, sending messages) ============ -->
-  <div class="kb-parallax" data-depth="0.4" style="position:absolute;left:1%;bottom:2%;width:45%;">
-    <svg viewBox="0 0 300 400" style="width:100%;height:auto;overflow:visible;" aria-hidden="true">
-      <!-- chair (person sits on it) -->
-      <path d="M58 244 L214 244 L208 260 L64 260 Z" fill="#052B3E" stroke="#03785B" stroke-width="2.5" stroke-linejoin="round"></path>
-      <g stroke="#03785B" fill="none" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M66 250 L57 152 Q 56 141 68 141 L104 141"></path>
-        <path d="M72 258 L58 356"></path>
-        <path d="M204 258 L220 356"></path>
+  <section class="hero-v2" id="hero" aria-labelledby="heroTitle">
+    <canvas id="heroCanvas" aria-hidden="true"></canvas>
+    <svg class="hud" id="heroHud" aria-hidden="true">
+      <line id="heroG1" y1="0" y2="100%" stroke="rgba(193,217,229,.10)" stroke-dasharray="2 7"></line>
+      <line id="heroG2" y1="0" y2="100%" stroke="rgba(193,217,229,.07)" stroke-dasharray="2 7"></line>
+      <g id="heroRings">
+        <circle class="ring" r="10" fill="none" stroke="rgba(193,217,229,.35)" stroke-width="1" stroke-dasharray="1 9"></circle>
+        <circle class="ring2" r="10" fill="none" stroke="rgba(47,181,140,.45)" stroke-width="1.2" stroke-dasharray="60 30 8 30"></circle>
       </g>
-      <!-- far leg -->
-      <path d="M112 216 C 162 224 206 228 226 244 C 246 268 254 306 260 340 L236 344 C 228 308 220 274 206 258 C 170 250 132 246 108 240 Z" fill="#D6C9B7" stroke="#02202F" stroke-width="2.5" stroke-linejoin="round"></path>
-      <!-- far shoe -->
-      <path d="M234 336 q -8 16 8 20 q 24 5 30 -6 q 3 -11 -14 -15 Z" fill="#052B3E" stroke="#052B3E" stroke-width="2"></path>
-      <!-- near leg (crossed over) -->
-      <path d="M98 214 C 150 224 194 240 212 260 C 218 292 200 328 182 352 L158 346 C 174 318 188 288 180 270 C 152 260 118 250 94 244 Z" fill="#E8DCCB" stroke="#02202F" stroke-width="2.5" stroke-linejoin="round"></path>
-      <!-- near shoe -->
-      <path d="M156 344 q -10 16 6 21 q 24 5 30 -6 q 3 -11 -13 -16 Z" fill="#052B3E" stroke="#052B3E" stroke-width="2"></path>
-      <!-- torso: blue tee -->
-      <path d="M92 132 C 94 120 152 116 158 132 L170 158 L152 222 L96 222 L82 158 Z" fill="#03785B" stroke="#052B3E" stroke-width="3" stroke-linejoin="round"></path>
-      <!-- far arm (holds tablet) -->
-      <path d="M100 148 C 106 176 124 192 146 200" fill="none" stroke="#052B3E" stroke-width="16" stroke-linecap="round"></path>
-      <g transform="rotate(-15 170 192)">
-        <rect x="144" y="170" width="56" height="44" rx="6" fill="#052B3E" stroke="#03785B" stroke-width="3"></rect>
-        <rect x="152" y="178" width="40" height="28" rx="3" fill="rgba(3, 120, 91,0.16)" stroke="rgba(3, 120, 91,0.3)" stroke-width="1"></rect>
-        <circle cx="172" cy="192" r="4" fill="#2FA37C"></circle>
-      </g>
-      <!-- neck -->
-      <path d="M108 108 L108 132 L130 132 L130 108 Z" fill="#F1D7C4" stroke="#02202F" stroke-width="2"></path>
-      <!-- head -->
-      <circle cx="118" cy="82" r="32" fill="#F1D7C4" stroke="#02202F" stroke-width="2.5"></circle>
-      <!-- hair -->
-      <path d="M85 80 C 83 44 153 44 151 82 C 151 60 139 51 118 51 C 97 51 85 60 85 80 Z" fill="#052B3E"></path>
-      <!-- face hint -->
-      <circle cx="132" cy="84" r="2.4" fill="#02202F"></circle>
-      <path d="M138 92 q 6 5 12 2" fill="none" stroke="#02202F" stroke-width="2" stroke-linecap="round"></path>
-      <!-- raised arm (gestures up to the bot) -->
-      <path d="M150 138 C 172 130 188 128 198 130" fill="none" stroke="#03785B" stroke-width="17" stroke-linecap="round"></path>
-      <path d="M190 130 C 206 124 214 112 216 100" fill="none" stroke="#052B3E" stroke-width="15" stroke-linecap="round"></path>
-      <circle cx="217" cy="96" r="10" fill="#F1D7C4" stroke="#02202F" stroke-width="2"></circle>
-      <path d="M212 90 L214 82 M219 89 L223 82 M224 92 L229 87" stroke="#052B3E" stroke-width="4" stroke-linecap="round"></path>
     </svg>
-  </div>
-
-  <!-- ============ GROWTH — stock-style up arrow (business grows) ============ -->
-  <div class="kb-parallax" data-depth="1.6" style="position:absolute;right:2%;bottom:13%;width:138px;">
-    <div class="kb-anim kb-card" style="--rot:3deg;animation:kb-popIn .7s ease 1.9s both, kb-floatY 7.2s ease-in-out 2.7s infinite;">
-      <div style="background:#FFFFFF;border:1px solid rgba(3, 120, 91,0.3);border-radius:13px;padding:12px 13px;box-shadow:0 16px 40px rgba(20,24,31,0.14);">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:9px;">
-          <span style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(20,24,31,0.5);" data-i18n="scene.growth">Croissance</span>
-          <span style="font-family:'Syne',sans-serif;font-weight:700;font-size:12px;color:#2FA37C;">+150%</span>
+    <svg class="mark" id="heroMark" viewBox="0 0 1066 1000" aria-hidden="true"><path fill="#C1D9E5" d="M269.8 767.1 L0.0 767.1 L323.5 234.8 L587.6 243.4Z"></path><path fill="#03785B" d="M734.6 532.4 L1049.9 1000.0 L773.5 1000.0 L602.0 745.7 L461.6 537.4 L594.1 324.2 L795.7 0.0 L1065.5 0.0Z"></path></svg>
+    <div class="shade"></div>
+    <div class="hero-v2-inner">
+      <div class="copy">
+        <h1 id="heroTitle" data-i18n="hero.title" data-i18n-html><span class="l"><span>Un seul centre.</span></span><span class="l"><span>Toute votre croissance.</span></span></h1>
+        <p class="lead" data-i18n="hero.desc">Un seul centre relie vos leads, emails, rendez-vous et ventes. Nos automatisations et agents IA s'en occupent, pendant que vous vous consacrez à l'essentiel.</p>
+        <div class="ctas">
+          <a class="btn-hero" href="contact.html" data-i18n="hero.ctaPrimary">Réserver un appel</a>
+          <a class="link-hero" href="work.html" data-i18n="hero.ctaSecondary">Voir nos projets</a>
         </div>
-        <svg viewBox="0 0 120 56" style="width:100%;height:auto;overflow:visible;">
-          <line x1="6" y1="52" x2="114" y2="52" stroke="rgba(20,24,31,0.12)" stroke-width="1.5"></line>
-          <rect x="8" y="40" width="15" height="12" rx="2" fill="rgba(3, 120, 91,0.22)"></rect>
-          <rect x="34" y="32" width="15" height="20" rx="2" fill="rgba(3, 120, 91,0.3)"></rect>
-          <rect x="60" y="24" width="15" height="28" rx="2" fill="rgba(3, 120, 91,0.4)"></rect>
-          <rect x="86" y="12" width="15" height="40" rx="2" fill="rgba(3, 120, 91,0.55)"></rect>
-          <path d="M10 46 L40 36 L66 30 L98 12" fill="none" stroke="#2FA37C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
-          <path d="M84 10 L100 8 L98 26" fill="none" stroke="#2FA37C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
-        </svg>
       </div>
     </div>
-  </div>
-
-  <!-- ============ K-BOT MASCOT (right) — arms raised, HOLDING the cards ============ -->
-  <div data-kbot-mascot class="kb-anim kb-mascot" style="position:absolute;right:20%;top:20%;width:33%;animation:kb-mascotFloat 6s ease-in-out infinite;">
-    <svg class="kb-mascot-svg" viewBox="0 0 200 240" style="width:100%;height:auto;overflow:visible;" role="img" aria-label="Kelthen K-bot mascot">
-      <line x1="100" y1="6" x2="100" y2="34" stroke="#03785B" stroke-width="3.5" stroke-linecap="round"></line>
-      <circle cx="100" cy="7" r="6" fill="#2FA37C"></circle>
-      <!-- raised arms reaching up to the two cards -->
-      <path d="M58 158 C 32 142 18 102 18 70" fill="none" stroke="#02513C" stroke-width="11" stroke-linecap="round"></path>
-      <path d="M142 158 C 168 142 182 102 182 70" fill="none" stroke="#02513C" stroke-width="11" stroke-linecap="round"></path>
-      <!-- LEFT hand gripping the chat card corner -->
-      <g>
-        <path d="M8 60 Q 6 80 20 82 Q 33 82 31 64" fill="#052B3E" stroke="#03785B" stroke-width="2.5" stroke-linejoin="round"></path>
-        <path d="M27 62 Q 35 55 36 68" fill="none" stroke="#03785B" stroke-width="5" stroke-linecap="round"></path>
-        <circle cx="19" cy="72" r="3" fill="#2FA37C"></circle>
-      </g>
-      <!-- RIGHT hand gripping the email card corner -->
-      <g>
-        <path d="M192 60 Q 194 80 180 82 Q 167 82 169 64" fill="#052B3E" stroke="#03785B" stroke-width="2.5" stroke-linejoin="round"></path>
-        <path d="M173 62 Q 165 55 164 68" fill="none" stroke="#03785B" stroke-width="5" stroke-linecap="round"></path>
-        <circle cx="181" cy="72" r="3" fill="#2FA37C"></circle>
-      </g>
-      <!-- head -->
-      <rect x="38" y="44" width="124" height="108" rx="30" fill="#052B3E" stroke="#03785B" stroke-width="3"></rect>
-      <rect x="54" y="66" width="92" height="60" rx="20" fill="rgba(3, 120, 91,0.07)" stroke="rgba(3, 120, 91,0.22)" stroke-width="1.5"></rect>
-      <g class="kb-anim kb-eye" style="transform-box:fill-box;transform-origin:center;animation:kb-blink 5.2s ease-in-out infinite;">
-        <circle cx="80" cy="94" r="15" fill="#EAF2FF"></circle>
-        <g class="kb-pupil" data-cx="80" data-cy="94"><circle cx="80" cy="94" r="7" fill="#052B3E"></circle><circle cx="83" cy="91" r="2.2" fill="#2FA37C"></circle></g>
-      </g>
-      <g class="kb-anim kb-eye" style="transform-box:fill-box;transform-origin:center;animation:kb-blink 5.2s ease-in-out infinite;">
-        <circle cx="120" cy="94" r="15" fill="#EAF2FF"></circle>
-        <g class="kb-pupil" data-cx="120" data-cy="94"><circle cx="120" cy="94" r="7" fill="#052B3E"></circle><circle cx="123" cy="91" r="2.2" fill="#2FA37C"></circle></g>
-      </g>
-      <path class="kb-smile-normal" d="M80 128 Q100 141 120 128" stroke="#03785B" stroke-width="3.5" fill="none" stroke-linecap="round"></path>
-      <path class="kb-smile-happy" d="M76 123 Q100 160 124 123 Q100 135 76 123 Z" fill="#2FA37C" style="display:none;"></path>
-      <rect x="54" y="164" width="92" height="70" rx="20" fill="#052B3E" stroke="#02513C" stroke-width="2.5"></rect>
-      <path d="M82 176 L94 176 L94 193 L110 176 L126 176 L102 199 L126 222 L110 222 L94 205 L94 222 L82 222 Z" fill="#03785B"></path>
-    </svg>
-  </div>
-
-</div>
-    </div>
-
-    <div class="scroll-indicator" aria-hidden="true">
-      <span class="scroll-label" data-i18n="hero.scroll">Défiler</span>
-      <div class="scroll-line"></div>
-    </div>
+    <div class="readout"><span data-i18n="hero.readout">Demandes traitées par nos automatisations</span><b id="heroCount">12 408</b></div>
   </section>
+  <script>
+  /* ═══ Hero V2 — scène animée (particules → K + hub de services) ═══ */
+  (()=>{
+  const cv=document.getElementById("heroCanvas");if(!cv)return;const ctx=cv.getContext("2d");
+  const still=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let W,H,D,mobile,pts=[];
+  const AR=1.0655;
+  const LOGO=[[[.2698,.7671],[0,.7671],[.3235,.2348],[.5876,.2434]],[[.7346,.5324],[1.0499,1],[.7735,1],[.602,.7457],[.4616,.5374],[.5941,.3242],[.7957,0],[1.0655,0]]];
+  function sampleLogo(n){
+    const s=400,o=document.createElement("canvas");o.width=Math.ceil(s*AR);o.height=s;const g=o.getContext("2d");
+    const cols=["#f00","#0f0"];
+    LOGO.forEach((poly,k)=>{g.fillStyle=cols[k];g.beginPath();poly.forEach(([x,y],i)=>i?g.lineTo(x*s,y*s):g.moveTo(x*s,y*s));g.closePath();g.fill()});
+    const d=g.getImageData(0,0,o.width,s).data,inside=[];
+    for(let y=0;y<s;y+=2)for(let x=0;x<o.width;x+=2){const q=(y*o.width+x)*4;if(d[q+3]>200)inside.push([x/s,y/s,d[q]>d[q+1]?0:1])}
+    const out=[];for(let i=0;i<n;i++){const p=inside[(Math.random()*inside.length)|0];out.push([p[0]+Math.random()*.004,p[1]+Math.random()*.004,p[2]])}
+    return out;
+  }
+  function build(){
+    mobile=innerWidth<760;
+    const NX=mobile?72:120,NZ=mobile?44:62;
+    const targets=sampleLogo(NX*NZ);pts=[];let k=0;
+    for(let j=0;j<NZ;j++)for(let i=0;i<NX;i++){
+      const t=targets[k++];
+      pts.push({gx:-2.3+4.6*i/(NX-1),gz:3.4*j/(NZ-1),lx:t[0],ly:t[1],part:t[2],d:t[0]/AR*.35,r:Math.random()});
+    }
+  }
+  function size(){
+    D=Math.min(devicePixelRatio||1,1.75);W=cv.clientWidth;H=cv.clientHeight;
+    cv.width=Math.round(W*D);cv.height=Math.round(H*D);ctx.setTransform(D,0,0,D,0,0);
+    const wasMobile=mobile;if(wasMobile===undefined||wasMobile!==(innerWidth<760))build();
+  }
+  addEventListener("resize",size);size();
+  const circ=(cx,cy,r)=>`M${cx+r} ${cy}a${r} ${r} 0 1 1 ${-2*r} 0a${r} ${r} 0 1 1 ${2*r} 0`;
+  const NODES=[
+    {en:"Leads",fr:"Leads",d:circ(9,8,3)+"M3 20c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5M15.5 5.2a3 3 0 0 1 0 5.6M17.5 15c2 .6 3.5 2.4 3.5 5"},
+    {en:"Emails",fr:"Emails",d:"M3 6h18v12H3zM3 6l9 7 9-7"},
+    {en:"Calendar",fr:"Agenda",d:"M4 5h16v15H4zM4 10h16M8 3v4M16 3v4"},
+    {en:"AI Agent",fr:"Agent IA",d:"M6 9h12v10H6zM12 5v4M9.5 14h.01M14.5 14h.01M3 13v3M21 13v3"+circ(12,4,1)},
+    {en:"Messages",fr:"Messages",d:"M4 5h16v11H10l-5 4v-4H4z"},
+    {en:"Sales",fr:"Ventes",d:"M3 4h3l2.2 11h10.6L21 8H7"+circ(9.5,19,1.2)+circ(17.5,19,1.2)},
+    {en:"Reports",fr:"Rapports",d:"M4 20V11M10 20V5M16 20v-6M3 20h18"},
+    {en:"Insights",fr:"Veille",d:circ(11,11,6.5)+"M16 16l5 5"}
+  ].map(n=>({en:n.en,fr:n.fr,path:new Path2D(n.d)}));
+  function sprite(r,g,b){const c=document.createElement("canvas");c.width=c.height=64;const x=c.getContext("2d");
+    const gr=x.createRadialGradient(32,32,0,32,32,32);gr.addColorStop(0,`rgba(${r},${g},${b},1)`);gr.addColorStop(.55,`rgba(${r},${g},${b},.35)`);gr.addColorStop(1,`rgba(${r},${g},${b},0)`);
+    x.fillStyle=gr;x.fillRect(0,0,64,64);return c}
+  const SPR=[sprite(47,181,140),sprite(193,217,229),sprite(3,120,91)];
+  const bokeh=Array.from({length:22},()=>({x:Math.random(),y:Math.random(),r:6+Math.random()*26,a:.06+Math.random()*.18,s:SPR[(Math.random()*3)|0],v:.004+Math.random()*.01,p:Math.random()*6}));
+  const PAL=["#0A3442","#0B4A4A","#035E4C","#03785B","#11906C","#2FB58C","#6CCBAE","#A6D6D6","#C1D9E5","#EAF4F8","#8FB0C0","#C1D9E5","#E4F0F5","#03664E","#03785B","#1A9A74"];
+  const ALPHA=[.22,.3,.4,.5,.6,.7,.78,.85,.92,1,.9,1,1,.95,1,1];
+  const buckets=PAL.map(()=>[]);
+  const wave=(x,z,t)=>.20*Math.sin(x*1.9+t*.55+z*1.25)+.13*Math.sin(z*2.6-t*.45+x*.8)+.05*Math.sin((x+z)*4.6+t*.9);
+  const clamp=(v,a,b)=>v<a?a:v>b?b:v;
+  const ease=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+  const ROT=-.5,CA=Math.cos(ROT),SA=Math.sin(ROT);
+  const g1=document.getElementById("heroG1"),g2=document.getElementById("heroG2"),rings=document.getElementById("heroRings");
+  const rc=rings.querySelectorAll("circle");
+  let morph=0;
+  function frame(now){
+    const t=still?9:now/1000;
+    const c=(t+4)%20;
+    morph=c<6?0:c<8.5?ease((c-6)/2.5):c<17?1:c<19.5?1-ease((c-17)/2.5):0;
+    const cx=mobile?W*.5:W*.63, F=mobile?H*.95:Math.max(W,H*1.3)*.55, hy=mobile?H*.02:H*.2;
+    const ls=mobile?Math.min(W*.4/AR,H*.2):Math.min(H*.38,W*.2/AR);
+    const lcx=mobile?W*.5:W*.72, lcy=mobile?H*.3:H*.47, lw=ls*AR;
+    ctx.clearRect(0,0,W,H);
+    ctx.globalCompositeOperation="lighter";
+    for(const b of bokeh){
+      const bx=(b.x*W+Math.sin(t*b.v*40+b.p)*30), by=((b.y-t*b.v*.3)%1+1)%1*H;
+      ctx.globalAlpha=b.a*(mobile?1:clamp(bx/W*1.6,0,1));ctx.drawImage(b.s,bx-b.r,by-b.r,b.r*2,b.r*2);
+    }
+    ctx.globalAlpha=1;
+    for(const a of buckets)a.length=0;
+    for(const p of pts){
+      const x=p.gx,z=p.gz,y=wave(x,z,t);
+      const xr=x*CA-(z-1.6)*SA, zr=x*SA+(z-1.6)*CA+1.6, Z=zr+1.4;
+      let fx=cx+xr/Z*F, fy=hy+(.78-y)/Z*F*.85;
+      const sh=((wave(x+.03,z,t)-y)*.9-(wave(x,z+.03,t)-y)*.6)/.03;
+      let b=.18+Math.max(0,sh)*1.2+Math.pow(clamp(.5+sh,0,1),4)*.85;
+      b*=clamp(1.2-(Z-1.4)/3.6*.9,.15,1.2);
+      if(!mobile)b*=clamp((fx-W*.16)/(W*.36),.1,1);
+      const m=ease(clamp(morph*1.35-p.d,0,1));
+      let sx=fx,sy=fy,sz=clamp(.7+1.9*(1.4/Z),.7,2.6);
+      if(m>0){
+        const jx=Math.sin(t*1.3+p.r*20)*1.3,jy=Math.cos(t*1.1+p.r*17)*1.3;
+        const tx=lcx-lw/2+p.lx*ls+jx, ty=lcy-ls/2+p.ly*ls+jy;
+        sx=fx+(tx-fx)*m; sy=fy+(ty-fy)*m;
+        const lb=.62+.3*Math.sin(t*2.2+p.lx*7-p.ly*3)+(p.r>.93?.3:0);
+        b=b+(lb-b)*m; sz=sz+(1.5-sz)*m;
+      }
+      if(sx<-4||sx>W+4||sy<-4||sy>H+4)continue;
+      let i=clamp((b*9)|0,0,9);
+      if(m>.55){const lv=clamp(((b-.35)*4.5)|0,0,2);i=(p.part?13:10)+lv}
+      buckets[i].push(sx,sy,sz);
+    }
+    for(let i=0;i<PAL.length;i++){
+      const a=buckets[i];if(!a.length)continue;
+      ctx.fillStyle=PAL[i];ctx.globalAlpha=ALPHA[i];
+      for(let k=0;k<a.length;k+=3){const s=a[k+2];ctx.fillRect(a[k]-s/2,a[k+1]-s/2,s,s)}
+    }
+    ctx.globalAlpha=1;ctx.globalCompositeOperation="source-over";
+    drawHub(t,c,lcx,lcy,ls,lw);
+    g1.setAttribute("x1",lcx-lw*.62);g1.setAttribute("x2",lcx-lw*.62);
+    g2.setAttribute("x1",lcx+lw*.62);g2.setAttribute("x2",lcx+lw*.62);
+    rings.setAttribute("transform",`translate(${lcx} ${lcy})`);
+    rc[0].setAttribute("r",ls*.82);rc[1].setAttribute("r",ls*.7);
+    rings.style.opacity=.12+.75*morph;
+    const mk=document.getElementById("heroMark");
+    mk.style.width=lw+"px";mk.style.height=ls+"px";mk.style.transform=`translate(${lcx-lw/2}px,${lcy-ls/2}px)`;
+    mk.style.opacity=clamp((morph-.9)/.1,0,1)*.92;
+    if(!still)requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+  function drawHub(t,c,lcx,lcy,ls,lw){
+    const out=clamp((16.4-c)/.8,0,1), inA=clamp((c-8.6)/1,0,1)*out;
+    if(inA<=0)return;
+    const by=lcy+ls*.62;
+    for(let k=0;k<3;k++){
+      const pr=((t*.35+k/3)%1);
+      ctx.globalAlpha=inA*(1-pr)*.7;ctx.strokeStyle=k%2?"#C1D9E5":"#1A9A74";ctx.lineWidth=1.3;
+      ctx.beginPath();ctx.ellipse(lcx,by,lw*(.45+pr*.7),ls*(.1+pr*.16),0,0,Math.PI*2);ctx.stroke();
+    }
+    const n=NODES.length, Rx=mobile?W*.4:Math.min(ls*1.35,W-lcx-60), Ry=mobile?ls*.95:ls*.95;
+    const spread=mobile?Math.PI*2:Math.PI*1.45, base=mobile?-Math.PI/2:-spread/2;
+    const P=[];
+    for(let i=0;i<n;i++){
+      const a=(mobile?base+i/n*spread:base+i/(n-1)*spread)+Math.sin(t*.15)*.05;
+      const depth=.5+.5*Math.sin(a);
+      P.push({x:lcx+Math.cos(a)*Rx,y:lcy+Math.sin(a)*Ry,r:(mobile?15:22)*(.85+.3*depth),al:clamp((c-9.2-i*.18)/.6,0,1)*out,nd:NODES[i],i});
+    }
+    for(const p of P){
+      if(p.al<=0)continue;
+      const g=ctx.createLinearGradient(lcx,lcy,p.x,p.y);g.addColorStop(0,"rgba(3,120,91,0)");g.addColorStop(.35,"rgba(26,154,116,.7)");g.addColorStop(1,"rgba(193,217,229,.8)");
+      ctx.globalAlpha=p.al*.8;ctx.strokeStyle=g;ctx.lineWidth=1.1;ctx.beginPath();ctx.moveTo(lcx,lcy);ctx.lineTo(p.x,p.y);ctx.stroke();
+      for(let k=0;k<2;k++){
+        let f=(t*.45+p.i*.37+k*.5)%1; if(p.i%2)f=1-f;
+        const x=lcx+(p.x-lcx)*f,y=lcy+(p.y-lcy)*f;
+        ctx.globalAlpha=p.al*Math.sin(f*Math.PI);ctx.fillStyle="#E4F0F5";
+        ctx.beginPath();ctx.arc(x,y,2.2,0,Math.PI*2);ctx.fill();
+      }
+    }
+    P.sort((a,b)=>a.y-b.y);
+    for(const p of P){
+      if(p.al<=0)continue;
+      const {x,y,r}=p,pop=1+.25*(1-ease(p.al));
+      ctx.globalAlpha=p.al;
+      ctx.lineWidth=1.1;ctx.strokeStyle="rgba(193,217,229,.55)";
+      ctx.beginPath();ctx.ellipse(x,y+r*1.05,r*1.35,r*.36,0,0,Math.PI*2);ctx.stroke();
+      ctx.strokeStyle="rgba(26,154,116,.9)";ctx.beginPath();ctx.ellipse(x,y+r*1.05,r*.95,r*.25,0,0,Math.PI*2);ctx.stroke();
+      const rr=r*pop;
+      const g=ctx.createRadialGradient(x-rr*.35,y-rr*.4,rr*.05,x,y,rr);
+      g.addColorStop(0,"rgba(228,240,245,.45)");g.addColorStop(.55,"rgba(3,120,91,.22)");g.addColorStop(1,"rgba(193,217,229,.4)");
+      ctx.fillStyle=g;ctx.beginPath();ctx.arc(x,y,rr,0,Math.PI*2);ctx.fill();
+      ctx.strokeStyle="rgba(193,217,229,.6)";ctx.stroke();
+      ctx.save();ctx.translate(x-rr*.5,y-rr*.5);ctx.scale(rr/24,rr/24);
+      ctx.strokeStyle="#F4FAFC";ctx.lineWidth=1.7;ctx.lineCap="round";ctx.lineJoin="round";ctx.stroke(p.nd.path);ctx.restore();
+      if(!mobile){const lang=(window.__i18nLang&&window.__i18nLang())||"en";ctx.font='500 12.5px "Inter",sans-serif';ctx.textAlign="center";ctx.fillStyle="rgba(193,217,229,.9)";ctx.fillText(p.nd[lang]||p.nd.en,x,y+r*2.05)}
+    }
+    ctx.globalAlpha=1;
+  }
+  const el=document.getElementById("heroCount");let n=12408;
+  const nfmt=()=>((window.__i18nLang&&window.__i18nLang())==="fr"?"fr-CA":"en-CA");
+  if(el)el.textContent=n.toLocaleString(nfmt());
+  if(!still)setInterval(()=>{n+=1+((Math.random()*3)|0);el.textContent=n.toLocaleString(nfmt())},1800);
+  })();
+  </script>
 
   <!-- ═══ Marquee ═══ -->
   <div class="marquee-wrap" aria-hidden="true">

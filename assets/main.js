@@ -4,9 +4,10 @@
         en: {
           'nav.services': 'Services', 'nav.work': 'Work', 'nav.about': 'About', 'nav.pricing': 'Pricing', 'nav.contact': 'Contact', 'nav.cta': 'Free audit',
           'hero.eyebrow': 'Web agency · shops & pros',
-          'hero.title': 'More clients.<br><em>Less hassle.</em>',
-          'hero.desc': 'Kelthen builds high-performance websites and smart tools for businesses and professionals: more bookings, zero paperwork, and a brand image that matches your work.',
-          'hero.ctaPrimary': 'Get a free audit', 'hero.ctaSecondary': 'See our solutions', 'hero.scroll': 'Scroll',
+          'hero.title': '<span class="l"><span>One hub.</span></span><span class="l"><span>All your growth.</span></span>',
+          'hero.desc': 'One hub connects your leads, emails, appointments and sales. Our automations and AI agents handle it — while you focus on what matters.',
+          'hero.readout': 'Requests handled by our automations',
+          'hero.ctaPrimary': 'Book a call', 'hero.ctaSecondary': 'See our projects', 'hero.scroll': 'Scroll',
           'services.label': 'What we do for you', 'services.title': 'Your goals,<br>our <em>solutions</em>',
           'services.sub': 'Simple tools to attract more clients, save time and polish your image — no jargon, no headaches.',
           'svc1.name': 'A website that brings in clients', 'svc1.desc': 'A fast, elegant website that builds trust and turns visitors into booked appointments.',
@@ -105,8 +106,8 @@
         });
       }
 
-      let current = 'fr';
-      try { current = localStorage.getItem('kelthen-lang') || 'fr'; } catch (e) {}
+      let current = 'en';
+      try { current = localStorage.getItem('kelthen-lang') || 'en'; } catch (e) {}
       apply(current);
       // Re-apply (used after JS injects new [data-i18n] elements, e.g. cookie UI)
       window.__i18nApply = function () { apply(current); };
