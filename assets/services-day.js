@@ -441,6 +441,7 @@ html[data-kt="day"] .kt-zone{--kt-bg:#F5F9FA;--kt-surface:#FFFFFF;--kt-surface2:
     </div>`;
     sec.insertBefore(root, sec.firstChild);
     sec.classList.add('kd-on');
+    document.documentElement.classList.remove('kd-boot');
     stage = root.querySelector('.kd-stage'); track = root.querySelector('.kd-track');
     sky = root.querySelector('.kd-sky'); stars = root.querySelector('.kd-stars'); sun = root.querySelector('.kd-sun'); moon = root.querySelector('.kd-moon');
     fill = root.querySelector('.kd-fill');

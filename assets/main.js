@@ -680,6 +680,39 @@
       });
     }
 
+    // ─── Logo → scroll rapide vers le haut quand on est déjà sur l'accueil ───
+    (function setupLogoTop() {
+      const onHome = () => {
+        const p = location.pathname;
+        return p === '/' || /(^|\/)index\.html$/.test(p);
+      };
+      const fastTop = () => {
+        const start = window.pageYOffset || document.documentElement.scrollTop || 0;
+        if (start <= 0) return;
+        const de = document.documentElement;
+        if (matchMedia('(prefers-reduced-motion: reduce)').matches) { window.scrollTo(0, 0); return; }
+        const prev = de.style.scrollBehavior;
+        de.style.scrollBehavior = 'auto'; // évite le conflit avec scroll-behavior:smooth du CSS
+        const dur = 520, t0 = performance.now(), ease = (x) => 1 - Math.pow(1 - x, 3);
+        const step = (now) => {
+          const k = Math.min(1, (now - t0) / dur);
+          window.scrollTo(0, Math.round(start * (1 - ease(k))));
+          if (k < 1) requestAnimationFrame(step);
+          else de.style.scrollBehavior = prev;
+        };
+        requestAnimationFrame(step);
+      };
+      document.querySelectorAll('.nav-logo').forEach((el) => {
+        el.addEventListener('click', (e) => {
+          if (!onHome()) return; // depuis une autre page : laisser la navigation normale
+          if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; // laisser ouvrir dans un onglet
+          e.preventDefault();
+          if (history.replaceState) history.replaceState(null, '', location.pathname);
+          fastTop();
+        });
+      });
+    })();
+
     // ─── Scroll reveal ───
     (function setupReveal() {
       // stagger items within each group by their local index

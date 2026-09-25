@@ -3255,3 +3255,7 @@
 
     /* Évite le flash de la grille « liste » avant que le musée 3D ne monte */
     html.km-boot #workGrid, html.km-boot #work .work-header { visibility: hidden; }
+
+    /* Évite le flash de la section services d'origine avant que l'expérience « journée » ne monte */
+    html.kd-boot #services > .services-header,
+    html.kd-boot #services > .services-grid { visibility: hidden; }
