@@ -664,6 +664,7 @@
       display: flex;
       width: max-content;
       animation: marquee 30s linear infinite;
+      animation-direction: reverse;
     }
 
     .marquee-wrap:hover .marquee-track {
@@ -3248,3 +3249,9 @@
     .nav { transition: background 0.4s ease, border-color 0.4s ease, backdrop-filter 0.4s ease, transform 0.35s ease; }
     .nav.nav-hidden { transform: translateY(-110%); }
     .work-card .work-mockup { border-radius: 12px; }
+
+    /* Musée : pas de pastilles avant le clic (détail dans la fiche) */
+    .km-panel .km-chips { display: none; }
+
+    /* Évite le flash de la grille « liste » avant que le musée 3D ne monte */
+    html.km-boot #workGrid, html.km-boot #work .work-header { visibility: hidden; }

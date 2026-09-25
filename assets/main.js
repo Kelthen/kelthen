@@ -3,6 +3,7 @@
       const DICT = {
         en: {
           'nav.services': 'Services', 'nav.work': 'Work', 'nav.about': 'About', 'nav.pricing': 'Pricing', 'nav.contact': 'Contact', 'nav.cta': 'Free audit',
+          'mrq.1': 'Websites', 'mrq.2': 'Online booking', 'mrq.3': 'SMS reminders', 'mrq.4': 'AI assistant', 'mrq.5': 'Google visibility', 'mrq.6': 'Client reviews', 'mrq.7': 'Loyalty', 'mrq.8': 'Secure payments',
           'hero.eyebrow': 'Web agency · shops & pros',
           'hero.title': '<span class="l"><span>One hub.</span></span><span class="l"><span>All your growth.</span></span>',
           'hero.desc': 'One hub connects your leads, emails, appointments and sales. Our automations and AI agents handle it — while you focus on what matters.',
@@ -267,28 +268,33 @@
     }
 
     /* ════ Kelthen — le site agence (palette bleu/dark) ════ */
+    const KMARK = (barCol) => `<svg viewBox="0 0 258 242" style="height:15px;width:auto" aria-hidden="true"><path d="M65.3 185.8 L0 185.8 L78.4 56.9 L142.3 59 Z" fill="${barCol}"></path><path d="M177.9 129 L254.3 242.2 L187.3 242.2 L145.8 180.6 L111.8 130.2 L143.9 78.6 L192.7 0 L258.1 0 Z" fill="#03785B"></path></svg>`;
     function mkNovaHero() {
-      return `<div class="mk" style="background:#011E2E;color:#F0EDE8;font-size:11px;min-height:200px;padding:14px">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:26px"><span style="font-size:12px;font-weight:800">Kel<span style="color:#03785B">then</span></span><span style="background:#03785B;color:#011E2E;border-radius:3px;padding:4px 9px;font-size:7px;font-weight:700;text-transform:uppercase;letter-spacing:.08em">Start a project</span></div>
-        <div style="font-family:var(--mono);font-size:7px;letter-spacing:.16em;text-transform:uppercase;color:#03785B;margin-bottom:10px">— Based in Canada · Est. 2025</div>
-        <div style="font-family:var(--serif);font-weight:300;font-size:30px;line-height:.95;letter-spacing:-.02em">We <em style="color:#7CC9AE">build</em><br><span style="-webkit-text-stroke:0.6px rgba(240,237,232,.3);color:transparent">digital</span><br>products.</div>
-        <div style="display:flex;gap:7px;margin-top:18px"><span style="background:#03785B;color:#011E2E;border-radius:3px;padding:7px 14px;font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:.06em">Start a project</span><span style="border:1px solid rgba(3, 120, 91,.2);color:rgba(240,237,232,.6);border-radius:3px;padding:7px 14px;font-size:8px;font-weight:500;text-transform:uppercase;letter-spacing:.06em">See our work</span></div>
+      return `<div class="mk" style="background:radial-gradient(120% 100% at 80% 28%,#022B34,#011E2E 55%,#00121B);color:#F0EDE8;font-size:11px;min-height:210px;padding:14px;position:relative;overflow:hidden">
+        <svg viewBox="0 0 258 242" style="position:absolute;right:-26px;top:16px;height:170px;opacity:.06" aria-hidden="true"><path d="M65.3 185.8 L0 185.8 L78.4 56.9 L142.3 59 Z" fill="#C1D9E5"></path><path d="M177.9 129 L254.3 242.2 L187.3 242.2 L145.8 180.6 L111.8 130.2 L143.9 78.6 L192.7 0 L258.1 0 Z" fill="#03785B"></path></svg>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:28px;position:relative">
+          <span style="display:flex;align-items:center;gap:6px">${KMARK('#F0EDE8')}<span style="font-weight:700;letter-spacing:.06em;font-size:10px">KELTHEN</span></span>
+          <span style="background:#03785B;color:#fff;border-radius:7px;padding:5px 11px;font-size:7px;font-weight:700">Free audit</span>
+        </div>
+        <div style="font-family:var(--mono);font-size:7px;letter-spacing:.2em;text-transform:uppercase;color:#7CC9AE;margin-bottom:9px;position:relative">Web · Automation · AI agents</div>
+        <div style="font-weight:800;font-size:27px;line-height:.98;letter-spacing:-.03em;position:relative">One hub.<br><span style="color:#7CC9AE;font-style:italic;font-weight:700">All your growth.</span></div>
+        <div style="display:flex;gap:8px;margin-top:16px;position:relative"><span style="background:#03785B;color:#fff;border-radius:9px;padding:8px 14px;font-size:8px;font-weight:700">Get a free audit</span><span style="color:rgba(240,237,232,.72);padding:8px 4px;font-size:8px;font-weight:500;text-decoration:underline;text-underline-offset:4px">See our projects</span></div>
       </div>`;
     }
     function mkNovaServices() {
-      const s = [['01', '◈', 'Web Design'], ['02', '⬡', 'Mobile Apps'], ['03', '⟳', 'Automation'], ['04', '✦', 'AI Integration'], ['05', '◇', 'Consulting'], ['06', '⬡', 'SaaS Dev']];
-      return `<div class="mk" style="background:#011E2E;color:#F0EDE8;font-size:11px;min-height:200px;padding:14px">
-        <div style="font-family:var(--mono);font-size:7px;letter-spacing:.16em;text-transform:uppercase;color:#03785B;margin-bottom:8px">— What we do</div>
-        <div style="font-family:var(--serif);font-weight:300;font-size:22px;line-height:1;margin-bottom:14px">Every tool you <em style="color:#7CC9AE;font-style:italic">need</em></div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(240,237,232,.06);border:1px solid rgba(240,237,232,.06)">${s.map(x => `<div style="background:#011E2E;padding:11px 10px"><div style="font-family:var(--mono);font-size:7px;color:#02513C;margin-bottom:6px">${x[0]}</div><div style="color:rgba(3, 120, 91,.5);font-size:13px;margin-bottom:5px">${x[1]}</div><div style="font-family:var(--serif);font-size:13px">${x[2]}</div></div>`).join('')}</div>
+      const s = [['01', 'Website'], ['02', 'Online booking'], ['03', 'AI receptionist'], ['04', 'SMS reminders'], ['05', 'Found on Google'], ['06', 'Reviews & loyalty']];
+      return `<div class="mk" style="background:#011E2E;color:#F0EDE8;font-size:11px;min-height:210px;padding:14px">
+        <div style="font-family:var(--mono);font-size:7px;letter-spacing:.18em;text-transform:uppercase;color:#7CC9AE;margin-bottom:8px">What we do for you</div>
+        <div style="font-weight:700;font-size:22px;line-height:1;letter-spacing:-.03em;margin-bottom:14px">Your goals, <em style="color:#7CC9AE;font-style:italic">our solutions</em></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:7px">${s.map(x => `<div style="background:#04283A;border:1px solid rgba(193,217,229,.1);border-radius:11px;padding:11px 10px"><div style="font-family:var(--mono);font-size:7px;color:#7CC9AE;margin-bottom:8px">${x[0]}</div><div style="font-weight:600;font-size:11px;letter-spacing:-.01em">${x[1]}</div></div>`).join('')}</div>
       </div>`;
     }
     function mkNovaPricing() {
-      const t = [['Starter', '$800', false], ['Growth', '$2 500', true], ['Enterprise', 'Custom', false]];
-      return `<div class="mk" style="background:#011E2E;color:#F0EDE8;font-size:11px;min-height:200px;padding:14px">
-        <div style="font-family:var(--mono);font-size:7px;letter-spacing:.16em;text-transform:uppercase;color:#03785B;margin-bottom:8px">— Pricing</div>
-        <div style="font-family:var(--serif);font-weight:300;font-size:22px;line-height:1;margin-bottom:14px">Transparent. <em style="color:#7CC9AE;font-style:italic">No surprises.</em></div>
-        <div style="display:flex;gap:1px;background:rgba(240,237,232,.06);border:1px solid rgba(240,237,232,.06)">${t.map(x => `<div style="flex:1;background:${x[2] ? '#04283A' : '#011E2E'};${x[2] ? 'border-top:2px solid #03785B;' : ''}padding:13px 9px;text-align:center"><div style="font-family:var(--mono);font-size:7px;text-transform:uppercase;letter-spacing:.1em;color:rgba(240,237,232,.4);margin-bottom:8px">${x[0]}</div><div style="font-family:var(--serif);font-weight:300;font-size:20px;letter-spacing:-.02em">${x[1]}</div><div style="margin-top:10px;border-radius:2px;padding:6px;font-size:7px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;${x[2] ? 'background:#03785B;color:#011E2E' : 'border:1px solid rgba(3, 120, 91,.2);color:rgba(240,237,232,.6)'}">${x[2] ? 'Get started' : 'Choose'}</div></div>`).join('')}</div>
+      const t = [['The Essentials', '$900', false], ['The Business', '$2,500', true], ['Custom', 'On quote', false]];
+      return `<div class="mk" style="background:#011E2E;color:#F0EDE8;font-size:11px;min-height:210px;padding:14px">
+        <div style="font-family:var(--mono);font-size:7px;letter-spacing:.18em;text-transform:uppercase;color:#7CC9AE;margin-bottom:8px">Our plans</div>
+        <div style="font-weight:700;font-size:22px;line-height:1;letter-spacing:-.03em;margin-bottom:14px">Clear plans. <em style="color:#7CC9AE;font-style:italic">Zero surprises.</em></div>
+        <div style="display:flex;gap:8px">${t.map(x => `<div style="flex:1;background:#04283A;border:1px solid ${x[2] ? 'rgba(3,120,91,.6)' : 'rgba(193,217,229,.1)'};${x[2] ? 'border-top:2px solid #03785B;' : ''}border-radius:12px;padding:13px 8px;text-align:center"><div style="font-family:var(--mono);font-size:6.5px;text-transform:uppercase;letter-spacing:.08em;color:rgba(240,237,232,.5);margin-bottom:8px">${x[0]}</div><div style="font-weight:800;font-size:17px;letter-spacing:-.02em">${x[1]}</div><div style="margin-top:10px;border-radius:7px;padding:6px;font-size:7px;font-weight:700;${x[2] ? 'background:#03785B;color:#fff' : 'border:1px solid rgba(3,120,91,.35);color:rgba(240,237,232,.7)'}">${x[2] ? 'Get a quote' : "Let's talk"}</div></div>`).join('')}</div>
       </div>`;
     }
 
