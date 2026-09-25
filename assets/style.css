@@ -3243,8 +3243,6 @@
     .pm-dialog .pm-desc { margin-top: 0.4rem; }
     .pm-dialog .pm-stack { margin-top: 1.2rem; margin-bottom: 0; }
 
-    /* Musée : moins d'infos avant le clic (le détail est dans la fiche) */
-    .km-panel .km-chips { display: none; }
 
     /* ═══ Menu : se cache en descendant, réapparaît en remontant ═══ */
     .nav { transition: background 0.4s ease, border-color 0.4s ease, backdrop-filter 0.4s ease, transform 0.35s ease; }
