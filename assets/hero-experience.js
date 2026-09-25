@@ -201,13 +201,13 @@ function mountKelthenExperience(container, opts = {}) {
 
   const U = {
     uT: { value: 0 }, uStage: { value: 0 }, uPR: { value: 1 }, uOpen: { value: .15 }, uNetRot: { value: 0 },
-    uLogoS: { value: 2.4 }, uLogoY: { value: 1.1 }, uExplode: { value: 0 }, uAspect: { value: 1 }, uMouse: { value: new THREE.Vector2(9, 9) }
+    uLogoS: { value: 2.4 }, uLogoY: { value: 1.1 }, uExplode: { value: 0 }, uAspect: { value: 1 }, uEyeK: { value: 1 }, uMouse: { value: new THREE.Vector2(9, 9) }
   };
   const mat = new THREE.ShaderMaterial({
     uniforms: U, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending,
     vertexShader: `
 uniform float uT; uniform float uStage; uniform float uPR; uniform float uOpen; uniform float uNetRot;
-uniform float uLogoS; uniform float uLogoY; uniform float uExplode; uniform float uAspect; uniform vec2 uMouse;
+uniform float uLogoS; uniform float uLogoY; uniform float uExplode; uniform float uAspect; uniform float uEyeK; uniform vec2 uMouse;
 attribute vec3 aFabric; attribute vec3 aNet; attribute vec3 aEye; attribute vec3 aLogo; attribute vec4 aRand;
 varying vec3 vCol; varying float vA;
 float wave(vec2 p,float t){return .35*sin(p.x*.9+t*.55+p.y*.7)+.22*sin(p.y*1.3-t*.45+p.x*.4)+.08*sin((p.x+p.y)*2.3+t*.9);}
@@ -247,6 +247,7 @@ void main(){
     E=vec3(cos(ang)*rr,sin(ang)*rr*.62,-.4);
     EC=vec3(.5,.75,.72); EA=.45;
   }
+  E*=uEyeK;
   vec3 LG=aLogo*uLogoS+vec3(0.,uLogoY,0.);
   vec3 LC=lp<.5?vec3(.76,.85,.9):(lp<1.5?vec3(.02,.56,.42):pal(.3+.4*r2));
   float LA=lp<1.5?.32:.2;
@@ -357,6 +358,7 @@ void main(){ vec2 d=gl_PointCoord-vec2(.5); float r=length(d); if(r>.5) discard;
     const visW = 2 * 10 * Math.tan(22.5 * Math.PI / 180) * camera.aspect;
     U.uLogoS.value = 2.4 * Math.min(1, visW * .55 / (2.4 * AR));
     U.uLogoY.value = mobile ? 1.25 : 1.1;
+    U.uEyeK.value = mobile ? 0.68 : 1;
     if (reduce) render(performance.now());
   }
   const mouse = { x: 9, y: 9, tx: 9, ty: 9 };

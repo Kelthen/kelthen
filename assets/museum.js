@@ -151,6 +151,7 @@
   </div>`;
   workSec.insertBefore(root, workSec.firstChild);
   workSec.classList.add('km-on');
+  document.documentElement.classList.remove('km-boot');
   const stage = root.querySelector('.km-stage'), canvas = root.querySelector('.km-gl');
   const heroEl = root.querySelector('.km-hero'), panelsEl = root.querySelector('.km-panels'), timeEl = root.querySelector('.km-time');
   const cursorEl = root.querySelector('.km-cursor'), listBtn = root.querySelector('.km-list');
@@ -208,6 +209,7 @@
 
   function setListMode(on) {
     if (on) {
+      document.documentElement.classList.remove('km-boot');
       workSec.classList.remove('km-on'); root.hidden = true; running = false;
       const hdr = workSec.querySelector('.work-header');
       if (hdr && !backBtn) {
