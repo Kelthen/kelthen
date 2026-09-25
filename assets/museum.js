@@ -112,14 +112,14 @@
 .km-time button.on{background:rgba(3,120,91,.28)}
 .km-time button.on b{color:#7CC9AE}.km-time button.on span{color:#fff}
 .km-time button:focus-visible,.km :focus-visible{outline:2px solid #7CC9AE;outline-offset:2px}
-.km-list{all:unset;cursor:pointer;position:absolute;right:clamp(16px,4vw,56px);bottom:30px;z-index:4;font:500 12px var(--sans);color:rgba(193,217,229,.8);
+.km-list{all:unset;cursor:pointer;position:absolute;right:clamp(16px,4vw,56px);top:84px;z-index:4;font:500 12px var(--sans);color:rgba(193,217,229,.8);
   border:1px solid rgba(193,217,229,.22);border-radius:999px;padding:9px 15px;background:rgba(2,22,32,.6);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 .km-list:hover{color:#fff;border-color:rgba(193,217,229,.5)}
 .km-cursor{position:absolute;left:0;top:0;width:78px;height:78px;margin:-39px 0 0 -39px;border-radius:50%;background:#03785B;color:#fff;display:flex;align-items:center;justify-content:center;
   font:600 12px var(--sans);pointer-events:none;z-index:4;opacity:0;transform:scale(.4);transition:opacity .25s,transform .25s;box-shadow:0 10px 40px -8px rgba(3,120,91,.9)}
 .km-cursor.on{opacity:1;transform:scale(1)}
 .km-back{margin-left:12px}
-@media (max-width:1100px){.km-list{bottom:auto;top:88px}}
+
 @media (max-width:819px){
   .km-hero{left:16px;right:16px;width:auto;top:auto;bottom:96px;transform:none}
   .km-hero h1{font-size:2.5rem}.km-hero p{font-size:.92rem;margin-top:14px}.km-hint{margin-top:18px}
@@ -129,7 +129,9 @@
   .km-actions{margin-top:12px}.km-panel .km-btn{padding:11px 16px;font-size:14px}
   .km-bar{bottom:12px;justify-content:flex-start}
   .km-time button{padding:7px 10px}.km-time button span{font-size:11.5px}
-  .km-list{top:84px;right:12px;font-size:11px;padding:7px 12px}
+  .km-list{top:70px;right:12px;font-size:11px;padding:7px 12px}
+  .km-vig{background:linear-gradient(0deg,rgba(2,12,18,.95) 0%,rgba(2,12,18,.82) 34%,rgba(2,12,18,0) 58%)}
+  .km-hero h1,.km-hero p{text-shadow:0 2px 18px rgba(0,0,0,.65)}
   .km-cursor{display:none}
 }`;
   if (!document.getElementById('km-style')) { const st = document.createElement('style'); st.id = 'km-style'; st.textContent = css; document.head.appendChild(st); }
@@ -141,7 +143,7 @@
   root.innerHTML = `<div class="km-stage">
     <canvas class="km-gl" aria-label="The Kelthen Museum" role="img"></canvas>
     <div class="km-vig" aria-hidden="true"></div>
-    <div class="km-hero"><p class="km-eb" data-km="eyebrow"></p><h1 data-km-html="title"></h1><p data-km="sub"></p><div class="km-hint"><i></i><span data-km="hint"></span></div></div>
+    <div class="km-hero"><h1 data-km-html="title"></h1><p data-km="sub"></p><div class="km-hint"><i></i><span data-km="hint"></span></div></div>
     <div class="km-panels"></div>
     <div class="km-bar"><nav class="km-time" aria-label="Collection"></nav></div>
     <button type="button" class="km-list" data-km="list"></button>
@@ -415,9 +417,14 @@
     b2.position.y = .42 + .39; g.add(b2);
     const cap = new THREE.Mesh(new THREE.CylinderGeometry(1.62, 1.62, .06, 64), mat.slab); cap.position.y = 1.23; g.add(cap);
     const st1 = new THREE.Mesh(new THREE.TorusGeometry(2.4, .025, 8, 96), mat.strip); st1.rotation.x = Math.PI / 2; st1.position.y = .44; g.add(st1);
-    const k = logoMesh(1.9, .3, mat.paleGloss, mat.greenGloss); k.position.y = 2.35; k.name = 'spin'; g.add(k);
+    const box = new THREE.Group(); box.name = 'box'; box.position.y = 2.42;
+    const cubeGeo = new THREE.BoxGeometry(2.1, 2.1, 2.1);
+    box.add(new THREE.Mesh(cubeGeo, new THREE.MeshPhysicalMaterial({ color: C.pale, roughness: .05, metalness: 0, transparent: true, opacity: .14, clearcoat: 1, depthWrite: false })));
+    box.add(new THREE.LineSegments(new THREE.EdgesGeometry(cubeGeo), new THREE.LineBasicMaterial({ color: C.pale, transparent: true, opacity: .75 })));
+    const k = logoMesh(1.45, .26, mat.paleGloss, mat.greenGloss); k.name = 'spin'; box.add(k);
+    g.add(box);
     g.position.x = XK(0); return tag(g, -1);
-  }, (g, t) => { const k = g.getObjectByName('spin'); k.rotation.y = Math.sin(t * .35) * .55; k.position.y = 2.35 + Math.sin(t * .8) * .06; });
+  }, (g, t) => { const b = g.getObjectByName('box'); b.position.y = 2.42 + Math.sin(t * .8) * .05; b.rotation.y = Math.sin(t * .2) * .12; g.getObjectByName('spin').rotation.y = t * .7; });
 
   /* ─────────────── Œuvres = le vrai logo de chaque client, encadré ───────────────
      On ne met plus de formes abstraites au hasard : chaque socle porte l'identité
@@ -525,7 +532,7 @@
     for (let k = 0; k < NST; k++) {
       const x = XK(k);
       if (mobile) {
-        stops[k] = k === 0 ? { cx: x, cy: 3.8, cz: 15.5, tx: x, ty: 1.0 } : { cx: x, cy: 2.6, cz: 7.2, tx: x, ty: 1.35 };
+        stops[k] = k === 0 ? { cx: x, cy: 3.4, cz: 15.5, tx: x, ty: -1.3 } : { cx: x, cy: 2.6, cz: 7.2, tx: x, ty: 1.35 };
       } else {
         stops[k] = k === 0 ? { cx: x - 3.9, cy: 3.2, cz: 13.5, tx: x - 3.9, ty: 2.1 }
           : { cx: x + 1.45, cy: 2.3, cz: 6.2, tx: x + 1.45, ty: 1.95 };
