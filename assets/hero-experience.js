@@ -15,7 +15,7 @@ function mountKelthenExperience(container, opts = {}) {
       a2h: "Everything connects.", a2p: "Leads, emails, bookings, payments. One network, working as one.",
       a3h: "It sees what you miss.", a3p: "AI agents that watch, answer and act, day and night.",
       a4h: "One hub. All your growth.", a4p: "Websites, automation and AI, engineered as one system by Kelthen.",
-      cta: "Book a call", cta2: "Explore the system",
+      cta: "Get a free audit", cta2: "Explore the system",
       prog: ["Signal", "Network", "Perception", "Core"],
       nodes: ["Leads", "Email", "Booking", "AI Agent", "Messages", "Sales", "Reports", "Insights"]
     },
@@ -24,7 +24,7 @@ function mountKelthenExperience(container, opts = {}) {
       a2h: "Tout se connecte.", a2p: "Leads, emails, rendez-vous, paiements. Un seul réseau qui travaille d’un bloc.",
       a3h: "Il voit ce qui vous échappe.", a3p: "Des agents IA qui surveillent, répondent et agissent, jour et nuit.",
       a4h: "Un seul centre. Toute votre croissance.", a4p: "Sites, automatisations et IA, conçus comme un seul système par Kelthen.",
-      cta: "Réserver un appel", cta2: "Explorer le système",
+      cta: "Demander un audit gratuit", cta2: "Explorer le système",
       prog: ["Signal", "Réseau", "Perception", "Noyau"],
       nodes: ["Leads", "Emails", "Agenda", "Agent IA", "Messages", "Ventes", "Rapports", "Veille"]
     }

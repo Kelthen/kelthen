@@ -7,7 +7,7 @@
           'hero.title': '<span class="l"><span>One hub.</span></span><span class="l"><span>All your growth.</span></span>',
           'hero.desc': 'One hub connects your leads, emails, appointments and sales. Our automations and AI agents handle it — while you focus on what matters.',
           'hero.readout': 'Requests handled by our automations',
-          'hero.ctaPrimary': 'Book a call', 'hero.ctaSecondary': 'See our projects', 'hero.scroll': 'Scroll',
+          'hero.ctaPrimary': 'Get a free audit', 'hero.ctaSecondary': 'See our projects', 'hero.scroll': 'Scroll',
           'services.label': 'What we do for you', 'services.title': 'Your goals,<br>our <em>solutions</em>',
           'services.sub': 'Simple tools to attract more clients, save time and polish your image — no jargon, no headaches.',
           'svc1.name': 'A website that brings in clients', 'svc1.desc': 'A fast, elegant website that builds trust and turns visitors into booked appointments.',
@@ -47,7 +47,7 @@
           'form.name': 'Name', 'form.namePh': 'Your name', 'form.email': 'Email', 'form.emailPh': 'your@email.com', 'form.message': 'Message', 'form.messagePh': 'Tell us about your project…', 'form.submit': 'Send message →', 'form.sent': 'Message sent.', 'form.sentSub': "We'll be in touch within 24 hours.",
           'cookie.text': 'We use cookies to measure and improve our site. Accept, reject, or manage your choices — see our', 'cookie.privacy': 'Privacy Policy', 'cookie.reject': 'Reject all', 'cookie.manage': 'Manage', 'cookie.accept': 'Accept all',
           'cprefs.title': 'Cookie preferences', 'cprefs.intro': 'Choose which cookies we can use. You can change this anytime.', 'cprefs.necessary': 'Strictly necessary', 'cprefs.always': 'Always on', 'cprefs.necessaryDesc': 'Needed for the site to function. These never track you.', 'cprefs.analytics': 'Analytics — Google Analytics', 'cprefs.analyticsDesc': 'Anonymous stats (pages viewed, device) so we can improve the site. Google Analytics loads only if this is on.', 'cprefs.save': 'Save preferences', 'cprefs.acceptAll': 'Accept all',
-          'about.label': 'Who we are', 'about.title': 'A young agency<br>that wants to <em>help you succeed</em>.', 'about.intro': 'Kelthen is a fast-growing digital agency driven by one thing: helping entrepreneurs and local businesses win more customers while spending less time on admin. We build the websites, tools and automations that keep your business running quietly in the background. We stay small on purpose — so every project puts you in direct contact with the people actually building it.',
+          'about.label': 'Who we are', 'about.title': 'Technology that works while <em>you run your business</em>.', 'about.intro': 'Kelthen is a fast-growing digital agency driven by one thing: helping entrepreneurs and local businesses win more customers while spending less time on admin. We build the websites, tools and automations that keep your business running quietly in the background. We stay small on purpose — so every project puts you in direct contact with the people actually building it.',
           'about.story1Title': 'Why we started', 'about.story1a': 'Kelthen was born from a simple observation: too many great businesses are held back by clunky tools, slow websites and manual work a little technology could handle in seconds.', 'about.story1b': 'We set out to build the agency we wished existed — one that moves fast, speaks plainly, and treats a small business budget with the same respect as a big one.',
           'about.story2Title': 'How we work', 'about.story2a': 'We take on a limited number of projects at a time. That means real attention, visible progress every week, and direct access to the team — no middlemen, no telephone game.', 'about.story2b': "Our greatest pride is seeing a shop fill up, a calendar get booked, a business owner finally breathe. We build it right the first time and stay around after launch.",
           'values.label': 'What guides us', 'values.title': 'Our <em>values</em>',
@@ -57,7 +57,7 @@
           'val4.title': 'Close to you', 'val4.desc': 'You talk directly to the people building. Your goals become ours, from start to finish.',
           'val5.title': 'Real impact', 'val5.desc': 'We measure success by what changes for you — more customers, less busywork, more loyal clients.',
           'val6.title': 'Here for everyone', 'val6.desc': 'Based in Canada, we support entrepreneurs everywhere — every business deserves the same tools, wherever it is.',
-          'team.label': 'The faces', 'team.title': 'The team<br>behind <em>Kelthen</em>', 'svc.demo': '▶ See the demo', 'demo.eyebrow': 'Live demo',
+          'team.label': 'The faces', 'team.title': 'Executive <em>team</em>', 'svc.demo': '▶ See the demo', 'demo.eyebrow': 'Live demo',
           'team.role1': 'Software & automation developer', 'team.role2': 'Founder', 'team.role3': 'Marketing & social media', 'team.note': "Real photos of the team are on the way — we're putting faces to the work so you know exactly who you're building with.",
           'bridge.quote': 'Our mission: give every business the <em>means to succeed</em>.', 'bridge.flags': 'Based in Canada &nbsp;·&nbsp; serving entrepreneurs everywhere &nbsp;·&nbsp; since 2025',
           'aboutcta.title': "Let's build<br><em>together?</em>", 'aboutcta.sub': 'Tell us about your project. We reply within 24 hours — no sales pitch, just a real conversation.', 'aboutcta.cta': 'Start a project',
@@ -303,6 +303,7 @@
     const projects = [
       {
         id: "001", name: "Network of Black Women",
+        tagline: { en: 'A home online for a sisterhood of Black women in Alberta.', fr: 'Une maison en ligne pour une sororité de femmes noires en Alberta.' },
         category: { en: "Web · Nonprofit & Community", fr: "Web · OBNL & Communauté" }, year: "2026",
         accent: "#F6828F", device: "browser", url: "networkofblackwomen.ca", link: "https://networkofblackwomen.ca", featured: true,
         desc: {
@@ -330,6 +331,7 @@
       },
       {
         id: "002", name: "ABO",
+        tagline: { en: 'Verified, trusted tradespeople across West Africa.', fr: "Des artisans vérifiés et de confiance en Afrique de l'Ouest." },
         category: { en: "Web · Marketplace", fr: "Web · Marketplace" }, year: "2025",
         accent: "#0D9488", device: "browser", url: "abo.tg", featured: false,
         desc: {
@@ -357,6 +359,7 @@
       },
       {
         id: "003", name: "Cuties Chichi",
+        tagline: { en: "A hair salon's bookings, on autopilot.", fr: "Les réservations d'un salon, en pilote automatique." },
         category: { en: "Web · Booking & Automation", fr: "Web · Réservation & Automatisation" }, year: "2026",
         accent: "#C6447A", device: "browser", url: "chichi-cuties.vercel.app", link: "https://chichi-cuties.vercel.app", featured: false,
         desc: {
@@ -385,6 +388,7 @@
       },
       {
         id: "004", name: "Kelthen",
+        tagline: { en: 'Our own site: fast, alive and built to convert.', fr: 'Notre propre site : rapide, vivant et pensé pour convertir.' },
         category: { en: "Web · Agency", fr: "Web · Agence" }, year: "2025",
         accent: "#03785B", device: "browser", url: "kelthen.com", link: "https://kelthen.com", featured: false,
         desc: {
@@ -424,7 +428,6 @@
 
     // Shared inner markup for a work card (used by the full grid and the home preview)
     function workCardInner(p, hintText) {
-      const stackHtml = L(p.stack).map(s => `<span class="ws">${s}</span>`).join('');
       const hero = wrapFrame(p, screenContent(p.screens[0]), p.screens[0].device);
       return `
         <div class="work-mockup" style="background:linear-gradient(150deg, ${hexA(p.accent, 0.22)} 0%, #0a0d13 78%)">
@@ -437,8 +440,7 @@
         </div>
         <div class="work-body">
           <h3 class="work-name">${p.name}</h3>
-          <p class="work-desc">${L(p.desc)}</p>
-          <div class="work-stack">${stackHtml}</div>
+          <p class="work-desc">${L(p.tagline || p.desc)}</p>
         </div>
         <div class="work-card-bottom">
           <span class="work-year">${p.year}</span>
@@ -513,12 +515,12 @@
         <button class="pm-close" id="pmClose" type="button" aria-label="${ui.close}">✕</button>
         <p class="pm-eyebrow">${L(p.category)} · ${p.year}</p>
         <h2 class="pm-name">${p.name}</h2>
-        <p class="pm-desc">${L(p.desc)}</p>
+        <p class="pm-tagline">${L(p.tagline || p.desc)}</p>
         ${p.link ? `<a class="pm-visit" href="${p.link}" target="_blank" rel="noopener noreferrer">${ui.visit} <span aria-hidden="true">↗</span></a>` : ''}
-        <div class="pm-stack">${stackHtml}</div>
-        ${p.features ? `<p class="pm-screens-label">${ui.features}</p><div class="pm-features">${featuresHtml}</div>` : ''}
-        <p class="pm-screens-label">${ui.keyScreens(p.screens.length)}</p>
         <div class="pm-screens">${screensHtml}</div>
+        <p class="pm-desc">${L(p.desc)}</p>
+        ${p.features ? `<p class="pm-screens-label">${ui.features}</p><div class="pm-features">${featuresHtml}</div>` : ''}
+        <div class="pm-stack">${stackHtml}</div>
       `;
       const closeBtn = document.getElementById('pmClose');
       closeBtn.addEventListener('click', closeProjectModal);
@@ -595,8 +597,14 @@
     const nav = document.getElementById('nav');
 
     if (nav) {
+      let lastY = window.scrollY;
       window.addEventListener('scroll', () => {
-        nav.classList.toggle('scrolled', window.scrollY > 20);
+        const y = window.scrollY;
+        nav.classList.toggle('scrolled', y > 20);
+        // Hide the menu while scrolling down, bring it back as soon as the visitor scrolls up
+        const menuOpen = document.getElementById('navMobile')?.classList.contains('open');
+        if (!menuOpen && Math.abs(y - lastY) > 6) nav.classList.toggle('nav-hidden', y > lastY && y > 140);
+        lastY = y;
       }, { passive: true });
     }
 
