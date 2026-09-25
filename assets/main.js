@@ -18,7 +18,7 @@
           'svc6.name': 'Reviews & loyalty', 'svc6.desc': 'We automatically collect your 5-star Google reviews and bring your clients back.',
           'tag.turnkey': 'Turnkey', 'tag.mobile': 'Mobile-perfect', 'tag.agenda': 'Synced calendar', 'tag.deposits': 'Deposits', 'tag.247': '24/7', 'tag.multichannel': 'Multichannel', 'tag.email': 'Email', 'tag.localseo': 'Local SEO', 'tag.reviews': 'Google reviews', 'tag.loyalty': 'Loyalty',
           'sol.label': 'For your industry', 'sol.title': 'Solutions built for <em>your world</em>', 'sol.example': 'See a real example →',
-          'scene.automation': 'Automation · n8n', 'scene.assistant': 'Assistant · online', 'scene.notif': 'Notification', 'scene.newmsg': 'New message', 'scene.growth': 'Growth',
+          'scene.automation': 'Automation', 'scene.assistant': 'Assistant · online', 'scene.notif': 'Notification', 'scene.newmsg': 'New message', 'scene.growth': 'Growth',
           'ind1.name': 'Clinics & health professionals', 'ind1.b1': 'Simple, smooth online appointment booking', 'ind1.b2': 'Secure, confidential patient data', 'ind1.b3': 'Automatic reminders: fewer no-shows, more attendance', 'ind1.b4': 'Google reviews to reassure new patients',
           'ind2.name': 'Salons, spas & wellness', 'ind2.b1': 'A visual, attractive services catalogue', 'ind2.b2': 'Deposit on booking: no more last-minute cancellations', 'ind2.b3': 'A loyalty program to bring your clients back', 'ind2.b4': 'Online booking 24/7, even at night',
           'ind3.name': 'Shops & local entrepreneurs', 'ind3.b1': 'An online storefront that makes people want to walk in', 'ind3.b2': 'Found on Google Maps, with up-to-date reviews and hours', 'ind3.b3': 'Simple tools to sell without spending your evenings on it',
@@ -233,7 +233,7 @@
     function mkChichiNotif() {
       const msg = `💇 <b>Nouvelle demande de rendez-vous</b><br><br>👤 Marie L.<br>📞 +1 613 •••-••42<br>💅 Tresses Knotless&nbsp;&nbsp;(120–160 $)<br>🗓️ samedi 2 août à 14:00<br>📎 Photo de référence :<div style="margin-top:5px;width:62px;height:62px;border-radius:8px;background:linear-gradient(135deg,#C6447A,#1C1417);display:flex;align-items:center;justify-content:center;font-size:22px">💇🏾‍♀️</div>`;
       return `<div class="mk" style="font-size:11px;color:#1f2c33;background:#d9e4dd">
-        <div style="display:flex;align-items:center;gap:8px;background:#527da3;color:#fff;padding:11px 12px 9px"><span style="font-size:13px">‹</span><div style="width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:13px">🔔</div><div style="line-height:1.2"><div style="font-size:11px;font-weight:600">Cuties Chichi · n8n</div><div style="font-size:8px;color:rgba(255,255,255,.7)">notifications · en ligne</div></div></div>
+        <div style="display:flex;align-items:center;gap:8px;background:#527da3;color:#fff;padding:11px 12px 9px"><span style="font-size:13px">‹</span><div style="width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:13px">🔔</div><div style="line-height:1.2"><div style="font-size:11px;font-weight:600">Cuties Chichi · automatisation</div><div style="font-size:8px;color:rgba(255,255,255,.7)">notifications · en ligne</div></div></div>
         <div style="display:flex;flex-direction:column;gap:7px;padding:12px 10px;min-height:300px">${tgIn(msg)}<div style="align-self:flex-start">${tgBtn('🔎 Voir &amp; valider la demande')}</div><div style="align-self:center;background:rgba(0,0,0,.08);color:#5b6b63;border-radius:20px;padding:3px 10px;font-size:8px">📨 aussi envoyé sur WhatsApp ✓</div></div>
       </div>`;
     }
@@ -244,14 +244,14 @@
       const wire = `<div style="height:11px;width:2px;background:linear-gradient(#03785B,rgba(3, 120, 91,.2));margin:2px auto"></div>`;
       const mini = (icon, label, tint) => `<div style="background:#052B3E;border:1px solid rgba(3, 120, 91,.22);border-top:2px solid ${tint};border-radius:8px;padding:7px 4px;text-align:center"><div style="font-size:13px;line-height:1">${icon}</div><div style="font-size:7.5px;color:rgba(240,237,232,.7);margin-top:3px">${label}</div></div>`;
       return `<div class="mk" style="background:#011E2E;padding:13px 12px;min-height:300px">
-        <div style="display:flex;align-items:center;gap:6px;margin-bottom:11px"><span style="width:7px;height:7px;border-radius:50%;background:#EA4B71"></span><span style="font-family:var(--mono);font-size:7px;letter-spacing:.14em;text-transform:uppercase;color:rgba(240,237,232,.55)">n8n · Validation (réel)</span></div>
-        ${node('⚡', 'Nouvelle demande', 'Webhook · depuis le site', '#EA4B71')}
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:11px"><span style="width:7px;height:7px;border-radius:50%;background:#EA4B71"></span><span style="font-family:var(--mono);font-size:7px;letter-spacing:.14em;text-transform:uppercase;color:rgba(240,237,232,.55)">Automatisation · Validation (réel)</span></div>
+        ${node('⚡', 'Nouvelle demande', 'Reçue depuis le site', '#EA4B71')}
         ${wire}
-        ${node('⚙️', 'Normaliser la demande', 'Set')}
+        ${node('⚙️', 'Préparer la demande', 'Automatique')}
         ${wire}
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">${mini('📨', 'Telegram', '#03785B')}${mini('🟢', 'WhatsApp', '#25D366')}</div>
         <div style="font-size:7.5px;color:rgba(240,237,232,.5);text-align:center;margin:7px 0 5px">Chichi confirme / décline 👆</div>
-        ${node('🗄️', 'Supabase', 'set_booking_status · anti-doublon', '#3ECF8E')}
+        ${node('🗄️', 'Réservation enregistrée', 'Sans doublon', '#3ECF8E')}
         ${wire}
         <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px">${mini('✉️', 'Email', '#EA4335')}${mini('💬', 'SMS', '#F22F46')}${mini('📅', 'Agenda', '#4285F4')}</div>
       </div>`;
@@ -261,7 +261,7 @@
     function mkChichiConfirm() {
       const smsIn = (t) => `<div style="align-self:flex-start;max-width:87%;background:#fff;border-radius:14px 14px 14px 4px;padding:8px 11px;font-size:10px;line-height:1.5;box-shadow:0 1px 1px rgba(0,0,0,.06)">${t}</div>`;
       return `<div class="mk" style="font-size:11px;color:#1f2c33;background:#eceff3">
-        <div style="display:flex;align-items:center;gap:8px;background:#f7f8fa;border-bottom:1px solid #e2e6ea;padding:10px 12px"><span style="font-size:13px;color:#8a97a3">‹</span><div style="width:26px;height:26px;border-radius:50%;background:#C6447A;color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700">C</div><div style="line-height:1.2"><div style="font-size:11px;font-weight:600">Cuties Chichi</div><div style="font-size:8px;color:#8a97a3">SMS · Twilio</div></div></div>
+        <div style="display:flex;align-items:center;gap:8px;background:#f7f8fa;border-bottom:1px solid #e2e6ea;padding:10px 12px"><span style="font-size:13px;color:#8a97a3">‹</span><div style="width:26px;height:26px;border-radius:50%;background:#C6447A;color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700">C</div><div style="line-height:1.2"><div style="font-size:11px;font-weight:600">Cuties Chichi</div><div style="font-size:8px;color:#8a97a3">SMS</div></div></div>
         <div style="display:flex;flex-direction:column;gap:9px;padding:13px 10px;min-height:300px">${smsIn('Bonjour Marie ✨ Votre rendez-vous chez Cuties Chichi est <b>CONFIRMÉ</b> : Tresses — 140 $, le samedi 2 août à 14:00. 1066 Somerset St W, Ottawa. À bientôt !')}<div style="align-self:center;background:rgba(0,0,0,.07);color:#66727d;border-radius:20px;padding:3px 10px;font-size:8px">— la veille · rappel automatique —</div>${smsIn("⏰ Rappel : votre RDV <b>Tresses</b> c'est demain à <b>14:00</b> chez Cuties Chichi. Un empêchement ? Répondez à ce message. 💛")}</div>
       </div>`;
     }
@@ -818,14 +818,14 @@
           ['in', 'Reçu 📎 Demande envoyée à Chichi — elle confirme le prix sous 48h 💛']
         ] },
       { step: '2 / 3', title: 'Notification', explain: 'Chichi est prévenue sur Telegram + WhatsApp.',
-        head: ['🔔', 'Cuties Chichi · n8n', 'notifications · en ligne', '#527da3'],
+        head: ['🔔', 'Cuties Chichi · automatisation', 'notifications · en ligne', '#527da3'],
         msgs: [
           ['in', '💇 <b>Nouvelle demande</b><br>👤 Marie L.<br>💅 Tresses Knotless (120–160 $)<br>🗓️ sam. 2 août · 14:00<br>📎 Photo de référence :'],
           ['photo-in', ''],
           ['btn', '🔎 Voir & valider la demande']
         ] },
       { step: '3 / 3', title: 'Validation', explain: 'Un tap → SMS, email, agenda et rappels auto.',
-        head: ['💬', 'Cuties Chichi', 'SMS · Twilio', '#2D6A4F'],
+        head: ['💬', 'Cuties Chichi', 'SMS', '#2D6A4F'],
         msgs: [
           ['tap', '✅ Confirmer'],
           ['sms', 'RDV <b>CONFIRMÉ</b> ✨ Tresses Knotless — 140 $, sam. 2 août 14:00. 1066 Somerset St W, Ottawa.'],
@@ -910,26 +910,26 @@
       site: {
         fr: [
           { step: '1 / 2', title: 'Notre propre site en est la preuve', explain: 'Rapide, élégant, pensé pour convertir — comme le vôtre.', head: ['🌐', 'kelthen.com', 'en ligne · Vercel', '#03785B'],
-            msgs: [ ['card', '<b>kelthen.com</b><br>Agence web · Canada<br><span style="color:#03785B">⚡ Lighthouse &gt; 90 · chargé en &lt; 1 s</span>'], ['note', 'HTML/CSS/JS · zéro lenteur, responsive 360→1440'] ] },
+            msgs: [ ['card', '<b>kelthen.com</b><br>Agence web · Canada<br><span style="color:#03785B">⚡ Ultra-rapide · chargé en &lt; 1 s</span>'], ['note', 'Zéro lenteur, parfait sur mobile et ordi'] ] },
           { step: '2 / 2', title: 'Conçu pour transformer le visiteur', explain: 'Message clair, design premium, appel à l\'action évident.', head: ['✨', 'kelthen.com', 'conversion', '#03785B'],
             msgs: [ ['in', 'Plus de clients. Moins de gestion. 👋'], ['out', "C'est exactement ce qu'il me faut"], ['tap', '🚀 Audit gratuit'] ] }
         ],
         en: [
           { step: '1 / 2', title: 'Our own site is the proof', explain: 'Fast, elegant, built to convert — just like yours.', head: ['🌐', 'kelthen.com', 'online · Vercel', '#03785B'],
-            msgs: [ ['card', '<b>kelthen.com</b><br>Web agency · Canada<br><span style="color:#03785B">⚡ Lighthouse &gt; 90 · loads in &lt; 1 s</span>'], ['note', 'HTML/CSS/JS · zero lag, responsive 360→1440'] ] },
+            msgs: [ ['card', '<b>kelthen.com</b><br>Web agency · Canada<br><span style="color:#03785B">⚡ Ultra-fast · loads in &lt; 1 s</span>'], ['note', 'Zero lag, perfect on phone and desktop'] ] },
           { step: '2 / 2', title: 'Built to convert the visitor', explain: 'Clear message, premium design, obvious call to action.', head: ['✨', 'kelthen.com', 'conversion', '#03785B'],
             msgs: [ ['in', 'More clients. Less admin. 👋'], ['out', "That's exactly what I need"], ['tap', '🚀 Free audit'] ] }
         ]
       },
       booking: {
         fr: [
-          { step: '1 / 2', title: 'Un vrai système en ligne', explain: 'Cuties Chichi (client réel) — réservation 24/7, Next.js + Supabase.', head: ['💇', 'Cuties Chichi', 'réservation · 24/7', '#C6447A'],
+          { step: '1 / 2', title: 'Un vrai système en ligne', explain: 'Cuties Chichi (client réel) — réservation 24/7, entièrement automatisée.', head: ['💇', 'Cuties Chichi', 'réservation · 24/7', '#C6447A'],
             msgs: [ ['card', '<b>Cuties Chichi</b> · Ottawa<br>chichi-cuties.vercel.app<br><span style="color:#C6447A">6 prestations · réserver en ligne</span>'], ['in', 'Bonjour 👋 Quelle prestation vous ferait plaisir ?'], ['out', 'Des tresses knotless'], ['in', 'Parfait ✨ Quel jour vous arrange ?'] ] },
           { step: '2 / 2', title: 'Réservé, même la nuit', explain: 'Demande envoyée, prix exact confirmé sous 48 h.', head: ['📅', 'Cuties Chichi', 'demande envoyée', '#2D6A4F'],
             msgs: [ ['out', 'Samedi après-midi'], ['tap', '📅 Envoyer la demande'], ['sms', 'Demande reçue ✅ Chichi confirme le prix sous 48 h 💛'] ] }
         ],
         en: [
-          { step: '1 / 2', title: 'A real live system', explain: 'Cuties Chichi (real client) — 24/7 booking, Next.js + Supabase.', head: ['💇', 'Cuties Chichi', 'booking · 24/7', '#C6447A'],
+          { step: '1 / 2', title: 'A real live system', explain: 'Cuties Chichi (real client) — 24/7 booking, fully automated.', head: ['💇', 'Cuties Chichi', 'booking · 24/7', '#C6447A'],
             msgs: [ ['card', '<b>Cuties Chichi</b> · Ottawa<br>chichi-cuties.vercel.app<br><span style="color:#C6447A">6 services · book online</span>'], ['in', 'Hi 👋 Which service would you like?'], ['out', 'Knotless braids'], ['in', 'Perfect ✨ What day works for you?'] ] },
           { step: '2 / 2', title: 'Booked, even at night', explain: 'Request sent, exact price confirmed within 48 h.', head: ['📅', 'Cuties Chichi', 'request sent', '#2D6A4F'],
             msgs: [ ['out', 'Saturday afternoon'], ['tap', '📅 Send request'], ['sms', 'Request received ✅ Chichi confirms the price within 48 h 💛'] ] }
@@ -951,7 +951,7 @@
       },
       reminders: {
         fr: [
-          { step: '1 / 3', title: 'À la réservation', explain: 'Confirmation immédiate par SMS (Twilio).', head: ['💬', 'Cuties Chichi', 'SMS · Twilio', '#2D6A4F'],
+          { step: '1 / 3', title: 'À la réservation', explain: 'Confirmation immédiate par SMS.', head: ['💬', 'Cuties Chichi', 'SMS', '#2D6A4F'],
             msgs: [ ['sms', 'RDV <b>CONFIRMÉ</b> ✨ Tresses knotless — sam. 2 août 14:00, Ottawa.'] ] },
           { step: '2 / 3', title: 'Rappel automatique 24 h avant', explain: 'Le système relance le client tout seul — fini les oublis.', head: ['⏰', 'Cuties Chichi', 'rappel auto', '#2D6A4F'],
             msgs: [ ['note', '— 24 h avant · automatique —'], ['sms', "⏰ Rappel : votre RDV c'est <b>demain à 14:00</b> 💛 Un empêchement ? Répondez."], ['out', 'Parfait, je serai là ✅'] ] },
@@ -959,7 +959,7 @@
             msgs: [ ['note', '— 2 h avant · automatique —'], ['sms', '🔔 À tout à l\'heure ! Votre RDV est à <b>14:00</b> aujourd\'hui.'], ['note', 'Moins de rendez-vous manqués, sans y penser 📉'] ] }
         ],
         en: [
-          { step: '1 / 3', title: 'At booking', explain: 'Instant SMS confirmation (Twilio).', head: ['💬', 'Cuties Chichi', 'SMS · Twilio', '#2D6A4F'],
+          { step: '1 / 3', title: 'At booking', explain: 'Instant SMS confirmation.', head: ['💬', 'Cuties Chichi', 'SMS', '#2D6A4F'],
             msgs: [ ['sms', 'Appointment <b>CONFIRMED</b> ✨ Knotless braids — Sat Aug 2, 2:00 pm, Ottawa.'] ] },
           { step: '2 / 3', title: 'Automatic reminder 24 h before', explain: 'The system follows up on its own — no more no-shows.', head: ['⏰', 'Cuties Chichi', 'auto reminder', '#2D6A4F'],
             msgs: [ ['note', '— 24 h before · automatic —'], ['sms', "⏰ Reminder: your appointment is <b>tomorrow at 2:00 pm</b> 💛 Can't make it? Just reply."], ['out', "Perfect, I'll be there ✅"] ] },
