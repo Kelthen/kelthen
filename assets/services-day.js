@@ -28,6 +28,8 @@
   if (!sec) return;
 
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const mob = !reduce && innerWidth <= 900; // mobile : pas de scroll horizontal détourné
+  const flat = reduce || mob;                // rendu vertical simple (empilé)
   const canDemo = typeof SERVICE_DEMOS !== 'undefined' && typeof mkChatSim === 'function' && typeof playChatSim === 'function';
   const store = { get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }, set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} } };
   const getLang = () => { try { return (window.__i18nLang && window.__i18nLang()) || document.documentElement.lang || 'en'; } catch (e) { return 'en'; } };
@@ -430,7 +432,7 @@ html[data-kt="day"] .kt-zone{--kt-bg:#F5F9FA;--kt-surface:#FFFFFF;--kt-surface2:
 
   if (canDemo) {
     root = document.createElement('div');
-    root.className = 'kd' + (reduce ? ' static' : ''); root.id = 'day';
+    root.className = 'kd' + (flat ? ' static' : ''); root.id = 'day';
     root.style.setProperty('--kd-n', NP);
     root.innerHTML = `<div class="kd-stage">
       <div class="kd-sky"></div><div class="kd-stars"></div>
@@ -511,13 +513,28 @@ html[data-kt="day"] .kt-zone{--kt-bg:#F5F9FA;--kt-surface:#FFFFFF;--kt-surface2:
     const start = () => { wrap.innerHTML = mkChatSim(); const d = SERVICE_DEMOS[id]; playChatSim(wrap.querySelector('.chat-sim'), d[lang] || d.fr); setBtn(true); };
     const stop = () => { fillStatic(wrap, id); setBtn(false); };
     if (btn) btn.addEventListener('click', () => (btn.dataset.playing ? stop() : start()));
-    live || reduce ? start() : stop();
-    if (reduce) setBtn(false);
+    if (mob) {
+      // mobile : chaque démo démarre quand son moment arrive à l'écran (défilement vertical normal)
+      stop();
+      if (el.__io) el.__io.disconnect();
+      if ('IntersectionObserver' in window) {
+        el.__io = new IntersectionObserver((entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) { if (!btn || !btn.dataset.playing) start(); }
+            else if (btn && btn.dataset.playing) stop();
+          });
+        }, { threshold: 0.5 });
+        el.__io.observe(el);
+      }
+    } else {
+      live || reduce ? start() : stop();
+      if (reduce) setBtn(false);
+    }
     fitPhone(el);
   }
   function fitPhone(el) {
     const host = el.querySelector('.kd-phone'), sim = host && host.querySelector('.chat-sim');
-    if (!sim || reduce) return;
+    if (!sim || flat) return;
     sim.style.zoom = 1;
     const natural = sim.offsetHeight || 420, txt = el.querySelector('.kd-scene');
     const mobile = innerWidth <= 900;
@@ -531,7 +548,8 @@ html[data-kt="day"] .kt-zone{--kt-bg:#F5F9FA;--kt-surface:#FFFFFF;--kt-surface2:
     root.querySelectorAll('[data-t]').forEach((el) => { el.textContent = t[el.dataset.t]; });
     root.querySelectorAll('[data-th]').forEach((el) => { el.innerHTML = t[el.dataset.th]; });
     root.querySelector('[data-greet]').textContent = t.greet[period0][0];
-    root.querySelectorAll('[data-leg]').forEach((el) => { el.textContent = t.legend[+el.dataset.leg]; });
+    const legMob = { en: 'The day unfolds as you scroll', fr: 'La journée se déroule au fil du défilement' };
+    root.querySelectorAll('[data-leg]').forEach((el) => { const i = +el.dataset.leg; el.textContent = (mob && i === 1) ? legMob[lang] : t.legend[i]; });
     root.querySelectorAll('[data-ag]').forEach((el) => { const u = upcoming[+el.dataset.ag]; el.textContent = u[lang][0]; });
     root.querySelectorAll('[data-agd]').forEach((el) => { const u = upcoming[+el.dataset.agd]; el.textContent = u.abs >= 24 ? t.tomorrow : t.today; });
     root.querySelectorAll('.kd-see[data-sn]').forEach((b) => { b.textContent = '← ' + t.see; });
@@ -721,7 +739,7 @@ html[data-kt="day"] .kt-zone{--kt-bg:#F5F9FA;--kt-surface:#FFFFFF;--kt-surface2:
   try { matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyAmbience); } catch (e) {}
   renderAll();
   if (root) {
-    if (reduce) renderStatic();
+    if (flat) renderStatic();
     else {
       let queued = false;
       const tick = () => { if (!queued) { queued = true; requestAnimationFrame(() => { queued = false; render(); }); } };
