@@ -3214,3 +3214,39 @@
 
     /* ═══ Hero « The Intelligence System » — police de marque (Inter) ═══ */
     .kx { --kx-font: 'Inter', system-ui, sans-serif; }
+
+    /* ═══════════════════════════════════════════════════════
+       Layout arrondi — fin de la grille « carrée » à filets 1px.
+       Les sections deviennent des cartes séparées aux coins arrondis,
+       cohérentes avec le hero et le musée (12–20px).
+       ═══════════════════════════════════════════════════════ */
+    .numbers-grid, .values-grid, .services-grid, .work-grid, .pricing-grid {
+      gap: 16px;
+      background: transparent;
+      border: 0;
+    }
+    .num-card, .value-card, .service-card, .work-card, .price-card {
+      border-radius: 18px;
+      border: 1px solid rgba(193, 217, 229, 0.10);
+      overflow: hidden;
+    }
+    .price-card.featured { border: 1px solid rgba(3, 120, 91, 0.6); border-top-width: 2px; }
+    .process-visual, .contact-form-wrap, .team-card, .industry-card { border-radius: 18px; }
+    .pm-dialog { border-radius: 20px; }
+    .nav-cta, .nav-mobile-cta, .btn-primary, .btn-ghost, .price-cta, .form-submit { border-radius: 12px; }
+    .cookie-btn, .form-input { border-radius: 10px; }
+    .ws, .stag, .price-badge { border-radius: 999px; }
+
+    /* ═══ Fiche projet : le visuel d'abord, les détails ensuite ═══ */
+    .pm-tagline { font-family: var(--sans); font-size: 1.08rem; line-height: 1.5; color: rgba(240, 237, 232, 0.82); max-width: 620px; margin: 0.35rem 0 1.1rem; }
+    .pm-dialog .pm-screens { margin: 1.2rem 0 1.6rem; }
+    .pm-dialog .pm-desc { margin-top: 0.4rem; }
+    .pm-dialog .pm-stack { margin-top: 1.2rem; margin-bottom: 0; }
+
+    /* Musée : moins d'infos avant le clic (le détail est dans la fiche) */
+    .km-panel .km-chips { display: none; }
+
+    /* ═══ Menu : se cache en descendant, réapparaît en remontant ═══ */
+    .nav { transition: background 0.4s ease, border-color 0.4s ease, backdrop-filter 0.4s ease, transform 0.35s ease; }
+    .nav.nav-hidden { transform: translateY(-110%); }
+    .work-card .work-mockup { border-radius: 12px; }
