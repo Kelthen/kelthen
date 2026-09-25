@@ -68,6 +68,9 @@
   <!-- Google Analytics (GA4) is loaded from assets/main.js ONLY after cookie consent -->
 
   <link rel="stylesheet" href="assets/style.css">
+
+  <!-- Hide the base services grid until the day experience mounts (avoids a flash of the untransformed section) -->
+  <script>(function(){try{document.documentElement.classList.add('kd-boot');setTimeout(function(){document.documentElement.classList.remove('kd-boot');},2500);}catch(e){}})();</script>
 </head>
 <body>
   <!-- ═══ Nav ═══ -->
