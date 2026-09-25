@@ -956,13 +956,13 @@
     const SERVICE_DEMOS = {
       site: {
         fr: [
-          { step: '1 / 2', title: 'Notre propre site en est la preuve', explain: 'Rapide, élégant, pensé pour convertir — comme le vôtre.', head: ['🌐', 'kelthen.com', 'en ligne · Vercel', '#03785B'],
+          { step: '1 / 2', title: 'Notre propre site en est la preuve', explain: 'Rapide, élégant, pensé pour convertir — comme le vôtre.', head: ['🌐', 'kelthen.com', 'en ligne · rapide', '#03785B'],
             msgs: [ ['card', '<b>kelthen.com</b><br>Agence web · Canada<br><span style="color:#03785B">⚡ Ultra-rapide · chargé en &lt; 1 s</span>'], ['note', 'Zéro lenteur, parfait sur mobile et ordi'] ] },
           { step: '2 / 2', title: 'Conçu pour transformer le visiteur', explain: 'Message clair, design premium, appel à l\'action évident.', head: ['✨', 'kelthen.com', 'conversion', '#03785B'],
             msgs: [ ['in', 'Plus de clients. Moins de gestion. 👋'], ['out', "C'est exactement ce qu'il me faut"], ['tap', '🚀 Audit gratuit'] ] }
         ],
         en: [
-          { step: '1 / 2', title: 'Our own site is the proof', explain: 'Fast, elegant, built to convert — just like yours.', head: ['🌐', 'kelthen.com', 'online · Vercel', '#03785B'],
+          { step: '1 / 2', title: 'Our own site is the proof', explain: 'Fast, elegant, built to convert — just like yours.', head: ['🌐', 'kelthen.com', 'online · fast', '#03785B'],
             msgs: [ ['card', '<b>kelthen.com</b><br>Web agency · Canada<br><span style="color:#03785B">⚡ Ultra-fast · loads in &lt; 1 s</span>'], ['note', 'Zero lag, perfect on phone and desktop'] ] },
           { step: '2 / 2', title: 'Built to convert the visitor', explain: 'Clear message, premium design, obvious call to action.', head: ['✨', 'kelthen.com', 'conversion', '#03785B'],
             msgs: [ ['in', 'More clients. Less admin. 👋'], ['out', "That's exactly what I need"], ['tap', '🚀 Free audit'] ] }
