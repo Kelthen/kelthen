@@ -193,6 +193,7 @@ html[data-kt="day"] .kt-zone{--kt-bg:#F5F9FA;--kt-surface:#FFFFFF;--kt-surface2:
 .kd-stage,.kd.static .kd-panel{--ink:#F0EDE8;--ink2:rgba(240,237,232,.74);--chip:rgba(255,255,255,.06);--chipline:rgba(193,217,229,.18)}
 .kd-stage{position:sticky;top:0;height:100vh;overflow:hidden;--ink:#F0EDE8;--ink2:rgba(240,237,232,.74);--chip:rgba(255,255,255,.06);--chipline:rgba(193,217,229,.18);color:var(--ink)}
 .kd-stage.is-light,.kd-panel.is-light{--ink:#011E2E;--ink2:rgba(1,30,46,.7);--chip:rgba(255,255,255,.55);--chipline:rgba(1,30,46,.12)}
+.kd.static .kd-panel.is-light{--ink:#011E2E;--ink2:rgba(1,30,46,.7);--chip:rgba(255,255,255,.55);--chipline:rgba(1,30,46,.12)}
 .kd-sky{position:absolute;inset:0}
 .kd-stars{position:absolute;inset:0;opacity:0;background-image:radial-gradient(1px 1px at 12% 22%,#C1D9E5 50%,transparent 51%),radial-gradient(1px 1px at 28% 12%,#C1D9E5 50%,transparent 51%),radial-gradient(1.5px 1.5px at 44% 30%,#fff 50%,transparent 51%),
   radial-gradient(1px 1px at 61% 16%,#C1D9E5 50%,transparent 51%),radial-gradient(1px 1px at 77% 26%,#C1D9E5 50%,transparent 51%),radial-gradient(1.5px 1.5px at 89% 10%,#fff 50%,transparent 51%),
@@ -249,6 +250,7 @@ html[data-kt="day"] .kt-zone{--kt-bg:#F5F9FA;--kt-surface:#FFFFFF;--kt-surface2:
 .kd-sys .kbar{fill:var(--kbar,#C1D9E5)}
 .kd-stage.is-light .kd-sys{--kbar:#011E2E}
 .kd.static{height:auto}
+html.kd-snap{scroll-snap-type:y proximity}
 .kd.static .kd-stage{position:relative;height:auto;overflow:visible}
 .kd.static .kd-track{position:relative;flex-direction:column}
 .kd.static .kd-panel{width:auto;height:auto;min-height:0;padding:64px clamp(16px,5vw,72px)}
@@ -366,6 +368,9 @@ html[data-kt="day"] .kt-zone{--kt-bg:#F5F9FA;--kt-surface:#FFFFFF;--kt-surface2:
   .kd-sysD{min-height:0}.kd-sys{width:min(300px,78vw)}
   .kd-pin{grid-template-columns:1fr;gap:14px;align-content:start}
   .kd-panel{align-items:flex-start;padding:146px 16px 16px}
+  /* Mobile : un moment = un écran, accroche au scroll (jamais d'arrêt dans le vide) */
+  .kd.static .kd-panel{min-height:100vh;min-height:100dvh;align-items:center;justify-content:center;scroll-snap-align:start;scroll-snap-stop:always;padding:92px 16px 44px}
+  .kd.static .kd-pin{align-content:center}
   .kd-h{font-size:2.2rem}.kd-p{font-size:.93rem;margin-top:12px}
   .kd-clock b{font-size:2.6rem}.kd-scene h3{font-size:1.35rem;margin-top:8px}
   .kd-scene .kd-p{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
@@ -739,8 +744,10 @@ html[data-kt="day"] .kt-zone{--kt-bg:#F5F9FA;--kt-surface:#FFFFFF;--kt-surface2:
   try { matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyAmbience); } catch (e) {}
   renderAll();
   if (root) {
-    if (flat) renderStatic();
-    else {
+    if (flat) {
+      renderStatic();
+      if (mob) document.documentElement.classList.add('kd-snap'); // mobile : accroche d'un moment à l'autre
+    } else {
       let queued = false;
       const tick = () => { if (!queued) { queued = true; requestAnimationFrame(() => { queued = false; render(); }); } };
       addEventListener('scroll', tick, { passive: true });
