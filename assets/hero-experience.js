@@ -11,20 +11,24 @@ function mountKelthenExperience(container, opts = {}) {
   /* ---------------- Textes (EN principal, FR secondaire) ---------------- */
   const TXT = {
     en: {
-      a1h: "Ideas are everywhere.", a1p: "Most never get built. Kelthen turns yours into systems that run.", hint: "Scroll to enter the system",
+      a1h: "We build the tools that keep your business running.", a1p: "Custom websites, apps and automations, delivered and maintained by a small team.", hint: "Scroll to enter the system",
+      trust: "No commitment · Reply within 24 h · Based in Canada",
+      cA: "More clients", cAd: "Website, booking, reminders", cB: "A custom tool", cBd: "App, portal, automation",
       a2h: "Everything connects.", a2p: "Leads, emails, bookings, payments. One network, working as one.",
       a3h: "It sees what you miss.", a3p: "AI agents that watch, answer and act, day and night.",
       a4h: "One hub. All your growth.", a4p: "Websites, automation and AI, engineered as one system by Kelthen.",
-      cta: "Get a free audit", cta2: "Explore the system",
+      cta: "Free audit in 48 h", cta2: "Explore the system",
       prog: ["Signal", "Network", "Perception", "Core"],
       nodes: ["Leads", "Email", "Booking", "AI Agent", "Messages", "Sales", "Reports", "Insights"]
     },
     fr: {
-      a1h: "Les idées sont partout.", a1p: "La plupart ne voient jamais le jour. Kelthen transforme les vôtres en systèmes qui tournent.", hint: "Faites défiler pour entrer dans le système",
+      a1h: "On construit les outils qui font tourner votre entreprise.", a1p: "Sites, applications et automatisations sur mesure, livrés et maintenus par une petite équipe.", hint: "Faites défiler pour entrer dans le système",
+      trust: "Sans engagement · Réponse en 24 h · Basé au Canada",
+      cA: "Plus de clients", cAd: "Site, réservation, rappels", cB: "Un outil sur mesure", cBd: "Application, portail, automatisation",
       a2h: "Tout se connecte.", a2p: "Leads, emails, rendez-vous, paiements. Un seul réseau qui travaille d’un bloc.",
       a3h: "Il voit ce qui vous échappe.", a3p: "Des agents IA qui surveillent, répondent et agissent, jour et nuit.",
       a4h: "Un seul centre. Toute votre croissance.", a4p: "Sites, automatisations et IA, conçus comme un seul système par Kelthen.",
-      cta: "Demander un audit gratuit", cta2: "Explorer le système",
+      cta: "Audit gratuit en 48 h", cta2: "Explorer le système",
       prog: ["Signal", "Réseau", "Perception", "Noyau"],
       nodes: ["Leads", "Emails", "Agenda", "Agent IA", "Messages", "Ventes", "Rapports", "Veille"]
     }
@@ -80,7 +84,20 @@ function mountKelthenExperience(container, opts = {}) {
 .kx-prog span::after{content:"";width:6px;height:6px;border-radius:50%;background:currentColor;transition:transform .4s}
 .kx-prog span.on{color:#fff}.kx-prog span.on::after{transform:scale(1.6);background:#03785B}
 .kx :focus-visible{outline:2px solid #C1D9E5;outline-offset:3px;border-radius:8px}
-@media (max-width:760px){.kx-shade{background:linear-gradient(0deg,rgba(1,20,31,.92),rgba(1,20,31,.3) 45%,transparent 70%)}.kx-act{bottom:9vh}.kx-prog b{display:none}.kx-prog{right:10px}}`;
+.kx-ishade{position:absolute;inset:0;pointer-events:none;opacity:0;background:linear-gradient(90deg,rgba(1,20,31,.72),rgba(1,20,31,.25) 60%,transparent 85%)}
+.kx-intro{max-width:760px}
+.kx-intro h1{font-size:clamp(2.1rem,4.4vw,4.1rem);line-height:1.02;letter-spacing:-.035em}
+.kx-intro p{margin-top:18px}
+.kx-ctas.kx-ctas-l{justify-content:flex-start;margin-top:24px}
+.kx-act .kx-trust{margin:14px 0 0;font-size:.82rem;line-height:1.4;color:rgba(193,217,229,.72);max-width:none}
+.kx-paths{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px;max-width:620px}
+.kx-path{position:relative;display:flex;flex-direction:column;gap:3px;padding:14px 40px 14px 16px;border-radius:14px;border:1px solid rgba(193,217,229,.22);background:rgba(1,30,46,.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#fff;text-decoration:none;transition:border-color .2s,background .2s,transform .2s}
+.kx-path:hover{border-color:#03785B;background:rgba(3,120,91,.2);transform:translateY(-2px)}
+.kx-path b{font-weight:600;font-size:1rem}
+.kx-path span{font-size:.84rem;line-height:1.35;color:rgba(193,217,229,.8)}
+.kx-path i{position:absolute;right:16px;top:50%;transform:translateY(-50%);font-style:normal;color:#7CC9AE}
+@media (max-width:760px){.kx-shade{background:linear-gradient(0deg,rgba(1,20,31,.92),rgba(1,20,31,.3) 45%,transparent 70%)}.kx-act{bottom:9vh}.kx-prog b{display:none}.kx-prog{right:10px}
+.kx-ishade{background:linear-gradient(0deg,rgba(1,20,31,.94),rgba(1,20,31,.6) 62%,rgba(1,20,31,0) 92%)}.kx-intro h1{font-size:clamp(1.8rem,8.2vw,2.4rem)}.kx-intro p{font-size:.95rem;margin-top:12px}.kx-ctas.kx-ctas-l{margin-top:16px}.kx-ctas-l .kx-btn{flex:1;text-align:center}.kx-paths{gap:8px;margin-top:14px}.kx-path{padding:11px 28px 11px 12px;border-radius:12px}.kx-path b{font-size:.92rem}.kx-path span{font-size:.76rem}.kx-path i{right:10px}}`;
     document.head.appendChild(st);
   }
 
@@ -95,17 +112,24 @@ function mountKelthenExperience(container, opts = {}) {
     ${MARK_SVG}${WORD_SVG}
     <div class="kx-flash"></div>
     ${cfg.showLangToggle ? `<div class="kx-lang" role="group" aria-label="Language"><button type="button" data-l="en">EN</button><button type="button" data-l="fr">FR</button></div>` : ""}
-    <div class="kx-act" data-a="1"><h1 data-t="a1h"></h1><p data-t="a1p"></p><div class="kx-hint"><i></i><span data-t="hint"></span></div></div>
+    <div class="kx-ishade" aria-hidden="true"></div>
+    <div class="kx-act kx-intro" data-a="1" data-track-loc="hero"><h1 data-t="a1h"></h1><p data-t="a1p"></p>
+      <div class="kx-ctas kx-ctas-l"><a class="kx-btn" href="${cfg.ctaHref}" data-t="cta"></a></div>
+      <p class="kx-trust" data-t="trust"></p>
+      <div class="kx-paths">
+        <a class="kx-path" href="salons.html"><b data-t="cA"></b><span data-t="cAd"></span><i aria-hidden="true">→</i></a>
+        <a class="kx-path" href="apps.html"><b data-t="cB"></b><span data-t="cBd"></span><i aria-hidden="true">→</i></a>
+      </div></div>
     <div class="kx-act" data-a="2"><h2 data-t="a2h"></h2><p data-t="a2p"></p></div>
     <div class="kx-act" data-a="3"><h2 data-t="a3h"></h2><p data-t="a3p"></p></div>
-    <div class="kx-act kx-core" data-a="4"><h2 data-t="a4h"></h2><p data-t="a4p"></p>
+    <div class="kx-act kx-core" data-a="4" data-track-loc="hero_core"><h2 data-t="a4h"></h2><p data-t="a4p"></p>
       <div class="kx-ctas"><a class="kx-btn" href="${cfg.ctaHref}" data-t="cta"></a><a class="kx-link" href="${cfg.secondaryHref}" data-t="cta2"></a></div></div>
     <div class="kx-prog" aria-hidden="true"><span><b data-p="0"></b></span><span><b data-p="1"></b></span><span><b data-p="2"></b></span><span><b data-p="3"></b></span></div>
   </div>`;
   container.appendChild(root);
   const $ = (s) => root.querySelector(s);
   const acts = [...root.querySelectorAll(".kx-act")], dots = [...root.querySelectorAll(".kx-prog span")];
-  const markEl = $(".kx-mark"), wordEl = $(".kx-word"), flashEl = $(".kx-flash"), shadeEl = $(".kx-shade"), coreEl = $(".kx-core");
+  const markEl = $(".kx-mark"), wordEl = $(".kx-word"), flashEl = $(".kx-flash"), shadeEl = $(".kx-shade"), coreEl = $(".kx-core"), ishadeEl = $(".kx-ishade");
 
   function setLang(l) {
     lang = TXT[l] ? l : "en";
@@ -407,10 +431,10 @@ void main(){ vec2 d=gl_PointCoord-vec2(.5); float r=length(d); if(r>.5) discard;
     const mh = (ccy - top) * 2, mw = mh * AR;
     const la = clamp((stage - 2.92) / .08, 0, 1) * (1 - ex);
     markEl.style.width = mw + "px"; markEl.style.height = mh + "px";
-    markEl.style.transform = `translate(${cx - mw / 2}px,${ccy - mh / 2}px)`; markEl.style.opacity = la * .95;
+    markEl.style.transform = `translate(${cx - mw / 2}px,${ccy - mh / 2}px)`; markEl.style.opacity = reduce ? 0 : la * .95;
     const wh = mh * .13, ww = wh * 12.5, wy = ccy + mh / 2 + mh * .1;
     wordEl.style.width = ww + "px"; wordEl.style.height = wh + "px";
-    wordEl.style.transform = `translate(${cx - ww / 2}px,${wy}px)`; wordEl.style.opacity = clamp((stage - 2.96) / .04, 0, 1) * (1 - ex);
+    wordEl.style.transform = `translate(${cx - ww / 2}px,${wy}px)`; wordEl.style.opacity = reduce ? 0 : clamp((stage - 2.96) / .04, 0, 1) * (1 - ex);
     coreEl.style.top = (wy + wh + (mobile ? 26 : 34)) + "px";
 
     flashEl.style.opacity = .85 * Math.exp(-Math.pow((stage - 2.53) * 14, 2));
@@ -418,14 +442,15 @@ void main(){ vec2 d=gl_PointCoord-vec2(.5); float r=length(d); if(r>.5) discard;
 
     const A = [clamp(1 - (p - .1) / .05, 0, 1), win(p, .3, .38), win(p, .55, .62), win(p, .81, .9)];
     acts.forEach((el, i) => {
-      const o = reduce ? (i === 3 ? 1 : 0) : A[i];
+      const o = reduce ? (i === 0 ? 1 : 0) : A[i];
       el.style.opacity = o; el.classList.toggle("on", o > .5);
       const dy = (1 - o) * 24;
       el.style.transform = i === 3 ? `translate(-50%,${dy}px)` : `translateY(${dy}px)`;
     });
+    ishadeEl.style.opacity = reduce ? 1 : A[0];
     const cur = Math.round(stage); dots.forEach((d, i) => d.classList.toggle("on", i === cur));
 
-    drawHub(t, reduce ? 1 : sm(clamp((p - .8) / .07, 0, 1)), ex, cx, ccy, mh, mw);
+    drawHub(t, reduce ? 0 : sm(clamp((p - .8) / .07, 0, 1)), ex, cx, ccy, mh, mw);
   }
   function loop(now) { raf = requestAnimationFrame(loop); if (visible) render(now); }
   resize();
@@ -446,6 +471,6 @@ void main(){ vec2 d=gl_PointCoord-vec2(.5); float r=length(d); if(r>.5) discard;
   if (!mount || typeof window.THREE === "undefined") return;
   const initLang = (window.__i18nLang && window.__i18nLang()) || "en";
   window.__kxDestroy = mountKelthenExperience(mount, {
-    THREE: window.THREE, lang: initLang, ctaHref: "contact.html", secondaryHref: "#services", showLangToggle: false, scrollLength: 320
+    THREE: window.THREE, lang: initLang, ctaHref: "contact.html#audit", secondaryHref: "#services", showLangToggle: false, scrollLength: 320
   });
 })();

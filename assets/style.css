@@ -3259,3 +3259,401 @@
     /* Évite le flash de la section services d'origine avant que l'expérience « journée » ne monte */
     html.kd-boot #services > .services-header,
     html.kd-boot #services > .services-grid { visibility: hidden; }
+
+    /* ═══════════════════════════════════════════════════════
+       Conversion — bandeau, WhatsApp, barre mobile, sections
+       « Comment ça marche », « Audit gratuit », « Offre pilote »,
+       pages salons.html / apps.html.
+       Les couleurs passent par les tokens : sur l'accueil, elles
+       suivent l'ambiance jour / nuit (.kt-zone).
+       ═══════════════════════════════════════════════════════ */
+    [hidden] { display: none !important; }
+
+    /* ─── Bandeau d'annonce (fermable) ─── */
+    .annc {
+      position: relative;
+      z-index: 101;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      padding: 8px 52px;
+      background: var(--blue);
+      color: #fff;
+      text-align: center;
+    }
+    .annc-link {
+      font-family: var(--sans);
+      font-size: 0.86rem;
+      font-weight: 600;
+      line-height: 1.35;
+      color: #fff;
+    }
+    .annc-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+    .annc-close {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 32px;
+      height: 32px;
+      border: 0;
+      border-radius: 50%;
+      background: transparent;
+      color: #fff;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+    .annc-close:hover { opacity: 1; background: rgba(255, 255, 255, 0.14); }
+    .annc-close:focus-visible, .annc-link:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+
+    /* ─── WhatsApp flottant ─── */
+    .wa-float {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 90;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #25D366;
+      color: #fff;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .wa-float svg { width: 28px; height: 28px; }
+    .wa-float:hover { transform: translateY(-2px) scale(1.04); box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4); }
+    .wa-float:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+
+    /* ─── Barre collante « Audit gratuit » (mobile) ─── */
+    .k-sticky { display: none; }
+    @media (max-width: 760px) {
+      html.has-sticky .wa-float { display: none; }
+      .k-sticky {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 90;
+        display: flex;
+        gap: 10px;
+        padding: 10px 12px calc(10px + env(safe-area-inset-bottom, 0px));
+        background: rgba(1, 20, 31, 0.94);
+        border-top: 1px solid rgba(193, 217, 229, 0.12);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        transform: translateY(110%);
+        transition: transform 0.3s ease;
+      }
+      .k-sticky.show { transform: none; }
+      .k-sticky-audit {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+        border-radius: 12px;
+        background: var(--blue);
+        color: #fff;
+        font-family: var(--sans);
+        font-size: 0.95rem;
+        font-weight: 700;
+      }
+      .k-sticky-wa {
+        width: 48px;
+        height: 48px;
+        flex-shrink: 0;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #25D366;
+        color: #fff;
+      }
+      .k-sticky-wa svg { width: 24px; height: 24px; }
+      html.has-sticky body { padding-bottom: 72px; }
+      /* garder les contenus au-dessus de la barre */
+      html.has-sticky .kx-act { bottom: calc(9vh + 56px); }
+      html.has-sticky .kd.static .kd-panel { padding-bottom: 116px; }
+      .wa-float.wa-always { right: 16px; bottom: 16px; }
+    }
+    /* la bannière cookies passe devant : on range la barre et le bouton le temps du choix */
+    body:has(.cookie-banner.show) .k-sticky.show { transform: translateY(110%); }
+    body:has(.cookie-banner.show) .wa-float { opacity: 0; pointer-events: none; }
+
+    /* ─── Sections partagées ─── */
+    .k-sec { padding: 120px 5vw; }
+    .k-sec-head { max-width: 1200px; margin: 0 auto 3rem; }
+    .k-sub {
+      max-width: 560px;
+      margin-top: 1.1rem;
+      font-family: var(--sans);
+      font-size: 1rem;
+      line-height: 1.65;
+      color: var(--white-muted);
+    }
+    #how, #audit-block, #pilot { border-top: 1px solid var(--border); }
+
+    /* Comment ça marche */
+    .how-steps {
+      list-style: none;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .how-steps--5 { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
+    .how-step {
+      padding: 2rem 1.75rem;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: var(--kt-surface, rgba(240, 237, 232, 0.025));
+    }
+    .how-num {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--blue);
+      margin-bottom: 1.4rem;
+    }
+    .how-step h3 {
+      font-family: var(--sans);
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--white);
+    }
+    .how-step p {
+      margin-top: 0.6rem;
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      line-height: 1.65;
+      color: var(--white-muted);
+    }
+    .how-results { max-width: 1200px; margin: 3rem auto 0; }
+    .how-results-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .how-result { padding: 1.75rem; border-radius: 18px; border: 1px solid var(--border); text-align: center; }
+    .how-result-val { font-family: var(--sans); font-size: 2.2rem; font-weight: 700; color: var(--blue-light); }
+    .how-result-lbl { margin-top: 0.4rem; font-size: 0.9rem; color: var(--white-muted); }
+
+    /* Audit gratuit en 5 points */
+    .audit-wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: clamp(2rem, 5vw, 5rem);
+      align-items: start;
+    }
+    .audit-intro .btn-primary { margin-top: 1.8rem; }
+    .audit-meta {
+      margin-top: 1.2rem;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue);
+    }
+    .audit-points { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .audit-points li {
+      display: grid;
+      grid-template-columns: 2.4rem 1fr;
+      gap: 1rem;
+      align-items: start;
+      padding: 1.25rem 1.4rem;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: var(--kt-surface, rgba(240, 237, 232, 0.025));
+    }
+    .audit-n {
+      width: 2.4rem;
+      height: 2.4rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(3, 120, 91, 0.14);
+      color: var(--blue-light);
+      font-family: var(--mono);
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+    .audit-points h3 { font-family: var(--sans); font-size: 1.05rem; font-weight: 600; color: var(--white); }
+    .audit-points p { margin-top: 0.3rem; font-family: var(--sans); font-size: 0.92rem; line-height: 1.6; color: var(--white-muted); }
+
+    /* Offre pilote */
+    .pilot-card {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: clamp(2rem, 5vw, 4rem);
+      align-items: center;
+      padding: clamp(2rem, 4vw, 3.5rem);
+      border-radius: 22px;
+      border: 1px solid rgba(3, 120, 91, 0.55);
+      border-top-width: 3px;
+      background:
+        radial-gradient(120% 140% at 100% 0%, rgba(3, 120, 91, 0.16), transparent 60%),
+        var(--kt-surface, #04283A);
+    }
+    .pilot-list { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; }
+    .pilot-list li {
+      position: relative;
+      padding-left: 2rem;
+      font-family: var(--sans);
+      font-size: 1.08rem;
+      font-weight: 600;
+      color: var(--white);
+    }
+    .pilot-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      top: -1px;
+      width: 1.35rem;
+      height: 1.35rem;
+      border-radius: 50%;
+      background: var(--blue);
+      color: #fff;
+      font-size: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .pilot-end { margin: 1.4rem 0 1.6rem; font-family: var(--sans); font-size: 0.95rem; color: var(--white-muted); }
+    .pilot-end strong { color: var(--white); font-weight: 600; }
+    .pilot-card--pricing { margin-bottom: 2.5rem; max-width: none; }
+    /* le badge « Recommandé » déborde volontairement du haut de la carte */
+    .price-card.featured { overflow: visible; }
+    .pilot-h {
+      font-family: var(--sans);
+      font-size: clamp(1.7rem, 3vw, 2.5rem);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      color: var(--white);
+    }
+    .pilot-h em { font-style: italic; color: var(--blue-light); }
+
+    /* Accueil : « Voir comment ça fonctionne » */
+    .work-preview-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+    #work-preview { border-top: 1px solid var(--border); }
+
+    /* Formulaire d'audit */
+    #audit { scroll-margin-top: 130px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-row .form-group { min-width: 0; }
+
+    /* À propos : cartes équipe sans photo (et prêtes pour de vraies photos) */
+    .team-card { text-align: center; }
+    .team-img { width: 96px; height: 96px; margin: 0 auto 1.2rem; border-radius: 50%; object-fit: cover; }
+
+    /* ─── Pages salons.html / apps.html ─── */
+    .lp-hero {
+      padding: 150px 5vw 110px;
+      background: radial-gradient(90% 90% at 75% 30%, #02303A 0%, #011E2E 55%, #00121B 100%);
+      border-bottom: 1px solid var(--border);
+    }
+    .lp-hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+      gap: clamp(2rem, 5vw, 5rem);
+      align-items: center;
+    }
+    .lp-title {
+      font-family: var(--sans);
+      font-size: clamp(2.4rem, 4.6vw, 4.4rem);
+      font-weight: 700;
+      line-height: 1.02;
+      letter-spacing: -0.035em;
+      color: var(--white);
+    }
+    .lp-title em { font-style: italic; color: var(--blue-light); }
+    .lp-sub {
+      max-width: 540px;
+      margin-top: 1.4rem;
+      font-family: var(--sans);
+      font-size: 1.12rem;
+      line-height: 1.6;
+      color: rgba(240, 237, 232, 0.78);
+    }
+    .lp-ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 2rem; }
+    .lp-trust { margin-top: 1.1rem; font-family: var(--sans); font-size: 0.86rem; color: var(--white-muted); }
+    .lp-hero-demo { display: flex; flex-direction: column; align-items: center; gap: 0.9rem; }
+    .lp-demo-tag {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--blue-light);
+    }
+    .lp-grid { grid-template-columns: repeat(4, 1fr); max-width: 1200px; margin: 0 auto; }
+    #salon-services .service-card { background: #04283A; cursor: pointer; }
+
+    /* Maquette décorative (apps.html) */
+    .ap-mock {
+      width: min(440px, 100%);
+      border-radius: 16px;
+      overflow: hidden;
+      background: #052B3E;
+      border: 1px solid rgba(193, 217, 229, 0.14);
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45);
+    }
+    .ap-mock-bar { display: flex; gap: 6px; padding: 11px 14px; background: #04283A; border-bottom: 1px solid rgba(193, 217, 229, 0.08); }
+    .ap-mock-bar i { width: 9px; height: 9px; border-radius: 50%; background: rgba(193, 217, 229, 0.25); }
+    .ap-mock-body { display: grid; grid-template-columns: 92px 1fr; min-height: 250px; }
+    .ap-mock-side { display: flex; flex-direction: column; gap: 10px; padding: 16px 12px; border-right: 1px solid rgba(193, 217, 229, 0.08); }
+    .ap-mock-side b { height: 12px; width: 70%; border-radius: 4px; background: var(--blue); }
+    .ap-mock-side span { height: 8px; border-radius: 4px; background: rgba(193, 217, 229, 0.16); }
+    .ap-mock-main { padding: 16px; display: flex; flex-direction: column; gap: 14px; }
+    .ap-mock-kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .ap-mock-kpis div { height: 46px; border-radius: 10px; background: rgba(193, 217, 229, 0.07); border: 1px solid rgba(193, 217, 229, 0.08); }
+    .ap-mock-chart { height: 90px; display: flex; align-items: flex-end; gap: 8px; padding: 0 4px; }
+    .ap-mock-chart span { flex: 1; border-radius: 5px 5px 2px 2px; background: linear-gradient(180deg, #7CC9AE, #03785B); opacity: 0.85; }
+    .ap-mock-rows { display: flex; flex-direction: column; gap: 7px; }
+    .ap-mock-rows span { height: 10px; border-radius: 5px; background: rgba(193, 217, 229, 0.1); }
+    .ap-mock-rows span:nth-child(2) { width: 82%; }
+    .ap-mock-rows span:nth-child(3) { width: 64%; }
+
+    .k-cards { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .k-card {
+      padding: 2rem 1.75rem;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: #04283A;
+    }
+    .k-card-ico { font-size: 1.7rem; display: block; margin-bottom: 1.2rem; }
+    .k-card h3 { font-family: var(--sans); font-size: 1.25rem; font-weight: 600; color: var(--white); }
+    .k-card p { margin-top: 0.6rem; font-family: var(--sans); font-size: 0.95rem; line-height: 1.65; color: var(--white-muted); }
+    #types, #ap-price { border-top: 1px solid var(--border); }
+    .ap-price {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .ap-price-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    @media (max-width: 900px) {
+      .how-steps, .k-cards, .how-results-grid { grid-template-columns: 1fr; }
+      .audit-wrap, .pilot-card, .lp-hero-inner { grid-template-columns: 1fr; }
+      .lp-grid { grid-template-columns: 1fr 1fr; }
+      .lp-hero { padding: 130px 6vw 80px; }
+      .k-sec { padding: 90px 6vw; }
+    }
+    @media (max-width: 560px) {
+      .lp-grid, .form-row { grid-template-columns: 1fr; }
+      .lp-ctas .btn-primary, .lp-ctas .btn-ghost, .audit-intro .btn-primary, .pilot-side .btn-primary { width: 100%; text-align: center; }
+      .annc { padding: 8px 46px 8px 14px; }
+      .annc-link { font-size: 0.8rem; }
+    }

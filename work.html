@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Nos réalisations — des sites, applications et automatisations concrètes pour des commerces et entrepreneurs : réservation en ligne, boutiques, rappels automatiques.">
+  <meta name="description" data-i18n-content="meta.work.desc" content="Projets construits par Kelthen : plateforme communautaire, marketplace, système de réservation automatisé — et une démonstration pas à pas du système de réservation pour salons.">
   <meta property="og:type"        content="website">
   <meta property="og:url"         content="https://www.kelthen.com/work.html">
-  <meta property="og:title"       content="Réalisations — Kelthen">
-  <meta property="og:description" content="Une sélection de projets qu'on a conçus et construits — de la boutique en ligne à l'automatisation des réservations.">
+  <meta property="og:title"       content="Projets construits — Kelthen">
+  <meta property="og:description" content="Plateforme communautaire, marketplace, système de réservation automatisé : ce qu'on a construit, et comment ça fonctionne.">
   <meta property="og:image"       content="https://www.kelthen.com/og-image.png">
   <meta property="og:image:width"  content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt"    content="Kelthen — Plus de clients. Moins de gestion.">
   <meta name="twitter:image"       content="https://www.kelthen.com/og-image.png">
   <meta name="twitter:card"       content="summary_large_image">
-  <meta name="twitter:title"      content="Réalisations — Kelthen">
-  <meta name="twitter:description" content="Une sélection de projets qu'on a conçus et construits pour des commerces et entrepreneurs.">
+  <meta name="twitter:title"      content="Projets construits — Kelthen">
+  <meta name="twitter:description" content="Ce qu'on a construit, décrit par ce que chaque outil fait.">
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  <title>Réalisations — sites web &amp; automatisations sur mesure | Kelthen</title>
+  <title data-i18n="meta.work.title">Projets construits — sites, plateformes et automatisations | Kelthen</title>
   <link rel="canonical" href="https://www.kelthen.com/work.html">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -54,7 +54,7 @@
       <span class="lang-sep" aria-hidden="true">|</span>
       <button type="button" class="lang-btn" data-lang-btn="fr">FR</button>
     </div>
-    <button class="nav-cta" id="navCta" type="button" data-i18n="nav.cta">Audit gratuit</button>
+    <button class="nav-cta" id="navCta" type="button" data-track="audit" data-i18n="nav.cta">Audit gratuit</button>
     <button class="nav-hamburger" id="navHamburger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navMobile">
       <span></span>
       <span></span>
@@ -75,40 +75,42 @@
       <span class="lang-sep" aria-hidden="true">|</span>
       <button type="button" class="lang-btn" data-lang-btn="fr">FR</button>
     </div>
-    <button class="nav-mobile-cta" id="navMobileCta" type="button" data-i18n="nav.cta">Audit gratuit</button>
+    <button class="nav-mobile-cta" id="navMobileCta" type="button" data-track="audit" data-i18n="nav.cta">Audit gratuit</button>
   </div>
 
   <!-- ═══ Work / Portfolio ═══ -->
   <section id="work" aria-labelledby="workTitle">
     <div class="work-header">
       <div>
-        <p class="section-label" data-i18n="work.label">Nos réalisations</p>
-        <h1 class="section-title" id="workTitle" data-i18n="workpage.title" data-i18n-html>Des projets<br>qui <em>rapportent</em></h1>
+        <p class="section-label" data-i18n="workpage.label">Nos réalisations</p>
+        <h1 class="section-title" id="workTitle" data-i18n="workpage.title" data-i18n-html>Projets<br><em>construits</em></h1>
+        <p class="k-sub" data-i18n="workpage.sub">Chaque projet est décrit par ce que fait l’outil. Les noms de clients ne sont affichés qu’avec leur accord.</p>
       </div>
     </div>
     <div class="work-grid" id="workGrid" role="list"></div>
   </section>
 
-  <!-- ═══ Automation live demo ═══ -->
+  <!-- ═══ Démonstration du système (aucun nom de client, aucun résultat) ═══ -->
   <section id="automation" aria-labelledby="automationTitle">
-    <p class="section-label">Automatisation en direct</p>
-    <h2 class="section-title" id="automationTitle">Il <em>réserve</em>, <em>prévient</em><br>et <em>confirme</em>.</h2>
-    <p class="automation-sub">Exemple réel : le bot de Cuties Chichi gère un rendez-vous de bout en bout — personne ne pianote.</p>
+    <p class="section-label" data-i18n="sysdemo.label">Démonstration du système</p>
+    <h2 class="section-title" id="automationTitle" data-i18n="sysdemo.title" data-i18n-html>Il <em>réserve</em>, <em>prévient</em><br>et <em>confirme</em>.</h2>
+    <p class="automation-sub" data-i18n="sysdemo.sub">Démonstration du système : voici comment une réservation de salon est gérée de bout en bout, sans que personne n’ait à taper un message.</p>
     <div class="automation-layout">
       <div class="automation-steps">
-        <div class="auto-step"><span>1</span><div><b>Réservation</b><p>Le client discute avec le bot AURA (Telegram / WhatsApp) et envoie une photo de référence.</p></div></div>
-        <div class="auto-step"><span>2</span><div><b>Notification</b><p>Chichi est prévenue sur Telegram + WhatsApp — la photo de référence est jointe.</p></div></div>
-        <div class="auto-step"><span>3</span><div><b>Validation</b><p>Un tap et tout part : SMS, email, Google Agenda, puis rappels automatiques.</p></div></div>
+        <div class="auto-step"><span>1</span><div><b data-i18n="sysdemo.s1n">Réservation</b><p data-i18n="sysdemo.s1d">La cliente discute avec l’assistante sur le site, WhatsApp ou Instagram, et peut envoyer une photo de référence.</p></div></div>
+        <div class="auto-step"><span>2</span><div><b data-i18n="sysdemo.s2n">Notification</b><p data-i18n="sysdemo.s2d">Le salon reçoit la demande sur son téléphone, avec tous les détails et la photo jointe.</p></div></div>
+        <div class="auto-step"><span>3</span><div><b data-i18n="sysdemo.s3n">Validation</b><p data-i18n="sysdemo.s3d">Un tap : la cliente reçoit sa confirmation par SMS et courriel, et l’agenda se met à jour tout seul.</p></div></div>
+        <div class="auto-step"><span>4</span><div><b data-i18n="sysdemo.s4n">Rappels</b><p data-i18n="sysdemo.s4d">Les rappels partent tout seuls avant le rendez-vous.</p></div></div>
       </div>
       <div class="automation-demo" id="autoSim" aria-hidden="true"></div>
     </div>
   </section>
 
-  <!-- ═══ Closing CTA ═══ -->
+  <!-- ═══ Votre projet sera le prochain ═══ -->
   <section id="home-cta" aria-labelledby="workCtaTitle">
-    <h2 class="home-cta-title" id="workCtaTitle" data-i18n="workcta.title" data-i18n-html>Le prochain,<br><em>c'est vous&nbsp;?</em></h2>
-    <p class="home-cta-sub" data-i18n="homecta.sub">Racontez-nous votre besoin. On répond en 24 h — sans blabla commercial, juste une vraie discussion.</p>
-    <a href="contact.html" class="btn-primary" data-i18n="homecta.cta">Demander un audit gratuit</a>
+    <h2 class="home-cta-title" id="workCtaTitle" data-i18n="workcta.title" data-i18n-html>Votre projet<br><em>sera le prochain.</em></h2>
+    <p class="home-cta-sub" data-i18n="homecta.sub">Racontez-nous votre besoin. On répond en 24 h — sans blabla commercial, juste une vraie discussion.</p>
+    <a href="contact.html#audit" class="btn-primary" data-i18n="workcta.cta">Audit gratuit en 48 h</a>
   </section>
 
   <!-- ═══ Footer ═══ -->
@@ -126,6 +128,8 @@
           <a href="index.html#services" data-i18n="svc3.name">Secrétaire virtuelle par IA</a>
           <a href="index.html#services" data-i18n="svc4.name">Rappels automatiques SMS &amp; e-mail</a>
           <a href="index.html#services" data-i18n="svc5.name">Visible sur Google</a>
+          <a href="salons.html" data-i18n="footer.salons">Pour les salons</a>
+          <a href="apps.html" data-i18n="footer.apps">Logiciels sur mesure</a>
         </div>
         <div class="footer-col">
           <div class="footer-col-title" data-i18n="footer.company">Entreprise</div>

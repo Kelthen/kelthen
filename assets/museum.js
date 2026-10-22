@@ -23,40 +23,41 @@
   /* ─────────────── Textes ─────────────── */
   const T = {
     en: {
-      eyebrow: 'The Kelthen Museum', title: 'Every project,<br><em>a work of art.</em>',
+      eyebrow: 'The Kelthen Museum', title: 'Projects we built,<br><em>shown as works of art.</em>',
       sub: 'Crafted with care. Built to perform. Scroll to walk through the collection.', hint: 'Scroll to enter',
       room: 'Piece', open: 'Open the case file', visit: 'Visit the site', cursor: 'Open', list: 'View as list', back: 'Museum view',
       entrance: 'Rotunda', last: 'Reserved',
-      fMeta: 'The next piece', fTitle: 'Would you like to be<br><em>the next piece?</em>',
+      fMeta: 'The next piece', fTitle: 'Your project<br><em>could be next.</em>',
       fSub: 'This pedestal is waiting for you. Tell us about your business, and we will craft it with the same care.',
-      fCta: 'Get a free audit', rsv1: 'RESERVED', rsv2: 'for your project'
+      fCta: 'Free audit in 48 h', rsv1: 'RESERVED', rsv2: 'for your project'
     },
     fr: {
-      eyebrow: 'Le musée Kelthen', title: 'Chaque projet,<br><em>une œuvre d’art.</em>',
-      sub: 'Façonné avec soin. Pensé pour rapporter. Faites défiler pour parcourir la collection.', hint: 'Faites défiler pour entrer',
+      eyebrow: 'Le musée Kelthen', title: 'Projets construits,<br><em>exposés comme des œuvres.</em>',
+      sub: 'Façonné avec soin. Pensé pour durer. Faites défiler pour parcourir la collection.', hint: 'Faites défiler pour entrer',
       room: 'Œuvre', open: 'Ouvrir le dossier', visit: 'Voir le site', cursor: 'Ouvrir', list: 'Voir en liste', back: 'Vue musée',
       entrance: 'Rotonde', last: 'Réservé',
-      fMeta: 'La prochaine œuvre', fTitle: 'Et si la prochaine œuvre<br><em>était la vôtre ?</em>',
+      fMeta: 'La prochaine œuvre', fTitle: 'Votre projet<br><em>sera le prochain.</em>',
       fSub: 'Ce socle vous attend. Parlez-nous de votre entreprise, nous la façonnerons avec le même soin.',
-      fCta: 'Demander un audit gratuit', rsv1: 'RÉSERVÉ', rsv2: 'à votre projet'
+      fCta: 'Audit gratuit en 48 h', rsv1: 'RÉSERVÉ', rsv2: 'à votre projet'
     }
   };
+  // Textes de salle : type de projet + ce que l'outil fait (aucun nom de client)
   const STORY = {
     '001': {
-      en: { cat: 'Web · Non-profit & community', line: 'A sisterhood for Black women in Alberta needed more than a brochure. We built them a home online: donations, events and their annual conference, all run from one place.', chips: ['Online donations', 'Events & tickets', 'Newsletter'] },
-      fr: { cat: 'Web · OBNL & communauté', line: 'Une sororité pour les femmes noires de l’Alberta avait besoin de plus qu’une vitrine. On leur a construit une maison en ligne : dons, événements et conférence annuelle, gérés au même endroit.', chips: ['Dons en ligne', 'Événements & billetterie', 'Infolettre'] }
+      en: { cat: 'Website & platform · Non-profit', line: 'A non-profit needed more than a brochure. We built it a home online: donations, events and its annual conference, all run from one place.', chips: ['Online donations', 'Event registration', 'Newsletter'] },
+      fr: { cat: 'Site & plateforme · OBNL', line: 'Un organisme à but non lucratif avait besoin de plus qu’une vitrine. On lui a construit une maison en ligne : dons, événements et conférence annuelle, gérés au même endroit.', chips: ['Dons en ligne', 'Inscriptions aux événements', 'Infolettre'] }
     },
     '002': {
-      en: { cat: 'Web · Marketplace', line: 'In Lomé, ABO helps people find tradespeople they can trust. Every artisan is identity-checked, and a quote is one WhatsApp message away.', chips: ['Verified badge', 'Search by trade & area', 'WhatsApp quotes'] },
-      fr: { cat: 'Web · Marketplace', line: 'À Lomé, ABO aide chacun à trouver un artisan de confiance. Chaque artisan est vérifié, et un devis est à un message WhatsApp.', chips: ['Badge Vérifié ABO', 'Recherche métier + quartier', 'Devis WhatsApp'] }
+      en: { cat: 'Web platform · Marketplace', line: 'A marketplace to find tradespeople you can trust. Every profile is identity-checked, and a quote is one WhatsApp message away.', chips: ['Verified badge', 'Search by trade & area', 'WhatsApp quotes'] },
+      fr: { cat: 'Plateforme web · Marketplace', line: 'Une marketplace pour trouver des artisans de confiance. Chaque profil est vérifié, et un devis est à un message WhatsApp.', chips: ['Badge « Vérifié »', 'Recherche métier + quartier', 'Devis WhatsApp'] }
     },
     '003': {
-      en: { cat: 'Web · Booking & automation', line: 'A braiding salon in Ottawa, on autopilot. A request comes in, Chichi taps once, and the confirmation, calendar and reminders all go out on their own.', chips: ['AI receptionist', '1-tap approval', 'Automatic reminders'] },
-      fr: { cat: 'Web · Réservation & automatisation', line: 'Un salon de tresses à Ottawa en pilote automatique. Une demande arrive, Chichi valide d’un tap, et la confirmation, l’agenda et les rappels partent tout seuls.', chips: ['Réceptionniste IA', 'Validation en 1 tap', 'Rappels automatiques'] }
+      en: { cat: 'Website · Booking & automation', line: 'A hair salon on autopilot. A request comes in, the salon taps once, and the confirmation, calendar and reminders all go out on their own.', chips: ['AI assistant', '1-tap approval', 'Automatic reminders'] },
+      fr: { cat: 'Site · Réservation & automatisation', line: 'Un salon de coiffure en pilote automatique. Une demande arrive, le salon valide d’un tap, et la confirmation, l’agenda et les rappels partent tout seuls.', chips: ['Assistante IA', 'Validation en 1 tap', 'Rappels automatiques'] }
     },
     '004': {
-      en: { cat: 'Web · Agency', line: 'Our own house. The site you are walking through right now, built to load fast and feel alive.', chips: ['SEO & analytics', 'Fast loading', 'Custom animations'] },
-      fr: { cat: 'Web · Agence', line: 'Notre propre maison. Le site que vous visitez en ce moment, pensé pour charger vite et paraître vivant.', chips: ['SEO & analytics', 'Chargement rapide', 'Animations sur mesure'] }
+      en: { cat: 'Website · Agency', line: 'Our own house. The site you are walking through right now, built to load fast and feel alive.', chips: ['Found on Google', 'Fast loading', 'Custom animations'] },
+      fr: { cat: 'Site · Agence', line: 'Notre propre maison. Le site que vous visitez en ce moment, pensé pour charger vite et paraître vivant.', chips: ['Visible sur Google', 'Chargement rapide', 'Animations sur mesure'] }
     }
   };
   function story(p, l) {
@@ -67,6 +68,19 @@
   let lang = 'en';
   try { lang = (window.__i18nLang && window.__i18nLang()) || document.documentElement.lang || 'en'; } catch (e) {}
   if (!T[lang]) lang = 'en';
+  // noms et textes localisés ({ en, fr } ou simple chaîne)
+  const R = (v) => (v && typeof v === 'object' && !Array.isArray(v) ? (v[lang] || v.en) : v);
+  const nm = (p) => R(p.name);
+
+  /* ─────────────── Œuvres = une plaque par type de projet, encadrée ───────────────
+     Aucun logo ni nom de client : chaque socle porte le type de projet, dans sa
+     couleur. (Le jour où un client donne son accord, on pourra remettre son logo.) */
+  const LOGOS = {
+    '001': { text: { en: 'Community', fr: 'Communauté' }, tag: { en: 'NON-PROFIT PLATFORM', fr: 'PLATEFORME · OBNL' }, color: '#F6A0AA' },
+    '002': { text: { en: 'Marketplace', fr: 'Marketplace' }, tag: { en: 'VERIFIED TRADESPEOPLE', fr: 'ARTISANS VÉRIFIÉS' }, color: '#2FB39B' },
+    '003': { text: { en: 'Booking', fr: 'Réservation' }, tag: { en: 'SALON · AUTOMATION', fr: 'SALON · AUTOMATISATION' }, color: '#E88AAF', script: true },
+    '004': { kelthen: true }                                                   // logo Kelthen (K + KELTHEN)
+  };
 
   /* ─────────────── Styles de l'interface ─────────────── */
   const css = `
@@ -166,14 +180,14 @@
     try { shot = typeof wrapFrame === 'function' ? wrapFrame(p, screenContent(main), main.device).replace(/loading="lazy"/g, 'loading="eager"') : ''; } catch (e) { shot = ''; }
     const el = document.createElement('div');
     el.className = 'km-panel';
-    el.innerHTML = `<div class="km-meta"></div><h2>${esc(p.name)}</h2><p></p>${shot ? `<div class="km-shot"><div>${shot}</div></div>` : ''}<div class="km-chips"></div>
+    el.innerHTML = `<div class="km-meta"></div><h2>${esc(nm(p))}</h2><p></p>${shot ? `<div class="km-shot"><div>${shot}</div></div>` : ''}<div class="km-chips"></div>
       <div class="km-actions"><button type="button" class="km-btn"></button>${p.link ? `<a class="km-visit" href="${esc(p.link)}" target="_blank" rel="noopener noreferrer"></a>` : ''}</div>`;
     el.querySelector('.km-btn').addEventListener('click', () => openCase(i));
     panelsEl.appendChild(el); panels.push(el);
   });
   const finPanel = document.createElement('div');
   finPanel.className = 'km-panel';
-  finPanel.innerHTML = `<div class="km-meta" data-km="fMeta"></div><h2 data-km-html="fTitle"></h2><p data-km="fSub"></p><div class="km-actions"><a class="km-btn" href="contact.html" data-km="fCta"></a></div>`;
+  finPanel.innerHTML = `<div class="km-meta" data-km="fMeta"></div><h2 data-km-html="fTitle"></h2><p data-km="fSub"></p><div class="km-actions"><a class="km-btn" href="contact.html#audit" data-km="fCta"></a></div>`;
   panelsEl.appendChild(finPanel); panels.push(finPanel);
 
   const tabs = Array.from({ length: NST }, (_, k) => {
@@ -192,12 +206,13 @@
     projects.forEach((p, i) => {
       const s = story(p, lang), el = panels[i];
       el.querySelector('.km-meta').textContent = `${t.room} ${String(i + 1).padStart(2, '0')} / ${String(N).padStart(2, '0')} · ${s.cat} · ${p.year}`;
+      el.querySelector('h2').textContent = nm(p);
       el.querySelector('p').textContent = s.line;
       el.querySelector('.km-chips').innerHTML = s.chips.map((c) => `<span>${esc(c)}</span>`).join('');
       el.querySelector('.km-btn').textContent = t.open;
       const v = el.querySelector('.km-visit'); if (v) v.innerHTML = `${esc(t.visit)} <span aria-hidden="true">↗</span>`;
     });
-    tabs.forEach((b, k) => { b.querySelector('span').textContent = k === 0 ? t.entrance : k === NST - 1 ? t.last : projects[k - 1].name; });
+    tabs.forEach((b, k) => { b.querySelector('span').textContent = k === 0 ? t.entrance : k === NST - 1 ? t.last : nm(projects[k - 1]); });
     if (backBtn) backBtn.textContent = t.back;
     if (rsvTex) drawReserved();
   }
@@ -350,7 +365,7 @@
     // colonnes intermédiaires entre deux salles
     if (k < NST - 1) add(new THREE.Mesh(colGeo, mat.column), [x + SP / 2, 3.47, -7.6]);
     // bannière
-    const label = k === 0 ? 'Kelthen Museum' : k === NST - 1 ? '· · ·' : projects[k - 1].name;
+    const label = k === 0 ? 'Kelthen Museum' : k === NST - 1 ? '· · ·' : R((LOGOS[projects[k - 1].id] || {}).text) || nm(projects[k - 1]);
     const num = k === 0 ? 'EST. 2025' : k === NST - 1 ? 'NO. ' + String(k).padStart(3, '0') : 'NO. ' + projects[k - 1].id;
     const bt = bannerTex(num, label); banners.push(bt);
     const bn = new THREE.Mesh(new THREE.PlaneGeometry(1.25, 3.1), new THREE.MeshStandardMaterial({ map: bt, transparent: true, roughness: .8, emissive: 0x03785B, emissiveIntensity: .12 }));
@@ -428,16 +443,6 @@
     g.position.x = XK(0); return tag(g, -1);
   }, (g, t) => { const b = g.getObjectByName('box'); b.position.y = 2.42 + Math.sin(t * .8) * .05; b.rotation.y = Math.sin(t * .2) * .12; g.getObjectByName('spin').rotation.y = t * .7; });
 
-  /* ─────────────── Œuvres = le vrai logo de chaque client, encadré ───────────────
-     On ne met plus de formes abstraites au hasard : chaque socle porte l'identité
-     réelle du projet (logo tiré de son dépôt quand il existe, sinon une plaque
-     typographique dans les couleurs de la marque). */
-  const LOGOS = {
-    '001': { img: 'assets/work/logos/nbw.png' },                              // logo réel (dépôt Network4BWomen)
-    '002': { text: 'ABO', tag: 'MARKETPLACE · WEST AFRICA', color: '#2FB39B' }, // plaque typo (couleur ABO)
-    '003': { text: 'Cuties Chichi', tag: 'SALON · OTTAWA', color: '#E88AAF', script: true },
-    '004': { kelthen: true }                                                   // logo Kelthen (K + KELTHEN)
-  };
   function paintPlate(g, w, h, spec) {
     const gr = g.createLinearGradient(0, 0, 0, h); gr.addColorStop(0, '#0A2430'); gr.addColorStop(1, '#04141C');
     g.fillStyle = gr; g.fillRect(0, 0, w, h);
@@ -451,12 +456,12 @@
       g.fillStyle = spec.color || '#C1D9E5';
       const fam = spec.script ? '"Snell Roundhand","Brush Script MT",cursive' : FONT;
       g.font = `700 ${Math.round(h * (spec.script ? 0.30 : 0.24))}px ${fam}`;
-      g.fillText(spec.text, w / 2, h * 0.44, w * 0.84);
-      if (spec.tag) { g.fillStyle = 'rgba(193,217,229,.72)'; g.font = `500 ${Math.round(h * 0.066)}px ${MONO}`; g.fillText(spec.tag.split('').join(' '), w / 2, h * 0.72, w * 0.88); }
+      g.fillText(R(spec.text), w / 2, h * 0.44, w * 0.84);
+      if (spec.tag) { g.fillStyle = 'rgba(193,217,229,.72)'; g.font = `500 ${Math.round(h * 0.066)}px ${MONO}`; g.fillText(R(spec.tag).split('').join(' '), w / 2, h * 0.72, w * 0.88); }
     }
   }
   function artworkTex(p) {
-    const spec = LOGOS[p.id] || { text: p.name, color: '#C1D9E5' };
+    const spec = LOGOS[p.id] || { text: nm(p), color: '#C1D9E5' };
     const W = 1024, H = 512;
     const tex = canvasTex(W, H, (g, w, h) => paintPlate(g, w, h, spec));
     if (spec.img) {

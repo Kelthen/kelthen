@@ -53,7 +53,7 @@
       legend: ['Scroll down, at your own pace', 'The day moves forward, left to right, with the sun', 'Each moment shows one service at work'],
       agenda: 'Coming up in your day', hint: 'Let’s begin',
       sysHint: 'Tap a circle to see what it does for you.', see: 'See this moment',
-      planTitle: 'Your plan, step by step', planEmpty: 'Your plan builds itself here as you tick.', today: 'Today', tomorrow: 'Tomorrow', pause: 'Pause', play: 'Play again', demo: 'Live example',
+      planTitle: 'Your plan, step by step', planEmpty: 'Your plan builds itself here as you tick.', today: 'Today', tomorrow: 'Tomorrow', pause: 'Pause', play: 'Play again', demo: 'System demo',
       sysEb: 'Everything works together', sysTitle: 'One system,<br><em>working for you.</em>',
       sysSub: 'Each step hands over to the next. We set it up, tune it with you, and look after it.',
       nodes: { 5: 'Google', 1: 'Website', 2: 'Booking', 4: 'Reminders', 6: 'Reviews', 3: 'Assistant' },
@@ -66,13 +66,11 @@
       wEb: 'How we work with you', wTitle: 'Simple, clear,<br><em>and at your pace.</em>',
       wLine: 'Nothing technical on your end. You talk directly to the people who build it.',
       steps: [
-        ['A call to get to know you', '30 minutes, free. We listen to what you want, with no jargon and no pressure.'],
-        ['A clear proposal', 'Within 48 h: a fixed price, what’s included, and when it will be ready. No surprises.'],
+        ['A call to get to know you', '30 minutes, free. We listen to what you want, with no jargon and no pressure.'],
+        ['A clear proposal', 'Within 48 h: a fixed price, what’s included, and when it will be ready. No surprises.'],
         ['We build, you follow along', 'A preview every week. You approve, we adjust.'],
         ['We stay after launch', 'Go-live, a quick walkthrough and ongoing support. A question? Just send a message.']
       ],
-      facts: [['24/7', 'online booking, even at night'], ['2', 'automatic reminders before each appointment'], ['1 tap', 'to approve a booking'], ['< 24 h', 'to reply to you, promised']],
-      factsNote: 'The first three come from the booking system we run for Cuties Chichi, live today.',
       mode: { auto: 'Ambience: follows the time of day', light: 'Ambience: day', dark: 'Ambience: night' }
     },
     fr: {
@@ -87,7 +85,7 @@
       legend: ['Faites défiler vers le bas, à votre rythme', 'La journée avance de gauche à droite, avec le soleil', 'Chaque moment montre un service à l’œuvre'],
       agenda: 'Au programme de votre journée', hint: 'On commence',
       sysHint: 'Touchez un cercle pour voir ce qu’il fait pour vous.', see: 'Voir ce moment',
-      planTitle: 'Votre plan, étape par étape', planEmpty: 'Votre plan se construit ici, au fil de vos choix.', today: 'Aujourd’hui', tomorrow: 'Demain', pause: 'Pause', play: 'Rejouer', demo: 'Exemple réel',
+      planTitle: 'Votre plan, étape par étape', planEmpty: 'Votre plan se construit ici, au fil de vos choix.', today: 'Aujourd’hui', tomorrow: 'Demain', pause: 'Pause', play: 'Rejouer', demo: 'Démonstration',
       sysEb: 'Tout est relié', sysTitle: 'Un seul système,<br><em>qui travaille pour vous.</em>',
       sysSub: 'Chaque étape passe le relais à la suivante. On l’installe, on le règle avec vous, et on s’en occupe.',
       nodes: { 5: 'Google', 1: 'Site web', 2: 'Réservation', 4: 'Rappels', 6: 'Avis', 3: 'Assistante' },
@@ -95,18 +93,16 @@
       gSub: 'Cochez ce qui vous parle. Il n’y a pas de mauvaise réponse : c’est simplement pour savoir par où commencer.',
       empty: 'Choisissez une ou plusieurs envies, on vous montre par où on commencerait.',
       start: 'Voici par où on commencerait avec vous', plan: 'Formule conseillée', from: 'à partir de', together: 'On en parle ensemble, sans engagement.',
-      cta: 'Demander mon audit gratuit', wa: 'En parler sur WhatsApp', note: 'Gratuit. On vous répond en moins de 24 h.',
+      cta: 'Demander mon audit gratuit', wa: 'En parler sur WhatsApp', note: 'Gratuit. On vous répond en moins de 24 h.',
       msgHead: 'Bonjour Kelthen, je voudrais un audit gratuit.', msgGoals: 'Ce que j’aimerais améliorer :', msgPlan: 'Formule conseillée :',
       wEb: 'Comment on travaille avec vous', wTitle: 'Simple, clair,<br><em>et à votre rythme.</em>',
       wLine: 'Rien de technique de votre côté. Vous parlez directement aux personnes qui construisent.',
       steps: [
-        ['Un appel pour se connaître', '30 minutes, gratuit. On écoute ce que vous voulez, sans jargon ni pression.'],
-        ['Une proposition claire', 'Sous 48 h : un prix fixe, ce qui est inclus, et quand ce sera prêt. Pas de surprise.'],
+        ['Un appel pour se connaître', '30 minutes, gratuit. On écoute ce que vous voulez, sans jargon ni pression.'],
+        ['Une proposition claire', 'Sous 48 h : un prix fixe, ce qui est inclus, et quand ce sera prêt. Pas de surprise.'],
         ['On construit, vous suivez', 'Un aperçu chaque semaine. Vous validez, on ajuste.'],
         ['On reste là après', 'Mise en ligne, prise en main et suivi. Une question ? Un message suffit.']
       ],
-      facts: [['24/7', 'réservation en ligne, même la nuit'], ['2', 'rappels automatiques avant chaque rendez-vous'], ['1 tap', 'pour valider une réservation'], ['< 24 h', 'pour vous répondre, c’est promis']],
-      factsNote: 'Les trois premiers viennent du système de réservation qu’on fait tourner pour Cuties Chichi, en ligne aujourd’hui.',
       mode: { auto: 'Ambiance : selon l’heure', light: 'Ambiance : jour', dark: 'Ambiance : nuit' }
     }
   };
@@ -261,8 +257,8 @@ html.kd-snap{scroll-snap-type:y proximity}
 .kg2+.kg2{padding-top:0}
 .kg2-in{max-width:1180px;margin:0 auto}
 .kg2-eb{font:500 12px var(--mono,monospace);letter-spacing:.2em;text-transform:uppercase;color:var(--kt-em)}
-.kg2 h2{margin:14px 0 0;font:700 clamp(2.1rem,4vw,3.6rem)/1.02 var(--sans);letter-spacing:-.045em;text-wrap:balance;color:var(--kt-ink)}
-.kg2 h2 em{font-style:normal;color:var(--kt-em)}
+.kg2 h2{margin:14px 0 0;font:700 clamp(2.1rem,4vw,3.6rem)/1.02 var(--sans);letter-spacing:-.045em;text-wrap:balance;color:var(--kt-ink)}
+.kg2 h2 em{font-style:normal;color:var(--kt-em)}
 .kg2-sub{margin:16px 0 0;color:var(--kt-muted);line-height:1.62;max-width:52ch;font-size:1.02rem}
 .kg2-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(28px,5vw,72px);align-items:start}
 .kg2-goals{margin-top:28px;display:grid;gap:10px}
@@ -589,7 +585,7 @@ html.kd-snap{scroll-snap-type:y proximity}
     stage.classList.toggle('is-light', s.light);
     stage.style.color = s.light ? '#011E2E' : '#F0EDE8';
     stars.style.opacity = s.night.toFixed(2);
-    // soleil de 6 h à 20 h, lune de 20 h à 6 h
+    // soleil de 6 h à 20 h, lune de 20 h à 6 h
     const hh = ((h % 24) + 24) % 24, sh = stage.clientHeight;
     const u = (hh - 6) / 14, uv = u >= 0 && u <= 1 ? Math.sin(Math.PI * u) : 0;
     sun.style.transform = `translate(${(W * (.06 + .88 * clamp(u, 0, 1))).toFixed(1)}px,${(sh * (.5 - .3 * uv)).toFixed(1)}px)`;
@@ -639,13 +635,17 @@ html.kd-snap{scroll-snap-type:y proximity}
       <div class="kg2-full">
         <p class="kg2-lab" data-g="plan"></p><div class="kg2-plan"><strong></strong><small></small></div>
         <p class="kg2-together" data-g="together"></p>
-        <div class="kg2-ctas"><a class="kg2-btn" href="contact.html" data-g="cta"></a><a class="kg2-wa" target="_blank" rel="noopener noreferrer" data-g="wa"></a></div>
+        <div class="kg2-ctas"><a class="kg2-btn" href="contact.html#audit" data-g="cta"></a><a class="kg2-wa" target="_blank" rel="noopener noreferrer" data-g="wa"></a></div>
         <p class="kg2-note" data-g="note"></p></div>
     </div></div>`;
-  const workSec = document.createElement('div');
-  workSec.className = 'kg2'; workSec.id = 'how-we-work';
-  workSec.innerHTML = `<div class="kg2-in"><p class="kg2-eb" data-g="wEb"></p><h2 data-gh="wTitle"></h2><ol class="kg2-steps">${[0, 1, 2, 3].map((i) => `<li><b data-step="${i}" data-part="0"></b><p data-step="${i}" data-part="1"></p></li>`).join('')}</ol><p class="kg2-line" data-g="wLine"></p></div>`;
-  sec.appendChild(goalsSec); sec.appendChild(workSec);
+  // « Comment on travaille » : seulement si la page n'a pas déjà sa section « Comment ça marche » (#how)
+  let workSec = null;
+  if (!document.getElementById('how')) {
+    workSec = document.createElement('div');
+    workSec.className = 'kg2'; workSec.id = 'how-we-work';
+    workSec.innerHTML = `<div class="kg2-in"><p class="kg2-eb" data-g="wEb"></p><h2 data-gh="wTitle"></h2><ol class="kg2-steps">${[0, 1, 2, 3].map((i) => `<li><b data-step="${i}" data-part="0"></b><p data-step="${i}" data-part="1"></p></li>`).join('')}</ol><p class="kg2-line" data-g="wLine"></p></div>`;
+  }
+  sec.appendChild(goalsSec); if (workSec) sec.appendChild(workSec);
 
   const goalBtns = [...goalsSec.querySelectorAll('.kg2-goal')], picked = new Set();
   const gridEl = goalsSec.querySelector('.kg2-grid');
@@ -706,33 +706,20 @@ html.kd-snap{scroll-snap-type:y proximity}
     goalsSec.querySelector('.kg2-plan strong').textContent = plan[0];
     goalsSec.querySelector('.kg2-plan small').textContent = `${plan[2]} · ${plan[1] ? t.from + ' ' + plan[1] : QUOTE[lang]}`;
     const msg = `${t.msgHead}\n\n${t.msgGoals}\n${sel.map((g) => '- ' + g[lang]).join('\n')}\n\n${t.msgPlan} ${plan[0]}`;
-    goalsSec.querySelector('.kg2-btn').href = 'contact.html?audit=' + encodeURIComponent(msg);
+    goalsSec.querySelector('.kg2-btn').href = 'contact.html?audit=' + encodeURIComponent(msg) + '#audit';
     goalsSec.querySelector('.kg2-wa').href = `https://wa.me/${WA}?text=` + encodeURIComponent(msg);
-  }
-
-  /* ═════════════ 4. Des faits vérifiables à la place des chiffres ═════════════ */
-  const numGrid = document.querySelector('.numbers-strip .numbers-grid');
-  let factsNote = null;
-  if (numGrid) {
-    factsNote = document.createElement('p'); factsNote.className = 'kt-facts-note';
-    numGrid.parentNode.insertAdjacentElement('afterend', factsNote);
-  }
-  function renderFacts() {
-    if (!numGrid) return;
-    numGrid.innerHTML = T[lang].facts.map(([v, l]) => `<div class="num-card"><div class="num-val">${esc(v)}</div><div class="num-label">${esc(l)}</div></div>`).join('');
-    factsNote.textContent = T[lang].factsNote;
   }
 
   /* ═════════════ Langue ═════════════ */
   function renderAll() {
     const t = T[lang];
-    [goalsSec, workSec].forEach((s) => {
+    [goalsSec, workSec].filter(Boolean).forEach((s) => {
       s.querySelectorAll('[data-g]').forEach((el) => { el.textContent = t[el.dataset.g]; });
       s.querySelectorAll('[data-gh]').forEach((el) => { el.innerHTML = t[el.dataset.gh]; });
     });
     goalBtns.forEach((b, i) => { b.querySelector('span').textContent = GOALS[i][lang]; });
-    workSec.querySelectorAll('[data-step]').forEach((el) => { el.textContent = t.steps[+el.dataset.step][+el.dataset.part]; });
-    renderResult(); renderFacts(); updateToggles(); renderDayText();
+    if (workSec) workSec.querySelectorAll('[data-step]').forEach((el) => { el.textContent = t.steps[+el.dataset.step][+el.dataset.part]; });
+    renderResult(); updateToggles(); renderDayText();
   }
   document.querySelectorAll('[data-lang-btn]').forEach((b) => b.addEventListener('click', () => setTimeout(() => {
     const l = getLang() === 'fr' ? 'fr' : 'en'; if (l !== lang) { lang = l; renderAll(); }
