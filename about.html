@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Qui sommes-nous — Kelthen, une jeune agence web basée au Canada qui aide les entrepreneurs et commerces de proximité à attirer plus de clients. Notre histoire, notre mission et nos valeurs.">
+  <meta name="description" data-i18n-content="meta.about.desc" content="Kelthen est une petite équipe basée au Canada qui construit des sites, des outils de réservation et des automatisations pour les commerces de proximité et les entrepreneurs.">
   <meta property="og:type"        content="website">
   <meta property="og:url"         content="https://www.kelthen.com/about.html">
   <meta property="og:title"       content="À propos — Kelthen">
@@ -17,7 +17,7 @@
   <meta name="twitter:title"      content="À propos — Kelthen">
   <meta name="twitter:description" content="Une jeune agence qui veut aider chaque entreprise à réussir. Notre histoire et nos valeurs.">
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  <title>À propos — Kelthen, agence web au Canada</title>
+  <title data-i18n="meta.about.title">À propos — Kelthen, agence web et automatisation au Canada</title>
   <link rel="canonical" href="https://www.kelthen.com/about.html">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -53,7 +53,7 @@
       <span class="lang-sep" aria-hidden="true">|</span>
       <button type="button" class="lang-btn" data-lang-btn="fr">FR</button>
     </div>
-    <button class="nav-cta" id="navCta" type="button" data-i18n="nav.cta">Audit gratuit</button>
+    <button class="nav-cta" id="navCta" type="button" data-track="audit" data-i18n="nav.cta">Audit gratuit</button>
     <button class="nav-hamburger" id="navHamburger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navMobile">
       <span></span>
       <span></span>
@@ -74,7 +74,7 @@
       <span class="lang-sep" aria-hidden="true">|</span>
       <button type="button" class="lang-btn" data-lang-btn="fr">FR</button>
     </div>
-    <button class="nav-mobile-cta" id="navMobileCta" type="button" data-i18n="nav.cta">Audit gratuit</button>
+    <button class="nav-mobile-cta" id="navMobileCta" type="button" data-track="audit" data-i18n="nav.cta">Audit gratuit</button>
   </div>
 
   <!-- ═══ About hero ═══ -->
@@ -171,24 +171,24 @@
   <section id="about-team" aria-labelledby="teamTitle">
     <p class="section-label" data-i18n="team.label">Les visages</p>
     <h2 class="section-title" id="teamTitle" data-i18n="team.title" data-i18n-html>Membres <em>exécutifs</em></h2>
+    <!-- [À REMPLIR : orthographe exacte des noms et titres — à confirmer par chaque membre]
+         [À REMPLIR : vraies photos] Quand elles sont prêtes, ajouter en tête de chaque carte :
+         <img class="team-img" src="assets/team/prenom.jpg" alt="Prénom Nom, titre" width="480" height="480" loading="lazy">
+         (sans photo, la carte s'affiche proprement, sans placeholder) -->
     <div class="team-grid">
       <div class="team-card">
-        <div class="team-photo" aria-hidden="true">R</div>
         <h3>Rhamon K. Nyavedji</h3>
         <div class="team-role" data-i18n="team.role1">Développeur logiciel &amp; automatisation</div>
       </div>
       <div class="team-card">
-        <div class="team-photo" aria-hidden="true">S</div>
         <h3>Serge F. Sanou</h3>
         <div class="team-role" data-i18n="team.role2">Fondateur</div>
       </div>
       <div class="team-card">
-        <div class="team-photo" aria-hidden="true">D</div>
         <h3>Donnee Tsekpuia</h3>
         <div class="team-role" data-i18n="team.role3">Marketing &amp; réseaux sociaux</div>
       </div>
     </div>
-    <p class="team-note" data-i18n="team.note">Les vraies photos de l’équipe arrivent — on met des visages sur le travail pour que vous sachiez exactement avec qui vous avancez.</p>
   </section>
 
   <!-- ═══ Mission bridge ═══ -->
@@ -203,7 +203,7 @@
   <section id="home-cta" aria-labelledby="aboutCtaTitle">
     <h2 class="home-cta-title" id="aboutCtaTitle" data-i18n="aboutcta.title" data-i18n-html>On construit<br><em>ensemble&nbsp;?</em></h2>
     <p class="home-cta-sub" data-i18n="aboutcta.sub">Parlez-nous de votre projet. On répond en moins de 24&nbsp;h — pas de discours commercial, juste une vraie conversation.</p>
-    <a href="contact.html" class="btn-primary" data-i18n="aboutcta.cta">Démarrer un projet</a>
+    <a href="contact.html#audit" class="btn-primary" data-i18n="aboutcta.cta">Audit gratuit en 48 h</a>
   </section>
 
   <!-- ═══ Footer ═══ -->
@@ -221,6 +221,8 @@
           <a href="index.html#services" data-i18n="svc3.name">Secrétaire virtuelle par IA</a>
           <a href="index.html#services" data-i18n="svc4.name">Rappels automatiques SMS &amp; e-mail</a>
           <a href="index.html#services" data-i18n="svc5.name">Visible sur Google</a>
+          <a href="salons.html" data-i18n="footer.salons">Pour les salons</a>
+          <a href="apps.html" data-i18n="footer.apps">Logiciels sur mesure</a>
         </div>
         <div class="footer-col">
           <div class="footer-col-title" data-i18n="footer.company">Entreprise</div>
