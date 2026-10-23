@@ -41,19 +41,18 @@
       fCta: 'Audit gratuit en 48 h', rsv1: 'RÉSERVÉ', rsv2: 'à votre projet'
     }
   };
-  // Textes de salle : type de projet + ce que l'outil fait (aucun nom de client)
   const STORY = {
     '001': {
-      en: { cat: 'Website & platform · Non-profit', line: 'A non-profit needed more than a brochure. We built it a home online: donations, events and its annual conference, all run from one place.', chips: ['Online donations', 'Event registration', 'Newsletter'] },
-      fr: { cat: 'Site & plateforme · OBNL', line: 'Un organisme à but non lucratif avait besoin de plus qu’une vitrine. On lui a construit une maison en ligne : dons, événements et conférence annuelle, gérés au même endroit.', chips: ['Dons en ligne', 'Inscriptions aux événements', 'Infolettre'] }
+      en: { cat: 'Web · Non-profit & community', line: 'A sisterhood for Black women in Alberta needed more than a brochure. We built them a home online: donations, events and their annual conference, all run from one place.', chips: ['Online donations', 'Events & tickets', 'Newsletter'] },
+      fr: { cat: 'Web · OBNL & communauté', line: 'Une sororité pour les femmes noires de l’Alberta avait besoin de plus qu’une vitrine. On leur a construit une maison en ligne : dons, événements et conférence annuelle, gérés au même endroit.', chips: ['Dons en ligne', 'Événements & billetterie', 'Infolettre'] }
     },
     '002': {
-      en: { cat: 'Web platform · Marketplace', line: 'A marketplace to find tradespeople you can trust. Every profile is identity-checked, and a quote is one WhatsApp message away.', chips: ['Verified badge', 'Search by trade & area', 'WhatsApp quotes'] },
-      fr: { cat: 'Plateforme web · Marketplace', line: 'Une marketplace pour trouver des artisans de confiance. Chaque profil est vérifié, et un devis est à un message WhatsApp.', chips: ['Badge « Vérifié »', 'Recherche métier + quartier', 'Devis WhatsApp'] }
+      en: { cat: 'Web · Marketplace', line: 'In Lomé, ABO helps people find tradespeople they can trust. Every artisan is identity-checked, and a quote is one WhatsApp message away.', chips: ['Verified badge', 'Search by trade & area', 'WhatsApp quotes'] },
+      fr: { cat: 'Web · Marketplace', line: 'À Lomé, ABO aide chacun à trouver un artisan de confiance. Chaque artisan est vérifié, et un devis est à un message WhatsApp.', chips: ['Badge Vérifié ABO', 'Recherche métier + quartier', 'Devis WhatsApp'] }
     },
     '003': {
-      en: { cat: 'Website · Booking & automation', line: 'A hair salon on autopilot. A request comes in, the salon taps once, and the confirmation, calendar and reminders all go out on their own.', chips: ['AI assistant', '1-tap approval', 'Automatic reminders'] },
-      fr: { cat: 'Site · Réservation & automatisation', line: 'Un salon de coiffure en pilote automatique. Une demande arrive, le salon valide d’un tap, et la confirmation, l’agenda et les rappels partent tout seuls.', chips: ['Assistante IA', 'Validation en 1 tap', 'Rappels automatiques'] }
+      en: { cat: 'Web · Booking & automation', line: 'A braiding salon on autopilot. A request comes in, Studio Nala taps once, and the confirmation, calendar and reminders all go out on their own.', chips: ['AI assistant', '1-tap approval', 'Automatic reminders'] },
+      fr: { cat: 'Web · Réservation & automatisation', line: 'Un salon de tresses en pilote automatique. Une demande arrive, Studio Nala valide d’un tap, et la confirmation, l’agenda et les rappels partent tout seuls.', chips: ['Assistante IA', 'Validation en 1 tap', 'Rappels automatiques'] }
     },
     '004': {
       en: { cat: 'Website · Agency', line: 'Our own house. The site you are walking through right now, built to load fast and feel alive.', chips: ['Found on Google', 'Fast loading', 'Custom animations'] },
@@ -72,13 +71,12 @@
   const R = (v) => (v && typeof v === 'object' && !Array.isArray(v) ? (v[lang] || v.en) : v);
   const nm = (p) => R(p.name);
 
-  /* ─────────────── Œuvres = une plaque par type de projet, encadrée ───────────────
-     Aucun logo ni nom de client : chaque socle porte le type de projet, dans sa
-     couleur. (Le jour où un client donne son accord, on pourra remettre son logo.) */
+  /* ─────────────── Œuvres = le logo de chaque client, encadré ───────────────
+     Logo réel quand on l'a, sinon une plaque typographique dans les couleurs de la marque. */
   const LOGOS = {
-    '001': { text: { en: 'Community', fr: 'Communauté' }, tag: { en: 'NON-PROFIT PLATFORM', fr: 'PLATEFORME · OBNL' }, color: '#F6A0AA' },
-    '002': { text: { en: 'Marketplace', fr: 'Marketplace' }, tag: { en: 'VERIFIED TRADESPEOPLE', fr: 'ARTISANS VÉRIFIÉS' }, color: '#2FB39B' },
-    '003': { text: { en: 'Booking', fr: 'Réservation' }, tag: { en: 'SALON · AUTOMATION', fr: 'SALON · AUTOMATISATION' }, color: '#E88AAF', script: true },
+    '001': { img: 'assets/work/logos/nbw.png' },                              // logo réel (dépôt Network4BWomen)
+    '002': { text: 'ABO', tag: 'MARKETPLACE · WEST AFRICA', color: '#2FB39B' }, // plaque typo (couleur ABO)
+    '003': { text: 'Studio Nala', tag: 'SALON · BOOKING', color: '#E88AAF', script: true }, // nom d'emprunt
     '004': { kelthen: true }                                                   // logo Kelthen (K + KELTHEN)
   };
 
@@ -365,7 +363,7 @@
     // colonnes intermédiaires entre deux salles
     if (k < NST - 1) add(new THREE.Mesh(colGeo, mat.column), [x + SP / 2, 3.47, -7.6]);
     // bannière
-    const label = k === 0 ? 'Kelthen Museum' : k === NST - 1 ? '· · ·' : R((LOGOS[projects[k - 1].id] || {}).text) || nm(projects[k - 1]);
+    const label = k === 0 ? 'Kelthen Museum' : k === NST - 1 ? '· · ·' : nm(projects[k - 1]);
     const num = k === 0 ? 'EST. 2025' : k === NST - 1 ? 'NO. ' + String(k).padStart(3, '0') : 'NO. ' + projects[k - 1].id;
     const bt = bannerTex(num, label); banners.push(bt);
     const bn = new THREE.Mesh(new THREE.PlaneGeometry(1.25, 3.1), new THREE.MeshStandardMaterial({ map: bt, transparent: true, roughness: .8, emissive: 0x03785B, emissiveIntensity: .12 }));
