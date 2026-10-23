@@ -104,7 +104,7 @@
           'faq.q5': 'Can you improve an existing site?', 'faq.a5': "Absolutely. We audit your current site, find what's holding it back, and fix or rebuild what needs it — no need to start from scratch.",
           'faq.q6': 'How do payments work?', 'faq.a6': 'Usually a deposit to start and the balance on delivery, with milestones for larger projects. Payment in instalments is possible. Everything is put in writing before we begin.',
           'pcta.title': 'Not sure which<br><em>plan fits?</em>', 'pcta.sub': "Tell us about your project and we'll recommend the right plan. We reply within 24 hours.", 'pcta.cta': 'Free audit in 48 h',
-          'workpage.label': 'Our work', 'workpage.title': 'Projects<br><em>we built</em>', 'workpage.sub': 'Each project is described by what the tool does. Client names are only shown with their permission.', 'workcta.title': 'Your project<br><em>could be next.</em>', 'workcta.cta': 'Free audit in 48 h',
+          'workpage.label': 'Our work', 'workpage.title': 'Projects<br><em>we built</em>', 'workpage.sub': 'What we built, and what each tool does day to day.', 'workcta.title': 'Your project<br><em>could be next.</em>', 'workcta.cta': 'Free audit in 48 h',
           'contact.label': 'Free audit', 'contact.title': 'Request my<br><em>free audit.</em>', 'contact.sub': 'Fill in the form: we look at how clients find you and book with you today, and we reply within 24 h. No commitment.', 'contact.whatsapp': 'Chat on WhatsApp',
           'form.name': 'Name', 'form.namePh': 'Your name', 'form.business': 'Business', 'form.businessPh': 'Your business name', 'form.link': 'Instagram or website', 'form.linkPh': '@yourbusiness or yourbusiness.com', 'form.reach': 'Email or phone', 'form.reachPh': 'you@email.com or your number', 'form.message': 'Message (optional)', 'form.messagePh': 'Anything we should know? (optional)', 'form.submit': 'Request my free audit →', 'form.sending': 'Sending…', 'form.sent': 'Got it!', 'form.sentSub': "We'll get back to you within 24 h.", 'form.invalid': 'Please enter a valid email or phone number.', 'form.error': 'Something went wrong — email us at',
           'cookie.text': 'We use cookies to measure and improve our site. Accept, reject, or manage your choices — see our', 'cookie.privacy': 'Privacy Policy', 'cookie.reject': 'Reject all', 'cookie.manage': 'Manage', 'cookie.accept': 'Accept all',
@@ -241,88 +241,56 @@
         : s.f();
     }
 
-    /* ════ Marketplace d'artisans vérifiés — palette navy #0F2A4A / teal #0D9488 (démo, données neutres) ════ */
-    const MKT_ROWS = [['P', 'Plombier', 'Centre', true], ['É', 'Électricienne', 'Nord', true], ['M', 'Menuisier', 'Est', false]];
-    const mktBadge = '<span style="background:#CCFBF1;color:#0B7A70;border-radius:20px;padding:1px 6px;font-size:7px;font-weight:600">🛡 Vérifié</span>';
-    function mktRow(a) {
-      return `<div style="display:flex;align-items:center;gap:9px;border:1px solid #E9ECEF;background:#fff;border-radius:12px;padding:9px;margin-bottom:7px"><div style="width:36px;height:36px;border-radius:50%;background:#0F2A4A;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0">${a[0]}</div><div style="flex:1"><div style="display:flex;align-items:center;gap:5px"><span style="color:#0F2A4A;font-size:12px;font-weight:600">${a[1]}</span>${a[3] ? mktBadge : ''}</div><div style="font-size:9px;color:#6C757D">Quartier ${a[2]}</div><div style="font-size:9px;color:#D97706">★ Avis de vrais clients</div></div><span style="color:#0D9488;font-size:14px">›</span></div>`;
-    }
-    const mktBrand = '<span style="font-size:13px;font-weight:800">Artisans<span style="color:#2DD4BF">+</span></span>';
-    function mkMktHome() {
+    /* ════ ABO — Next.js marketplace, palette navy #0F2A4A / teal #0D9488 ════ */
+    function mkAboHome() {
       return `<div class="mk" style="background:#F8F9FA;color:#212529;font-size:11px">
-        <div style="display:flex;justify-content:space-between;align-items:center;padding:9px 14px;color:#0F2A4A">${mktBrand}<span style="font-size:10px;font-weight:500">Se connecter</span></div>
-        <div style="background:#0F2A4A;color:#fff;padding:16px 14px"><span style="background:#CCFBF1;color:#0B7A70;border-radius:20px;padding:4px 9px;font-size:9px;font-weight:500">🛡 Identités vérifiées</span><div style="font-size:18px;font-weight:500;line-height:1.25;margin-top:10px">Trouvez un artisan <span style="color:#2DD4BF">vérifié</span> près de chez vous</div><div style="font-size:9px;line-height:1.5;color:rgba(255,255,255,.8);margin-top:7px">Identité confirmée avant publication. Avis de vrais clients. Contact WhatsApp direct.</div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:9px 14px"><span style="color:#0F2A4A;font-size:14px;font-weight:800">ABO</span><span style="color:#0F2A4A;font-size:10px;font-weight:500">Se connecter</span></div>
+        <div style="background:#0F2A4A;color:#fff;padding:16px 14px"><span style="background:#CCFBF1;color:#0B7A70;border-radius:20px;padding:4px 9px;font-size:9px;font-weight:500">🛡 12 artisans vérifiés</span><div style="font-size:18px;font-weight:500;line-height:1.25;margin-top:10px">Trouvez un artisan <span style="color:#2DD4BF">vérifié</span> à Lomé</div><div style="font-size:9px;line-height:1.5;color:rgba(255,255,255,.8);margin-top:7px">Identité confirmée par l'équipe ABO. Avis authentiques. Contact WhatsApp direct — plus de mauvaises surprises.</div>
           <div style="display:flex;gap:6px;background:#fff;border-radius:11px;padding:6px;margin-top:11px"><div style="flex:1;display:flex;flex-direction:column;gap:6px"><div style="border:1px solid #E9ECEF;border-radius:8px;padding:6px 9px;font-size:10px;color:#212529">Tous les métiers ▾</div><div style="border:1px solid #E9ECEF;border-radius:8px;padding:6px 9px;font-size:10px;color:#6C757D">Ville ou quartier</div></div><div style="background:#0D9488;color:#fff;border-radius:8px;padding:0 12px;display:flex;align-items:center;font-size:10px;font-weight:500">⌕ Chercher</div></div>
         </div>
-        <div style="padding:12px 14px"><div style="color:#0F2A4A;font-size:11px;font-weight:600;margin-bottom:8px">Artisans vérifiés</div>${mktRow(MKT_ROWS[0])}
-          <div style="display:flex;gap:6px;margin-top:4px"><div style="flex:1;background:#25D366;color:#fff;border-radius:8px;padding:8px;text-align:center;font-size:10px;font-weight:600">WhatsApp</div><div style="flex:1;background:#0D9488;color:#fff;border-radius:8px;padding:8px;text-align:center;font-size:10px;font-weight:600">Demander un devis</div></div>
+        <div style="padding:12px 14px"><div style="color:#0F2A4A;font-size:11px;font-weight:600;margin-bottom:8px">Artisans vérifiés en vedette</div><div style="display:flex;align-items:center;gap:10px;border:1px solid #E9ECEF;background:#fff;border-radius:14px;padding:10px"><div style="width:40px;height:40px;border-radius:50%;background:#0F2A4A;color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0">K</div><div style="flex:1"><div style="display:flex;align-items:center;gap:5px"><span style="color:#0F2A4A;font-size:13px;font-weight:500">Kofi A.</span><span style="background:#CCFBF1;color:#0B7A70;border-radius:20px;padding:1px 6px;font-size:8px;font-weight:500">🛡 Vérifié</span></div><div style="font-size:10px;color:#6C757D">Plombier · Lomé · Tokoin</div><div style="font-size:10px"><span style="color:#D97706">★ 4.8</span><span style="color:#6C757D"> · 23 avis</span></div></div></div>
+          <div style="display:flex;gap:6px;margin-top:8px"><div style="flex:1;background:#25D366;color:#fff;border-radius:8px;padding:8px;text-align:center;font-size:10px;font-weight:600">WhatsApp</div><div style="flex:1;background:#0D9488;color:#fff;border-radius:8px;padding:8px;text-align:center;font-size:10px;font-weight:600">Demander un devis</div></div>
         </div>
       </div>`;
     }
-    function mkMktResults() {
+    function mkAboResults() {
+      const list = [['K', 'Kofi A.', 'Plombier · Tokoin', '4.8', '23', true], ['E', 'Esi M.', 'Plombier · Bè', '4.9', '31', true], ['D', 'Dodzi K.', 'Plombier · Adidogomé', '4.6', '12', false]];
       return `<div class="mk" style="background:#F8F9FA;color:#212529;font-size:11px;min-height:300px">
-        <div style="background:#0F2A4A;color:#fff;padding:11px 14px"><div style="margin-bottom:7px">${mktBrand}</div><div style="display:flex;gap:6px"><div style="flex:1;background:#fff;color:#212529;border-radius:8px;padding:6px 9px;font-size:10px">Métier ▾</div><div style="flex:1;background:#fff;color:#212529;border-radius:8px;padding:6px 9px;font-size:10px">Quartier ▾</div></div></div>
-        <div style="padding:11px 14px"><div style="font-size:10px;color:#6C757D;margin-bottom:9px"><b style="color:#0F2A4A">Artisans</b> · près de chez vous</div>${MKT_ROWS.map(mktRow).join('')}</div>
+        <div style="background:#0F2A4A;color:#fff;padding:11px 14px"><div style="font-size:14px;font-weight:800;margin-bottom:7px">ABO</div><div style="display:flex;gap:6px"><div style="flex:1;background:#fff;color:#212529;border-radius:8px;padding:6px 9px;font-size:10px">Plombier ▾</div><div style="flex:1;background:#fff;color:#212529;border-radius:8px;padding:6px 9px;font-size:10px">Lomé ▾</div></div></div>
+        <div style="padding:11px 14px"><div style="font-size:10px;color:#6C757D;margin-bottom:9px"><b style="color:#0F2A4A">8 artisans</b> · Plombier à Lomé</div>${list.map(a => `<div style="display:flex;align-items:center;gap:9px;border:1px solid #E9ECEF;background:#fff;border-radius:12px;padding:9px;margin-bottom:7px"><div style="width:36px;height:36px;border-radius:50%;background:#0F2A4A;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0">${a[0]}</div><div style="flex:1"><div style="display:flex;align-items:center;gap:5px"><span style="color:#0F2A4A;font-size:12px;font-weight:600">${a[1]}</span>${a[5] ? '<span style="background:#CCFBF1;color:#0B7A70;border-radius:20px;padding:1px 6px;font-size:7px;font-weight:600">🛡 Vérifié</span>' : ''}</div><div style="font-size:9px;color:#6C757D">${a[2]}</div><div style="font-size:9px"><span style="color:#D97706">★ ${a[3]}</span><span style="color:#6C757D"> · ${a[4]} avis</span></div></div><span style="color:#0D9488;font-size:14px">›</span></div>`).join('')}</div>
       </div>`;
     }
-    function mkMktProfile() {
+    function mkAboProfile() {
       return `<div class="mk" style="background:#F8F9FA;color:#212529;font-size:11px;min-height:300px">
-        <div style="background:#0F2A4A;color:#fff;padding:14px"><div style="display:flex;align-items:center;gap:11px"><div style="width:48px;height:48px;border-radius:50%;background:#fff;color:#0F2A4A;display:flex;align-items:center;justify-content:center;font-size:19px;font-weight:600;flex-shrink:0">P</div><div><div style="display:flex;align-items:center;gap:6px"><span style="font-size:16px;font-weight:600">Plombier</span>${mktBadge}</div><div style="font-size:10px;color:rgba(255,255,255,.75)">Quartier Centre</div><div style="font-size:10px;margin-top:2px;color:#FBBF24">★ Avis de vrais clients</div></div></div></div>
+        <div style="background:#0F2A4A;color:#fff;padding:14px"><div style="display:flex;align-items:center;gap:11px"><div style="width:48px;height:48px;border-radius:50%;background:#fff;color:#0F2A4A;display:flex;align-items:center;justify-content:center;font-size:19px;font-weight:600;flex-shrink:0">K</div><div><div style="display:flex;align-items:center;gap:6px"><span style="font-size:16px;font-weight:600">Kofi A.</span><span style="background:#CCFBF1;color:#0B7A70;border-radius:20px;padding:2px 7px;font-size:8px;font-weight:600">🛡 Vérifié ABO</span></div><div style="font-size:10px;color:rgba(255,255,255,.75)">Plombier · Lomé · Tokoin</div><div style="font-size:10px;margin-top:2px"><span style="color:#FBBF24">★ 4.8</span> · 23 avis</div></div></div></div>
         <div style="padding:12px 14px"><div style="font-size:9px;font-weight:700;text-transform:uppercase;color:#6C757D;margin-bottom:6px">Services</div><div style="display:flex;flex-wrap:wrap;gap:5px;margin-bottom:11px"><span style="background:#fff;border:1px solid #E9ECEF;border-radius:7px;padding:4px 8px;font-size:9px">Dépannage fuite</span><span style="background:#fff;border:1px solid #E9ECEF;border-radius:7px;padding:4px 8px;font-size:9px">Installation</span><span style="background:#fff;border:1px solid #E9ECEF;border-radius:7px;padding:4px 8px;font-size:9px">Sanitaire</span></div>
           <div style="font-size:9px;font-weight:700;text-transform:uppercase;color:#6C757D;margin-bottom:6px">Réalisations</div><div style="display:flex;gap:6px;margin-bottom:11px"><div style="flex:1;height:46px;border-radius:9px;background:linear-gradient(135deg,#0D9488,#0F2A4A)"></div><div style="flex:1;height:46px;border-radius:9px;background:linear-gradient(135deg,#2DD4BF,#0D9488)"></div><div style="flex:1;height:46px;border-radius:9px;background:linear-gradient(135deg,#0F2A4A,#0B7A70)"></div></div>
           <div style="display:flex;gap:6px"><div style="flex:1;background:#25D366;color:#fff;border-radius:9px;padding:9px;text-align:center;font-size:11px;font-weight:600">WhatsApp</div><div style="flex:1;background:#0D9488;color:#fff;border-radius:9px;padding:9px;text-align:center;font-size:11px;font-weight:600">Demander un devis</div></div>
         </div>
       </div>`;
     }
-    function mkMktVerif() {
-      const steps = [['✓', 'Téléphone vérifié', 'Code reçu par SMS', 'done'], ['✓', "Pièce d'identité", 'Stockage sécurisé', 'done'], ['◐', "En revue par l'équipe", 'Dossier examiné à la main', 'active'], ['○', 'Badge « Vérifié »', 'Visible par les clients', 'todo']];
+    function mkAboVerif() {
+      const steps = [['✓', 'Téléphone vérifié', 'Code OTP par SMS · +228', 'done'], ['✓', "Pièce d'identité", 'CNI · stockage sécurisé R2', 'done'], ['◐', 'En revue par ABO', "Dossier examiné sous 48 h", 'active'], ['○', 'Badge Vérifié ABO', 'Visible par les clients', 'todo']];
       const c = { done: ['#0D9488', '#CCFBF1'], active: ['#D97706', '#FEF3C7'], todo: ['#ADB5BD', '#F1F3F5'] };
       return `<div class="mk" style="background:#F8F9FA;color:#212529;font-size:11px;min-height:300px">
-        <div style="background:#0F2A4A;color:#fff;padding:14px"><div style="font-size:14px;font-weight:800;margin-bottom:6px">Devenir artisan vérifié</div><div style="font-size:9px;color:rgba(255,255,255,.75);line-height:1.5">Inscription en quelques minutes. Identité confirmée par l'équipe.</div></div>
-        <div style="padding:14px">${steps.map((st, i) => `<div style="display:flex;gap:10px;${i < 3 ? 'padding-bottom:14px' : ''}"><div style="display:flex;flex-direction:column;align-items:center"><div style="width:26px;height:26px;border-radius:50%;background:${c[st[3]][1]};color:${c[st[3]][0]};display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0">${st[0]}</div>${i < 3 ? '<div style="width:1.5px;flex:1;background:#E9ECEF;margin:3px 0"></div>' : ''}</div><div style="padding-top:3px"><div style="font-size:11px;font-weight:700">${st[1]}</div><div style="font-size:9px;color:#6C757D">${st[2]}</div></div></div>`).join('')}</div>
+        <div style="background:#0F2A4A;color:#fff;padding:14px"><div style="font-size:14px;font-weight:800;margin-bottom:6px">Devenir artisan vérifié</div><div style="font-size:9px;color:rgba(255,255,255,.75);line-height:1.5">Inscription en moins de 10 minutes. Identité confirmée par l'équipe ABO.</div></div>
+        <div style="padding:14px">${steps.map((s, i) => `<div style="display:flex;gap:10px;${i < 3 ? 'padding-bottom:14px' : ''}"><div style="display:flex;flex-direction:column;align-items:center"><div style="width:26px;height:26px;border-radius:50%;background:${c[s[3]][1]};color:${c[s[3]][0]};display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0">${s[0]}</div>${i < 3 ? '<div style="width:1.5px;flex:1;background:#E9ECEF;margin:3px 0"></div>' : ''}</div><div style="padding-top:3px"><div style="font-size:11px;font-weight:700">${s[1]}</div><div style="font-size:9px;color:#6C757D">${s[2]}</div></div></div>`).join('')}</div>
       </div>`;
     }
-    // Le devis WhatsApp que la marketplace déclenche
-    function mkMktDevis() {
+    // ABO — the WhatsApp quote (devis) execution the marketplace triggers
+    function mkAboDevis() {
       const waIn = (t) => `<div style="align-self:flex-start;max-width:82%;background:#fff;border-radius:8px 8px 8px 2px;padding:6px 9px;font-size:10px;line-height:1.45;box-shadow:0 1px 1px rgba(0,0,0,.08)">${t}</div>`;
       const waOut = (t) => `<div style="align-self:flex-end;max-width:82%;background:#DCF8C6;border-radius:8px 8px 2px 8px;padding:6px 9px;font-size:10px;line-height:1.45;box-shadow:0 1px 1px rgba(0,0,0,.08)">${t}</div>`;
       return `<div class="mk" style="font-size:11px;color:#1f2c33;background:#ECE5DD">
-        <div style="display:flex;align-items:center;gap:8px;background:#075E54;color:#fff;padding:10px 12px"><span style="font-size:13px">‹</span><div style="width:28px;height:28px;border-radius:50%;background:#0F2A4A;color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0">P</div><div style="line-height:1.2;flex:1"><div style="display:flex;align-items:center;gap:5px"><span style="font-size:11px;font-weight:600">Plombier</span><span style="background:rgba(255,255,255,.22);border-radius:20px;padding:1px 6px;font-size:7px;font-weight:600">🛡 Vérifié</span></div><div style="font-size:8px;color:rgba(255,255,255,.75)">en ligne</div></div></div>
+        <div style="display:flex;align-items:center;gap:8px;background:#075E54;color:#fff;padding:10px 12px"><span style="font-size:13px">‹</span><div style="width:28px;height:28px;border-radius:50%;background:#0F2A4A;color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0">K</div><div style="line-height:1.2;flex:1"><div style="display:flex;align-items:center;gap:5px"><span style="font-size:11px;font-weight:600">Kofi A.</span><span style="background:rgba(255,255,255,.22);border-radius:20px;padding:1px 6px;font-size:7px;font-weight:600">🛡 Vérifié ABO</span></div><div style="font-size:8px;color:rgba(255,255,255,.75)">Plombier · en ligne</div></div></div>
         <div style="display:flex;flex-direction:column;gap:6px;padding:12px 10px;min-height:300px">
-          <div style="align-self:center;background:rgba(0,0,0,.06);color:#5b6b63;border-radius:8px;padding:3px 9px;font-size:8px">Devis demandé via la plateforme 🛡</div>
-          ${waOut("Bonjour 👋 Fuite sous l'évier, vous êtes disponible cette semaine ?")}
-          ${waIn('Bonjour ! Oui, demain matin. Une photo du problème ?')}
+          <div style="align-self:center;background:rgba(0,0,0,.06);color:#5b6b63;border-radius:8px;padding:3px 9px;font-size:8px">Devis initié via ABO 🛡</div>
+          ${waOut("Bonjour Kofi 👋 Fuite sous l'évier à Tokoin, dispo cette semaine ?")}
+          ${waIn('Bonjour ! Oui, dispo demain matin. Une photo du problème ?')}
           ${waOut('<div style="width:72px;height:48px;border-radius:6px;background:linear-gradient(135deg,#0D9488,#0F2A4A)"></div>')}
-          ${waIn('Merci 🙏 Je vous envoie le devis détaillé ici. Demain 9h, ça vous va ?')}
+          ${waIn('Merci 🙏 Siphon + joint : <b>8 000–12 000 FCFA</b>, déplacement inclus. Je confirme pour 9h ?')}
           ${waOut('Parfait, à demain ! 🙏')}
         </div>
-      </div>`;
-    }
-
-    /* ════ Plateforme communautaire (OBNL) — palette crème / brun / rose (démo, données neutres) ════ */
-    const orgNav = `<div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:#FBF4EC;border-bottom:1px solid #EADBCB"><span style="display:flex;align-items:center;gap:6px;font-weight:700;color:#5A3825;font-size:12px"><span style="width:18px;height:18px;border-radius:50%;background:#F6828F;display:flex;align-items:center;justify-content:center;font-size:9px;color:#fff">♥</span>Votre organisme</span><span style="display:flex;gap:9px;font-size:8.5px;color:#7A5A45"><span>Programmes</span><span>Événements</span><span style="background:#F6828F;color:#fff;border-radius:20px;padding:3px 9px;font-weight:700">Faire un don</span></span></div>`;
-    function mkOrgHome() {
-      return `<div class="mk" style="background:#FBF4EC;color:#3B2618;font-size:11px;min-height:300px">${orgNav}
-        <div style="padding:18px 16px 14px"><div style="font-size:7.5px;letter-spacing:.16em;text-transform:uppercase;color:#C2566A;margin-bottom:8px">Communauté · entraide · réseau</div>
-          <div style="font-size:22px;line-height:1.08;font-weight:800;color:#5A3825">Ensemble,<br><span style="color:#E36E80">on va plus loin.</span></div>
-          <div style="font-size:9px;line-height:1.55;color:#7A5A45;margin-top:8px;max-width:88%">Des programmes, des événements et une communauté qui se soutient. Rejoignez-nous ou faites un don.</div>
-          <div style="display:flex;gap:7px;margin-top:12px"><span style="background:#5A3825;color:#FBF4EC;border-radius:20px;padding:8px 13px;font-size:8.5px;font-weight:700">Faire un don →</span><span style="border:1px solid #CDB59F;color:#5A3825;border-radius:20px;padding:8px 13px;font-size:8.5px;font-weight:600">Nos événements</span></div></div>
-        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px;padding:0 16px 16px">${[['🤝', 'Programmes'], ['🎟️', 'Événements'], ['✉️', 'Infolettre']].map((c) => `<div style="background:#fff;border:1px solid #EADBCB;border-radius:11px;padding:10px 8px"><div style="font-size:14px">${c[0]}</div><div style="font-size:9px;font-weight:700;color:#5A3825;margin-top:5px">${c[1]}</div></div>`).join('')}</div>
-      </div>`;
-    }
-    function mkOrgDonate() {
-      return `<div class="mk" style="background:#FBF4EC;color:#3B2618;font-size:11px;min-height:300px">${orgNav}
-        <div style="padding:16px"><div style="font-size:17px;font-weight:800;color:#5A3825">Faire un don</div><div style="font-size:9px;color:#7A5A45;margin-top:4px">Chaque don soutient nos programmes.</div>
-          <div style="display:flex;background:#EFE2D3;border-radius:20px;padding:3px;margin-top:12px;width:max-content"><span style="background:#5A3825;color:#fff;border-radius:20px;padding:5px 12px;font-size:8.5px;font-weight:700">Une fois</span><span style="padding:5px 12px;font-size:8.5px;color:#7A5A45">Chaque mois</span></div>
-          <div style="margin-top:11px;background:#fff;border:1px solid #EADBCB;border-radius:10px;padding:9px 11px;font-size:9.5px;color:#9B8270">Montant libre ($)</div>
-          <div style="margin-top:7px;background:#fff;border:1px solid #EADBCB;border-radius:10px;padding:9px 11px;font-size:9.5px;color:#9B8270">Courriel pour le reçu</div>
-          <div style="margin-top:11px;background:#E36E80;color:#fff;border-radius:10px;padding:10px;text-align:center;font-size:10px;font-weight:700">🔒 Paiement sécurisé</div></div>
-      </div>`;
-    }
-    function mkOrgEvents() {
-      const ev = [['Conférence annuelle', 'Inscriptions ouvertes'], ['Atelier du mois', 'Places limitées'], ['Soirée réseautage', 'Bientôt']];
-      return `<div class="mk" style="background:#FBF4EC;color:#3B2618;font-size:11px;min-height:300px">${orgNav}
-        <div style="padding:16px"><div style="font-size:17px;font-weight:800;color:#5A3825;margin-bottom:10px">Événements à venir</div>${ev.map((e) => `<div style="display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #EADBCB;border-radius:12px;padding:10px;margin-bottom:7px"><div style="width:34px;height:34px;border-radius:9px;background:#F9D4D9;display:flex;align-items:center;justify-content:center;font-size:14px">🎟️</div><div style="flex:1"><div style="font-size:10.5px;font-weight:700;color:#5A3825">${e[0]}</div><div style="font-size:8.5px;color:#9B8270">${e[1]}</div></div><span style="background:#5A3825;color:#fff;border-radius:20px;padding:5px 10px;font-size:8px;font-weight:700">S'inscrire</span></div>`).join('')}</div>
       </div>`;
     }
 
@@ -333,7 +301,7 @@
     // 1 — le site de réservation
     function mkSalonSite() {
       return `<div class="mk" style="background:#1C1417;color:#FBF6F1;font-size:11px;min-height:300px">
-        <div style="display:flex;justify-content:space-between;align-items:center;padding:11px 13px"><div style="display:flex;align-items:center;gap:7px"><span style="width:20px;height:20px;border-radius:50%;background:#C6447A;display:flex;align-items:center;justify-content:center;font-size:9px">🌸</span><span style="font-family:var(--serif);font-size:14px;font-weight:700">Votre salon</span></div><span style="background:#C6447A;color:#FBF6F1;border-radius:20px;padding:5px 12px;font-size:8px;font-weight:700">Réserver</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:11px 13px"><div style="display:flex;align-items:center;gap:7px"><span style="width:20px;height:20px;border-radius:50%;background:#C6447A;display:flex;align-items:center;justify-content:center;font-size:9px">🌸</span><span style="font-family:var(--serif);font-size:14px;font-weight:700">Studio Nala</span></div><span style="background:#C6447A;color:#FBF6F1;border-radius:20px;padding:5px 12px;font-size:8px;font-weight:700">Réserver</span></div>
         <div style="padding:6px 14px 16px">
           <div style="font-family:var(--mono);font-size:7px;letter-spacing:.15em;text-transform:uppercase;color:#FF9FC4;margin-bottom:9px">Coiffure &amp; soins</div>
           <div style="font-family:var(--serif);font-size:24px;line-height:1.02;font-weight:600">La coiffure<br><em style="font-style:italic;color:#FF9FC4">que vos cheveux méritent.</em></div>
@@ -348,7 +316,7 @@
     function mkSalonNotif() {
       const msg = `💇 <b>Nouvelle demande de rendez-vous</b><br><br>👤 Nouvelle cliente<br>📞 ••• ••• ••42<br>💅 Tresses knotless<br>🗓️ samedi à 14:00<br>📎 Photo de référence :<div style="margin-top:5px;width:62px;height:62px;border-radius:8px;background:linear-gradient(135deg,#C6447A,#1C1417);display:flex;align-items:center;justify-content:center;font-size:22px">💇🏾‍♀️</div>`;
       return `<div class="mk" style="font-size:11px;color:#1f2c33;background:#d9e4dd">
-        <div style="display:flex;align-items:center;gap:8px;background:#527da3;color:#fff;padding:11px 12px 9px"><span style="font-size:13px">‹</span><div style="width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:13px">🔔</div><div style="line-height:1.2"><div style="font-size:11px;font-weight:600">Votre salon · automatisation</div><div style="font-size:8px;color:rgba(255,255,255,.7)">notifications · en ligne</div></div></div>
+        <div style="display:flex;align-items:center;gap:8px;background:#527da3;color:#fff;padding:11px 12px 9px"><span style="font-size:13px">‹</span><div style="width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:13px">🔔</div><div style="line-height:1.2"><div style="font-size:11px;font-weight:600">Studio Nala · automatisation</div><div style="font-size:8px;color:rgba(255,255,255,.7)">notifications · en ligne</div></div></div>
         <div style="display:flex;flex-direction:column;gap:7px;padding:12px 10px;min-height:300px">${tgIn(msg)}<div style="align-self:flex-start">${tgBtn('🔎 Voir &amp; valider la demande')}</div><div style="align-self:center;background:rgba(0,0,0,.08);color:#5b6b63;border-radius:20px;padding:3px 10px;font-size:8px">📨 aussi envoyé sur WhatsApp ✓</div></div>
       </div>`;
     }
@@ -376,7 +344,7 @@
     function mkSalonConfirm() {
       const smsIn = (t) => `<div style="align-self:flex-start;max-width:87%;background:#fff;border-radius:14px 14px 14px 4px;padding:8px 11px;font-size:10px;line-height:1.5;box-shadow:0 1px 1px rgba(0,0,0,.06)">${t}</div>`;
       return `<div class="mk" style="font-size:11px;color:#1f2c33;background:#eceff3">
-        <div style="display:flex;align-items:center;gap:8px;background:#f7f8fa;border-bottom:1px solid #e2e6ea;padding:10px 12px"><span style="font-size:13px;color:#8a97a3">‹</span><div style="width:26px;height:26px;border-radius:50%;background:#C6447A;color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700">S</div><div style="line-height:1.2"><div style="font-size:11px;font-weight:600">Votre salon</div><div style="font-size:8px;color:#8a97a3">SMS</div></div></div>
+        <div style="display:flex;align-items:center;gap:8px;background:#f7f8fa;border-bottom:1px solid #e2e6ea;padding:10px 12px"><span style="font-size:13px;color:#8a97a3">‹</span><div style="width:26px;height:26px;border-radius:50%;background:#C6447A;color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700">S</div><div style="line-height:1.2"><div style="font-size:11px;font-weight:600">Studio Nala</div><div style="font-size:8px;color:#8a97a3">SMS</div></div></div>
         <div style="display:flex;flex-direction:column;gap:9px;padding:13px 10px;min-height:300px">${smsIn('Bonjour ✨ Votre rendez-vous est <b>CONFIRMÉ</b> : tresses knotless, samedi à 14:00. À bientôt !')}<div style="align-self:center;background:rgba(0,0,0,.07);color:#66727d;border-radius:20px;padding:3px 10px;font-size:8px">— la veille · rappel automatique —</div>${smsIn("⏰ Rappel : votre rendez-vous, c'est demain à <b>14:00</b>. Un empêchement ? Répondez à ce message. 💛")}</div>
       </div>`;
     }
@@ -416,7 +384,7 @@
     function mkChatSim() {
       return `<div class="chat-sim" data-chat-sim>
         <div class="chat-sim-phasebar"><span class="chat-sim-step">1 / 3</span><div><div class="chat-sim-title">Réservation</div><div class="chat-sim-explain">La cliente réserve en discutant avec l’assistante.</div></div></div>
-        <div class="chat-sim-phone"><div class="chat-sim-head"><span style="font-size:12px">‹</span><div class="chat-sim-ava">🤖</div><div><div class="chat-sim-name">Assistante · Votre salon</div><div class="chat-sim-sub">en ligne</div></div></div><div class="chat-sim-body"></div></div>
+        <div class="chat-sim-phone"><div class="chat-sim-head"><span style="font-size:12px">‹</span><div class="chat-sim-ava">🤖</div><div><div class="chat-sim-name">Assistante · Studio Nala</div><div class="chat-sim-sub">en ligne</div></div></div><div class="chat-sim-body"></div></div>
       </div>`;
     }
 
@@ -425,70 +393,67 @@
     // n'est affiché sans son accord — champ `client` à remplir le jour où il dit oui.
     const projects = [
       {
-        id: "001",
-        name: { en: "Community platform", fr: "Plateforme communautaire" },
-        client: null, // [À REMPLIR : nom du client — seulement avec son accord écrit]
-        tagline: { en: 'Donations, events and a newsletter for a non-profit, managed from one place.', fr: 'Dons, événements et infolettre pour un organisme, gérés au même endroit.' },
-        category: { en: "Website & platform · Non-profit", fr: "Site & plateforme · OBNL" }, year: "2026",
-        accent: "#F6828F", device: "browser", url: { en: "your-organization.org", fr: "votre-organisme.ca" }, featured: true,
+        id: "001", name: "Network of Black Women",
+        tagline: { en: 'A home online for a sisterhood of Black women in Alberta.', fr: 'Une maison en ligne pour une sororité de femmes noires en Alberta.' },
+        category: { en: "Web · Nonprofit & Community", fr: "Web · OBNL & Communauté" }, year: "2026",
+        accent: "#F6828F", device: "browser", url: "networkofblackwomen.ca", link: "https://networkofblackwomen.ca", featured: true,
         desc: {
-          en: "A website and community platform for a non-profit organization: online donations, event registration, a page for its annual conference, a confirmed newsletter, and content the team updates without touching any code.",
-          fr: "Un site et une plateforme communautaire pour un organisme à but non lucratif : dons en ligne, inscriptions aux événements, une page pour sa conférence annuelle, une infolettre confirmée, et du contenu que l'équipe met à jour sans toucher au code."
+          en: "Website and community platform for Network of Black Women — a sisterhood for Black women in Alberta. Online donations, event registration, an annual conference, a newsletter and easy content updates, in a warm identity (cream, brown, pink).",
+          fr: "Site web et plateforme communautaire pour Network of Black Women — une sororité pour les femmes noires de l'Alberta. Dons en ligne, inscription aux événements, conférence annuelle, infolettre et mises à jour de contenu faciles, dans une identité chaleureuse (crème, brun, rose)."
         },
         stack: {
-          en: ["Custom website", "Secure online payments", "Event registration", "Email newsletter", "Content management"],
-          fr: ["Site sur mesure", "Paiement en ligne sécurisé", "Inscriptions aux événements", "Infolettre par courriel", "Gestion de contenu"]
+          en: ["Custom website", "Online donations", "Event tickets", "Newsletter", "Content management"],
+          fr: ["Site sur-mesure", "Dons en ligne", "Billetterie", "Infolettre", "Gestion de contenu"]
         },
         features: [
           { icon: "💗", title: { en: "Online donations", fr: "Dons en ligne" }, desc: { en: "Secure payment — one-time or monthly, any amount.", fr: "Paiement sécurisé — don ponctuel ou mensuel, montant libre." } },
-          { icon: "🎟️", title: { en: "Events & registration", fr: "Événements & inscriptions" }, desc: { en: "Sign up for events and the annual conference right from the site.", fr: "Inscription aux événements et à la conférence annuelle depuis le site." } },
-          { icon: "✉️", title: { en: "Confirmed newsletter", fr: "Infolettre confirmée" }, desc: { en: "Email-confirmed sign-up, one-click unsubscribe.", fr: "Inscription confirmée par courriel, désinscription en un clic." } },
+          { icon: "🎟️", title: { en: "Events & tickets", fr: "Événements & billetterie" }, desc: { en: "Sign up for events and the annual conference right from the site.", fr: "Inscription aux événements et à la conférence annuelle depuis le site." } },
+          { icon: "🎤", title: { en: "Annual conference", fr: "Conférence annuelle" }, desc: { en: "A dedicated page (#OurEssence) for the organization's flagship event.", fr: "Une page dédiée (#OurEssence) pour l'événement phare de l'organisation." } },
+          { icon: "✉️", title: { en: "Confirmed newsletter", fr: "Infolettre confirmée" }, desc: { en: "Email-confirmed sign-up, one-click unsubscribe — fully compliant.", fr: "Inscription confirmée par email, désinscription en un clic — conforme." } },
           { icon: "🗂️", title: { en: "Easy content updates", fr: "Contenu facile à gérer" }, desc: { en: "Events, news and gallery updated without touching any code.", fr: "Événements, actualités et galerie mis à jour sans toucher au code." } },
-          { icon: "♿", title: { en: "Accessible & found on Google", fr: "Accessible & visible sur Google" }, desc: { en: "Strong contrasts, clean sharing previews, ready for search engines.", fr: "Bons contrastes, aperçus de partage soignés, prêt pour le référencement." } }
+          { icon: "♿", title: { en: "Accessible & found on Google", fr: "Accessible & visible sur Google" }, desc: { en: "Strong contrasts, polished sharing previews and search-engine ready.", fr: "Bons contrastes, aperçus de partage soignés et prêt pour le référencement." } }
         ],
         screens: [
-          { t: { en: "Home", fr: "Accueil" }, f: mkOrgHome, device: "browser" },
-          { t: { en: "Donations", fr: "Dons" }, f: mkOrgDonate, device: "browser" },
-          { t: { en: "Events", fr: "Événements" }, f: mkOrgEvents, device: "browser" }
+          { t: { en: "Home", fr: "Accueil" }, img: "assets/work/nbw-home.jpg", device: "browser" },
+          { t: { en: "Donations", fr: "Dons" }, img: "assets/work/nbw-donate.jpg", device: "browser" },
+          { t: { en: "Programs & initiatives", fr: "Programmes & initiatives" }, img: "assets/work/nbw-programs.jpg", device: "browser" },
+          { t: { en: "Annual conference", fr: "Conférence annuelle" }, img: "assets/work/nbw-conference.jpg", device: "browser" }
         ]
       },
       {
-        id: "002",
-        name: { en: "Verified tradespeople marketplace", fr: "Marketplace d’artisans vérifiés" },
-        client: null, // [À REMPLIR : nom du client — seulement avec son accord écrit]
-        tagline: { en: 'Find a trusted tradesperson, check their profile, get a quote on WhatsApp.', fr: 'Trouver un artisan de confiance, voir son profil, recevoir un devis sur WhatsApp.' },
-        category: { en: "Web platform · Marketplace", fr: "Plateforme web · Marketplace" }, year: "2025",
-        accent: "#0D9488", device: "browser", url: { en: "marketplace", fr: "marketplace" }, featured: false,
+        id: "002", name: "ABO",
+        tagline: { en: 'Verified, trusted tradespeople across West Africa.', fr: "Des artisans vérifiés et de confiance en Afrique de l'Ouest." },
+        category: { en: "Web · Marketplace", fr: "Web · Marketplace" }, year: "2025",
+        accent: "#0D9488", device: "browser", url: "abo.tg", featured: false,
         desc: {
-          en: "A mobile-first marketplace that gives local tradespeople a credible online presence: identity checked by hand before a profile goes live, search by trade and neighbourhood, direct quotes over WhatsApp, and reviews only real clients can leave.",
-          fr: "Une marketplace pensée mobile qui donne aux artisans locaux une présence en ligne crédible : identité vérifiée à la main avant publication, recherche par métier et quartier, devis directs sur WhatsApp, et avis réservés aux vrais clients."
+          en: "A mobile-first marketplace that gives the craftspeople of Lomé a credible online presence: a “Verified ABO” badge after identity checks, search by trade and neighbourhood, and direct quotes over WhatsApp.",
+          fr: "Une marketplace pensée mobile qui donne aux artisans de Lomé une présence numérique crédible : badge « Vérifié ABO » après vérification d'identité, recherche par métier et quartier, et devis directs via WhatsApp."
         },
         stack: {
-          en: ["Web platform", "User accounts", "Identity checks", "Search & filters", "WhatsApp contact"],
-          fr: ["Plateforme web", "Comptes utilisateurs", "Vérification d'identité", "Recherche & filtres", "Contact WhatsApp"]
+          en: ["Marketplace", "Verified profiles", "Local search", "WhatsApp contact", "Mobile-first"],
+          fr: ["Marketplace", "Profils vérifiés", "Recherche locale", "Contact WhatsApp", "Pensé mobile"]
         },
         features: [
-          { icon: "🛡️", title: { en: "“Verified” badge", fr: "Badge « Vérifié »" }, desc: { en: "Identity checked by hand before a profile goes live.", fr: "Identité contrôlée à la main avant publication du profil." } },
-          { icon: "🔎", title: { en: "Search by trade + area", fr: "Recherche métier + quartier" }, desc: { en: "Find a trusted tradesperson near you.", fr: "Trouver un artisan de confiance près de chez soi." } },
-          { icon: "💬", title: { en: "Direct WhatsApp quote", fr: "Devis WhatsApp direct" }, desc: { en: "The client talks to the tradesperson, no middleman.", fr: "Le client parle à l'artisan, sans intermédiaire." } },
-          { icon: "⭐", title: { en: "Genuine reviews", fr: "Avis authentiques" }, desc: { en: "Only clients who requested a quote can leave a rating.", fr: "Seuls les clients passés par un devis peuvent noter." } },
+          { icon: "🛡️", title: { en: "Verified ABO badge", fr: "Badge Vérifié ABO" }, desc: { en: "Identity checked by hand before a profile goes live.", fr: "Identité contrôlée manuellement avant publication du profil." } },
+          { icon: "🔎", title: { en: "Search by trade + area", fr: "Recherche métier + quartier" }, desc: { en: "Find a trusted craftsperson near you, in Lomé.", fr: "Trouver un artisan de confiance près de chez soi, à Lomé." } },
+          { icon: "💬", title: { en: "Direct WhatsApp quote", fr: "Devis WhatsApp direct" }, desc: { en: "The client talks to the craftsperson, no middleman.", fr: "Le client parle à l'artisan, sans intermédiaire." } },
+          { icon: "⭐", title: { en: "Genuine reviews", fr: "Avis authentiques" }, desc: { en: "Only real clients (who requested a quote) can leave a rating.", fr: "Seuls les vrais clients (passés par un devis) peuvent noter." } },
           { icon: "🚫", title: { en: "Anti-fraud", fr: "Anti-fraude" }, desc: { en: "Reports and automatic suspension past a threshold.", fr: "Signalements et suspension automatique au-delà d'un seuil." } }
         ],
         screens: [
-          { t: { en: "Home & search", fr: "Accueil & recherche" }, f: mkMktHome },
-          { t: { en: "Results", fr: "Résultats" }, f: mkMktResults },
-          { t: { en: "Tradesperson profile", fr: "Profil artisan" }, f: mkMktProfile },
-          { t: { en: "WhatsApp quote", fr: "Devis WhatsApp" }, f: mkMktDevis, device: "phone" },
-          { t: { en: "Identity check", fr: "Vérification d'identité" }, f: mkMktVerif }
+          { t: { en: "Home & search", fr: "Accueil & recherche" }, f: mkAboHome },
+          { t: { en: "Results", fr: "Résultats" }, f: mkAboResults },
+          { t: { en: "Craftsperson profile", fr: "Profil artisan" }, f: mkAboProfile },
+          { t: { en: "WhatsApp quote", fr: "Devis WhatsApp" }, f: mkAboDevis, device: "phone" },
+          { t: { en: "Identity check", fr: "Vérification d'identité" }, f: mkAboVerif }
         ]
       },
       {
         id: "003",
-        name: { en: "Salon booking system", fr: "Système de réservation pour salon" },
-        client: null, // [À REMPLIR : nom du client — seulement avec son accord écrit]
+        name: "Studio Nala", // nom d'emprunt : le vrai salon n'est pas nommé
         tagline: { en: "A salon's bookings, approvals and reminders, automated.", fr: "Les réservations, validations et rappels d'un salon, automatisés." },
         category: { en: "Website · Booking & automation", fr: "Site · Réservation & automatisation" }, year: "2026",
-        accent: "#C6447A", device: "browser", url: { en: "your-salon.com", fr: "votre-salon.ca" }, featured: false,
+        accent: "#C6447A", device: "browser", url: "", featured: false,
         desc: {
           en: "A booking website for a hair salon, paired with automation: every request reaches the salon on Telegram and WhatsApp, the owner approves with one tap, then the client gets an email and an SMS, the calendar updates, and reminders go out automatically before the appointment.",
           fr: "Un site de réservation pour un salon de coiffure, doublé d'une automatisation : chaque demande arrive au salon sur Telegram et WhatsApp, la propriétaire valide d'un tap, puis la cliente reçoit un courriel et un SMS, l'agenda se met à jour, et des rappels partent automatiquement avant le rendez-vous."
@@ -516,7 +481,6 @@
       {
         id: "004",
         name: { en: "Kelthen", fr: "Kelthen" },
-        client: "Kelthen", // notre propre site
         tagline: { en: 'Our own site: fast, alive and built to convert.', fr: 'Notre propre site : rapide, vivant et pensé pour convertir.' },
         category: { en: "Website · Agency", fr: "Site · Agence" }, year: "2025",
         accent: "#03785B", device: "browser", url: "kelthen.com", link: "https://www.kelthen.com", featured: false,
@@ -1099,7 +1063,7 @@
     const CHAT_SIM_SCRIPT = {
       fr: [
         { step: '1 / 3', title: 'Réservation', explain: 'La cliente réserve en discutant avec l’assistante.',
-          head: ['🤖', 'Assistante · Votre salon', 'en ligne', '#527da3'],
+          head: ['🤖', 'Assistante · Studio Nala', 'en ligne', '#527da3'],
           msgs: [
             ['in', 'Bonjour 👋 Je suis l’assistante du salon. Quelle prestation vous ferait plaisir ?'],
             ['out', 'Des tresses knotless 💁🏾‍♀️'],
@@ -1110,14 +1074,14 @@
             ['in', 'Reçu 📎 Demande envoyée au salon, qui vous confirme le prix 💛']
           ] },
         { step: '2 / 3', title: 'Notification', explain: 'Le salon est prévenu sur son téléphone.',
-          head: ['🔔', 'Votre salon · automatisation', 'notifications', '#527da3'],
+          head: ['🔔', 'Studio Nala · automatisation', 'notifications', '#527da3'],
           msgs: [
             ['in', '💇 <b>Nouvelle demande</b><br>💅 Tresses knotless<br>🗓️ samedi · 14:00<br>📎 Photo de référence :'],
             ['photo-in', ''],
             ['btn', '🔎 Voir & valider la demande']
           ] },
         { step: '3 / 3', title: 'Validation', explain: 'Un tap → SMS, courriel, agenda et rappels.',
-          head: ['💬', 'Votre salon', 'SMS', '#2D6A4F'],
+          head: ['💬', 'Studio Nala', 'SMS', '#2D6A4F'],
           msgs: [
             ['tap', '✅ Confirmer'],
             ['sms', 'RDV <b>CONFIRMÉ</b> ✨ Tresses knotless, samedi à 14:00. À bientôt !'],
@@ -1127,7 +1091,7 @@
       ],
       en: [
         { step: '1 / 3', title: 'Booking', explain: 'The client books by chatting with the assistant.',
-          head: ['🤖', 'Assistant · Your salon', 'online', '#527da3'],
+          head: ['🤖', 'Assistant · Studio Nala', 'online', '#527da3'],
           msgs: [
             ['in', 'Hi 👋 I’m the salon’s assistant. Which service would you like?'],
             ['out', 'Knotless braids 💁🏾‍♀️'],
@@ -1138,14 +1102,14 @@
             ['in', 'Got it 📎 Request sent to the salon, who will confirm the price 💛']
           ] },
         { step: '2 / 3', title: 'Notification', explain: 'The salon is notified on its phone.',
-          head: ['🔔', 'Your salon · automation', 'notifications', '#527da3'],
+          head: ['🔔', 'Studio Nala · automation', 'notifications', '#527da3'],
           msgs: [
             ['in', '💇 <b>New request</b><br>💅 Knotless braids<br>🗓️ Saturday · 2:00 pm<br>📎 Reference photo:'],
             ['photo-in', ''],
             ['btn', '🔎 View & approve the request']
           ] },
         { step: '3 / 3', title: 'Approval', explain: 'One tap → SMS, email, calendar and reminders.',
-          head: ['💬', 'Your salon', 'SMS', '#2D6A4F'],
+          head: ['💬', 'Studio Nala', 'SMS', '#2D6A4F'],
           msgs: [
             ['tap', '✅ Confirm'],
             ['sms', 'Appointment <b>CONFIRMED</b> ✨ Knotless braids, Saturday at 2:00 pm. See you soon!'],
@@ -1246,27 +1210,27 @@
       },
       booking: {
         fr: [
-          { step: '1 / 2', title: 'Réservation en ligne, 24 h/24', explain: 'Démonstration : la cliente choisit sa prestation et son créneau.', head: ['💇', 'Votre salon', 'réservation · 24/7', '#C6447A'],
-            msgs: [ ['card', '<b>Votre salon</b><br>votre-salon.ca<br><span style="color:#C6447A">Prestations · réserver en ligne</span>'], ['in', 'Bonjour 👋 Quelle prestation vous ferait plaisir ?'], ['out', 'Des tresses knotless'], ['in', 'Parfait ✨ Quel jour vous arrange ?'] ] },
-          { step: '2 / 2', title: 'Réservé, même la nuit', explain: 'Un acompte bloque le créneau, la confirmation part toute seule.', head: ['📅', 'Votre salon', 'acompte', '#2D6A4F'],
+          { step: '1 / 2', title: 'Réservation en ligne, 24 h/24', explain: 'Démonstration : la cliente choisit sa prestation et son créneau.', head: ['💇', 'Studio Nala', 'réservation · 24/7', '#C6447A'],
+            msgs: [ ['card', '<b>Studio Nala</b><br><span style="color:#C6447A">Prestations · réserver en ligne</span>'], ['in', 'Bonjour 👋 Quelle prestation vous ferait plaisir ?'], ['out', 'Des tresses knotless'], ['in', 'Parfait ✨ Quel jour vous arrange ?'] ] },
+          { step: '2 / 2', title: 'Réservé, même la nuit', explain: 'Un acompte bloque le créneau, la confirmation part toute seule.', head: ['📅', 'Studio Nala', 'acompte', '#2D6A4F'],
             msgs: [ ['out', 'Samedi après-midi'], ['in', 'Samedi 14:00 ✅ Un acompte réserve votre place.'], ['tap', '💳 Laisser l’acompte'], ['sms', 'Réservation confirmée ✅ À samedi, 14:00 💛'] ] }
         ],
         en: [
-          { step: '1 / 2', title: 'Online booking, 24/7', explain: 'Demo: the client picks a service and a time slot.', head: ['💇', 'Your salon', 'booking · 24/7', '#C6447A'],
-            msgs: [ ['card', '<b>Your salon</b><br>your-salon.com<br><span style="color:#C6447A">Services · book online</span>'], ['in', 'Hi 👋 Which service would you like?'], ['out', 'Knotless braids'], ['in', 'Perfect ✨ What day works for you?'] ] },
-          { step: '2 / 2', title: 'Booked, even at night', explain: 'A deposit holds the slot, the confirmation goes out on its own.', head: ['📅', 'Your salon', 'deposit', '#2D6A4F'],
+          { step: '1 / 2', title: 'Online booking, 24/7', explain: 'Demo: the client picks a service and a time slot.', head: ['💇', 'Studio Nala', 'booking · 24/7', '#C6447A'],
+            msgs: [ ['card', '<b>Studio Nala</b><br><span style="color:#C6447A">Services · book online</span>'], ['in', 'Hi 👋 Which service would you like?'], ['out', 'Knotless braids'], ['in', 'Perfect ✨ What day works for you?'] ] },
+          { step: '2 / 2', title: 'Booked, even at night', explain: 'A deposit holds the slot, the confirmation goes out on its own.', head: ['📅', 'Studio Nala', 'deposit', '#2D6A4F'],
             msgs: [ ['out', 'Saturday afternoon'], ['in', 'Saturday 2:00 pm ✅ A deposit holds your spot.'], ['tap', '💳 Leave the deposit'], ['sms', 'Booking confirmed ✅ See you Saturday, 2:00 pm 💛'] ] }
         ]
       },
       ai: {
         fr: [
-          { step: '1 / 2', title: 'Une assistante IA', explain: 'Démonstration : l’assistante répond aux clients à votre place.', head: ['🤖', 'Assistante · Votre salon', 'multicanal · en ligne', '#C6447A'],
+          { step: '1 / 2', title: 'Une assistante IA', explain: 'Démonstration : l’assistante répond aux clients à votre place.', head: ['🤖', 'Assistante · Studio Nala', 'multicanal · en ligne', '#C6447A'],
             msgs: [ ['in', "Bonjour, je suis l'assistante du salon 👋"], ['out', 'Vous faites les box braids ?'], ['in', 'Oui ✅ Je vous explique les tarifs et je trouve un créneau.'] ] },
           { step: '2 / 2', title: 'Un seul assistant, tous les canaux', explain: 'Même conversation depuis Instagram, WhatsApp ou Telegram.', head: ['📱', 'Assistante', 'Instagram · WhatsApp', '#527da3'],
             msgs: [ ['card', '🤖 <b>L’assistante répond partout</b><br>🌐 Site · 💬 WhatsApp<br>📸 Instagram · ✈️ Telegram'], ['note', 'Réponses 24/7, sans faire attendre le client'] ] }
         ],
         en: [
-          { step: '1 / 2', title: 'An AI assistant', explain: 'Demo: the assistant answers clients for you.', head: ['🤖', 'Assistant · Your salon', 'multichannel · online', '#C6447A'],
+          { step: '1 / 2', title: 'An AI assistant', explain: 'Demo: the assistant answers clients for you.', head: ['🤖', 'Assistant · Studio Nala', 'multichannel · online', '#C6447A'],
             msgs: [ ['in', "Hi, I'm the salon's assistant 👋"], ['out', 'Do you do box braids?'], ['in', 'Yes ✅ I\'ll explain the pricing and find you a slot.'] ] },
           { step: '2 / 2', title: 'One assistant, every channel', explain: 'Same conversation from Instagram, WhatsApp or Telegram.', head: ['📱', 'Assistant', 'Instagram · WhatsApp', '#527da3'],
             msgs: [ ['card', '🤖 <b>The assistant answers everywhere</b><br>🌐 Site · 💬 WhatsApp<br>📸 Instagram · ✈️ Telegram'], ['note', 'Replies 24/7, never keeps a client waiting'] ] }
@@ -1274,19 +1238,19 @@
       },
       reminders: {
         fr: [
-          { step: '1 / 3', title: 'À la réservation', explain: 'Confirmation immédiate par SMS.', head: ['💬', 'Votre salon', 'SMS', '#2D6A4F'],
+          { step: '1 / 3', title: 'À la réservation', explain: 'Confirmation immédiate par SMS.', head: ['💬', 'Studio Nala', 'SMS', '#2D6A4F'],
             msgs: [ ['sms', 'RDV <b>CONFIRMÉ</b> ✨ Tresses knotless — samedi à 14:00.'] ] },
-          { step: '2 / 3', title: 'Rappel automatique 24 h avant', explain: 'Le système relance le client tout seul — fini les oublis.', head: ['⏰', 'Votre salon', 'rappel auto', '#2D6A4F'],
+          { step: '2 / 3', title: 'Rappel automatique 24 h avant', explain: 'Le système relance le client tout seul — fini les oublis.', head: ['⏰', 'Studio Nala', 'rappel auto', '#2D6A4F'],
             msgs: [ ['note', '— 24 h avant · automatique —'], ['sms', "⏰ Rappel : votre RDV c'est <b>demain à 14:00</b> 💛 Un empêchement ? Répondez."], ['out', 'Parfait, je serai là ✅'] ] },
-          { step: '3 / 3', title: 'Et un 2ᵉ rappel 2 h avant', explain: 'Un second rappel, sans doublon.', head: ['🔔', 'Votre salon', '2 h avant', '#2D6A4F'],
+          { step: '3 / 3', title: 'Et un 2ᵉ rappel 2 h avant', explain: 'Un second rappel, sans doublon.', head: ['🔔', 'Studio Nala', '2 h avant', '#2D6A4F'],
             msgs: [ ['note', '— 2 h avant · automatique —'], ['sms', '🔔 À tout à l\'heure ! Votre RDV est à <b>14:00</b> aujourd\'hui.'], ['note', 'Moins de rendez-vous manqués, sans y penser 📉'] ] }
         ],
         en: [
-          { step: '1 / 3', title: 'At booking', explain: 'Instant SMS confirmation.', head: ['💬', 'Your salon', 'SMS', '#2D6A4F'],
+          { step: '1 / 3', title: 'At booking', explain: 'Instant SMS confirmation.', head: ['💬', 'Studio Nala', 'SMS', '#2D6A4F'],
             msgs: [ ['sms', 'Appointment <b>CONFIRMED</b> ✨ Knotless braids — Saturday, 2:00 pm.'] ] },
-          { step: '2 / 3', title: 'Automatic reminder 24 h before', explain: 'The system follows up on its own — no more no-shows.', head: ['⏰', 'Your salon', 'auto reminder', '#2D6A4F'],
+          { step: '2 / 3', title: 'Automatic reminder 24 h before', explain: 'The system follows up on its own — no more no-shows.', head: ['⏰', 'Studio Nala', 'auto reminder', '#2D6A4F'],
             msgs: [ ['note', '— 24 h before · automatic —'], ['sms', "⏰ Reminder: your appointment is <b>tomorrow at 2:00 pm</b> 💛 Can't make it? Just reply."], ['out', "Perfect, I'll be there ✅"] ] },
-          { step: '3 / 3', title: 'And a 2nd reminder 2 h before', explain: 'A second reminder, no duplicates.', head: ['🔔', 'Your salon', '2 h before', '#2D6A4F'],
+          { step: '3 / 3', title: 'And a 2nd reminder 2 h before', explain: 'A second reminder, no duplicates.', head: ['🔔', 'Studio Nala', '2 h before', '#2D6A4F'],
             msgs: [ ['note', '— 2 h before · automatic —'], ['sms', '🔔 See you soon! Your appointment is at <b>2:00 pm</b> today.'], ['note', 'Fewer missed appointments, effortlessly 📉'] ] }
         ]
       },
