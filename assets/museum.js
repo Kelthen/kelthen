@@ -561,15 +561,36 @@
   let sp = -1, mx = 0, my = 0, tmx = 0, tmy = 0;
   const look = new THREE.Vector3();
   function progress() { const r = root.getBoundingClientRect(), total = root.offsetHeight - H; return total > 0 ? clamp(-r.top / total, 0, 1) : 0; }
-  function goToStop(k) { const total = root.offsetHeight - H; window.scrollTo({ top: root.getBoundingClientRect().top + scrollY + total * (k / (NST - 1)), behavior: 'smooth' }); }
+  // Navigation œuvre par œuvre : on saute la page directement à la bonne hauteur, et c'est la
+  // caméra qui fait le trajet en ~0,35 s (on n'est jamais arrêté entre deux œuvres).
+  const DUR = 350;
+  const easeIO = (x) => (x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2);
+  let tw = null; // { a, b, t0 } : trajet de la caméra en cours (en « numéro d'arrêt »)
+  function stopTop(k) { const total = root.offsetHeight - H; return root.getBoundingClientRect().top + scrollY + total * (k / (NST - 1)); }
+  function jumpScroll(y) {
+    const de = document.documentElement, prev = de.style.scrollBehavior;
+    de.style.scrollBehavior = 'auto'; window.scrollTo(0, y); de.style.scrollBehavior = prev;
+  }
+  function goToStop(k) {
+    k = clamp(k, 0, NST - 1);
+    const from = sp < 0 ? progress() * (NST - 1) : sp * (NST - 1);
+    jumpScroll(stopTop(k));
+    if (Math.abs(from - k) < 1e-3) { tw = null; return; }
+    tw = { a: from / (NST - 1), b: k / (NST - 1), t0: performance.now() };
+  }
 
   const clock = new THREE.Clock();
   function frame() {
     const t = clock.getElapsedTime();
     const p = progress();
-    sp = sp < 0 ? p : sp + (p - sp) * .07;
+    if (tw) {
+      const q = clamp((performance.now() - tw.t0) / DUR, 0, 1);
+      sp = tw.a + (tw.b - tw.a) * easeIO(q);
+      if (q >= 1) tw = null;
+    } else sp = sp < 0 ? p : sp + (p - sp) * .25;
     mx += (tmx - mx) * .05; my += (tmy - my) * .05;
-    const seg = sp * (NST - 1), k = Math.min(NST - 2, Math.floor(seg)), f = dwell(seg - k);
+    const seg = sp * (NST - 1), k = Math.min(NST - 2, Math.floor(seg));
+    const f = tw ? clamp(seg - k, 0, 1) : dwell(seg - k);
     const A = stops[k], B = stops[k + 1]; if (!A || !B) return;
     const walk = Math.sin(f * Math.PI);
     camera.position.set(A.cx + (B.cx - A.cx) * f + mx * .45, A.cy + (B.cy - A.cy) * f + walk * 1.3 + my * .25, A.cz + (B.cz - A.cz) * f + walk * 4.2);
@@ -611,6 +632,69 @@
   canvas.addEventListener('pointerleave', () => cursorEl.classList.remove('on'));
   addEventListener('pointermove', (e) => { if (e.pointerType === 'mouse') { tmx = e.clientX / W * 2 - 1; tmy = -(e.clientY / H * 2 - 1); } }, { passive: true });
 
+  /* ─────────────── Molette / swipe / clavier : une œuvre à la fois ─────────────── */
+  // Le musée « tient » l'écran tant qu'il en occupe le centre. Avant la première œuvre
+  // et après la dernière, on laisse le défilement normal pour entrer et sortir.
+  function engaged() {
+    if (root.hidden || document.body.style.overflow === 'hidden') return false; // vue liste, fiche projet ou menu ouvert
+    const r = root.getBoundingClientRect(); return r.top < H * .5 && r.bottom > H * .5;
+  }
+  function here() { const r = root.getBoundingClientRect(); return r.top > 0 ? 0 : r.bottom < H ? NST - 1 : progress() * (NST - 1); }
+  function targetFor(dir) { const c = here(); return dir > 0 ? Math.floor(c + .01) + 1 : Math.ceil(c - .01) - 1; }
+  let gestureAt = 0, gestureUsed = false;
+  // un geste (un cran de molette, un swipe de pavé tactile avec son inertie) = un seul pas
+  function step(dir, e) {
+    const t = targetFor(dir);
+    if (t < 0 || t > NST - 1) return false; // on sort du musée : défilement normal
+    if (e && e.cancelable) e.preventDefault();
+    goToStop(t);
+    return true;
+  }
+  addEventListener('wheel', (e) => {
+    if (!engaged() || Math.abs(e.deltaY) < Math.abs(e.deltaX)) return;
+    const now = performance.now(), sameGesture = now - gestureAt < 220;
+    gestureAt = now;
+    const dir = Math.sign(e.deltaY);
+    if (!dir) return;
+    if (tw || (sameGesture && gestureUsed)) { // trajet en cours ou fin d'inertie : on absorbe
+      const t = targetFor(dir); if (t >= 0 && t <= NST - 1 && e.cancelable) e.preventDefault();
+      return;
+    }
+    gestureUsed = step(dir, e);
+  }, { passive: false });
+
+  let ty0 = null, tx0 = 0, tDone = false;
+  addEventListener('touchstart', (e) => { if (!engaged() || e.touches.length !== 1) { ty0 = null; return; } ty0 = e.touches[0].clientY; tx0 = e.touches[0].clientX; tDone = false; }, { passive: true });
+  addEventListener('touchmove', (e) => {
+    if (ty0 == null) return;
+    const dy = ty0 - e.touches[0].clientY, dx = tx0 - e.touches[0].clientX;
+    if (Math.abs(dx) > Math.abs(dy)) return; // swipe horizontal (barre des œuvres) : on laisse faire
+    const t = targetFor(Math.sign(dy) || 1);
+    if (t < 0 || t > NST - 1) { ty0 = null; return; } // sortie du musée : défilement normal
+    if (e.cancelable) e.preventDefault();
+    if (!tDone && !tw && Math.abs(dy) > 28) { tDone = true; goToStop(t); }
+  }, { passive: false });
+  addEventListener('touchend', () => { ty0 = null; }, { passive: true });
+
+  addEventListener('keydown', (e) => {
+    if (!engaged() || e.altKey || e.ctrlKey || e.metaKey) return;
+    const tag = (document.activeElement && document.activeElement.tagName) || '';
+    if (/INPUT|TEXTAREA|SELECT/.test(tag) || document.querySelector('.pm-overlay.open')) return;
+    const dir = ({ ArrowDown: 1, PageDown: 1, ' ': e.shiftKey ? -1 : 1, ArrowUp: -1, PageUp: -1 })[e.key];
+    if (dir && !tw) step(dir, e); else if (dir && tw && e.cancelable) e.preventDefault();
+  });
+
+  // barre de défilement, ancre… : si on s'arrête entre deux œuvres, on se recale sur la plus proche
+  let snapTimer = 0;
+  addEventListener('scroll', () => {
+    clearTimeout(snapTimer);
+    snapTimer = setTimeout(() => {
+      if (tw || !engaged()) return;
+      const c = progress() * (NST - 1), k = Math.round(c);
+      if (Math.abs(c - k) > .02) goToStop(k);
+    }, 160);
+  }, { passive: true });
+
   /* ─────────────── Boucle ─────────────── */
   let running = false, visible = true;
   function loop() { if (!running) return; requestAnimationFrame(loop); if (visible) frame(); }
@@ -626,5 +710,5 @@
 
   const qp = new URLSearchParams(location.search).get('p');
   const qi = qp ? projects.findIndex((pp) => pp.id === qp) : -1;
-  if (qi >= 0) requestAnimationFrame(() => { const total = root.offsetHeight - H; window.scrollTo(0, root.getBoundingClientRect().top + scrollY + total * ((qi + 1) / (NST - 1))); sp = -1; });
+  if (qi >= 0) requestAnimationFrame(() => { jumpScroll(stopTop(qi + 1)); sp = -1; });
 })();
