@@ -349,61 +349,6 @@
       </div>`;
     }
 
-    /* ════ Fraul — e-commerce mode, mall en 3D (palette : encre #0a0a0c, bordeaux #680209, ivoire #fffef7, perle #eae0c8) ════ */
-    const FR_SERIF = `'Bodoni Moda','Didot','Bodoni 72',Georgia,serif`; // guillemets simples : la valeur va dans un attribut style="…"
-    const frWord = (size, col) => `<span style="font-family:${FR_SERIF};font-size:${size}px;letter-spacing:.32em;color:${col || '#0a0a0c'}">FRAUL</span>`;
-    const frBar = (dark) => `<div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border-bottom:1px solid ${dark ? 'rgba(255,254,247,.12)' : 'rgba(10,10,12,.1)'}">${frWord(13, dark ? '#fffef7' : '#0a0a0c')}<span style="display:flex;gap:7px">${['⌕', '♡', '◍'].map((i) => `<span style="width:20px;height:20px;border-radius:50%;background:#680209;color:#fffef7;display:flex;align-items:center;justify-content:center;font-size:9px">${i}</span>`).join('')}</span></div>`;
-    const frGarment = (col, w) => `<svg viewBox="0 0 60 64" style="width:${w || 44}px;height:auto" aria-hidden="true"><path d="M20 6 L12 9 L3 22 L11 28 L15 23 L15 60 L45 60 L45 23 L49 28 L57 22 L48 9 L40 6 Q30 14 20 6 Z" fill="${col}"/><path d="M20 6 Q30 14 40 6" fill="none" stroke="rgba(0,0,0,.18)" stroke-width="1.5"/></svg>`;
-    // 1 — l'entrée du mall : portes en verre « WELCOME TO / FRAUL CENTER »
-    function mkFraulHome() {
-      return `<div class="mk" style="background:#fffef7;color:#0a0a0c;font-size:11px;min-height:300px">${frBar(false)}
-        <div style="position:relative;margin:14px;height:178px;border-radius:12px;overflow:hidden;background:linear-gradient(180deg,#f4f1ea,#eae0c8)">
-          <div style="position:absolute;left:0;right:0;bottom:0;height:46px;background:linear-gradient(180deg,#d8ccb0,#c9bb9b)"></div>
-          <div style="position:absolute;left:50%;top:18px;width:150px;margin-left:-75px;height:136px;display:flex;gap:3px">
-            ${[0, 1].map((i) => `<div style="flex:1;border:2px solid #0a0a0c;border-bottom:0;background:linear-gradient(135deg,rgba(255,255,255,.65),rgba(234,224,200,.25));display:flex;align-items:center;justify-content:${i ? 'flex-start' : 'flex-end'};padding:0 4px;font-family:${FR_SERIF};font-size:${i ? 11 : 11}px;line-height:1.25;letter-spacing:.12em;color:#420a0d;text-align:${i ? 'left' : 'right'}">${i ? 'ME TO<br>CENTER' : 'WELCO<br>FRAUL'}</div>`).join('')}
-          </div>
-          <div style="position:absolute;left:0;right:0;bottom:10px;text-align:center"><span style="background:#680209;color:#fffef7;border-radius:20px;padding:7px 14px;font-size:8.5px;font-weight:600;letter-spacing:.06em">Entrer dans le mall</span></div>
-        </div>
-        <div style="padding:0 14px 14px;display:flex;gap:7px">${['Nouveautés', 'Marques', 'Crée ta tenue'].map((t) => `<span style="flex:1;text-align:center;border:1px solid rgba(10,10,12,.14);border-radius:8px;padding:7px 4px;font-size:8.5px;font-weight:600">${t}</span>`).join('')}</div>
-      </div>`;
-    }
-    // 2 — le Fraul Walk : une boutique par marque, on avance vitrine par vitrine
-    function mkFraulWalk() {
-      const shop = (x, w, h, tint, label, dim) => `<div style="position:absolute;left:${x}%;bottom:52px;width:${w}%;height:${h}px;opacity:${dim ? .62 : 1}">
-        <div style="height:16%;background:${tint};color:#fffef7;font-family:${FR_SERIF};font-size:${dim ? 7 : 9}px;letter-spacing:.2em;display:flex;align-items:center;justify-content:center">${label}</div>
-        <div style="height:84%;border:2px solid #0a0a0c;border-top:0;background:linear-gradient(135deg,rgba(255,255,255,.8),rgba(234,224,200,.4));display:flex;align-items:flex-end;justify-content:center;gap:4px;padding-bottom:6px">${frGarment('#680209', dim ? 18 : 26)}${frGarment('#0a0a0c', dim ? 18 : 26)}${frGarment('#8f8880', dim ? 18 : 26)}</div></div>`;
-      return `<div class="mk" style="background:#f4f1ea;color:#0a0a0c;font-size:11px;min-height:300px;position:relative;overflow:hidden">${frBar(false)}
-        <div style="position:relative;height:250px;background:linear-gradient(180deg,#fffef7 0%,#f4f1ea 62%,#d8ccb0 62%,#c9bb9b 100%)">
-          <div style="position:absolute;left:0;right:0;top:12px;text-align:center;font-family:${FR_SERIF};font-size:8px;letter-spacing:.3em;color:#8f8880">FRAUL WALK · UNE BOUTIQUE PAR MARQUE</div>
-          ${shop(4, 24, 118, '#420a0d', 'STREET', true)}${shop(35, 30, 150, '#680209', 'ATELIER', false)}${shop(72, 24, 118, '#0a0a0c', 'SNEAKERS', true)}
-          <div style="position:absolute;left:0;right:0;bottom:16px;text-align:center"><span style="background:rgba(10,10,12,.82);color:#fffef7;border-radius:20px;padding:6px 12px;font-size:8px">Touche la vitrine pour entrer</span></div>
-        </div>
-      </div>`;
-    }
-    // 3 — la fiche en grand : photos, taille, envie, panier
-    function mkFraulProduct() {
-      return `<div class="mk" style="background:#fffef7;color:#0a0a0c;font-size:11px">${frBar(false)}
-        <div style="margin:12px;border-radius:12px;background:linear-gradient(180deg,#f4f1ea,#eae0c8);height:150px;display:flex;align-items:center;justify-content:center;position:relative">${frGarment('#420a0d', 96)}<span style="position:absolute;right:9px;top:9px;background:#fffef7;border-radius:20px;padding:3px 8px;font-size:7.5px;color:#5e5852">2 / 6</span><span style="position:absolute;left:9px;bottom:9px;background:#fffef7;border-radius:20px;padding:3px 8px;font-size:7.5px;font-weight:600">⟳ Tourner</span></div>
-        <div style="padding:0 14px 14px"><div style="font-family:${FR_SERIF};font-size:16px">Hoodie zippé</div><div style="font-size:8.5px;color:#5e5852;margin-top:2px">Prix affiché selon votre pays</div>
-          <div style="display:flex;gap:5px;margin-top:9px">${['S', 'M', 'L', 'XL'].map((t, i) => `<span style="width:26px;height:24px;border-radius:6px;border:1px solid ${i === 1 ? '#680209' : 'rgba(10,10,12,.18)'};background:${i === 1 ? '#680209' : 'transparent'};color:${i === 1 ? '#fffef7' : '#0a0a0c'};display:flex;align-items:center;justify-content:center;font-size:8.5px;font-weight:600">${t}</span>`).join('')}</div>
-          <div style="display:flex;gap:6px;margin-top:10px"><span style="border:1px solid rgba(10,10,12,.2);border-radius:8px;padding:8px 10px;font-size:8.5px;font-weight:600">♡ Envie</span><span style="flex:1;text-align:center;background:#0a0a0c;color:#fffef7;border-radius:8px;padding:8px;font-size:8.5px;font-weight:600">Au panier</span></div>
-          <div style="font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:#8f8880;margin-top:12px">Complète la tenue</div>
-          <div style="display:flex;gap:6px;margin-top:6px">${['#0a0a0c', '#8f8880', '#680209'].map((c) => `<div style="flex:1;height:44px;border-radius:8px;background:#f4f1ea;display:flex;align-items:center;justify-content:center">${frGarment(c, 26)}</div>`).join('')}</div>
-        </div>
-      </div>`;
-    }
-    // 4 — le suivi de commande en 4 étapes, avec une fourchette de livraison
-    function mkFraulTrack() {
-      const steps = ['Payée', 'En traitement', 'En transit', 'Livrée'];
-      return `<div class="mk" style="background:#fffef7;color:#0a0a0c;font-size:11px;min-height:300px">${frBar(false)}
-        <div style="padding:14px"><div style="font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:#8f8880">Commande FRL-1042</div>
-          <div style="font-family:${FR_SERIF};font-size:16px;line-height:1.25;margin-top:6px">Elle arrive entre le<br>21 et le 24 oct.</div>
-          <div style="font-size:9px;color:#5e5852;margin-top:6px">Votre colis a quitté l’entrepôt.</div>
-          <div style="margin-top:14px">${steps.map((t, i) => `<div style="display:flex;gap:10px;${i < 3 ? 'padding-bottom:12px' : ''}"><div style="display:flex;flex-direction:column;align-items:center"><span style="width:16px;height:16px;border-radius:50%;background:${i < 3 ? '#680209' : '#eae0c8'};color:#fffef7;display:flex;align-items:center;justify-content:center;font-size:8px">${i < 2 ? '✓' : ''}</span>${i < 3 ? `<span style="width:2px;flex:1;background:${i < 2 ? '#680209' : '#eae0c8'};margin-top:2px"></span>` : ''}</div><div style="font-size:10px;font-weight:${i === 2 ? 700 : 500};color:${i < 3 ? '#0a0a0c' : '#8f8880'}">${t}</div></div>`).join('')}</div>
-        </div>
-      </div>`;
-    }
-
     /* ════ Kelthen — le site agence (palette bleu/dark) ════ */
     const KMARK = (barCol) => `<svg viewBox="0 0 258 242" style="height:15px;width:auto" aria-hidden="true"><path d="M65.3 185.8 L0 185.8 L78.4 56.9 L142.3 59 Z" fill="${barCol}"></path><path d="M177.9 129 L254.3 242.2 L187.3 242.2 L145.8 180.6 L111.8 130.2 L143.9 78.6 L192.7 0 L258.1 0 Z" fill="#03785B"></path></svg>`;
     function mkNovaHero() {
@@ -556,10 +501,11 @@
           { icon: "✨", title: { en: "Fraul Finds", fr: "Fraul Finds" }, desc: { en: "Can’t find a piece? Request it from the counter in the mall.", fr: "Une pièce introuvable ? On la demande au comptoir du mall." } }
         ],
         screens: [
-          { t: { en: "Mall entrance", fr: "Entrée du mall" }, f: mkFraulHome, device: "browser" },
-          { t: { en: "The Fraul Walk", fr: "Le Fraul Walk" }, f: mkFraulWalk, device: "browser" },
-          { t: { en: "Piece up close", fr: "La pièce en grand" }, f: mkFraulProduct, device: "phone" },
-          { t: { en: "Order tracking", fr: "Suivi de commande" }, f: mkFraulTrack, device: "phone" }
+          { t: { en: "Home", fr: "Accueil" }, img: "assets/work/fraul-home.jpg", device: "browser" },
+          { t: { en: "Mall entrance", fr: "Entrée du mall" }, img: "assets/work/fraul-entree.jpg", device: "browser" },
+          { t: { en: "A shop in the Fraul Walk", fr: "Une boutique du Fraul Walk" }, img: "assets/work/fraul-boutique.jpg", device: "browser" },
+          { t: { en: "The Walk on a phone", fr: "Le Walk sur téléphone" }, img: "assets/work/fraul-walk-mobile.jpg", device: "phone" },
+          { t: { en: "Build your outfit", fr: "Crée ta tenue" }, img: "assets/work/fraul-tenue-mobile.jpg", device: "phone" }
         ]
       },
       {
