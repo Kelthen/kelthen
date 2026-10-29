@@ -55,6 +55,10 @@
       fr: { cat: 'Web · Réservation & automatisation', line: 'Un salon de tresses en pilote automatique. Une demande arrive, Studio Nala valide d’un tap, et la confirmation, l’agenda et les rappels partent tout seuls.', chips: ['Assistante IA', 'Validation en 1 tap', 'Rappels automatiques'] }
     },
     '004': {
+      en: { cat: 'E-commerce · 3D mall', line: 'A fashion mall you walk through. Every brand has its own shop: you step in, browse the racks and turn a piece around before adding it to your cart.', chips: ['3D mall', 'One shop per brand', 'Order tracking'] },
+      fr: { cat: 'E-commerce · Mall 3D', line: 'Un mall de mode qu’on visite en marchant. Chaque marque a sa boutique : on entre, on parcourt les rayons et on fait tourner une pièce avant de l’ajouter au panier.', chips: ['Mall en 3D', 'Une boutique par marque', 'Suivi de commande'] }
+    },
+    '005': {
       en: { cat: 'Website · Agency', line: 'Our own house. The site you are walking through right now, built to load fast and feel alive.', chips: ['Found on Google', 'Fast loading', 'Custom animations'] },
       fr: { cat: 'Site · Agence', line: 'Notre propre maison. Le site que vous visitez en ce moment, pensé pour charger vite et paraître vivant.', chips: ['Visible sur Google', 'Chargement rapide', 'Animations sur mesure'] }
     }
@@ -77,7 +81,8 @@
     '001': { img: 'assets/work/logos/nbw.png' },                              // logo réel (dépôt Network4BWomen)
     '002': { text: 'ABO', tag: 'MARKETPLACE · WEST AFRICA', color: '#2FB39B' }, // plaque typo (couleur ABO)
     '003': { text: 'Studio Nala', tag: 'SALON · BOOKING', color: '#E88AAF', script: true }, // nom d'emprunt
-    '004': { kelthen: true }                                                   // logo Kelthen (K + KELTHEN)
+    '004': { text: 'FRAUL', tag: 'MALL · STREETWEAR & LUXE', color: '#EAE0C8', serif: true, bg: ['#5a0509', '#1a0203'] }, // couleurs et typo du site Fraul
+    '005': { kelthen: true }                                                   // logo Kelthen (K + KELTHEN)
   };
 
   /* ─────────────── Styles de l'interface ─────────────── */
@@ -203,7 +208,7 @@
     root.querySelectorAll('[data-km-html]').forEach((el) => { el.innerHTML = t[el.dataset.kmHtml]; });
     projects.forEach((p, i) => {
       const s = story(p, lang), el = panels[i];
-      el.querySelector('.km-meta').textContent = `${t.room} ${String(i + 1).padStart(2, '0')} / ${String(N).padStart(2, '0')} · ${s.cat} · ${p.year}`;
+      el.querySelector('.km-meta').textContent = `${t.room} ${String(i + 1).padStart(2, '0')} / ${String(N).padStart(2, '0')} · ${s.cat} · ${R(p.year)}`;
       el.querySelector('h2').textContent = nm(p);
       el.querySelector('p').textContent = s.line;
       el.querySelector('.km-chips').innerHTML = s.chips.map((c) => `<span>${esc(c)}</span>`).join('');
@@ -442,7 +447,8 @@
   }, (g, t) => { const b = g.getObjectByName('box'); b.position.y = 2.42 + Math.sin(t * .8) * .05; b.rotation.y = Math.sin(t * .2) * .12; g.getObjectByName('spin').rotation.y = t * .7; });
 
   function paintPlate(g, w, h, spec) {
-    const gr = g.createLinearGradient(0, 0, 0, h); gr.addColorStop(0, '#0A2430'); gr.addColorStop(1, '#04141C');
+    const bg = spec.bg || ['#0A2430', '#04141C'];
+    const gr = g.createLinearGradient(0, 0, 0, h); gr.addColorStop(0, bg[0]); gr.addColorStop(1, bg[1]);
     g.fillStyle = gr; g.fillRect(0, 0, w, h);
     g.textAlign = 'center'; g.textBaseline = 'middle';
     if (spec.kelthen) {
@@ -452,9 +458,10 @@
       g.fillStyle = '#F0EDE8'; g.font = `600 ${Math.round(h * 0.135)}px ${FONT}`; g.fillText('KELTHEN', w / 2, h * 0.82);
     } else if (spec.text) {
       g.fillStyle = spec.color || '#C1D9E5';
-      const fam = spec.script ? '"Snell Roundhand","Brush Script MT",cursive' : FONT;
-      g.font = `700 ${Math.round(h * (spec.script ? 0.30 : 0.24))}px ${fam}`;
-      g.fillText(R(spec.text), w / 2, h * 0.44, w * 0.84);
+      const fam = spec.script ? '"Snell Roundhand","Brush Script MT",cursive' : spec.serif ? '"Bodoni Moda","Didot","Bodoni 72",Georgia,serif' : FONT;
+      g.font = `${spec.serif ? 400 : 700} ${Math.round(h * (spec.script ? 0.30 : 0.24))}px ${fam}`;
+      const txt = spec.serif ? R(spec.text).split('').join(' ') : R(spec.text); // wordmark espacé, comme l'enseigne
+      g.fillText(txt, w / 2, h * 0.44, w * 0.84);
       if (spec.tag) { g.fillStyle = 'rgba(193,217,229,.72)'; g.font = `500 ${Math.round(h * 0.066)}px ${MONO}`; g.fillText(R(spec.tag).split('').join(' '), w / 2, h * 0.72, w * 0.88); }
     }
   }
